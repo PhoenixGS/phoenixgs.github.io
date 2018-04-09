@@ -3,20 +3,20 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>HDU 2594 | PhoenixGS</title>
+    <title>HDU 2594 Simpsons’ Hidden Talents | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="HDU 2594 Simpsons’ Hidden Talents题解扩展KMP模版题，求出extend之后，从前往后枚举位置i，只要往后extend[i]能到末尾就输出答案 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596">
+    <meta name="description" content="题意求出最大的k使s1长度为k的前缀等于s2长度为k的后缀">
 <meta name="keywords" content="扩展KMP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDU 2594">
+<meta property="og:title" content="HDU 2594 Simpsons’ Hidden Talents">
 <meta property="og:url" content="http://phoenixgs.github.io/2018/04/08/HDU-2594/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="HDU 2594 Simpsons’ Hidden Talents题解扩展KMP模版题，求出extend之后，从前往后枚举位置i，只要往后extend[i]能到末尾就输出答案 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596">
+<meta property="og:description" content="题意求出最大的k使s1长度为k的前缀等于s2长度为k的后缀">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-09T02:20:35.268Z">
+<meta property="og:updated_time" content="2018-04-09T14:47:12.320Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDU 2594">
-<meta name="twitter:description" content="HDU 2594 Simpsons’ Hidden Talents题解扩展KMP模版题，求出extend之后，从前往后枚举位置i，只要往后extend[i]能到末尾就输出答案 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596">
+<meta name="twitter:title" content="HDU 2594 Simpsons’ Hidden Talents">
+<meta name="twitter:description" content="题意求出最大的k使s1长度为k的前缀等于s2长度为k的后缀">
     
 
     
@@ -219,7 +219,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            HDU 2594
+            HDU 2594 Simpsons’ Hidden Talents
         </h1>
     
 
@@ -249,7 +249,10 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="HDU-2594-Simpsons’-Hidden-Talents"><a href="#HDU-2594-Simpsons’-Hidden-Talents" class="headerlink" title="HDU 2594 Simpsons’ Hidden Talents"></a>HDU 2594 Simpsons’ Hidden Talents</h1><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>扩展KMP模版题，求出<code>extend</code>之后，从前往后枚举位置<code>i</code>，只要往后<code>extend[i]</code>能到末尾就输出答案</p>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=410925171&auto=0&height=66"></iframe>
+
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>求出最大的<code>k</code>使<code>s1</code>长度为<code>k</code>的前缀等于<code>s2</code>长度为<code>k</code>的后缀<br><a id="more"></a></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>扩展KMP模版题，求出<code>extend</code>之后，从前往后枚举位置<code>i</code>，只要往后<code>extend[i]</code>能到末尾就输出答案</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> s[<span class="number">100000</span>], t[<span class="number">100000</span>];</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> nextx[<span class="number">100000</span>], extend[<span class="number">100000</span>];</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getnextx</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> pos = <span class="number">-1</span>, last = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> k = (pos == <span class="number">-1</span> || i &gt; last) ? <span class="number">0</span> : <span class="built_in">std</span>::min(nextx[i - pos + <span class="number">1</span>], last - i + <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">while</span> (k + <span class="number">1</span> &lt;= n &amp;&amp; t[i + k] == t[k + <span class="number">1</span>])</span><br><span class="line">		&#123;</span><br><span class="line">			k++;</span><br><span class="line">		&#125;</span><br><span class="line">		nextx[i] = k;</span><br><span class="line">		<span class="keyword">if</span> (i + nextx[i] - <span class="number">1</span> &gt; last)</span><br><span class="line">		&#123;</span><br><span class="line">			pos = i;</span><br><span class="line">			last = i + nextx[i] - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%s%s"</span>, s + <span class="number">1</span>, t + <span class="number">1</span>) == <span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		n = <span class="built_in">strlen</span>(s + <span class="number">1</span>);</span><br><span class="line">		m = <span class="built_in">strlen</span>(t + <span class="number">1</span>);</span><br><span class="line">		getnextx();</span><br><span class="line">		<span class="keyword">int</span> pos = <span class="number">-1</span>, last = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> k = (pos == <span class="number">-1</span> || i &gt; last) ? <span class="number">0</span> : <span class="built_in">std</span>::min(nextx[i - pos + <span class="number">1</span>], last - i + <span class="number">1</span>);</span><br><span class="line">			<span class="keyword">while</span> (k + <span class="number">1</span> &lt;= n &amp;&amp; i + k &lt;= m &amp;&amp; t[i + k] == s[k + <span class="number">1</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				k++;</span><br><span class="line">			&#125;</span><br><span class="line">			extend[i] = k;</span><br><span class="line">			<span class="keyword">if</span> (i + extend[i] - <span class="number">1</span> &gt; last)</span><br><span class="line">			&#123;</span><br><span class="line">				pos = i;</span><br><span class="line">				last = i + extend[i] - <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (i + extend[i] - <span class="number">1</span> == m)</span><br><span class="line">			&#123;</span><br><span class="line">				ans = extend[i];</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (ans)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= ans; i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%c"</span>, s[i]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         
@@ -261,7 +264,7 @@
 
 </div>
 
-    <a data-url="http://phoenixgs.github.io/2018/04/08/HDU-2594/" data-id="cjfrmi4r60001va871j6vrd4v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://phoenixgs.github.io/2018/04/08/HDU-2594/" data-id="cjfsdy6qe00041n876sfq753a" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -342,7 +345,7 @@
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    BZOJ 3670
+                    BZOJ 3670 [Noi2014]动物园
                 
             </div>
         </a>
@@ -394,7 +397,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/04/09/BZOJ-1009/" class="title">BZOJ 1009</a></p>
+                            <p class="item-title"><a href="/2018/04/09/BZOJ-1009/" class="title">BZOJ 1009 [HNOI2008]GT考试</a></p>
                             <p class="item-date"><time datetime="2018-04-09T02:30:51.000Z" itemprop="datePublished">2018-04-09</time></p>
                         </div>
                     </li>
@@ -413,7 +416,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/04/09/BZOJ-3670/" class="title">BZOJ 3670</a></p>
+                            <p class="item-title"><a href="/2018/04/09/BZOJ-3670/" class="title">BZOJ 3670 [Noi2014]动物园</a></p>
                             <p class="item-date"><time datetime="2018-04-09T02:21:11.000Z" itemprop="datePublished">2018-04-09</time></p>
                         </div>
                     </li>
@@ -432,7 +435,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/04/08/HDU-2594/" class="title">HDU 2594</a></p>
+                            <p class="item-title"><a href="/2018/04/08/HDU-2594/" class="title">HDU 2594 Simpsons’ Hidden Talents</a></p>
                             <p class="item-date"><time datetime="2018-04-08T13:00:39.000Z" itemprop="datePublished">2018-04-08</time></p>
                         </div>
                     </li>
