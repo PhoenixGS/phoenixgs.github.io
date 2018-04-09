@@ -19,6 +19,8 @@
     
 
     
+        <link rel="icon" href="/favicon.png" />
+    
 
     <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/libs/open-sans/styles.css">
@@ -428,20 +430,19 @@
 </footer>
         
     
-	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-	<script>
-		var gitment = new Gitment({
-			owner: 'PhoenixGS',
-			repo: 'CommentsOfBlog',
-			oauth: {
-				client_id: '35917b32960598780ad2',
-				client_secret: '84dc96a6870156a056eb78d4fc27493b4e7de60f',
-			},
-		})
-		gitment.render('commentContainer')
-	</script>
-	
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.6/dist/Valine.min.js"></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:false,
+            verify:false,
+            app_id: 'PnEPTWX2WLXsF9j8GbJm75sR-gzGzoHsz',
+            app_key: 'twM31q9QAUxIIxdzpSYbOJoL',
+            placeholder: 'Just Do It'
+        });
+    </script>
+
 
 
 
