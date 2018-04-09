@@ -397,19 +397,20 @@
 </footer>
         
     
-    <script>
-    var disqus_config = function () {
-        
-        this.page.identifier = '';
-    };
-    (function() { 
-        var d = document, s = d.createElement('script');  
-        s.src = '//' + 'phoenixgsv' + '.disqus.com/count.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			owner: 'PhoenixGS',
+			repo: 'CommentsOfBlog',
+			oauth: {
+				client_id: '35917b32960598780ad2',
+				client_secret: '84dc96a6870156a056eb78d4fc27493b4e7de60f',
+			},
+		})
+		gitment.render('commentContainer')
+	</script>
+	
 
 
 

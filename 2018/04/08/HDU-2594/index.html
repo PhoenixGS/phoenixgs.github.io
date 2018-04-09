@@ -264,7 +264,7 @@
 
 </div>
 
-    <a data-url="http://phoenixgs.coding.me/2018/04/08/HDU-2594/" data-id="cjfshmdoe0002xi8744i5parn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://phoenixgs.coding.me/2018/04/08/HDU-2594/" data-id="cjfshx2pr0003zb87zqhno0x2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -332,8 +332,6 @@
 
             
     
-        <a href="http://phoenixgs.coding.me/2018/04/08/HDU-2594/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://phoenixgs.coding.me/2018/04/08/HDU-2594/">评论</a>
-    
 
         </footer>
     </div>
@@ -366,9 +364,7 @@
     
     
         <section id="comments">
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
+	<div id="commentContainer"></div>
 </section>
     
 
@@ -524,21 +520,20 @@
 </footer>
         
     
-    <script>
-    var disqus_config = function () {
-        
-            this.page.url = 'http://phoenixgs.coding.me/2018/04/08/HDU-2594/';
-        
-        this.page.identifier = 'HDU-2594';
-    };
-    (function() { 
-        var d = document, s = d.createElement('script');  
-        s.src = '//' + 'phoenixgsv' + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			owner: 'PhoenixGS',
+			repo: 'CommentsOfBlog',
+			oauth: {
+				client_id: '35917b32960598780ad2',
+				client_secret: '84dc96a6870156a056eb78d4fc27493b4e7de60f',
+			},
+		})
+		gitment.render('commentContainer')
+	</script>
+	
 
 
 
