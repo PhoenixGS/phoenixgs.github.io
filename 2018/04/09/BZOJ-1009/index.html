@@ -3,19 +3,20 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>Hello World | PhoenixGS</title>
+    <title>BZOJ 1009 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="123456789#include &amp;lt;cstdio&amp;gt;int main()&amp;#123;	int x, y;	scanf(&quot;%d%d&quot;, &amp;amp;x, &amp;amp;y);	printf(&quot;%d\n&quot;, x + y);	return 0;&amp;#125;">
+    <meta name="description" content="BZOJ 1009 [HNOI2008]GT考试题解很simple的一个DP就是f[i][j]表示现在字符串长度为i，匹配到A的KMP的状态为j，然后用矩阵乘法优化一下就好了 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596">
+<meta name="keywords" content="KMP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://phoenixgs.github.io/2016/05/29/Hello-World/index.html">
+<meta property="og:title" content="BZOJ 1009">
+<meta property="og:url" content="http://phoenixgs.github.io/2018/04/09/BZOJ-1009/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="123456789#include &amp;lt;cstdio&amp;gt;int main()&amp;#123;	int x, y;	scanf(&quot;%d%d&quot;, &amp;amp;x, &amp;amp;y);	printf(&quot;%d\n&quot;, x + y);	return 0;&amp;#125;">
+<meta property="og:description" content="BZOJ 1009 [HNOI2008]GT考试题解很simple的一个DP就是f[i][j]表示现在字符串长度为i，匹配到A的KMP的状态为j，然后用矩阵乘法优化一下就好了 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-08T03:18:30.700Z">
+<meta property="og:updated_time" content="2018-04-09T02:33:48.415Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="123456789#include &amp;lt;cstdio&amp;gt;int main()&amp;#123;	int x, y;	scanf(&quot;%d%d&quot;, &amp;amp;x, &amp;amp;y);	printf(&quot;%d\n&quot;, x + y);	return 0;&amp;#125;">
+<meta name="twitter:title" content="BZOJ 1009">
+<meta name="twitter:description" content="BZOJ 1009 [HNOI2008]GT考试题解很simple的一个DP就是f[i][j]表示现在字符串长度为i，匹配到A的KMP的状态为j，然后用矩阵乘法优化一下就好了 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596">
     
 
     
@@ -210,7 +211,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Hello-World" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-BZOJ-1009" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -218,7 +219,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Hello World
+            BZOJ 1009
         </h1>
     
 
@@ -227,14 +228,19 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/05/29/Hello-World/">
-            <time datetime="2016-05-29T03:07:22.000Z" itemprop="datePublished">2016-05-29</time>
+        <a href="/2018/04/09/BZOJ-1009/">
+            <time datetime="2018-04-09T02:30:51.000Z" itemprop="datePublished">2018-04-09</time>
         </a>
     </div>
 
 
                         
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/KMP/">KMP</a>
+    </div>
+
                     </div>
                 
             </header>
@@ -243,7 +249,8 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x, y;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, x + y);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="BZOJ-1009-HNOI2008-GT考试"><a href="#BZOJ-1009-HNOI2008-GT考试" class="headerlink" title="BZOJ 1009 [HNOI2008]GT考试"></a>BZOJ 1009 [HNOI2008]GT考试</h1><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>很simple的一个DP就是<code>f[i][j]</code>表示现在字符串长度为<code>i</code>，匹配到A的KMP的状态为<code>j</code>，然后用矩阵乘法优化一下就好了</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, M;</span><br><span class="line"><span class="keyword">char</span> s[<span class="number">1000</span>];</span><br><span class="line"><span class="keyword">int</span> nextx[<span class="number">1000</span>];</span><br><span class="line"><span class="keyword">int</span> mat[<span class="number">22</span>][<span class="number">22</span>], ans[<span class="number">22</span>][<span class="number">22</span>], z[<span class="number">22</span>][<span class="number">22</span>];</span><br><span class="line"><span class="keyword">int</span> anss;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getnextx</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span> (j &amp;&amp; s[j + <span class="number">1</span>] != s[i])</span><br><span class="line">		&#123;</span><br><span class="line">			j = nextx[j];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (s[j + <span class="number">1</span>] == s[i])</span><br><span class="line">		&#123;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		nextx[i] = j;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> x[<span class="number">22</span>][<span class="number">22</span>], <span class="keyword">int</span> y[<span class="number">22</span>][<span class="number">22</span>])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			z[i][j] = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; m; k++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)</span><br><span class="line">			&#123;</span><br><span class="line">				z[i][j] = (z[i][j] + (<span class="keyword">long</span> <span class="keyword">long</span>)x[i][k] * y[k][j] % M) % M;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			x[i][j] = z[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;m, &amp;M);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>, s + <span class="number">1</span>);</span><br><span class="line">	getnextx();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">char</span> j = <span class="string">'0'</span>; j &lt;= <span class="string">'9'</span>; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> tmp = i;</span><br><span class="line">			<span class="keyword">while</span> (tmp &amp;&amp; s[tmp + <span class="number">1</span>] != j)</span><br><span class="line">			&#123;</span><br><span class="line">				tmp = nextx[tmp];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (s[tmp + <span class="number">1</span>] == j)</span><br><span class="line">			&#123;</span><br><span class="line">				tmp++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (tmp != m)</span><br><span class="line">			&#123;</span><br><span class="line">				mat[i][tmp]++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		ans[i][i] = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (n)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (n &amp; <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			mul(ans, mat);</span><br><span class="line">		&#125;</span><br><span class="line">		mul(mat, mat);</span><br><span class="line">		n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	anss = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		anss = (anss + ans[<span class="number">0</span>][i]) % M;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, anss);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         
         </div>
@@ -254,7 +261,7 @@
 
 </div>
 
-    <a data-url="http://phoenixgs.github.io/2016/05/29/Hello-World/" data-id="cjfrmi4rb0004va87nzi0x4y5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://phoenixgs.github.io/2018/04/09/BZOJ-1009/" data-id="cjfrmi4r20000va87hjxgytwn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -322,7 +329,7 @@
 
             
     
-        <a href="http://phoenixgs.github.io/2016/05/29/Hello-World/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://phoenixgs.github.io/2016/05/29/Hello-World/">评论</a>
+        <a href="http://phoenixgs.github.io/2018/04/09/BZOJ-1009/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://phoenixgs.github.io/2018/04/09/BZOJ-1009/">评论</a>
     
 
         </footer>
@@ -331,15 +338,11 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/04/08/HDU-2594/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    HDU 2594
-                
-            </div>
-        </a>
     
+        <a href="/2018/04/09/BZOJ-3670/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">BZOJ 3670</div>
+        </a>
     
 </nav>
 
@@ -512,9 +515,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://phoenixgs.github.io/2016/05/29/Hello-World/';
+            this.page.url = 'http://phoenixgs.github.io/2018/04/09/BZOJ-1009/';
         
-        this.page.identifier = 'Hello-World';
+        this.page.identifier = 'BZOJ-1009';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

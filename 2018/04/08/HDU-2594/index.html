@@ -3,19 +3,20 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>Hello World | PhoenixGS</title>
+    <title>HDU 2594 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="123456789#include &amp;lt;cstdio&amp;gt;int main()&amp;#123;	int x, y;	scanf(&quot;%d%d&quot;, &amp;amp;x, &amp;amp;y);	printf(&quot;%d\n&quot;, x + y);	return 0;&amp;#125;">
+    <meta name="description" content="HDU 2594 Simpsons’ Hidden Talents题解扩展KMP模版题，求出extend之后，从前往后枚举位置i，只要往后extend[i]能到末尾就输出答案 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596">
+<meta name="keywords" content="扩展KMP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://phoenixgs.github.io/2016/05/29/Hello-World/index.html">
+<meta property="og:title" content="HDU 2594">
+<meta property="og:url" content="http://phoenixgs.github.io/2018/04/08/HDU-2594/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="123456789#include &amp;lt;cstdio&amp;gt;int main()&amp;#123;	int x, y;	scanf(&quot;%d%d&quot;, &amp;amp;x, &amp;amp;y);	printf(&quot;%d\n&quot;, x + y);	return 0;&amp;#125;">
+<meta property="og:description" content="HDU 2594 Simpsons’ Hidden Talents题解扩展KMP模版题，求出extend之后，从前往后枚举位置i，只要往后extend[i]能到末尾就输出答案 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-08T03:18:30.700Z">
+<meta property="og:updated_time" content="2018-04-09T02:20:35.268Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="123456789#include &amp;lt;cstdio&amp;gt;int main()&amp;#123;	int x, y;	scanf(&quot;%d%d&quot;, &amp;amp;x, &amp;amp;y);	printf(&quot;%d\n&quot;, x + y);	return 0;&amp;#125;">
+<meta name="twitter:title" content="HDU 2594">
+<meta name="twitter:description" content="HDU 2594 Simpsons’ Hidden Talents题解扩展KMP模版题，求出extend之后，从前往后枚举位置i，只要往后extend[i]能到末尾就输出答案 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596">
     
 
     
@@ -210,7 +211,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Hello-World" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-HDU-2594" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -218,7 +219,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Hello World
+            HDU 2594
         </h1>
     
 
@@ -227,14 +228,19 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/05/29/Hello-World/">
-            <time datetime="2016-05-29T03:07:22.000Z" itemprop="datePublished">2016-05-29</time>
+        <a href="/2018/04/08/HDU-2594/">
+            <time datetime="2018-04-08T13:00:39.000Z" itemprop="datePublished">2018-04-08</time>
         </a>
     </div>
 
 
                         
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/扩展KMP/">扩展KMP</a>
+    </div>
+
                     </div>
                 
             </header>
@@ -243,7 +249,8 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x, y;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, x + y);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="HDU-2594-Simpsons’-Hidden-Talents"><a href="#HDU-2594-Simpsons’-Hidden-Talents" class="headerlink" title="HDU 2594 Simpsons’ Hidden Talents"></a>HDU 2594 Simpsons’ Hidden Talents</h1><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>扩展KMP模版题，求出<code>extend</code>之后，从前往后枚举位置<code>i</code>，只要往后<code>extend[i]</code>能到末尾就输出答案</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> s[<span class="number">100000</span>], t[<span class="number">100000</span>];</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> nextx[<span class="number">100000</span>], extend[<span class="number">100000</span>];</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getnextx</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> pos = <span class="number">-1</span>, last = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> k = (pos == <span class="number">-1</span> || i &gt; last) ? <span class="number">0</span> : <span class="built_in">std</span>::min(nextx[i - pos + <span class="number">1</span>], last - i + <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">while</span> (k + <span class="number">1</span> &lt;= n &amp;&amp; t[i + k] == t[k + <span class="number">1</span>])</span><br><span class="line">		&#123;</span><br><span class="line">			k++;</span><br><span class="line">		&#125;</span><br><span class="line">		nextx[i] = k;</span><br><span class="line">		<span class="keyword">if</span> (i + nextx[i] - <span class="number">1</span> &gt; last)</span><br><span class="line">		&#123;</span><br><span class="line">			pos = i;</span><br><span class="line">			last = i + nextx[i] - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%s%s"</span>, s + <span class="number">1</span>, t + <span class="number">1</span>) == <span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		n = <span class="built_in">strlen</span>(s + <span class="number">1</span>);</span><br><span class="line">		m = <span class="built_in">strlen</span>(t + <span class="number">1</span>);</span><br><span class="line">		getnextx();</span><br><span class="line">		<span class="keyword">int</span> pos = <span class="number">-1</span>, last = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> k = (pos == <span class="number">-1</span> || i &gt; last) ? <span class="number">0</span> : <span class="built_in">std</span>::min(nextx[i - pos + <span class="number">1</span>], last - i + <span class="number">1</span>);</span><br><span class="line">			<span class="keyword">while</span> (k + <span class="number">1</span> &lt;= n &amp;&amp; i + k &lt;= m &amp;&amp; t[i + k] == s[k + <span class="number">1</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				k++;</span><br><span class="line">			&#125;</span><br><span class="line">			extend[i] = k;</span><br><span class="line">			<span class="keyword">if</span> (i + extend[i] - <span class="number">1</span> &gt; last)</span><br><span class="line">			&#123;</span><br><span class="line">				pos = i;</span><br><span class="line">				last = i + extend[i] - <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (i + extend[i] - <span class="number">1</span> == m)</span><br><span class="line">			&#123;</span><br><span class="line">				ans = extend[i];</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (ans)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= ans; i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%c"</span>, s[i]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         
         </div>
@@ -254,7 +261,7 @@
 
 </div>
 
-    <a data-url="http://phoenixgs.github.io/2016/05/29/Hello-World/" data-id="cjfrmi4rb0004va87nzi0x4y5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://phoenixgs.github.io/2018/04/08/HDU-2594/" data-id="cjfrmi4r60001va871j6vrd4v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -322,7 +329,7 @@
 
             
     
-        <a href="http://phoenixgs.github.io/2016/05/29/Hello-World/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://phoenixgs.github.io/2016/05/29/Hello-World/">评论</a>
+        <a href="http://phoenixgs.github.io/2018/04/08/HDU-2594/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://phoenixgs.github.io/2018/04/08/HDU-2594/">评论</a>
     
 
         </footer>
@@ -331,15 +338,20 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/04/08/HDU-2594/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2018/04/09/BZOJ-3670/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    HDU 2594
+                    BZOJ 3670
                 
             </div>
         </a>
     
+    
+        <a href="/2016/05/29/Hello-World/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Hello World</div>
+        </a>
     
 </nav>
 
@@ -512,9 +524,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://phoenixgs.github.io/2016/05/29/Hello-World/';
+            this.page.url = 'http://phoenixgs.github.io/2018/04/08/HDU-2594/';
         
-        this.page.identifier = 'Hello-World';
+        this.page.identifier = 'HDU-2594';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
