@@ -3,20 +3,19 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>HDU 4333 Revolving Digits | PhoenixGS</title>
+    <title>Tags | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="题意求所有与N循环同构的字符串中，转换成字符串后有几个比它小，相等，比它大">
-<meta name="keywords" content="扩展KMP">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HDU 4333 Revolving Digits">
-<meta property="og:url" content="http://x.phoenixgs.cn/2018/04/10/HDU-4333/index.html">
+    <meta name="description" content="Tags">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tags">
+<meta property="og:url" content="http://x.phoenixgs.cn/tags/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="题意求所有与N循环同构的字符串中，转换成字符串后有几个比它小，相等，比它大">
+<meta property="og:description" content="Tags">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-10T06:09:51.959Z">
+<meta property="og:updated_time" content="2018-04-10T07:33:02.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDU 4333 Revolving Digits">
-<meta name="twitter:description" content="题意求所有与N循环同构的字符串中，转换成字符串后有几个比它小，相等，比它大">
+<meta name="twitter:title" content="Tags">
+<meta name="twitter:description" content="Tags">
     
 
     
@@ -213,151 +212,16 @@
 </aside>
 
             
-            <section id="main"><article id="post-HDU-4333" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 class="article-title" itemprop="name">
-            HDU 4333 Revolving Digits
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/10/HDU-4333/">
-            <time datetime="2018-04-10T06:02:55.000Z" itemprop="datePublished">2018-04-10</time>
-        </a>
+            <section id="main"><section class="layout-wrap">
+    <div class="layout-title">
+        <span>Tags</span>
     </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/扩展KMP/">扩展KMP</a>
+    <div class="layout-wrap-inner tag-cloud">
+        
+            <a href="/tags/DP/" style="font-size: 14px;">DP</a> <a href="/tags/KMP/" style="font-size: 28px;">KMP</a> <a href="/tags/扩展KMP/" style="font-size: 28px;">扩展KMP</a> <a href="/tags/矩阵乘法/" style="font-size: 14px;">矩阵乘法</a>
+        
     </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=487588762&auto=0&height=66"></iframe>
-
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>求所有与<code>N</code>循环同构的字符串中，转换成字符串后有几个比它小，相等，比它大<br><a id="more"></a></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>扩展KMP求出<code>extend</code>之后，只需比较下一个字符就可以了，然后输出的是本质不同的字符串的个数</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, n;</span><br><span class="line"><span class="keyword">char</span> s[<span class="number">200000</span>];</span><br><span class="line"><span class="keyword">int</span> nextx[<span class="number">200000</span>];</span><br><span class="line"><span class="keyword">int</span> ans1, ans2, ans3;</span><br><span class="line"><span class="keyword">int</span> cas;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">	<span class="keyword">while</span> (T--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">		n = <span class="built_in">strlen</span>(s);</span><br><span class="line">		nextx[<span class="number">0</span>] = n;</span><br><span class="line">		<span class="keyword">int</span> pos = <span class="number">-1</span>, last = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> k = (pos == <span class="number">-1</span> || i &gt; last) ? <span class="number">0</span> : <span class="built_in">std</span>::min(nextx[i - pos], last - i + <span class="number">1</span>);</span><br><span class="line">			<span class="keyword">while</span> (k &lt; n &amp;&amp; s[k] == s[(i + k) % n])</span><br><span class="line">			&#123;</span><br><span class="line">				k++;</span><br><span class="line">			&#125;</span><br><span class="line">			nextx[i] = k;</span><br><span class="line">			<span class="keyword">if</span> (i + nextx[i] - <span class="number">1</span> &gt; last)</span><br><span class="line">			&#123;</span><br><span class="line">				pos = i;</span><br><span class="line">				last = i + nextx[i] - <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans1 = ans2 = ans3 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (nextx[i] == n)</span><br><span class="line">			&#123;</span><br><span class="line">				ans2++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (s[(i + nextx[i]) % n] &gt; s[nextx[i]])</span><br><span class="line">				&#123;</span><br><span class="line">					ans3++;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					ans1++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cas++;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Case %d: %d %d %d\n"</span>, cas, ans1 / ans2, ans2 / ans2, ans3 / ans2);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://x.phoenixgs.cn/2018/04/10/HDU-4333/" data-id="cjftcnztu00042887l2jzwqoi" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-    
-        <a href="/2018/04/10/51nod-1286/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">51nod 1286 三段子串</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    
-
-</section>
+</section></section>
             
                 
 <aside id="sidebar">
