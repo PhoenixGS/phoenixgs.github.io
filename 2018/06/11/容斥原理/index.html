@@ -3,15 +3,19 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>归档: 2016/5 | PhoenixGS</title>
+    <title>容斥原理 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="PhoenixGS">
-<meta property="og:url" content="http://x.phoenixgs.cn/archives/2016/05/index.html">
+    <meta name="description" content="容斥原理表达式容斥原理$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|">
+<meta property="og:type" content="article">
+<meta property="og:title" content="容斥原理">
+<meta property="og:url" content="http://x.phoenixgs.cn/2018/06/11/容斥原理/index.html">
 <meta property="og:site_name" content="PhoenixGS">
+<meta property="og:description" content="容斥原理表达式容斥原理$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-11T15:04:05.595Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PhoenixGS">
+<meta name="twitter:title" content="容斥原理">
+<meta name="twitter:description" content="容斥原理表达式容斥原理$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|">
     
 
     
@@ -208,40 +212,143 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2016</h1>
-            </div>
+            <section id="main"><article id="post-容斥原理" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/05/29/Hello-World/">Hello World</a>
+        <h1 class="article-title" itemprop="name">
+            容斥原理
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/05/29/Hello-World/">
-            <time datetime="2016-05-29T03:07:22.000Z" itemprop="datePublished">2016-05-29</time>
+        <a href="/2018/06/11/容斥原理/">
+            <time datetime="2018-06-11T14:14:15.000Z" itemprop="datePublished">2018-06-11</time>
         </a>
     </div>
 
 
-                    
-                    
-                </div>
-            </div>
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h1><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><h3 id="容斥原理-1"><a href="#容斥原理-1" class="headerlink" title="容斥原理"></a>容斥原理</h3><p>$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1 \cap A_2 \cap \cdots \cap A_n|$</p>
+<h3 id="逐步淘汰原理（筛法公式）"><a href="#逐步淘汰原理（筛法公式）" class="headerlink" title="逐步淘汰原理（筛法公式）"></a>逐步淘汰原理（筛法公式）</h3><p>$ | \complement_S A_1 \cap \complement_S A_2 \cap \cdots \cap \complement_S A_n| = |S|-\sum^n_{i=1}|A_i|+ \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|-\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| + \cdots +(-1)^n|A_1 \cap A_2 \cap \cdots \cap A_n|$</p>
+<h2 id="容斥原理与求和及差分"><a href="#容斥原理与求和及差分" class="headerlink" title="容斥原理与求和及差分"></a>容斥原理与求和及差分</h2><p>以二维求和为例<br>$ \sum^n_{i=1}\sum^m_{j=1}x_{i,j}=\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \lor j\neq m]+x_{n,m} \\ = \sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n]+\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[j\neq m] \\ -\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \land j\neq m]+x_{i,j}$</p>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://x.phoenixgs.cn/2018/06/11/容斥原理/" data-id="cjiae1u000007mt878k27yp42" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/05/20/dsu-on-tree/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">dsu on tree</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 

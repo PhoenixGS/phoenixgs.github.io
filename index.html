@@ -156,7 +156,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                6
+                8
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -209,6 +209,247 @@
 
             
             <section id="main">
+    <article id="post-容斥原理" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/11/容斥原理/">容斥原理</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/06/11/容斥原理/">
+            <time datetime="2018-06-11T14:14:15.000Z" itemprop="datePublished">2018-06-11</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h1><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><h3 id="容斥原理-1"><a href="#容斥原理-1" class="headerlink" title="容斥原理"></a>容斥原理</h3><p>$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1 \cap A_2 \cap \cdots \cap A_n|$</p>
+<h3 id="逐步淘汰原理（筛法公式）"><a href="#逐步淘汰原理（筛法公式）" class="headerlink" title="逐步淘汰原理（筛法公式）"></a>逐步淘汰原理（筛法公式）</h3><p>$ | \complement_S A_1 \cap \complement_S A_2 \cap \cdots \cap \complement_S A_n| = |S|-\sum^n_{i=1}|A_i|+ \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|-\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| + \cdots +(-1)^n|A_1 \cap A_2 \cap \cdots \cap A_n|$</p>
+<h2 id="容斥原理与求和及差分"><a href="#容斥原理与求和及差分" class="headerlink" title="容斥原理与求和及差分"></a>容斥原理与求和及差分</h2><p>以二维求和为例<br>$ \sum^n_{i=1}\sum^m_{j=1}x_{i,j}=\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \lor j\neq m]+x_{n,m} \\ = \sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n]+\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[j\neq m] \\ -\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \land j\neq m]+x_{i,j}$</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://x.phoenixgs.cn/2018/06/11/容斥原理/" data-id="cjiae1u000007mt878k27yp42" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-dsu-on-tree" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/05/20/dsu-on-tree/">dsu on tree</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/05/20/dsu-on-tree/">
+            <time datetime="2018-05-20T11:24:02.000Z" itemprop="datePublished">2018-05-20</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://x.phoenixgs.cn/2018/05/20/dsu-on-tree/" data-id="cjiae1u04000dmt87p5ane28c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-HDU-4333" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -261,7 +502,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/04/10/HDU-4333/" data-id="cjftcqtsu000738870nfj992b" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/04/10/HDU-4333/" data-id="cjiae1u01000amt87vw2svai0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -390,7 +631,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/04/10/51nod-1286/" data-id="cjftcqtso00023887l3jfk3gc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/04/10/51nod-1286/" data-id="cjiae1tzt0002mt87qtg12kwo" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -518,7 +759,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/04/09/BZOJ-1009/" data-id="cjftcqtsk00003887r3mfta5h" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/04/09/BZOJ-1009/" data-id="cjiae1tzp0000mt877foyv7xr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -649,7 +890,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/04/09/BZOJ-3670/" data-id="cjftcqtss00053887d7aqsbfm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/04/09/BZOJ-3670/" data-id="cjiae1tzz0006mt87ftnxl2as" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -777,7 +1018,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/04/08/HDU-2594/" data-id="cjftcqtst00063887r0d850mk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/04/08/HDU-2594/" data-id="cjiae1tzy0005mt87qm10629i" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -909,7 +1150,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2016/05/29/Hello-World/" data-id="cjftcqtsv00093887rngthfjr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2016/05/29/Hello-World/" data-id="cjiae1u03000bmt87h140ncrf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -998,6 +1239,44 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2018/06/11/容斥原理/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/06/11/容斥原理/" class="title">容斥原理</a></p>
+                            <p class="item-date"><time datetime="2018-06-11T14:14:15.000Z" itemprop="datePublished">2018-06-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/20/dsu-on-tree/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/05/20/dsu-on-tree/" class="title">dsu on tree</a></p>
+                            <p class="item-date"><time datetime="2018-05-20T11:24:02.000Z" itemprop="datePublished">2018-05-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2018/04/10/HDU-4333/" class="thumbnail">
     
     
@@ -1052,44 +1331,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/09/BZOJ-3670/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/04/09/BZOJ-3670/" class="title">BZOJ 3670 [Noi2014]动物园</a></p>
-                            <p class="item-date"><time datetime="2018-04-09T02:21:11.000Z" itemprop="datePublished">2018-04-09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/08/HDU-2594/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/04/08/HDU-2594/" class="title">HDU 2594 Simpsons’ Hidden Talents</a></p>
-                            <p class="item-date"><time datetime="2018-04-08T13:00:39.000Z" itemprop="datePublished">2018-04-08</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1101,7 +1342,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
