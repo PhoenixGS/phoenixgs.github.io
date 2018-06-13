@@ -242,9 +242,9 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h1><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><h3 id="容斥原理-1"><a href="#容斥原理-1" class="headerlink" title="容斥原理"></a>容斥原理</h3><p>$ | A<em>1 \cup A_2 \cup \cdots \cup A_n | = \sum^n</em>{i=1}|A<em>i|- \sum</em>{1 \leq i &lt; j \leq n}|A<em>i \cap A_j|+\\ \sum</em>{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1 \cap A_2 \cap \cdots \cap A_n|$</p>
-<h3 id="逐步淘汰原理（筛法公式）"><a href="#逐步淘汰原理（筛法公式）" class="headerlink" title="逐步淘汰原理（筛法公式）"></a>逐步淘汰原理（筛法公式）</h3><p>$ | \complement<em>S A_1 \cap \complement_S A_2 \cap \cdots \cap \complement_S A_n| = |S|-\sum^n</em>{i=1}|A<em>i|+ \sum</em>{1 \leq i &lt; j \leq n}|A<em>i \cap A_j|-\\ \sum</em>{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| + \cdots +(-1)^n|A_1 \cap A_2 \cap \cdots \cap A_n|$</p>
-<h2 id="容斥原理与求和及差分"><a href="#容斥原理与求和及差分" class="headerlink" title="容斥原理与求和及差分"></a>容斥原理与求和及差分</h2><p>以二维求和为例<br>$ \sum^n<em>{i=1}\sum^m</em>{j=1}x<em>{i,j}=\sum^n</em>{i=1}\sum^m<em>{j=1}x</em>{i,j}[i\neq n \lor j\neq m]+x<em>{n,m} \\ = \sum^n</em>{i=1}\sum^m<em>{j=1}x</em>{i,j}[i\neq n]+\sum^n<em>{i=1}\sum^m</em>{j=1}x<em>{i,j}[j\neq m] \\ -\sum^n</em>{i=1}\sum^m<em>{j=1}x</em>{i,j}[i\neq n \land j\neq m]+x_{i,j}$</p>
+            <h1 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h1><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><h3 id="容斥原理-1"><a href="#容斥原理-1" class="headerlink" title="容斥原理"></a>容斥原理</h3><p>$ Asd_{1} $<br>$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1 \cap A_2 \cap \cdots \cap A_n| $<br>$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1} |A_i| - \sum_{1 \leq i &lt; j \leq n} |A_i \cap A_j|+  \sum_{1 \leq i &lt; j &lt; k \leq n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n-1} |A_1 \cap A_2 \cap \cdots \cap A_n| $</p>
+<h3 id="逐步淘汰原理（筛法公式）"><a href="#逐步淘汰原理（筛法公式）" class="headerlink" title="逐步淘汰原理（筛法公式）"></a>逐步淘汰原理（筛法公式）</h3><p>$ | \complement_S A_1 \cap \complement_S A_2 \cap \cdots \cap \complement_S A_n| = |S|-\sum^n_{i=1}|A_i|+ \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|-\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| + \cdots +(-1)^n|A_1 \cap A_2 \cap \cdots \cap A_n| $</p>
+<h2 id="容斥原理与求和及差分"><a href="#容斥原理与求和及差分" class="headerlink" title="容斥原理与求和及差分"></a>容斥原理与求和及差分</h2><p>以二维求和为例<br>$ \sum^n_{i=1}\sum^m_{j=1}x_{i,j}=\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \lor j\neq m]+x_{n,m} \\ = \sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n]+\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[j\neq m] \\ -\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \land j\neq m]+x_{i,j} $</p>
 
         
         </div>
@@ -255,7 +255,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/06/11/容斥原理/" data-id="cjid7yd5h0005a187rahuvke7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/06/11/容斥原理/" data-id="cjid892m0000mbm87kpgqk2bm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -374,7 +374,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/05/20/dsu-on-tree/" data-id="cjid7yd5l000aa187m2fu3fw0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/05/20/dsu-on-tree/" data-id="cjid892l90009bm87ewuji3rb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -502,7 +502,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/04/10/HDU-4333/" data-id="cjid7yd5j0007a1879cvwseeg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/04/10/HDU-4333/" data-id="cjid892l80008bm878wqdmf1s" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -631,7 +631,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/04/10/51nod-1286/" data-id="cjid7yd5f0003a187wvq1cyeb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/04/10/51nod-1286/" data-id="cjid892l10001bm87ui9yx44v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -759,7 +759,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/04/09/BZOJ-1009/" data-id="cjid7yd570000a18724g8pk65" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/04/09/BZOJ-1009/" data-id="cjid892kx0000bm87g51k81ts" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -890,7 +890,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/04/09/BZOJ-3670/" data-id="cjid7yd5b0001a187pkpe7fpd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/04/09/BZOJ-3670/" data-id="cjid892l50004bm87mkn2xho7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1018,7 +1018,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/04/08/HDU-2594/" data-id="cjid7yd5g0004a18764bvl7sc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/04/08/HDU-2594/" data-id="cjid892l40003bm872ewi6h5m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1150,7 +1150,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2016/05/29/Hello-World/" data-id="cjid7yd5k0008a18744dd87cc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2016/05/29/Hello-World/" data-id="cjid892l60005bm8723ry4lct" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
