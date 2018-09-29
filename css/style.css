@@ -532,11 +532,12 @@ code {
   margin-top: -7px;
   background: none;
   position: absolute;
-  font: 13px font-icon;
-  font-family: 'FontAwesome';
+  font-size: 13px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
 }
 #search-form-wrap .search-form .search-form-submit:before {
-  content: '\f002';
+  content: "\f002";
 }
 #search-form-wrap .search-form .search-form-submit:hover,
 #search-form-wrap .search-form .search-form-submit:focus {
@@ -645,6 +646,7 @@ code {
   width: 21.53846153846154%;
   margin: 0 0.769230769230769%;
   display: none;
+  margin-bottom: 40px;
 }
 @media screen and (min-width: 1200px) {
   #profile {
@@ -800,6 +802,52 @@ code {
 #profile.card .profile-inner:after {
   z-index: 0;
   border-color: transparent transparent #dbdee1 transparent;
+}
+#profile .anim-fade-in {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  -ms-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.3s;
+  -moz-animation-duration: 0.3s;
+  -ms-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .article {
   margin: 40px 0;
@@ -964,7 +1012,8 @@ a.article-title:hover {
   content: "\f10d";
   color: #e2e2e2;
   font-size: 32px;
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   text-align: center;
   position: static;
 }
@@ -1057,7 +1106,8 @@ a.article-title:hover {
 }
 .article-comment-link:before {
   content: "\f075";
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   padding-right: 5px;
 }
 .share-container {
@@ -1256,7 +1306,8 @@ a.article-title:hover {
   line-height: 36px;
   margin-top: -18px;
   position: absolute;
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   color: rgba(255,255,255,0.5);
 }
 .article-gallery .gallery-item:hover:before,
@@ -1478,11 +1529,12 @@ a.article-title:hover {
   padding-bottom: 0px;
 }
 .layout-wrap-inner.list-categories li a:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   color: #ccc;
   content: "\f0da";
   font-size: 12px;
   margin-right: 6px;
-  font-family: FontAwesome;
   -webkit-transition: 0.2s ease;
   -moz-transition: 0.2s ease;
   -ms-transition: 0.2s ease;
@@ -1777,11 +1829,12 @@ a.article-title:hover {
 }
 .widget ul:not(#recent-post) li a:before,
 .widget ol:not(#recent-post) li a:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   color: #ccc;
   content: "\f0da";
   font-size: 12px;
   margin-right: 6px;
-  font-family: FontAwesome;
   -webkit-transition: 0.2s ease;
   -moz-transition: 0.2s ease;
   -ms-transition: 0.2s ease;
