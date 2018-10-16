@@ -5,17 +5,18 @@
     
     <title>容斥原理 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="容斥原理表达式容斥原理$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|">
+    <meta name="description" content="容斥原理表达式容斥原理$$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}">
+<meta name="keywords" content="数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="容斥原理">
 <meta property="og:url" content="http://x.phoenixgs.cn/2018/06/11/容斥原理/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="容斥原理表达式容斥原理$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|">
+<meta property="og:description" content="容斥原理表达式容斥原理$$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-13T14:45:31.726Z">
+<meta property="og:updated_time" content="2018-10-16T15:11:17.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="容斥原理">
-<meta name="twitter:description" content="容斥原理表达式容斥原理$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|">
+<meta name="twitter:description" content="容斥原理表达式容斥原理$$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}">
     
 
     
@@ -162,11 +163,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                8
+                5
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                4
+                3
                 <span>标签</span>
             </div>
         </div>
@@ -239,6 +240,11 @@
 
                         
                         
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/数学/">数学</a>
+    </div>
+
                     </div>
                 
             </header>
@@ -247,9 +253,9 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h1><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><h3 id="容斥原理-1"><a href="#容斥原理-1" class="headerlink" title="容斥原理"></a>容斥原理</h3><p>$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1 \cap A_2 \cap \cdots \cap A_n| $<br>$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1} |A_i| - \sum_{1 \leq i &lt; j \leq n} |A_i \cap A_j|+  \sum_{1 \leq i &lt; j &lt; k \leq n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n-1} |A_1 \cap A_2 \cap \cdots \cap A_n| $</p>
-<h3 id="逐步淘汰原理（筛法公式）"><a href="#逐步淘汰原理（筛法公式）" class="headerlink" title="逐步淘汰原理（筛法公式）"></a>逐步淘汰原理（筛法公式）</h3><p>$ | \complement_S A_1 \cap \complement_S A_2 \cap \cdots \cap \complement_S A_n| = |S|-\sum^n_{i=1}|A_i|+ \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|-\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| + \cdots +(-1)^n|A_1 \cap A_2 \cap \cdots \cap A_n| $</p>
-<h2 id="容斥原理与求和及差分"><a href="#容斥原理与求和及差分" class="headerlink" title="容斥原理与求和及差分"></a>容斥原理与求和及差分</h2><p>以二维求和为例<br>$ \sum^n_{i=1}\sum^m_{j=1}x_{i,j}=\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \lor j\neq m]+x_{n,m} \\ = \sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n]+\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[j\neq m] \\ -\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \land j\neq m]+x_{i,j} $</p>
+            <h1 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h1><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><h3 id="容斥原理-1"><a href="#容斥原理-1" class="headerlink" title="容斥原理"></a>容斥原理</h3><p>$$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1 \cap A_2 \cap \cdots \cap A_n| $$<br>$$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1} |A_i| - \sum_{1 \leq i &lt; j \leq n} |A_i \cap A_j|+  \sum_{1 \leq i &lt; j &lt; k \leq n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n-1} |A_1 \cap A_2 \cap \cdots \cap A_n| $$<br><a id="more"></a></p>
+<h3 id="逐步淘汰原理（筛法公式）"><a href="#逐步淘汰原理（筛法公式）" class="headerlink" title="逐步淘汰原理（筛法公式）"></a>逐步淘汰原理（筛法公式）</h3><p>$$ | \complement_S A_1 \cap \complement_S A_2 \cap \cdots \cap \complement_S A_n| = |S|-\sum^n_{i=1}|A_i|+ \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|-\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| + \cdots +(-1)^n|A_1 \cap A_2 \cap \cdots \cap A_n| $$</p>
+<h2 id="容斥原理与求和及差分"><a href="#容斥原理与求和及差分" class="headerlink" title="容斥原理与求和及差分"></a>容斥原理与求和及差分</h2><p>以二维求和为例<br>$$ \sum^n_{i=1}\sum^m_{j=1}x_{i,j}=\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \lor j\neq m]+x_{n,m} \\ = \sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n]+\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[j\neq m] \\ -\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \land j\neq m]+x_{i,j} $$</p>
 
         
         </div>
@@ -260,7 +266,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/06/11/容斥原理/" data-id="cjmnixe9a000b1b8771obpmhy" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/06/11/容斥原理/" data-id="cjnbv50eb0007ag87g2h1jlmt" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -335,6 +341,15 @@
         
 <nav id="article-nav">
     
+        <a href="/2018/10/16/Prufer/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Prufer
+                
+            </div>
+        </a>
+    
     
         <a href="/2018/05/20/dsu-on-tree/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
@@ -361,6 +376,44 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/16/反演/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/10/16/反演/" class="title">反演</a></p>
+                            <p class="item-date"><time datetime="2018-10-16T15:08:32.000Z" itemprop="datePublished">2018-10-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/16/Prufer/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/10/16/Prufer/" class="title">Prufer</a></p>
+                            <p class="item-date"><time datetime="2018-10-16T15:05:16.000Z" itemprop="datePublished">2018-10-16</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -403,29 +456,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/10/HDU-4333/" class="thumbnail">
+                            <a href="/2016/05/29/Hello-World/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/04/10/HDU-4333/" class="title">HDU 4333 Revolving Digits</a></p>
-                            <p class="item-date"><time datetime="2018-04-10T06:02:55.000Z" itemprop="datePublished">2018-04-10</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/10/51nod-1286/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://phoenixgs-1253902147.cos.ap-chengdu.myqcloud.com/X.JPG)" alt="Hello World" class="thumbnail-image"></span>
     
 </a>
 
@@ -433,27 +467,8 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/04/10/51nod-1286/" class="title">51nod 1286 三段子串</a></p>
-                            <p class="item-date"><time datetime="2018-04-10T01:14:25.000Z" itemprop="datePublished">2018-04-10</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/09/BZOJ-1009/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/04/09/BZOJ-1009/" class="title">BZOJ 1009 [HNOI2008]GT考试</a></p>
-                            <p class="item-date"><time datetime="2018-04-09T02:30:51.000Z" itemprop="datePublished">2018-04-09</time></p>
+                            <p class="item-title"><a href="/2016/05/29/Hello-World/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2016-05-29T03:07:22.000Z" itemprop="datePublished">2016-05-29</time></p>
                         </div>
                     </li>
                 
@@ -468,7 +483,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -477,7 +492,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/">KMP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扩展KMP/">扩展KMP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/矩阵乘法/">矩阵乘法</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -486,7 +501,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/DP/" style="font-size: 10px;">DP</a> <a href="/tags/KMP/" style="font-size: 20px;">KMP</a> <a href="/tags/扩展KMP/" style="font-size: 20px;">扩展KMP</a> <a href="/tags/矩阵乘法/" style="font-size: 10px;">矩阵乘法</a>
+            <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
         </div>
     </div>
 

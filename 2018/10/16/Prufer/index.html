@@ -3,20 +3,20 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>HDU 4333 Revolving Digits | PhoenixGS</title>
+    <title>Prufer | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="题意求所有与N循环同构的字符串中，转换成字符串后有几个比它小，相等，比它大">
-<meta name="keywords" content="扩展KMP">
+    <meta name="description" content="Prufer序Prufer序一个Prufer数列和一个带编号的无根树是一一对应的 树-&amp;gt;Prufer序每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。 Prufer序-&amp;gt;树设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个">
+<meta name="keywords" content="算法,树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDU 4333 Revolving Digits">
-<meta property="og:url" content="http://x.phoenixgs.cn/2018/04/10/HDU-4333/index.html">
+<meta property="og:title" content="Prufer">
+<meta property="og:url" content="http://x.phoenixgs.cn/2018/10/16/Prufer/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="题意求所有与N循环同构的字符串中，转换成字符串后有几个比它小，相等，比它大">
+<meta property="og:description" content="Prufer序Prufer序一个Prufer数列和一个带编号的无根树是一一对应的 树-&amp;gt;Prufer序每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。 Prufer序-&amp;gt;树设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-10T06:09:51.959Z">
+<meta property="og:updated_time" content="2018-10-16T15:09:56.410Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDU 4333 Revolving Digits">
-<meta name="twitter:description" content="题意求所有与N循环同构的字符串中，转换成字符串后有几个比它小，相等，比它大">
+<meta name="twitter:title" content="Prufer">
+<meta name="twitter:description" content="Prufer序Prufer序一个Prufer数列和一个带编号的无根树是一一对应的 树-&amp;gt;Prufer序每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。 Prufer序-&amp;gt;树设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个">
     
 
     
@@ -163,11 +163,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                8
+                5
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                4
+                3
                 <span>标签</span>
             </div>
         </div>
@@ -215,7 +215,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-HDU-4333" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Prufer" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -223,7 +223,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            HDU 4333 Revolving Digits
+            Prufer
         </h1>
     
 
@@ -232,8 +232,8 @@
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/04/10/HDU-4333/">
-            <time datetime="2018-04-10T06:02:55.000Z" itemprop="datePublished">2018-04-10</time>
+        <a href="/2018/10/16/Prufer/">
+            <time datetime="2018-10-16T15:05:16.000Z" itemprop="datePublished">2018-10-16</time>
         </a>
     </div>
 
@@ -242,7 +242,7 @@
                         
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/扩展KMP/">扩展KMP</a>
+        <a class="tag-link" href="/tags/树/">树</a>, <a class="tag-link" href="/tags/算法/">算法</a>
     </div>
 
                     </div>
@@ -253,11 +253,30 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=487588762&auto=0&height=66"></iframe>
-
-<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>求所有与<code>N</code>循环同构的字符串中，转换成字符串后有几个比它小，相等，比它大<br><a id="more"></a></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>扩展KMP求出<code>extend</code>之后，只需比较下一个字符就可以了，然后输出的是本质不同的字符串的个数</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, n;</span><br><span class="line"><span class="keyword">char</span> s[<span class="number">200000</span>];</span><br><span class="line"><span class="keyword">int</span> nextx[<span class="number">200000</span>];</span><br><span class="line"><span class="keyword">int</span> ans1, ans2, ans3;</span><br><span class="line"><span class="keyword">int</span> cas;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">	<span class="keyword">while</span> (T--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">		n = <span class="built_in">strlen</span>(s);</span><br><span class="line">		nextx[<span class="number">0</span>] = n;</span><br><span class="line">		<span class="keyword">int</span> pos = <span class="number">-1</span>, last = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> k = (pos == <span class="number">-1</span> || i &gt; last) ? <span class="number">0</span> : <span class="built_in">std</span>::min(nextx[i - pos], last - i + <span class="number">1</span>);</span><br><span class="line">			<span class="keyword">while</span> (k &lt; n &amp;&amp; s[k] == s[(i + k) % n])</span><br><span class="line">			&#123;</span><br><span class="line">				k++;</span><br><span class="line">			&#125;</span><br><span class="line">			nextx[i] = k;</span><br><span class="line">			<span class="keyword">if</span> (i + nextx[i] - <span class="number">1</span> &gt; last)</span><br><span class="line">			&#123;</span><br><span class="line">				pos = i;</span><br><span class="line">				last = i + nextx[i] - <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans1 = ans2 = ans3 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (nextx[i] == n)</span><br><span class="line">			&#123;</span><br><span class="line">				ans2++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (s[(i + nextx[i]) % n] &gt; s[nextx[i]])</span><br><span class="line">				&#123;</span><br><span class="line">					ans3++;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					ans1++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cas++;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Case %d: %d %d %d\n"</span>, cas, ans1 / ans2, ans2 / ans2, ans3 / ans2);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="Prufer序"><a href="#Prufer序" class="headerlink" title="Prufer序"></a>Prufer序</h1><h2 id="Prufer序-1"><a href="#Prufer序-1" class="headerlink" title="Prufer序"></a>Prufer序</h2><p>一个Prufer数列和一个带编号的无根树是一一对应的</p>
+<h3 id="树-gt-Prufer序"><a href="#树-gt-Prufer序" class="headerlink" title="树-&gt;Prufer序"></a>树-&gt;Prufer序</h3><p>每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。</p>
+<h3 id="Prufer序-gt-树"><a href="#Prufer序-gt-树" class="headerlink" title="Prufer序-&gt;树"></a>Prufer序-&gt;树</h3><p>设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个数相连，Prufer序中的第一个数删除。重复这个操作直到$|V|=2$（Prufer序为空），最后将$V$中的两个点相连。</p>
+<a id="more"></a>
+<h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>这个感性理解一下感觉很有道理的</p>
+<blockquote>
+<p>​    注意到，如果一个节点A不是叶子节点，那么它至少有两条边；但在上述过程结束后，整个图只剩下一条边，因此节点A的至少一个相邻节点被去掉过，节点A的编号将会在这棵树对应的Prüfer编码中出现。反过来，在Prüfer编码中出现过的数字显然不可能是这棵树（初始时）的叶子。于是我们看到，没有在Prüfer编码中出现过的数字恰好就是这棵树（初始时）的叶子节点。找出没有出现过的数字中最小的那一个（比如④），它就是与Prüfer编码中第一个数所标识的节点（比如③）相邻的叶子。接下来，我们递归地考虑后面n-3位编码（别忘了编码总长是n-2）：找出除④以外不在后n-3位编码中的最小的数（左图的例子中是⑦），将它连接到整个编码的第2个数所对应的节点上（例子中还是③）。再接下来，找出除④和⑦以外后n-4位编码中最小的不被包含的数，做同样的处理……依次把③⑧②⑤⑥与编码中第3、4、5、6、7位所表示的节点相连。最后，我们还有①和⑨没处理过，直接把它们俩连接起来就行了。由于没处理过的节点数总比剩下的编码长度大2，因此我们总能找到一个最小的没在剩余编码中出现的数，算法总能进行下去。这样，任何一个Prüfer编码都唯一地对应了一棵无根树，有多少个n-2位的Prüfer编码就有多少个带标号的无根树。</p>
+<p>——摘自<a href="http://www.matrix67.com/blog/archives/682" target="_blank" rel="noopener">Matrix67</a></p>
+</blockquote>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+<li>一棵n个节点的无根树唯一地对应了一个长度为n-2的数列，数列中的每个数都在1到n的范围内。</li>
+<li>Prufer序列中某个编号出现的次数就等于这个编号的节点在无根树中的度数-1。</li>
+<li>设无根树每个点的度数为$D_i$，则$\sum_{i=1}^n(D_i-1)=n-2$（这好像是废话，，，因为$\sum_{i=1}^nD_i=2(n-1)$。。。</li>
+</ol>
+<h2 id="Cayley公式"><a href="#Cayley公式" class="headerlink" title="Cayley公式"></a>Cayley公式</h2><h3 id="Cayley公式-1"><a href="#Cayley公式-1" class="headerlink" title="Cayley公式"></a>Cayley公式</h3><p>一个完全图$K_n$有$n^{n-2}$棵生成树</p>
+<h3 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h3><p>由Prufer可知，一个Prufer数列和一个带编号的无根树是一一对应的，那么这个公式也很显然了。因为$n$个节点的无根树的Prufer序长度为$n-2$，序列中每个值取值为${1,2,3,…,n}$，因此不同的Prufer序有$n^{n-2}$个，因此生成树也有这么多个。</p>
+<h3 id="推广"><a href="#推广" class="headerlink" title="推广"></a>推广</h3><p>n个节点的度依次为$D_1,D_2,…,D_n$的无根树共有$\frac{(n-2)!}{(D_1-1)!(D_2-1)!\cdots(D_n-1)!}$个。</p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p>BZOJ1005</p>
+<p>LOJ6395</p>
+<ul>
+<li><a href="https://www.cnblogs.com/onioncyc/p/9052946.html" target="_blank" rel="noopener">https://www.cnblogs.com/onioncyc/p/9052946.html</a></li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.matrix67.com/blog/archives/682" target="_blank" rel="noopener">http://www.matrix67.com/blog/archives/682</a></p>
+<p><a href="https://www.cnblogs.com/dirge/p/5503289.html" target="_blank" rel="noopener">https://www.cnblogs.com/dirge/p/5503289.html</a></p>
 
         
         </div>
@@ -268,7 +287,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/04/10/HDU-4333/" data-id="cjmnixe9700071b87m7lbkgg2" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/2018/10/16/Prufer/" data-id="cjnbv50e50003ag87in2bjcen" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -343,19 +362,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/05/20/dsu-on-tree/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2018/10/16/反演/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    dsu on tree
+                    反演
                 
             </div>
         </a>
     
     
-        <a href="/2018/04/10/51nod-1286/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/06/11/容斥原理/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">51nod 1286 三段子串</div>
+            <div class="article-nav-title">容斥原理</div>
         </a>
     
 </nav>
@@ -378,6 +397,44 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/16/反演/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/10/16/反演/" class="title">反演</a></p>
+                            <p class="item-date"><time datetime="2018-10-16T15:08:32.000Z" itemprop="datePublished">2018-10-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/16/Prufer/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/10/16/Prufer/" class="title">Prufer</a></p>
+                            <p class="item-date"><time datetime="2018-10-16T15:05:16.000Z" itemprop="datePublished">2018-10-16</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -420,29 +477,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/10/HDU-4333/" class="thumbnail">
+                            <a href="/2016/05/29/Hello-World/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/04/10/HDU-4333/" class="title">HDU 4333 Revolving Digits</a></p>
-                            <p class="item-date"><time datetime="2018-04-10T06:02:55.000Z" itemprop="datePublished">2018-04-10</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/10/51nod-1286/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://phoenixgs-1253902147.cos.ap-chengdu.myqcloud.com/X.JPG)" alt="Hello World" class="thumbnail-image"></span>
     
 </a>
 
@@ -450,27 +488,8 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/04/10/51nod-1286/" class="title">51nod 1286 三段子串</a></p>
-                            <p class="item-date"><time datetime="2018-04-10T01:14:25.000Z" itemprop="datePublished">2018-04-10</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/09/BZOJ-1009/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/04/09/BZOJ-1009/" class="title">BZOJ 1009 [HNOI2008]GT考试</a></p>
-                            <p class="item-date"><time datetime="2018-04-09T02:30:51.000Z" itemprop="datePublished">2018-04-09</time></p>
+                            <p class="item-title"><a href="/2016/05/29/Hello-World/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2016-05-29T03:07:22.000Z" itemprop="datePublished">2016-05-29</time></p>
                         </div>
                     </li>
                 
@@ -485,7 +504,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -494,7 +513,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/">KMP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/扩展KMP/">扩展KMP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/矩阵乘法/">矩阵乘法</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -503,7 +522,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/DP/" style="font-size: 10px;">DP</a> <a href="/tags/KMP/" style="font-size: 20px;">KMP</a> <a href="/tags/扩展KMP/" style="font-size: 20px;">扩展KMP</a> <a href="/tags/矩阵乘法/" style="font-size: 10px;">矩阵乘法</a>
+            <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
         </div>
     </div>
 
