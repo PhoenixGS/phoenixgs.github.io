@@ -219,7 +219,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/10/23/证明/">关于证明</a>
+            <a class="article-title" href="/证明/">关于证明</a>
         </h1>
     
 
@@ -228,7 +228,7 @@
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/10/23/证明/">
+        <a href="/证明/">
             <time datetime="2018-10-23T15:30:35.000Z" itemprop="datePublished">2018-10-23</time>
         </a>
     </div>
@@ -248,45 +248,12 @@
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <h1 id="关于证明"><a href="#关于证明" class="headerlink" title="关于证明"></a>关于证明</h1><h2 id="证明的方法"><a href="#证明的方法" class="headerlink" title="证明的方法"></a>证明的方法</h2><p>用来证明形如$\forall x(P(x)\to Q(x))$的定理</p>
+            <p><h1 id="关于证明"><a href="#关于证明" class="headerlink" title="关于证明"></a>关于证明</h1><h2 id="证明的方法"><a href="#证明的方法" class="headerlink" title="证明的方法"></a>证明的方法</h2><p>用来证明形如$\forall x(P(x)\to Q(x))$的定理</p>
 <h3 id="直接证明法"><a href="#直接证明法" class="headerlink" title="直接证明法"></a>直接证明法</h3><p>也就是条件语句$p\to q$</p>
-<h3 id="反证法"><a href="#反证法" class="headerlink" title="反证法"></a>反证法</h3><p>条件语句$p\to q$等价于它的逆否命题$\neg q \to \neg p$</p>
-<h3 id="空证明和平凡证明"><a href="#空证明和平凡证明" class="headerlink" title="空证明和平凡证明"></a>空证明和平凡证明</h3><h4 id="空证明"><a href="#空证明" class="headerlink" title="空证明"></a>空证明</h4><p>如果知道$p$为假，那么就能证明条件语句$p \to q$为真</p>
-<h4 id="平凡证明"><a href="#平凡证明" class="headerlink" title="平凡证明"></a>平凡证明</h4><p>如果知道$q$为真，那么就能证明条件语句$p \to q$为真</p>
-<h3 id="归谬证明法"><a href="#归谬证明法" class="headerlink" title="归谬证明法"></a>归谬证明法</h3><p>假如要证明命题$p$是真的。假定我们能找到一个矛盾式$q$使得$\neg p \to q$为真。那么这就意味着$p$为真</p>
-<p>因为$r \land \neg r$一定是一个矛盾式，所以如果我们能够证明对某个命题$r$，$\neg p \to (r \land \neg r)$为真，就能证明$p$是真的。</p>
-<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p>证明$\sqrt{2}$是无理数</p>
-<h5 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h5><p>设$p$是命题“$\sqrt{2}$是无理数“。假定$\neg p$为真，即“$\sqrt{2}$为有理数，则存在整数$a$和$b$满足$\sqrt{2}=\frac{a}{b}$其中$b \neq 0$并且$a$和$b$没有公因子</p>
-<p>等式两端取平方，则</p>
-<p>$$2=\frac{a^2}{b^2}$$</p>
-<p>因此</p>
-<p>$$2b^2=a^2$$</p>
-<p>可得$a^2$是偶数，通过反证法可得出$a$也是偶数，那么$\exists c$有$a=2c$。那么</p>
-<p>$$2b^2=4c^2$$</p>
-<p>等式两端除以$2$得</p>
-<p>$$b^2=2c^2$$</p>
-<p>同理可得$b$是偶数。</p>
-<p>我们证明了假设$\neg p$导致等式$\sqrt{2}=\frac{a}{b}$并且$a$和$b$没有公因子，又推出$a$和$b$有公因子$2$，推出了矛盾，因此证明了$p$为真</p>
-<h2 id="等价证明法"><a href="#等价证明法" class="headerlink" title="等价证明法"></a>等价证明法</h2><p>为了证明一个双条件命题的定理，即形如$p \leftrightarrow q$的语句，那么只需证明$p \to q$和$q \to p$都是真的。</p>
-<p>因为</p>
-<p>$$(p \leftrightarrow q) \leftrightarrow(p \to q) \land (q \to p)$$</p>
-<h2 id="反例证明法"><a href="#反例证明法" class="headerlink" title="反例证明法"></a>反例证明法</h2><p>如果要证明形如$\forall x P(x)$的语句为假，只要能找到一个反例$x$使$P(x)$为假</p>
-<h2 id="穷举证明法和分情形证明法"><a href="#穷举证明法和分情形证明法" class="headerlink" title="穷举证明法和分情形证明法"></a>穷举证明法和分情形证明法</h2><p>为了证明如下的条件语句</p>
-<p>$$(p_1 \lor p_2 \lor \cdots \lor p_n) \to q$$<br><br>可以用永真式</p>
-<p>$$[(p_1 \lor p_2 \lor \cdots \lor p_n) \to q] \leftrightarrow [(p_1 \to q) \land (p_2 \to q) \land \cdots \land (p_n \to q)]$$</p>
-<p>这种论证称为<strong>分情形证明法</strong></p>
-<h3 id="穷举证明法"><a href="#穷举证明法" class="headerlink" title="穷举证明法"></a>穷举证明法</h3><p>如果一些证明只需通过检验相对少量的例子来证明，那么这样的证明叫做<strong>穷举证明法</strong>，一个穷举证明法是分情形证明的特例</p>
-<h3 id="分情形证明法"><a href="#分情形证明法" class="headerlink" title="分情形证明法"></a>分情形证明法</h3><p>分情形证明一定要覆盖定理中出现的所有可能情况</p>
-<h2 id="存在性证明"><a href="#存在性证明" class="headerlink" title="存在性证明"></a>存在性证明</h2><p>$\exists xP(x)$这类命题的证明称为<strong>存在性证明</strong>。</p>
-<p>有时可以通过找出一个使得$P(a)$为真的元素$a$来给出$\exists xP(x)$的存在性证明。这样的存在性证明称为是<strong>构造性的</strong>，也可以给出一种<strong>非构造性的</strong>存在性证明，即不是找出使$P(a)$为真的元素$a$，而是以某种其他方式来证明$\exists xP(x)$为真。给出非构造性证明的一种常用方法是使用归谬证明，证明该存在量化式的否定式蕴含一个矛盾。</p>
-<h3 id="一个非构造性的存在性证明"><a href="#一个非构造性的存在性证明" class="headerlink" title="一个非构造性的存在性证明"></a>一个非构造性的存在性证明</h3><p>证明存在无理数$x$和$y$使得$x^y$是有理数</p>
-<h4 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h4><p>由之前的例子可得$\sqrt{2}$是无理数，考虑数$\sqrt{2}^{\sqrt{2}}$，如果它是有理数，那就存在两个无理数$x$和$y$是有理数，即$x=\sqrt{2}, y=\sqrt{2}$，另一方面如果$\sqrt{2}^{\sqrt{2}}$是无理数，那么令$x=\sqrt{2}^{\sqrt{2}},y=\sqrt{2}$，因此$x^y=(\sqrt{2}^{\sqrt{2}})^{\sqrt{2}}=\sqrt{2}^{(\sqrt{2}\cdot \sqrt{2})}=\sqrt{2}^{2}=2$</p>
-<h2 id="唯一性证明"><a href="#唯一性证明" class="headerlink" title="唯一性证明"></a>唯一性证明</h2><p><strong>唯一性证明</strong>的两个部分如下</p>
-<p>存在性：证明存在某个元素$x$具有期望的性质</p>
-<p>唯一性：证明如果$y \neq x$，则$y$不具有期望的性质</p>
-<p>我们也可以等价地证明如果$x$和$y$都具有期望的性质，则$x=y$</p>
-
+<h3 id="反证法"><a href="#反证法" class="headerlink" title="反证法"></a>反证法</h3><p>条件语句$p\to q$等价于它的逆否命题$\neg q \to \neg p$</p></p>
+            <p class="article-more-link">
+                <a href="/证明/#more">查看更多</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -296,7 +263,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/10/23/证明/" data-id="cjnlw1et90008se87itsuzjmz" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/证明/" data-id="cjnn7cwk100053r87n5rbd6l1" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -380,7 +347,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/10/16/反演/">反演</a>
+            <a class="article-title" href="/反演/">反演</a>
         </h1>
     
 
@@ -389,7 +356,7 @@
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/10/16/反演/">
+        <a href="/反演/">
             <time datetime="2018-10-16T15:08:32.000Z" itemprop="datePublished">2018-10-16</time>
         </a>
     </div>
@@ -426,7 +393,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/10/16/反演/" data-id="cjnlw1et20004se878jmzfm5b" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/反演/" data-id="cjnn7cwjt00003r87o4ma9qoe" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -510,7 +477,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/10/16/Prufer/">Prufer</a>
+            <a class="article-title" href="/Prufer/">Prufer</a>
         </h1>
     
 
@@ -519,7 +486,7 @@
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/10/16/Prufer/">
+        <a href="/Prufer/">
             <time datetime="2018-10-16T15:05:16.000Z" itemprop="datePublished">2018-10-16</time>
         </a>
     </div>
@@ -543,7 +510,7 @@
 <h3 id="树-gt-Prufer序"><a href="#树-gt-Prufer序" class="headerlink" title="树-&gt;Prufer序"></a>树-&gt;Prufer序</h3><p>每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。</p>
 <h3 id="Prufer序-gt-树"><a href="#Prufer序-gt-树" class="headerlink" title="Prufer序-&gt;树"></a>Prufer序-&gt;树</h3><p>设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个数相连，Prufer序中的第一个数删除。重复这个操作直到$|V|=2$（Prufer序为空），最后将$V$中的两个点相连。</p></p>
             <p class="article-more-link">
-                <a href="/2018/10/16/Prufer/#more">查看更多</a>
+                <a href="/Prufer/#more">查看更多</a>
             </p>
         
         </div>
@@ -554,7 +521,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/10/16/Prufer/" data-id="cjnlw1eta0009se87u5kxcbfx" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/Prufer/" data-id="cjnn7cwk300073r87ou6i0nlc" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -638,7 +605,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/11/容斥原理/">容斥原理</a>
+            <a class="article-title" href="/容斥原理/">容斥原理</a>
         </h1>
     
 
@@ -647,7 +614,7 @@
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/11/容斥原理/">
+        <a href="/容斥原理/">
             <time datetime="2018-06-11T14:14:15.000Z" itemprop="datePublished">2018-06-11</time>
         </a>
     </div>
@@ -669,7 +636,7 @@
         
             <p><h1 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h1><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><h3 id="容斥原理-1"><a href="#容斥原理-1" class="headerlink" title="容斥原理"></a>容斥原理</h3><p>$$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1 \cap A_2 \cap \cdots \cap A_n| $$<br>$$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1} |A_i| - \sum_{1 \leq i &lt; j \leq n} |A_i \cap A_j|+  \sum_{1 \leq i &lt; j &lt; k \leq n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n-1} |A_1 \cap A_2 \cap \cdots \cap A_n| $$<br></p>
             <p class="article-more-link">
-                <a href="/2018/06/11/容斥原理/#more">查看更多</a>
+                <a href="/容斥原理/#more">查看更多</a>
             </p>
         
         </div>
@@ -680,7 +647,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/06/11/容斥原理/" data-id="cjnlw1et50006se87gsrnml83" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/容斥原理/" data-id="cjnn7cwk6000a3r87dey2s8g9" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -764,7 +731,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/20/dsu-on-tree/">dsu on tree</a>
+            <a class="article-title" href="/dsu-on-tree/">dsu on tree</a>
         </h1>
     
 
@@ -773,7 +740,7 @@
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/05/20/dsu-on-tree/">
+        <a href="/dsu-on-tree/">
             <time datetime="2018-05-20T11:24:02.000Z" itemprop="datePublished">2018-05-20</time>
         </a>
     </div>
@@ -799,7 +766,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2018/05/20/dsu-on-tree/" data-id="cjnlw1esx0002se87vw2ka25q" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/dsu-on-tree/" data-id="cjnn7cwk200063r87ju07shsv" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -880,7 +847,7 @@
         
             
 	
-		<a href="/2016/05/29/Hello-World/" itemprop="url">
+		<a href="/Hello-World/" itemprop="url">
             <img src="https://phoenixgs-1253902147.cos.ap-chengdu.myqcloud.com/X.JPG" class="article-banner" />
         </a>
 	
@@ -893,7 +860,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2016/05/29/Hello-World/">Hello World</a>
+            <a class="article-title" href="/Hello-World/">Hello World</a>
         </h1>
     
 
@@ -902,7 +869,7 @@
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2016/05/29/Hello-World/">
+        <a href="/Hello-World/">
             <time datetime="2016-05-29T03:07:22.000Z" itemprop="datePublished">2016-05-29</time>
         </a>
     </div>
@@ -931,7 +898,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/2016/05/29/Hello-World/" data-id="cjnlw1est0000se8725ugqq7k" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/Hello-World/" data-id="cjnn7cwjx00023r87xsptlpgv" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1020,7 +987,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/10/23/证明/" class="thumbnail">
+                            <a href="/证明/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -1031,7 +998,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/10/23/证明/" class="title">关于证明</a></p>
+                            <p class="item-title"><a href="/证明/" class="title">关于证明</a></p>
                             <p class="item-date"><time datetime="2018-10-23T15:30:35.000Z" itemprop="datePublished">2018-10-23</time></p>
                         </div>
                     </li>
@@ -1039,7 +1006,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/10/16/反演/" class="thumbnail">
+                            <a href="/反演/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -1050,7 +1017,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/10/16/反演/" class="title">反演</a></p>
+                            <p class="item-title"><a href="/反演/" class="title">反演</a></p>
                             <p class="item-date"><time datetime="2018-10-16T15:08:32.000Z" itemprop="datePublished">2018-10-16</time></p>
                         </div>
                     </li>
@@ -1058,7 +1025,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/10/16/Prufer/" class="thumbnail">
+                            <a href="/Prufer/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -1069,7 +1036,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/10/16/Prufer/" class="title">Prufer</a></p>
+                            <p class="item-title"><a href="/Prufer/" class="title">Prufer</a></p>
                             <p class="item-date"><time datetime="2018-10-16T15:05:16.000Z" itemprop="datePublished">2018-10-16</time></p>
                         </div>
                     </li>
@@ -1077,7 +1044,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/06/11/容斥原理/" class="thumbnail">
+                            <a href="/容斥原理/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -1088,7 +1055,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/06/11/容斥原理/" class="title">容斥原理</a></p>
+                            <p class="item-title"><a href="/容斥原理/" class="title">容斥原理</a></p>
                             <p class="item-date"><time datetime="2018-06-11T14:14:15.000Z" itemprop="datePublished">2018-06-11</time></p>
                         </div>
                     </li>
@@ -1096,7 +1063,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/05/20/dsu-on-tree/" class="thumbnail">
+                            <a href="/dsu-on-tree/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -1107,7 +1074,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/05/20/dsu-on-tree/" class="title">dsu on tree</a></p>
+                            <p class="item-title"><a href="/dsu-on-tree/" class="title">dsu on tree</a></p>
                             <p class="item-date"><time datetime="2018-05-20T11:24:02.000Z" itemprop="datePublished">2018-05-20</time></p>
                         </div>
                     </li>
