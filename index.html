@@ -66,6 +66,8 @@
                 
                     <a class="main-nav-link" href="/about">About</a>
                 
+                    <a class="main-nav-link" href="/todolist">TodoList</a>
+                
             </nav>
             
                 
@@ -131,6 +133,8 @@
                 
                     <td><a class="main-nav-link" href="/about">About</a></td>
                 
+                    <td><a class="main-nav-link" href="/todolist">TodoList</a></td>
+                
                 <td>
                     
     <div class="search-form">
@@ -158,11 +162,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                7
+                8
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                4
+                5
                 <span>标签</span>
             </div>
         </div>
@@ -211,6 +215,137 @@
 
             
             <section id="main">
+    <article id="post-概率论" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/概率论/">概率论</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/概率论/">
+            <time datetime="2018-10-27T14:38:38.000Z" itemprop="datePublished">2018-10-27</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/数学/">数学</a>, <a class="tag-link" href="/tags/概率/">概率</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h1 id="概率论"><a href="#概率论" class="headerlink" title="概率论"></a>概率论</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol>
+<li><p>样本空间：一个随机试验的所有可能结果组成的集合，标记为$S$</p>
+</li>
+<li><p>事件：$S$的一个子集$A$，$A\subseteq \Omega$，称为事件</p>
+</li>
+</ol></p>
+            <p class="article-more-link">
+                <a href="/概率论/#more">查看更多</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://x.phoenixgs.cn/概率论/" data-id="cjnzmz1870009g4871va2xzrz" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-线性基" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -265,7 +400,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/线性基/" data-id="cjnnatpj70009rn87c3i8eqne" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/线性基/" data-id="cjnzmz18c000bg487t7bjrfxt" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -393,7 +528,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/证明/" data-id="cjnnatpja000brn87tka0inm5" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/证明/" data-id="cjnzmz18d000cg4875cbbtcqn" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -523,7 +658,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/反演/" data-id="cjnnatpj20007rn8704x32o2z" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/反演/" data-id="cjnzmz1800004g487igq75lek" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -651,7 +786,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/Prufer/" data-id="cjnnatpiv0002rn87gfwvnz66" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/Prufer/" data-id="cjnzmz17w0002g48741jsrvkz" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -777,7 +912,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/容斥原理/" data-id="cjnnatpj60008rn87e6rzzqnp" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/容斥原理/" data-id="cjnzmz1860008g487m1j9hqfb" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -896,7 +1031,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/dsu-on-tree/" data-id="cjnnatpix0004rn87h6fl9flw" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/dsu-on-tree/" data-id="cjnzmz1840007g487hmnx01mm" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1028,7 +1163,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/Hello-World/" data-id="cjnnatpir0000rn87jbhb5zk3" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/Hello-World/" data-id="cjnzmz17o0000g487hjd2c8id" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1117,6 +1252,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/概率论/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/概率论/" class="title">概率论</a></p>
+                            <p class="item-date"><time datetime="2018-10-27T14:38:38.000Z" itemprop="datePublished">2018-10-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/线性基/" class="thumbnail">
     
     
@@ -1190,25 +1344,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/容斥原理/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/容斥原理/" class="title">容斥原理</a></p>
-                            <p class="item-date"><time datetime="2018-06-11T14:14:15.000Z" itemprop="datePublished">2018-06-11</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1220,7 +1355,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1229,7 +1364,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性基/">线性基</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率/">概率</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性基/">线性基</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1238,7 +1373,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a>
+            <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a>
         </div>
     </div>
 
