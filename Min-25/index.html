@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="PhoenixGS">
 <meta property="og:description" content="Min_25筛简介Min_25筛用来求一个函数的前缀和 如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的 算法过程就像是在模拟埃氏筛法 时间复杂度是$O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})$，然而我并不会证">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-30T07:50:15.841Z">
+<meta property="og:updated_time" content="2018-11-30T07:56:20.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Min_25">
 <meta name="twitter:description" content="Min_25筛简介Min_25筛用来求一个函数的前缀和 如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的 算法过程就像是在模拟埃氏筛法 时间复杂度是$O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})$，然而我并不会证">
@@ -300,7 +300,7 @@
 <p>$$<br>h(n,j)=\begin{cases}<br> h(n,j+1)+\sum_{e \geq 1 且prime_j^{e+1}\leq n}f(prime_j^e)[h(\lfloor \frac{n}{prime_j^e} \rfloor,j + 1) - g(prime_i,i)] &amp; prime_j^2 \leq n \<br> h(n,j+1) &amp; prime_j^2 &gt; n<br>\end{cases}<br>$$</p>
 <p>有没有发现这个式子与质数函数值的前缀和的式子特别像？只不过质数一个是从小枚举到大，一个是从大枚举到小</p>
 <p>答案为$h(n,1)+f(1)$</p>
-<p>假如要询问许多$n$的答案，就可以用这种方法</p>
+<p>假如要询问许多$n’= \lfloor \frac{n}{x} \rfloor$的答案，就可以用这种方法</p>
 <h4 id="关于-f-x-1"><a href="#关于-f-x-1" class="headerlink" title="关于$f(x)$"></a>关于$f(x)$</h4><p>$f(x)$函数如果是积性函数，那么应该都可以做</p>
 <p>假如不是的话，首先要满足求质数的函数值的前缀和的那些条件</p>
 <p>并且若$x=ab,gcd(a,b)=1$，$f(x)$能$O(1)$从$f(a)$和$f(b)$合并，那么应该就能做了（其实我也不是很清楚qaq</p>
@@ -327,7 +327,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/Min-25/" data-id="cjp3qc7oe0004kz87t9qsi1oa" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/Min-25/" data-id="cjp3qi2lb0006pi873ugq29yr" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
