@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://x.phoenixgs.cn/about/index.html</loc>
+    
+    <lastmod>2018-11-30T08:35:31.637Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://x.phoenixgs.cn/Min-25/</loc>
     
     <lastmod>2018-11-30T08:03:14.741Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://x.phoenixgs.cn/categories/index.html</loc>
     
     <lastmod>2018-04-10T07:36:06.949Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://x.phoenixgs.cn/about/index.html</loc>
-    
-    <lastmod>2018-04-10T07:35:55.561Z</lastmod>
     
   </url>
   
