@@ -3,20 +3,20 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>Prufer | PhoenixGS</title>
+    <title>Prufer序 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Prufer序Prufer序一个Prufer数列和一个带编号的无根树是一一对应的 树-&amp;gt;Prufer序每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。 Prufer序-&amp;gt;树设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个">
+    <meta name="description" content="Prufer序一个Prufer数列和一个带编号的无根树是一一对应的 树-&amp;gt;Prufer序每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。 Prufer序-&amp;gt;树设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个数相连，Pru">
 <meta name="keywords" content="算法,树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Prufer">
+<meta property="og:title" content="Prufer序">
 <meta property="og:url" content="http://x.phoenixgs.cn/Prufer/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="Prufer序Prufer序一个Prufer数列和一个带编号的无根树是一一对应的 树-&amp;gt;Prufer序每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。 Prufer序-&amp;gt;树设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个">
+<meta property="og:description" content="Prufer序一个Prufer数列和一个带编号的无根树是一一对应的 树-&amp;gt;Prufer序每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。 Prufer序-&amp;gt;树设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个数相连，Pru">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-16T15:09:56.410Z">
+<meta property="og:updated_time" content="2018-11-30T07:58:37.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Prufer">
-<meta name="twitter:description" content="Prufer序Prufer序一个Prufer数列和一个带编号的无根树是一一对应的 树-&amp;gt;Prufer序每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。 Prufer序-&amp;gt;树设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个">
+<meta name="twitter:title" content="Prufer序">
+<meta name="twitter:description" content="Prufer序一个Prufer数列和一个带编号的无根树是一一对应的 树-&amp;gt;Prufer序每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。 Prufer序-&amp;gt;树设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个数相连，Pru">
     
 
     
@@ -227,7 +227,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Prufer
+            Prufer序
         </h1>
     
 
@@ -257,29 +257,29 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="Prufer序"><a href="#Prufer序" class="headerlink" title="Prufer序"></a>Prufer序</h1><h2 id="Prufer序-1"><a href="#Prufer序-1" class="headerlink" title="Prufer序"></a>Prufer序</h2><p>一个Prufer数列和一个带编号的无根树是一一对应的</p>
-<h3 id="树-gt-Prufer序"><a href="#树-gt-Prufer序" class="headerlink" title="树-&gt;Prufer序"></a>树-&gt;Prufer序</h3><p>每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。</p>
-<h3 id="Prufer序-gt-树"><a href="#Prufer序-gt-树" class="headerlink" title="Prufer序-&gt;树"></a>Prufer序-&gt;树</h3><p>设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个数相连，Prufer序中的第一个数删除。重复这个操作直到$|V|=2$（Prufer序为空），最后将$V$中的两个点相连。</p>
+            <h1 id="Prufer序"><a href="#Prufer序" class="headerlink" title="Prufer序"></a>Prufer序</h1><p>一个Prufer数列和一个带编号的无根树是一一对应的</p>
+<h2 id="树-gt-Prufer序"><a href="#树-gt-Prufer序" class="headerlink" title="树-&gt;Prufer序"></a>树-&gt;Prufer序</h2><p>每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。</p>
+<h2 id="Prufer序-gt-树"><a href="#Prufer序-gt-树" class="headerlink" title="Prufer序-&gt;树"></a>Prufer序-&gt;树</h2><p>设点集$ V={1,2,…,n} $，每次在$V$中找出最小的未在Prufer序中出现过的数，然后在$V$中删除，与Prufer序中的第一个数相连，Prufer序中的第一个数删除。重复这个操作直到$|V|=2$（Prufer序为空），最后将$V$中的两个点相连。</p>
 <a id="more"></a>
-<h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>这个感性理解一下感觉很有道理的</p>
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>这个感性理解一下感觉很有道理的</p>
 <blockquote>
 <p>​    注意到，如果一个节点A不是叶子节点，那么它至少有两条边；但在上述过程结束后，整个图只剩下一条边，因此节点A的至少一个相邻节点被去掉过，节点A的编号将会在这棵树对应的Prüfer编码中出现。反过来，在Prüfer编码中出现过的数字显然不可能是这棵树（初始时）的叶子。于是我们看到，没有在Prüfer编码中出现过的数字恰好就是这棵树（初始时）的叶子节点。找出没有出现过的数字中最小的那一个（比如④），它就是与Prüfer编码中第一个数所标识的节点（比如③）相邻的叶子。接下来，我们递归地考虑后面n-3位编码（别忘了编码总长是n-2）：找出除④以外不在后n-3位编码中的最小的数（左图的例子中是⑦），将它连接到整个编码的第2个数所对应的节点上（例子中还是③）。再接下来，找出除④和⑦以外后n-4位编码中最小的不被包含的数，做同样的处理……依次把③⑧②⑤⑥与编码中第3、4、5、6、7位所表示的节点相连。最后，我们还有①和⑨没处理过，直接把它们俩连接起来就行了。由于没处理过的节点数总比剩下的编码长度大2，因此我们总能找到一个最小的没在剩余编码中出现的数，算法总能进行下去。这样，任何一个Prüfer编码都唯一地对应了一棵无根树，有多少个n-2位的Prüfer编码就有多少个带标号的无根树。</p>
 <p>——摘自<a href="http://www.matrix67.com/blog/archives/682" target="_blank" rel="noopener">Matrix67</a></p>
 </blockquote>
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><ol>
 <li>一棵n个节点的无根树唯一地对应了一个长度为n-2的数列，数列中的每个数都在1到n的范围内。</li>
 <li>Prufer序列中某个编号出现的次数就等于这个编号的节点在无根树中的度数-1。</li>
 <li>设无根树每个点的度数为$D_i$，则$\sum_{i=1}^n(D_i-1)=n-2$（这好像是废话，，，因为$\sum_{i=1}^nD_i=2(n-1)$。。。</li>
 </ol>
-<h2 id="Cayley公式"><a href="#Cayley公式" class="headerlink" title="Cayley公式"></a>Cayley公式</h2><h3 id="Cayley公式-1"><a href="#Cayley公式-1" class="headerlink" title="Cayley公式"></a>Cayley公式</h3><p>一个完全图$K_n$有$n^{n-2}$棵生成树</p>
-<h3 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h3><p>由Prufer可知，一个Prufer数列和一个带编号的无根树是一一对应的，那么这个公式也很显然了。因为$n$个节点的无根树的Prufer序长度为$n-2$，序列中每个值取值为${1,2,3,…,n}$，因此不同的Prufer序有$n^{n-2}$个，因此生成树也有这么多个。</p>
-<h3 id="推广"><a href="#推广" class="headerlink" title="推广"></a>推广</h3><p>n个节点的度依次为$D_1,D_2,…,D_n$的无根树共有$\frac{(n-2)!}{(D_1-1)!(D_2-1)!\cdots(D_n-1)!}$个。</p>
-<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p>BZOJ1005</p>
+<h1 id="Cayley公式"><a href="#Cayley公式" class="headerlink" title="Cayley公式"></a>Cayley公式</h1><h2 id="Cayley公式-1"><a href="#Cayley公式-1" class="headerlink" title="Cayley公式"></a>Cayley公式</h2><p>一个完全图$K_n$有$n^{n-2}$棵生成树</p>
+<h2 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h2><p>由Prufer可知，一个Prufer数列和一个带编号的无根树是一一对应的，那么这个公式也很显然了。因为$n$个节点的无根树的Prufer序长度为$n-2$，序列中每个值取值为${1,2,3,…,n}$，因此不同的Prufer序有$n^{n-2}$个，因此生成树也有这么多个。</p>
+<h2 id="推广"><a href="#推广" class="headerlink" title="推广"></a>推广</h2><p>n个节点的度依次为$D_1,D_2,…,D_n$的无根树共有$\frac{(n-2)!}{(D_1-1)!(D_2-1)!\cdots(D_n-1)!}$个。</p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p>BZOJ1005</p>
 <p>LOJ6395</p>
 <ul>
 <li><a href="https://www.cnblogs.com/onioncyc/p/9052946.html" target="_blank" rel="noopener">https://www.cnblogs.com/onioncyc/p/9052946.html</a></li>
 </ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.matrix67.com/blog/archives/682" target="_blank" rel="noopener">http://www.matrix67.com/blog/archives/682</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.matrix67.com/blog/archives/682" target="_blank" rel="noopener">http://www.matrix67.com/blog/archives/682</a></p>
 <p><a href="https://www.cnblogs.com/dirge/p/5503289.html" target="_blank" rel="noopener">https://www.cnblogs.com/dirge/p/5503289.html</a></p>
 
         
@@ -291,7 +291,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/Prufer/" data-id="cjp3qi2lg0009pi87j83v8apr" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/Prufer/" data-id="cjp3qnji00008tx87dxn8905b" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -416,7 +416,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/Min-25/" class="title">Min_25</a></p>
+                            <p class="item-title"><a href="/Min-25/" class="title">Min_25筛</a></p>
                             <p class="item-date"><time datetime="2018-11-30T06:47:35.000Z" itemprop="datePublished">2018-11-30</time></p>
                         </div>
                     </li>
