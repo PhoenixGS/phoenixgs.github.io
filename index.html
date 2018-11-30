@@ -162,11 +162,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                8
+                9
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                5
+                6
                 <span>标签</span>
             </div>
         </div>
@@ -215,6 +215,180 @@
 
             
             <section id="main">
+    <article id="post-Min-25" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/Min-25/">Min_25</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/Min-25/">
+            <time datetime="2018-11-30T06:47:35.000Z" itemprop="datePublished">2018-11-30</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/数学/">数学</a>, <a class="tag-link" href="/tags/数论/">数论</a>, <a class="tag-link" href="/tags/算法/">算法</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="Min-25筛"><a href="#Min-25筛" class="headerlink" title="Min_25筛"></a>Min_25筛</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Min_25筛用来求一个函数的前缀和</p>
+<p>如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的</p>
+<p>算法过程就像是在模拟埃氏筛法</p>
+<p>时间复杂度是$O\frac{n^{\frac{3}{4}}}{log(\sqrt{n})}$，然而我并不会证</p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="质数的函数值的前缀和"><a href="#质数的函数值的前缀和" class="headerlink" title="质数的函数值的前缀和"></a>质数的函数值的前缀和</h3><p>设$m(x)$表示$x$的最小质因子</p>
+<p>假如要求</p>
+<p>$$\sum_{i = 1}^{n}f(i)[i是质数]$$</p>
+<p>首先将$\sqrt{n}$之内的质数全部筛出来，放在<code>prime</code>数组里</p>
+<p>设</p>
+<p>$$g(n,j)=\sum_{i = 2}^{n}f(i)[m(i) &gt; prime_j 或 i 是质数]$$</p>
+<p>那么</p>
+<p>$$<br>g(n,j) = \begin{cases}<br> g(n,j - 1) - f(j)[g(\lfloor \frac{n}{prime_j} \rfloor, j - 1) - g(prime_{j - 1}, j - 1)] &amp; prime_j^2 \leq n \<br> g(n,j - 1) &amp; prime_j^2 &gt; n<br>\end{cases}<br>$$</p>
+<p>显然，其中的$g(prime_{j-1},j-1)=\sum_{i=1}^{j-1}f(prime_i)$</p>
+<p>那么原式中第一维有用的值只有$O(\sqrt{n})$种，预处理即可</p>
+<p>最终$g(n,primenum)$就是我们要求的$\sum_{i = 1}^{n}f(i)[i是质数]$</p>
+<h3 id="函数值的前缀和（递归）"><a href="#函数值的前缀和（递归）" class="headerlink" title="函数值的前缀和（递归）"></a>函数值的前缀和（递归）</h3><p>假设我们要求的函数是$f(x)$，那么问题就是求</p>
+<p>$$\sum_{i = 1}^{n}f(i)$$</p>
+<p>之前已经求出了</p>
+<p>$$\sum_{i = 1}^{n}f(i)[i是质数]$$</p>
+<p>的值</p>
+<p>那么，现在设</p>
+<p>$$h(n,j) = \sum_{i=2}^nf(i)[m(i) \geq prime_j]$$</p>
+<p>那么</p>
+<p>$$h(n,j)=g(n,primenum) - g(prime_{i-1},i-1)+\sum_{i=j}^{primenum}\sum_{e\geq 1 且 prime_i^{e+1}\leq n}f(prime_i^e)h(\lfloor \frac{n}{prime_i^e} \rfloor,i+1)+f(prime_i^{e+1})$$</p>
+<p>和上面一样，第一维有用的取值只有$O(\sqrt{n})$种</p>
+<p>写一个递归函数，最后的答案即为$h(n,1)+f(1)$</p>
+<p>假如就询问没几个$n$的答案，就可以用这种方法</p>
+<h3 id="函数值的前缀和（非递归）"><a href="#函数值的前缀和（非递归）" class="headerlink" title="函数值的前缀和（非递归）"></a>函数值的前缀和（非递归）</h3><p>这次改变一下状态</p>
+<p>设</p>
+<p>$$h(n,j)=\sum_{i=2}^nf(i)[m(i)\geq prime_j 或 i是质数]$$</p>
+<p>那么</p>
+<p>$$<br>h(n,j)=\begin{cases}<br> h(n,j+1)+\sum_{e \geq 1 且prime_j^{e+1}\leq n}f(prime_j^e)[h(\lfloor \frac{n}{prime_j^e} \rfloor,j + 1) - g(prime_i,i)] &amp; prime_j^2 \leq n \<br> h(n,j+1) &amp; prime_j^2 &gt; n<br>\end{cases}<br>$$</p>
+<p>有没有发现这个式子与质数函数值的前缀和的式子特别像？只不过质数一个是从小枚举到大，一个是从大枚举到小</p>
+<p>答案为$h(n,1)+f(1)$</p>
+<p>假如要询问许多$n$的答案，就可以用这种方法</p>
+<h3 id="关于f-x"><a href="#关于f-x" class="headerlink" title="关于f(x)"></a>关于f(x)</h3><p>$f(x)$函数如果是积性函数，那么应该都可以做</p>
+<p>假如不是的话，</p>
+<p>如果满足对于$x$是质数能$O(1)$求值，</p>
+<p>并且若$x=ab,gcd(a,b)=1$，$f(x)$能$O(1)$从$f(a)$和$f(b)$合并，那么应该就能做了（其实我也不是很清楚qaq</p>
+<h3 id="关于时间复杂度"><a href="#关于时间复杂度" class="headerlink" title="关于时间复杂度"></a>关于时间复杂度</h3><p>暂时还不会。。。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><p><a href="http://www.cnblogs.com/zzqsblog/p/8302815.html" target="_blank" rel="noopener">http://www.cnblogs.com/zzqsblog/p/8302815.html</a></p>
+</li>
+<li><p><a href="http://www.hekai.site/wordpress/2018/09/04/min_25%E7%AD%9B/" target="_blank" rel="noopener">http://www.hekai.site/wordpress/2018/09/04/min_25%E7%AD%9B/</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/XianHaoMing/article/details/80397777" target="_blank" rel="noopener">https://blog.csdn.net/XianHaoMing/article/details/80397777</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/Menhera/p/9226649.html" target="_blank" rel="noopener">https://www.cnblogs.com/Menhera/p/9226649.html</a></p>
+</li>
+</ol>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://x.phoenixgs.cn/Min-25/" data-id="cjp3o3f1s0002ar87jca82w0c" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-概率论" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -270,7 +444,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/概率论/" data-id="cjp2ngw80000e5r87u753bpmk" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/概率论/" data-id="cjp3o3f23000aar87m8sbagmf" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -400,7 +574,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/线性基/" data-id="cjp2ngw7y000c5r87iychaow2" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/线性基/" data-id="cjp3o3f28000ear87tbwz62k1" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -528,7 +702,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/证明/" data-id="cjp2ngw81000g5r87rlr986mh" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/证明/" data-id="cjp3o3f24000dar87xcfvu8oc" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -658,7 +832,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/反演/" data-id="cjp2ngw7k00005r87mf1k2isc" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/反演/" data-id="cjp3o3f220009ar87ul2rjpq5" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -786,7 +960,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/Prufer/" data-id="cjp2ngw7s00055r87w19nuxrf" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/Prufer/" data-id="cjp3o3f1u0003ar870vsc8gx7" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -912,7 +1086,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/容斥原理/" data-id="cjp2ngw7u00075r875sywzyee" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/容斥原理/" data-id="cjp3o3f1z0007ar87qcpkjkge" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1031,7 +1205,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/dsu-on-tree/" data-id="cjp2ngw7w00095r873oswo8mb" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/dsu-on-tree/" data-id="cjp3o3f1x0005ar876rldmbt9" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1163,7 +1337,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/Hello-World/" data-id="cjp2ngw7o00025r87ydc1uisi" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/Hello-World/" data-id="cjp3o3f1y0006ar87sbjkiza7" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1252,6 +1426,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/Min-25/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/Min-25/" class="title">Min_25</a></p>
+                            <p class="item-date"><time datetime="2018-11-30T06:47:35.000Z" itemprop="datePublished">2018-11-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/概率论/" class="thumbnail">
     
     
@@ -1325,25 +1518,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/Prufer/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/Prufer/" class="title">Prufer</a></p>
-                            <p class="item-date"><time datetime="2018-10-16T15:05:16.000Z" itemprop="datePublished">2018-10-16</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1355,7 +1529,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1364,7 +1538,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率/">概率</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性基/">线性基</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率/">概率</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性基/">线性基</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1373,7 +1547,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a>
+            <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a>
         </div>
     </div>
 
