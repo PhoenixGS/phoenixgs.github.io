@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>PhoenixGS</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://x.phoenixgs.cn/"/>
+  <updated>2018-12-27T05:59:39.307Z</updated>
+  <id>http://x.phoenixgs.cn/</id>
+  
+  <author>
+    <name>PhoenixGS</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Min_25筛</title>
+    <link href="http://x.phoenixgs.cn/Min-25/"/>
+    <id>http://x.phoenixgs.cn/Min-25/</id>
+    <published>2018-11-30T06:47:35.000Z</published>
+    <updated>2018-12-27T05:59:39.307Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="简介">简介</h1><p>Min_25筛用来求一个函数的前缀和</p><p>如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的</p><p>算法过程就像是在模拟埃氏筛法</p><p>时间复杂度是<span class="math inline">\(O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})\)</span>，然而我并不会证</p><a id="more"></a><h1 id="算法">算法</h1><h2 id="质数的函数值的前缀和">质数的函数值的前缀和</h2><p>设<span class="math inline">\(m(x)\)</span>表示<span class="math inline">\(x\)</span>的最小质因子</p><p>假如要求</p><p><span class="math display">\[\sum_{i = 1}^{n}f(i)[i是质数]\]</span></p><p>首先将<span class="math inline">\(\sqrt{n}\)</span>之内的质数全部筛出来，放在<code>prime</code>数组里</p><p>设</p><p><span class="math display">\[g(n,j)=\sum_{i = 2}^{n}f(i)[m(i) &gt; prime_j 或 i 是质数]\]</span></p><p>那么</p><p><span class="math display">\[g(n,j) = \begin{cases} g(n,j - 1) - f(j)[g(\lfloor \frac{n}{prime_j} \rfloor, j - 1) - g(prime_{j - 1}, j - 1)] &amp; prime_j^2 \leq n \\\\ g(n,j - 1) &amp; prime_j^2 &gt; n\end{cases}\]</span></p><p>显然，其中的<span class="math inline">\(g(prime_{j-1},j-1)=\sum_{i=1}^{j-1}f(prime_i)\)</span></p><p>那么原式中第一维有用的值只有<span class="math inline">\(O(\sqrt{n})\)</span>种，预处理即可</p><p>最终<span class="math inline">\(g(n,primenum)\)</span>就是我们要求的<span class="math inline">\(\sum_{i = 1}^{n}f(i)[i是质数]\)</span></p><h3 id="关于fx">关于<span class="math inline">\(f(x)\)</span></h3><p>如果只求质数的函数值的话，</p><p><span class="math inline">\(f(x)\)</span>应该满足下面几个条件：</p><ol type="1"><li><p>若<span class="math inline">\(x\)</span>是质数<span class="math inline">\(f(x)\)</span>应该要能在<span class="math inline">\(O(1)\)</span>内求出来</p></li><li><p>要能够快速求出<span class="math inline">\(\sum_{i=2}^{n}f&#39;(i)\)</span>，其中<span class="math inline">\(f&#39;(i)=\Pi_{j,k}f(j)[k &gt; 0][j^k|n]\)</span></p></li></ol><h2 id="函数值的前缀和">函数值的前缀和</h2><h3 id="递归版">递归版</h3><p>假设我们要求的函数是<span class="math inline">\(f(x)\)</span>，那么问题就是求</p><p><span class="math display">\[\sum_{i = 1}^{n}f(i)\]</span></p><p>之前已经求出了</p><p><span class="math display">\[\sum_{i = 1}^{n}f(i)[i是质数]\]</span></p><p>的值</p><p>那么，现在设</p><p><span class="math display">\[h(n,j) = \sum_{i=2}^nf(i)[m(i) \geq prime_j]\]</span></p><p>那么</p><p><span class="math display">\[h(n,j)=g(n,primenum) - g(prime_{i-1},i-1)+\\\\\sum_{i=j}^{primenum}\sum_{e\geq 1 且 prime_i^{e+1}\leq n}f(prime_i^e)h(\lfloor \frac{n}{prime_i^e} \rfloor,i+1)+f(prime_i^{e+1})\]</span></p><p>和上面一样，第一维有用的取值只有<span class="math inline">\(O(\sqrt{n})\)</span>种</p><p>写一个递归函数，最后的答案即为<span class="math inline">\(h(n,1)+f(1)\)</span></p><p>假如就询问没几个<span class="math inline">\(n\)</span>的答案，就可以用这种方法</p><h3 id="非递归版">非递归版</h3><p>这次改变一下状态</p><p>设</p><p><span class="math display">\[h(n,j)=\sum_{i=2}^nf(i)[m(i)\geq prime_j 或 i是质数]\]</span></p><p>那么</p><p><span class="math display">\[h(n,j)=\begin{cases} h(n,j+1)+\\\\ \sum_{e \geq 1 且prime_j^{e+1}\leq n}f(prime_j^e)[h(\lfloor \frac{n}{prime_j^e} \rfloor,j + 1) - g(prime_i,i)] &amp; prime_j^2 \leq n \\\\ h(n,j+1) &amp; prime_j^2 &gt; n\end{cases}\]</span></p><p>有没有发现这个式子与质数函数值的前缀和的式子特别像？只不过质数一个是从小枚举到大，一个是从大枚举到小</p><p>答案为<span class="math inline">\(h(n,1)+f(1)\)</span></p><p>假如要询问许多<span class="math inline">\(n&#39;= \lfloor \frac{n}{x} \rfloor\)</span>的答案，就可以用这种方法</p><h3 id="关于fx-1">关于<span class="math inline">\(f(x)\)</span></h3><p><span class="math inline">\(f(x)\)</span>函数如果是积性函数，那么应该都可以做</p><p>假如不是的话，首先要满足求质数的函数值的前缀和的那些条件</p><p>并且若<span class="math inline">\(x=ab,gcd(a,b)=1\)</span>，<span class="math inline">\(f(x)\)</span>能<span class="math inline">\(O(1)\)</span>从<span class="math inline">\(f(a)\)</span>和<span class="math inline">\(f(b)\)</span>合并，那么应该就能做了（其实我也不是很清楚qaq</p><h2 id="关于时间复杂度">关于时间复杂度</h2><p>暂时还不会。。。</p><h1 id="参考资料">参考资料</h1><ol type="1"><li><p><a href="http://www.cnblogs.com/zzqsblog/p/8302815.html" class="uri" target="_blank" rel="noopener">http://www.cnblogs.com/zzqsblog/p/8302815.html</a></p></li><li><p><a href="http://www.hekai.site/wordpress/2018/09/04/min_25%E7%AD%9B/" target="_blank" rel="noopener">http://www.hekai.site/wordpress/2018/09/04/min_25%E7%AD%9B/</a></p></li><li><p><a href="https://blog.csdn.net/XianHaoMing/article/details/80397777" class="uri" target="_blank" rel="noopener">https://blog.csdn.net/XianHaoMing/article/details/80397777</a></p></li><li><p><a href="https://www.cnblogs.com/Menhera/p/9226649.html" class="uri" target="_blank" rel="noopener">https://www.cnblogs.com/Menhera/p/9226649.html</a></p></li><li><p><a href="https://blog.csdn.net/ZLTJohn/article/details/79703503" class="uri" target="_blank" rel="noopener">https://blog.csdn.net/ZLTJohn/article/details/79703503</a></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
+&lt;p&gt;Min_25筛用来求一个函数的前缀和&lt;/p&gt;
+&lt;p&gt;如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的&lt;/p&gt;
+&lt;p&gt;算法过程就像是在模拟埃氏筛法&lt;/p&gt;
+&lt;p&gt;时间复杂度是&lt;span class=&quot;math inline&quot;&gt;\(O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})\)&lt;/span&gt;，然而我并不会证&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="http://x.phoenixgs.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数学" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="数论" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>概率论</title>
+    <link href="http://x.phoenixgs.cn/%E6%A6%82%E7%8E%87%E8%AE%BA/"/>
+    <id>http://x.phoenixgs.cn/概率论/</id>
+    <published>2018-10-27T14:38:38.000Z</published>
+    <updated>2018-11-30T07:59:24.822Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="概念">概念</h1><ol type="1"><li><p>样本空间：一个随机试验的所有可能结果组成的集合，标记为<span class="math inline">\(S\)</span></p></li><li><p>事件：<span class="math inline">\(S\)</span>的一个子集<span class="math inline">\(A\)</span>，<span class="math inline">\(A\subseteq \Omega\)</span>，称为事件</p></li></ol><a id="more"></a><h2 id="概率公理">概率公理</h2><ol type="1"><li><p><span class="math inline">\(0\leq P(A)\leq 1\)</span></p></li><li><p><span class="math inline">\(P(\Omega)=1\)</span></p></li><li><p>如果<span class="math inline">\(A_1A_2A_3\cdots\)</span>是一系列两两无关的事件，即对于任何<span class="math inline">\(i,j,i\neq j,A_i\cap A_j=\phi\)</span>，则</p><p><span class="math display">\[P\lgroup \bigcup_{k=1}^{\infty} A_k \rgroup=\sum_{k=1}^{\infty}P(A_k)\]</span></p></li></ol><h2 id="条件概率">条件概率</h2><p>令<span class="math inline">\(B\)</span>为一个事件满足<span class="math inline">\(P(B)&gt;0\)</span>，对于任意事件<span class="math inline">\(A\)</span>，定义<span class="math inline">\(A\)</span>的关于<span class="math inline">\(B\)</span>的条件概率。 <span class="math display">\[P(A|B)=\frac{P(A\cap B)}{P(B)}\]</span></p><h2 id="独立">独立</h2><p>如果<span class="math inline">\(A,B\)</span>满足<span class="math inline">\(P(A\cap B)=P(A)P(B)\)</span>，称<span class="math inline">\(A,B\)</span>独立。 并且可以推出<span class="math inline">\(P(A)=P(A|B)\)</span></p><h1 id="性质">性质</h1><ol type="1"><li><p>概率的加法公式</p><p><span class="math display">\[P(A\cup B)=P(A)+P(B)-P(A\cap B)\]</span></p></li><li><p>并的界</p><p><span class="math display">\[P(A\cup B)\leq P(A)+P(B)\]</span></p></li><li><p>全概率公式</p><p>设<span class="math inline">\(B_1B_2B_3\cdots B_n\)</span>是样本空间<span class="math inline">\(S\)</span>中互不相交的一系列事件，并且满足<span class="math inline">\(S=\bigcup_{k=1}^n B_k\)</span>，那么对于任意事件<span class="math inline">\(A\)</span></p><p><span class="math display">\[P(A)=\sum_{k=1}^nP(A|B_k)P(B_k)\]</span></p></li></ol><h1 id="平均值">平均值</h1><h2 id="均值">均值</h2><p><span class="math display">\[\sum_{x\in X(\Omega)}x\cdot Pr(X=x)\]</span></p><p>也就是期望值</p><h2 id="中位数">中位数</h2><p>满足</p><p><span class="math display">\[Pr(X\leq x) \geq \frac{1}{2}且Pr(X\geq x) \geq \frac{1}{2}\]</span></p><p>的所有<span class="math inline">\(x\in X(\Omega)\)</span>组成的集合</p><h2 id="众数">众数</h2><p>满足</p><p><span class="math display">\[Pr(X = x) \geq Pr(X=x^{&#39;}), \forall x^{&#39;}\in X(\Omega)\]</span></p><p>的所有<span class="math inline">\(x\in X(\Omega)\)</span>组成的集合</p><h1 id="期望">期望</h1><p><span class="math display">\[EX=\sum_{\omega \in \Omega}X(\omega)Pr(\omega)\]</span></p><h2 id="性质-1">性质</h2><p><span class="math display">\[E(X+Y)=\sum_{\omega \in \Omega}(X(\omega)+Y(\omega))Pr(\omega)=EX+EY\]</span></p><p><span class="math display">\[E(\alpha X)=\alpha EX\]</span></p><p><span class="math display">\[E(XY)=(EX)(EY),如果X和Y是独立的\]</span></p><h1 id="方差">方差</h1><p><span class="math display">\[VX=E((X-EX)^2)\]</span></p><h2 id="标准差">标准差</h2><p><span class="math display">\[\sigma=\sqrt{VX}\]</span></p><h2 id="性质-2">性质</h2><p>因为<span class="math inline">\((EX)\)</span>是常数，</p><p><span class="math display">\[\begin{array}{l}VX\\\\=E((X-EX)^2)\\\\=E(X^2-2X(EX)+(EX)^2)\\\\=E(X^2)-2(EX)(EX)+(EX)^2\\\\=E(X^2)-(EX)^2\end{array}\]</span></p><p>当<span class="math inline">\(X\)</span>和<span class="math inline">\(Y\)</span>为独立的随机变量时，</p><p><span class="math display">\[\begin{array}{l}V(X+Y)\\\\=E((X+Y)^2)-(EX+EY)^2\\\\=E(X^2)+2(EX)(EY)+E(Y^2)-(EX)^2-2(EX)(EY)-(EY)^2\\\\=E(X^2)-(EX)^2+E(Y^2)-(EY)^2\\\\=VX+VY\end{array}\]</span></p><h1 id="整数概率公式">整数概率公式</h1><p><span class="math display">\[E(x)=\sum_{i=1}^{\infty}P(x\geq i)\]</span></p><p>正整数随机变量的期望等于其分别大于等于所有数的概率之和</p><h2 id="证明">证明</h2><p><span class="math display">\[E(x)=\sum_{i=1}^{\infty}iP(x=i)=\sum_{i=1}^{\infty}i[P(x\geq i)-P(x\geq i+1)]=\sum_{i=1}^{\infty}P(x\geq i)\]</span></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;概念&quot;&gt;概念&lt;/h1&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;&lt;p&gt;样本空间：一个随机试验的所有可能结果组成的集合，标记为&lt;span class=&quot;math inline&quot;&gt;\(S\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;事件：&lt;span class=&quot;math inline&quot;&gt;\(S\)&lt;/span&gt;的一个子集&lt;span class=&quot;math inline&quot;&gt;\(A\)&lt;/span&gt;，&lt;span class=&quot;math inline&quot;&gt;\(A\subseteq \Omega\)&lt;/span&gt;，称为事件&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="数学" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="概率" scheme="http://x.phoenixgs.cn/tags/%E6%A6%82%E7%8E%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线性基</title>
+    <link href="http://x.phoenixgs.cn/%E7%BA%BF%E6%80%A7%E5%9F%BA/"/>
+    <id>http://x.phoenixgs.cn/线性基/</id>
+    <published>2018-10-24T15:12:30.000Z</published>
+    <updated>2018-11-30T07:59:49.282Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="简介">简介</h1><p>设数集<span class="math inline">\(T\)</span>，<span class="math inline">\(T\)</span>的线性基为最小的一个集合<span class="math inline">\(S\)</span>，<span class="math inline">\(S\)</span>与<span class="math inline">\(T\)</span>通过异或运算能产生的集合相同，也就是<span class="math inline">\(S\)</span>是<span class="math inline">\(T\)</span>的线性无关极大子集</p><h1 id="性质">性质</h1><ol type="1"><li>线性基的异或集合中每个元素的异或方案唯一</li><li>线性基二进制最高位互不相同</li></ol><a id="more"></a><h1 id="维护">维护</h1><h2 id="插入">插入</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">60</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> ((<span class="number">1l</span>l &lt;&lt; i) &amp; x)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (v[i])</span><br><span class="line">&#123;</span><br><span class="line">x = x ^ v[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">v[i] = x;</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="合并">合并</h2><p>将一个线性基暴力插入到另一个线性基</p><h2 id="查询一个数能否被这个线性基表示">查询一个数能否被这个线性基表示</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">query</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">60</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> ((<span class="number">1l</span>l &lt;&lt; i) &amp; x)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (v[i])</span><br><span class="line">&#123;</span><br><span class="line">x = x ^ v[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="最大值">最大值</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">51</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> ((ans ^ v[i]) &gt; ans)</span><br><span class="line">&#123;</span><br><span class="line">ans = ans ^ v[i];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="第k小值">第k小值</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">60</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> ((<span class="number">1l</span>l &lt;&lt; j) &amp; v[i])</span><br><span class="line">&#123;</span><br><span class="line">v[i] ^= v[j];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">last = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">60</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (v[i])</span><br><span class="line">&#123;</span><br><span class="line">vv[last] = v[i];</span><br><span class="line">last++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">query</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (k &gt;= (<span class="number">1l</span>l &lt;&lt; last))</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> (<span class="keyword">long</span> <span class="keyword">long</span>)<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; last; i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> ((<span class="number">1l</span>l &lt;&lt; i) &amp; k)</span><br><span class="line">&#123;</span><br><span class="line">ans = ans ^ vv[i];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="参考">参考</h1><p><a href="https://blog.csdn.net/qaq__qaq/article/details/53812883" class="uri" target="_blank" rel="noopener">https://blog.csdn.net/qaq__qaq/article/details/53812883</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
+&lt;p&gt;设数集&lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt;，&lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt;的线性基为最小的一个集合&lt;span class=&quot;math inline&quot;&gt;\(S\)&lt;/span&gt;，&lt;span class=&quot;math inline&quot;&gt;\(S\)&lt;/span&gt;与&lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt;通过异或运算能产生的集合相同，也就是&lt;span class=&quot;math inline&quot;&gt;\(S\)&lt;/span&gt;是&lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt;的线性无关极大子集&lt;/p&gt;
+&lt;h1 id=&quot;性质&quot;&gt;性质&lt;/h1&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;线性基的异或集合中每个元素的异或方案唯一&lt;/li&gt;
+&lt;li&gt;线性基二进制最高位互不相同&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="数学" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="线性基" scheme="http://x.phoenixgs.cn/tags/%E7%BA%BF%E6%80%A7%E5%9F%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于证明</title>
+    <link href="http://x.phoenixgs.cn/%E8%AF%81%E6%98%8E/"/>
+    <id>http://x.phoenixgs.cn/证明/</id>
+    <published>2018-10-23T15:30:35.000Z</published>
+    <updated>2018-11-30T08:00:33.192Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="证明的方法">证明的方法</h1><p>用来证明形如<span class="math inline">\(\forall x(P(x)\to Q(x))\)</span>的定理</p><h2 id="直接证明法">直接证明法</h2><p>也就是条件语句<span class="math inline">\(p\to q\)</span></p><h2 id="反证法">反证法</h2><p>条件语句<span class="math inline">\(p\to q\)</span>等价于它的逆否命题<span class="math inline">\(\neg q \to \neg p\)</span></p><a id="more"></a><h2 id="空证明和平凡证明">空证明和平凡证明</h2><h3 id="空证明">空证明</h3><p>如果知道<span class="math inline">\(p\)</span>为假，那么就能证明条件语句<span class="math inline">\(p \to q\)</span>为真</p><h3 id="平凡证明">平凡证明</h3><p>如果知道<span class="math inline">\(q\)</span>为真，那么就能证明条件语句<span class="math inline">\(p \to q\)</span>为真</p><h2 id="归谬证明法">归谬证明法</h2><p>假如要证明命题<span class="math inline">\(p\)</span>是真的。假定我们能找到一个矛盾式<span class="math inline">\(q\)</span>使得<span class="math inline">\(\neg p \to q\)</span>为真。那么这就意味着<span class="math inline">\(p\)</span>为真</p><p>因为<span class="math inline">\(r \land \neg r\)</span>一定是一个矛盾式，所以如果我们能够证明对某个命题<span class="math inline">\(r\)</span>，<span class="math inline">\(\neg p \to (r \land \neg r)\)</span>为真，就能证明<span class="math inline">\(p\)</span>是真的。</p><h3 id="举例">举例</h3><p>证明<span class="math inline">\(\sqrt{2}\)</span>是无理数</p><h4 id="证明">证明</h4><p>设<span class="math inline">\(p\)</span>是命题“<span class="math inline">\(\sqrt{2}\)</span>是无理数“。假定<span class="math inline">\(\neg p\)</span>为真，即“<span class="math inline">\(\sqrt{2}\)</span>为有理数，则存在整数<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>满足<span class="math inline">\(\sqrt{2}=\frac{a}{b}\)</span>其中<span class="math inline">\(b \neq 0\)</span>并且<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>没有公因子</p><p>等式两端取平方，则</p><p><span class="math display">\[2=\frac{a^2}{b^2}\]</span></p><p>因此</p><p><span class="math display">\[2b^2=a^2\]</span></p><p>可得<span class="math inline">\(a^2\)</span>是偶数，通过反证法可得出<span class="math inline">\(a\)</span>也是偶数，那么<span class="math inline">\(\exists c\)</span>有<span class="math inline">\(a=2c\)</span>。那么</p><p><span class="math display">\[2b^2=4c^2\]</span></p><p>等式两端除以<span class="math inline">\(2\)</span>得</p><p><span class="math display">\[b^2=2c^2\]</span></p><p>同理可得<span class="math inline">\(b\)</span>是偶数。</p><p>我们证明了假设<span class="math inline">\(\neg p\)</span>导致等式<span class="math inline">\(\sqrt{2}=\frac{a}{b}\)</span>并且<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>没有公因子，又推出<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>有公因子<span class="math inline">\(2\)</span>，推出了矛盾，因此证明了<span class="math inline">\(p\)</span>为真</p><h1 id="等价证明法">等价证明法</h1><p>为了证明一个双条件命题的定理，即形如<span class="math inline">\(p \leftrightarrow q\)</span>的语句，那么只需证明<span class="math inline">\(p \to q\)</span>和<span class="math inline">\(q \to p\)</span>都是真的。</p><p>因为</p><p><span class="math display">\[(p \leftrightarrow q) \leftrightarrow(p \to q) \land (q \to p)\]</span></p><h1 id="反例证明法">反例证明法</h1><p>如果要证明形如<span class="math inline">\(\forall x P(x)\)</span>的语句为假，只要能找到一个反例<span class="math inline">\(x\)</span>使<span class="math inline">\(P(x)\)</span>为假</p><h1 id="穷举证明法和分情形证明法">穷举证明法和分情形证明法</h1><p>为了证明如下的条件语句</p><p><span class="math display">\[(p_1 \lor p_2 \lor \cdots \lor p_n) \to q\]</span>  可以用永真式</p><p><span class="math display">\[[(p_1 \lor p_2 \lor \cdots \lor p_n) \to q] \leftrightarrow [(p_1 \to q) \land (p_2 \to q) \land \cdots \land (p_n \to q)]\]</span></p><p>这种论证称为<strong>分情形证明法</strong></p><h2 id="穷举证明法">穷举证明法</h2><p>如果一些证明只需通过检验相对少量的例子来证明，那么这样的证明叫做<strong>穷举证明法</strong>，一个穷举证明法是分情形证明的特例</p><h2 id="分情形证明法">分情形证明法</h2><p>分情形证明一定要覆盖定理中出现的所有可能情况</p><h1 id="存在性证明">存在性证明</h1><p><span class="math inline">\(\exists xP(x)\)</span>这类命题的证明称为<strong>存在性证明</strong>。</p><p>有时可以通过找出一个使得<span class="math inline">\(P(a)\)</span>为真的元素<span class="math inline">\(a\)</span>来给出<span class="math inline">\(\exists xP(x)\)</span>的存在性证明。这样的存在性证明称为是<strong>构造性的</strong>，也可以给出一种<strong>非构造性的</strong>存在性证明，即不是找出使<span class="math inline">\(P(a)\)</span>为真的元素<span class="math inline">\(a\)</span>，而是以某种其他方式来证明<span class="math inline">\(\exists xP(x)\)</span>为真。给出非构造性证明的一种常用方法是使用归谬证明，证明该存在量化式的否定式蕴含一个矛盾。</p><h2 id="一个非构造性的存在性证明">一个非构造性的存在性证明</h2><p>证明存在无理数<span class="math inline">\(x\)</span>和<span class="math inline">\(y\)</span>使得<span class="math inline">\(x^y\)</span>是有理数</p><h3 id="证明-1">证明</h3><p>由之前的例子可得<span class="math inline">\(\sqrt{2}\)</span>是无理数，考虑数<span class="math inline">\(\sqrt{2}^{\sqrt{2}}\)</span>，如果它是有理数，那就存在两个无理数<span class="math inline">\(x\)</span>和<span class="math inline">\(y\)</span>是有理数，即<span class="math inline">\(x=\sqrt{2}, y=\sqrt{2}\)</span>，另一方面如果<span class="math inline">\(\sqrt{2}^{\sqrt{2}}\)</span>是无理数，那么令<span class="math inline">\(x=\sqrt{2}^{\sqrt{2}},y=\sqrt{2}\)</span>，因此<span class="math inline">\(x^y=(\sqrt{2}^{\sqrt{2}})^{\sqrt{2}}=\sqrt{2}^{(\sqrt{2}\cdot \sqrt{2})}=\sqrt{2}^{2}=2\)</span></p><h1 id="唯一性证明">唯一性证明</h1><p><strong>唯一性证明</strong>的两个部分如下</p><p>存在性：证明存在某个元素<span class="math inline">\(x\)</span>具有期望的性质</p><p>唯一性：证明如果<span class="math inline">\(y \neq x\)</span>，则<span class="math inline">\(y\)</span>不具有期望的性质</p><p>我们也可以等价地证明如果<span class="math inline">\(x\)</span>和<span class="math inline">\(y\)</span>都具有期望的性质，则<span class="math inline">\(x=y\)</span></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;证明的方法&quot;&gt;证明的方法&lt;/h1&gt;
+&lt;p&gt;用来证明形如&lt;span class=&quot;math inline&quot;&gt;\(\forall x(P(x)\to Q(x))\)&lt;/span&gt;的定理&lt;/p&gt;
+&lt;h2 id=&quot;直接证明法&quot;&gt;直接证明法&lt;/h2&gt;
+&lt;p&gt;也就是条件语句&lt;span class=&quot;math inline&quot;&gt;\(p\to q\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;反证法&quot;&gt;反证法&lt;/h2&gt;
+&lt;p&gt;条件语句&lt;span class=&quot;math inline&quot;&gt;\(p\to q\)&lt;/span&gt;等价于它的逆否命题&lt;span class=&quot;math inline&quot;&gt;\(\neg q \to \neg p\)&lt;/span&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数学" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>反演</title>
+    <link href="http://x.phoenixgs.cn/%E5%8F%8D%E6%BC%94/"/>
+    <id>http://x.phoenixgs.cn/反演/</id>
+    <published>2018-10-16T15:08:32.000Z</published>
+    <updated>2018-11-30T07:58:50.153Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="反演原理">反演原理</h1><p>设</p><p><span class="math display">\[ g_n = \sum_{i = 0} ^ n a_{ni}f_i \]</span></p><p><span class="math display">\[ \sum_{i = 0}^n b_{ni}g_i = f_n \]</span></p><p>因此，反演公式要成立，即</p><p><span class="math display">\[ \sum_{k = j}^ib_{ik}a_{kj} = [i = j] = \delta_{ij} \]</span></p><p><span class="math display">\[ \sum_{k = j}^ia_{ik}b_{kj} = [i = j] = \delta_{ij} \]</span></p><h1 id="二项式反演">二项式反演</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="数学" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Prufer序</title>
+    <link href="http://x.phoenixgs.cn/Prufer/"/>
+    <id>http://x.phoenixgs.cn/Prufer/</id>
+    <published>2018-10-16T15:05:16.000Z</published>
+    <updated>2018-11-30T07:58:37.058Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="prufer序">Prufer序</h1><p>一个Prufer数列和一个带编号的无根树是一一对应的</p><h2 id="树-prufer序">树-&gt;Prufer序</h2><p>每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。</p><h2 id="prufer序-树">Prufer序-&gt;树</h2><p>设点集$ V={1,2,...,n} <span class="math inline">\(，每次在\)</span>V<span class="math inline">\(中找出最小的未在Prufer序中出现过的数，然后在\)</span>V<span class="math inline">\(中删除，与Prufer序中的第一个数相连，Prufer序中的第一个数删除。重复这个操作直到\)</span>|V|=2<span class="math inline">\(（Prufer序为空），最后将\)</span>V$中的两个点相连。</p><a id="more"></a><h2 id="证明">证明</h2><p>这个感性理解一下感觉很有道理的</p><blockquote><p>​ 注意到，如果一个节点A不是叶子节点，那么它至少有两条边；但在上述过程结束后，整个图只剩下一条边，因此节点A的至少一个相邻节点被去掉过，节点A的编号将会在这棵树对应的Prüfer编码中出现。反过来，在Prüfer编码中出现过的数字显然不可能是这棵树（初始时）的叶子。于是我们看到，没有在Prüfer编码中出现过的数字恰好就是这棵树（初始时）的叶子节点。找出没有出现过的数字中最小的那一个（比如④），它就是与Prüfer编码中第一个数所标识的节点（比如③）相邻的叶子。接下来，我们递归地考虑后面n-3位编码（别忘了编码总长是n-2）：找出除④以外不在后n-3位编码中的最小的数（左图的例子中是⑦），将它连接到整个编码的第2个数所对应的节点上（例子中还是③）。再接下来，找出除④和⑦以外后n-4位编码中最小的不被包含的数，做同样的处理……依次把③⑧②⑤⑥与编码中第3、4、5、6、7位所表示的节点相连。最后，我们还有①和⑨没处理过，直接把它们俩连接起来就行了。由于没处理过的节点数总比剩下的编码长度大2，因此我们总能找到一个最小的没在剩余编码中出现的数，算法总能进行下去。这样，任何一个Prüfer编码都唯一地对应了一棵无根树，有多少个n-2位的Prüfer编码就有多少个带标号的无根树。</p><p>——摘自<a href="http://www.matrix67.com/blog/archives/682" target="_blank" rel="noopener">Matrix67</a></p></blockquote><h2 id="性质">性质</h2><ol type="1"><li>一棵n个节点的无根树唯一地对应了一个长度为n-2的数列，数列中的每个数都在1到n的范围内。</li><li>Prufer序列中某个编号出现的次数就等于这个编号的节点在无根树中的度数-1。</li><li>设无根树每个点的度数为<span class="math inline">\(D_i\)</span>，则<span class="math inline">\(\sum_{i=1}^n(D_i-1)=n-2\)</span>（这好像是废话，，，因为<span class="math inline">\(\sum_{i=1}^nD_i=2(n-1)\)</span>。。。</li></ol><h1 id="cayley公式">Cayley公式</h1><h2 id="cayley公式-1">Cayley公式</h2><p>一个完全图<span class="math inline">\(K_n\)</span>有<span class="math inline">\(n^{n-2}\)</span>棵生成树</p><h2 id="证明-1">证明</h2><p>由Prufer可知，一个Prufer数列和一个带编号的无根树是一一对应的，那么这个公式也很显然了。因为<span class="math inline">\(n\)</span>个节点的无根树的Prufer序长度为<span class="math inline">\(n-2\)</span>，序列中每个值取值为<span class="math inline">\({1,2,3,...,n}\)</span>，因此不同的Prufer序有<span class="math inline">\(n^{n-2}\)</span>个，因此生成树也有这么多个。</p><h2 id="推广">推广</h2><p>n个节点的度依次为<span class="math inline">\(D_1,D_2,...,D_n\)</span>的无根树共有<span class="math inline">\(\frac{(n-2)!}{(D_1-1)!(D_2-1)!\cdots(D_n-1)!}\)</span>个。</p><h2 id="例题">例题</h2><p>BZOJ1005</p><p>LOJ6395</p><ul><li>https://www.cnblogs.com/onioncyc/p/9052946.html</li></ul><h1 id="参考资料">参考资料</h1><p>http://www.matrix67.com/blog/archives/682</p><p>https://www.cnblogs.com/dirge/p/5503289.html</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;prufer序&quot;&gt;Prufer序&lt;/h1&gt;
+&lt;p&gt;一个Prufer数列和一个带编号的无根树是一一对应的&lt;/p&gt;
+&lt;h2 id=&quot;树-prufer序&quot;&gt;树-&amp;gt;Prufer序&lt;/h2&gt;
+&lt;p&gt;每次找这棵树中编号最小的叶子节点，将与这个点相连的点加入Prufer序，去掉这个点以及相连的边。重复这个操作直到剩下两个点。&lt;/p&gt;
+&lt;h2 id=&quot;prufer序-树&quot;&gt;Prufer序-&amp;gt;树&lt;/h2&gt;
+&lt;p&gt;设点集$ V={1,2,...,n} &lt;span class=&quot;math inline&quot;&gt;\(，每次在\)&lt;/span&gt;V&lt;span class=&quot;math inline&quot;&gt;\(中找出最小的未在Prufer序中出现过的数，然后在\)&lt;/span&gt;V&lt;span class=&quot;math inline&quot;&gt;\(中删除，与Prufer序中的第一个数相连，Prufer序中的第一个数删除。重复这个操作直到\)&lt;/span&gt;|V|=2&lt;span class=&quot;math inline&quot;&gt;\(（Prufer序为空），最后将\)&lt;/span&gt;V$中的两个点相连。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="http://x.phoenixgs.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="树" scheme="http://x.phoenixgs.cn/tags/%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>容斥原理</title>
+    <link href="http://x.phoenixgs.cn/%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86/"/>
+    <id>http://x.phoenixgs.cn/容斥原理/</id>
+    <published>2018-06-11T14:14:15.000Z</published>
+    <updated>2018-11-30T07:58:59.235Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="表达式">表达式</h1><h2 id="容斥原理">容斥原理</h2><p><span class="math display">\[ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|+\\\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1 \cap A_2 \cap \cdots \cap A_n| \]</span> <span class="math display">\[ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1} |A_i| - \sum_{1 \leq i &lt; j \leq n} |A_i \cap A_j|+  \sum_{1 \leq i &lt; j &lt; k \leq n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n-1} |A_1 \cap A_2 \cap \cdots \cap A_n| \]</span> <a id="more"></a> ## 逐步淘汰原理（筛法公式） <span class="math display">\[ | \complement_S A_1 \cap \complement_S A_2 \cap \cdots \cap \complement_S A_n| = |S|-\sum^n_{i=1}|A_i|+ \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|-\\\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| + \cdots +(-1)^n|A_1 \cap A_2 \cap \cdots \cap A_n| \]</span> # 容斥原理与求和及差分 以二维求和为例 <span class="math display">\[ \sum^n_{i=1}\sum^m_{j=1}x_{i,j}=\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \lor j\neq m]+x_{n,m} \\\\ = \sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n]+\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[j\neq m] -\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \land j\neq m]+x_{i,j} \]</span></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;表达式&quot;&gt;表达式&lt;/h1&gt;
+&lt;h2 id=&quot;容斥原理&quot;&gt;容斥原理&lt;/h2&gt;
+&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1 \cap A_2 \cap \cdots \cap A_n| \]&lt;/span&gt; &lt;span class=&quot;math display&quot;&gt;\[ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1} |A_i| - \sum_{1 \leq i &amp;lt; j \leq n} |A_i \cap A_j|+  \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n-1} |A_1 \cap A_2 \cap \cdots \cap A_n| \]&lt;/span&gt;
+    
+    </summary>
+    
+    
+      <category term="数学" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dsu on tree</title>
+    <link href="http://x.phoenixgs.cn/dsu-on-tree/"/>
+    <id>http://x.phoenixgs.cn/dsu-on-tree/</id>
+    <published>2018-05-20T11:24:02.000Z</published>
+    <updated>2018-05-20T11:24:02.452Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://x.phoenixgs.cn/Hello-World/"/>
+    <id>http://x.phoenixgs.cn/Hello-World/</id>
+    <published>2016-05-29T03:07:22.000Z</published>
+    <updated>2018-04-09T16:28:03.783Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=3993358&amp;auto=0&amp;height=66"></iframe><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> x, y;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, x + y);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
