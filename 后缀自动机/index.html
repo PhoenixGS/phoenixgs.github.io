@@ -5,18 +5,18 @@
     
     <title>后缀自动机 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
+    <meta name="description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ 可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
 <meta name="keywords" content="自动机,后缀自动机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="后缀自动机">
 <meta property="og:url" content="http://x.phoenixgs.cn/后缀自动机/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
+<meta property="og:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ 可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-27T08:23:49.050Z">
+<meta property="og:updated_time" content="2018-12-27T08:28:43.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后缀自动机">
-<meta name="twitter:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
+<meta name="twitter:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ 可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
     
 
     
@@ -258,7 +258,8 @@
         
             
             <h1 id="sam">SAM</h1>
-<p>关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。</p>
+<p>关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ</p>
+<p>可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。</p>
 <ol type="1">
 <li><p><a href="http://nirobc.com/20181224.pdf" class="uri" target="_blank" rel="noopener">http://nirobc.com/20181224.pdf</a></p></li>
 <li><p><a href="https://oi-wiki.org/string/sam/" class="uri" target="_blank" rel="noopener">https://oi-wiki.org/string/sam/</a></p></li>
@@ -285,13 +286,13 @@
 <p>有一个更加紧的上限：</p>
 <p><span class="math display">\[3n-4\; (对于n\geq 3)\]</span></p>
 <p>然后，考虑以下的事实：</p>
-<p>初始节点开始的最长的转移路径树</p>
+<p>初始节点开始的最长的转移路径树</p>
 <p>节点数为<span class="math inline">\(2n-1\)</span>，那么边数即为<span class="math inline">\(2n-2\)</span></p>
 <p>考虑不在这棵树中的转移<span class="math inline">\(u\to v\)</span>，字符为<span class="math inline">\(y\)</span></p>
 <p>那么初始节点到<span class="math inline">\(u\)</span>的字典序最大字符串（最小应该也行，只要保证唯一）<span class="math inline">\(x\)</span>，以及<span class="math inline">\(v\)</span>到任意一个终止节点的最长字符串（同样也可以是最小）<span class="math inline">\(z\)</span>。</p>
 <p><span class="math inline">\(x+y+z\)</span>即为原串的一个后缀，后缀只有<span class="math inline">\(n-1\)</span>个，（原串这个后缀肯定在刚开始的树上）。</p>
 <p>因此转移数的上限即为<span class="math inline">\(3n-4\)</span></p>
-<p>能达到上限的字符串</p>
+<p>能达到上限的字符串</p>
 <p><span class="math display">\[abb \dots bc\]</span></p>
 <h2 id="修改to的次数">修改<code>to</code>的次数</h2>
 <p>从上面的模版可以看出，现在除了</p>
@@ -323,7 +324,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/后缀自动机/" data-id="cjq6cdkgk0009kk87lv1k7t40" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/后缀自动机/" data-id="cjq6ck6d1000foa87enbfpeb8" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
