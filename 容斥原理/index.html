@@ -5,18 +5,18 @@
     
     <title>容斥原理 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="表达式容斥原理$$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1">
+    <meta name="description" content="表达式 容斥原理 \[ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}">
 <meta name="keywords" content="数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="容斥原理">
 <meta property="og:url" content="http://x.phoenixgs.cn/容斥原理/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="表达式容斥原理$$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1">
+<meta property="og:description" content="表达式 容斥原理 \[ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-11-30T07:58:59.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="容斥原理">
-<meta name="twitter:description" content="表达式容斥原理$$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1">
+<meta name="twitter:description" content="表达式 容斥原理 \[ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &amp;lt; j \leq n}|A_i \cap A_j|+\\\\ \sum_{1 \leq i &amp;lt; j &amp;lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}">
     
 
     
@@ -257,9 +257,9 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><h2 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h2><p>$$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|+\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1 \cap A_2 \cap \cdots \cap A_n| $$<br>$$ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1} |A_i| - \sum_{1 \leq i &lt; j \leq n} |A_i \cap A_j|+  \sum_{1 \leq i &lt; j &lt; k \leq n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n-1} |A_1 \cap A_2 \cap \cdots \cap A_n| $$<br><a id="more"></a></p>
-<h2 id="逐步淘汰原理（筛法公式）"><a href="#逐步淘汰原理（筛法公式）" class="headerlink" title="逐步淘汰原理（筛法公式）"></a>逐步淘汰原理（筛法公式）</h2><p>$$ | \complement_S A_1 \cap \complement_S A_2 \cap \cdots \cap \complement_S A_n| = |S|-\sum^n_{i=1}|A_i|+ \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|-\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| + \cdots +(-1)^n|A_1 \cap A_2 \cap \cdots \cap A_n| $$</p>
-<h1 id="容斥原理与求和及差分"><a href="#容斥原理与求和及差分" class="headerlink" title="容斥原理与求和及差分"></a>容斥原理与求和及差分</h1><p>以二维求和为例<br>$$ \sum^n_{i=1}\sum^m_{j=1}x_{i,j}=\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \lor j\neq m]+x_{n,m} \\ = \sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n]+\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[j\neq m] -\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \land j\neq m]+x_{i,j} $$</p>
+            <h1 id="表达式">表达式</h1>
+<h2 id="容斥原理">容斥原理</h2>
+<p><span class="math display">\[ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1}|A_i|- \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|+\\\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| - \cdots +(-1)^{n-1}|A_1 \cap A_2 \cap \cdots \cap A_n| \]</span> <span class="math display">\[ | A_1 \cup A_2 \cup \cdots \cup A_n | = \sum^n_{i=1} |A_i| - \sum_{1 \leq i &lt; j \leq n} |A_i \cap A_j|+  \sum_{1 \leq i &lt; j &lt; k \leq n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n-1} |A_1 \cap A_2 \cap \cdots \cap A_n| \]</span> <a id="more"></a> ## 逐步淘汰原理（筛法公式） <span class="math display">\[ | \complement_S A_1 \cap \complement_S A_2 \cap \cdots \cap \complement_S A_n| = |S|-\sum^n_{i=1}|A_i|+ \sum_{1 \leq i &lt; j \leq n}|A_i \cap A_j|-\\\\ \sum_{1 \leq i &lt; j &lt; k \leq n}|A_i \cap A_j \cap A_k| + \cdots +(-1)^n|A_1 \cap A_2 \cap \cdots \cap A_n| \]</span> # 容斥原理与求和及差分 以二维求和为例 <span class="math display">\[ \sum^n_{i=1}\sum^m_{j=1}x_{i,j}=\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \lor j\neq m]+x_{n,m} \\\\ = \sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n]+\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[j\neq m] -\sum^n_{i=1}\sum^m_{j=1}x_{i,j}[i\neq n \land j\neq m]+x_{i,j} \]</span></p>
 
         
         </div>
@@ -270,7 +270,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/容斥原理/" data-id="cjq4wxiap000dlr87gaiwens6" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/容斥原理/" data-id="cjq67bzs6000ho187657exuug" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

@@ -5,18 +5,18 @@
     
     <title>概率论 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="概念 样本空间：一个随机试验的所有可能结果组成的集合，标记为$S$  事件：$S$的一个子集$A$，$A\subseteq \Omega$，称为事件">
+    <meta name="description" content="概念  样本空间：一个随机试验的所有可能结果组成的集合，标记为\(S\) 事件：\(S\)的一个子集\(A\)，\(A\subseteq \Omega\)，称为事件">
 <meta name="keywords" content="数学,概率">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率论">
 <meta property="og:url" content="http://x.phoenixgs.cn/概率论/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="概念 样本空间：一个随机试验的所有可能结果组成的集合，标记为$S$  事件：$S$的一个子集$A$，$A\subseteq \Omega$，称为事件">
+<meta property="og:description" content="概念  样本空间：一个随机试验的所有可能结果组成的集合，标记为\(S\) 事件：\(S\)的一个子集\(A\)，\(A\subseteq \Omega\)，称为事件">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-11-30T07:59:24.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率论">
-<meta name="twitter:description" content="概念 样本空间：一个随机试验的所有可能结果组成的集合，标记为$S$  事件：$S$的一个子集$A$，$A\subseteq \Omega$，称为事件">
+<meta name="twitter:description" content="概念  样本空间：一个随机试验的所有可能结果组成的集合，标记为\(S\) 事件：\(S\)的一个子集\(A\)，\(A\subseteq \Omega\)，称为事件">
     
 
     
@@ -257,57 +257,81 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ol>
-<li><p>样本空间：一个随机试验的所有可能结果组成的集合，标记为$S$</p>
-</li>
-<li><p>事件：$S$的一个子集$A$，$A\subseteq \Omega$，称为事件</p>
-</li>
+            <h1 id="概念">概念</h1>
+<ol type="1">
+<li><p>样本空间：一个随机试验的所有可能结果组成的集合，标记为<span class="math inline">\(S\)</span></p></li>
+<li><p>事件：<span class="math inline">\(S\)</span>的一个子集<span class="math inline">\(A\)</span>，<span class="math inline">\(A\subseteq \Omega\)</span>，称为事件</p></li>
 </ol>
 <a id="more"></a>
-<h2 id="概率公理"><a href="#概率公理" class="headerlink" title="概率公理"></a>概率公理</h2><ol>
-<li><p>$0\leq P(A)\leq 1$</p>
-</li>
-<li><p>$P(\Omega)=1$</p>
-</li>
-<li><p>如果$A_1A_2A_3\cdots$是一系列两两无关的事件，即对于任何$i,j,i\neq j,A_i\cap A_j=\phi$，则</p>
-<p>$$P\lgroup \bigcup_{k=1}^{\infty} A_k \rgroup=\sum_{k=1}^{\infty}P(A_k)$$</p>
-</li>
+<h2 id="概率公理">概率公理</h2>
+<ol type="1">
+<li><p><span class="math inline">\(0\leq P(A)\leq 1\)</span></p></li>
+<li><p><span class="math inline">\(P(\Omega)=1\)</span></p></li>
+<li><p>如果<span class="math inline">\(A_1A_2A_3\cdots\)</span>是一系列两两无关的事件，即对于任何<span class="math inline">\(i,j,i\neq j,A_i\cap A_j=\phi\)</span>，则</p>
+<p><span class="math display">\[P\lgroup \bigcup_{k=1}^{\infty} A_k \rgroup=\sum_{k=1}^{\infty}P(A_k)\]</span></p></li>
 </ol>
-<h2 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h2><p>令$B$为一个事件满足$P(B)&gt;0$，对于任意事件$A$，定义$A$的关于$B$的条件概率。<br>$$P(A|B)=\frac{P(A\cap B)}{P(B)}$$</p>
-<h2 id="独立"><a href="#独立" class="headerlink" title="独立"></a>独立</h2><p>如果$A,B$满足$P(A\cap B)=P(A)P(B)$，称$A,B$独立。<br>并且可以推出$P(A)=P(A|B)$</p>
-<h1 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h1><ol>
+<h2 id="条件概率">条件概率</h2>
+<p>令<span class="math inline">\(B\)</span>为一个事件满足<span class="math inline">\(P(B)&gt;0\)</span>，对于任意事件<span class="math inline">\(A\)</span>，定义<span class="math inline">\(A\)</span>的关于<span class="math inline">\(B\)</span>的条件概率。 <span class="math display">\[P(A|B)=\frac{P(A\cap B)}{P(B)}\]</span></p>
+<h2 id="独立">独立</h2>
+<p>如果<span class="math inline">\(A,B\)</span>满足<span class="math inline">\(P(A\cap B)=P(A)P(B)\)</span>，称<span class="math inline">\(A,B\)</span>独立。 并且可以推出<span class="math inline">\(P(A)=P(A|B)\)</span></p>
+<h1 id="性质">性质</h1>
+<ol type="1">
 <li><p>概率的加法公式</p>
-<p>$$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$</p>
-</li>
+<p><span class="math display">\[P(A\cup B)=P(A)+P(B)-P(A\cap B)\]</span></p></li>
 <li><p>并的界</p>
-<p>$$P(A\cup B)\leq P(A)+P(B)$$</p>
-</li>
+<p><span class="math display">\[P(A\cup B)\leq P(A)+P(B)\]</span></p></li>
 <li><p>全概率公式</p>
-<p>设$B_1B_2B_3\cdots B_n$是样本空间$S$中互不相交的一系列事件，并且满足$S=\bigcup_{k=1}^n B_k$，那么对于任意事件$A$</p>
-<p>$$P(A)=\sum_{k=1}^nP(A|B_k)P(B_k)$$</p>
-</li>
+<p>设<span class="math inline">\(B_1B_2B_3\cdots B_n\)</span>是样本空间<span class="math inline">\(S\)</span>中互不相交的一系列事件，并且满足<span class="math inline">\(S=\bigcup_{k=1}^n B_k\)</span>，那么对于任意事件<span class="math inline">\(A\)</span></p>
+<p><span class="math display">\[P(A)=\sum_{k=1}^nP(A|B_k)P(B_k)\]</span></p></li>
 </ol>
-<h1 id="平均值"><a href="#平均值" class="headerlink" title="平均值"></a>平均值</h1><h2 id="均值"><a href="#均值" class="headerlink" title="均值"></a>均值</h2><p>$$\sum_{x\in X(\Omega)}x\cdot Pr(X=x)$$</p>
+<h1 id="平均值">平均值</h1>
+<h2 id="均值">均值</h2>
+<p><span class="math display">\[\sum_{x\in X(\Omega)}x\cdot Pr(X=x)\]</span></p>
 <p>也就是期望值</p>
-<h2 id="中位数"><a href="#中位数" class="headerlink" title="中位数"></a>中位数</h2><p>满足</p>
-<p>$$Pr(X\leq x) \geq \frac{1}{2}且Pr(X\geq x) \geq \frac{1}{2}$$</p>
-<p>的所有$x\in X(\Omega)$组成的集合</p>
-<h2 id="众数"><a href="#众数" class="headerlink" title="众数"></a>众数</h2><p>满足</p>
-<p>$$Pr(X = x) \geq Pr(X=x^{‘}), \forall x^{‘}\in X(\Omega)$$</p>
-<p>的所有$x\in X(\Omega)$组成的集合</p>
-<h1 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h1><p>$$EX=\sum_{\omega \in \Omega}X(\omega)Pr(\omega)$$</p>
-<h2 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h2><p>$$E(X+Y)=\sum_{\omega \in \Omega}(X(\omega)+Y(\omega))Pr(\omega)=EX+EY$$</p>
-<p>$$E(\alpha X)=\alpha EX$$</p>
-<p>$$E(XY)=(EX)(EY),如果X和Y是独立的$$</p>
-<h1 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h1><p>$$VX=E((X-EX)^2)$$</p>
-<h2 id="标准差"><a href="#标准差" class="headerlink" title="标准差"></a>标准差</h2><p>$$\sigma=\sqrt{VX}$$</p>
-<h2 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h2><p>因为$(EX)$是常数，</p>
-<p>$$<br>\begin{array}{l}<br>VX\\<br>=E((X-EX)^2)\\<br>=E(X^2-2X(EX)+(EX)^2)\\<br>=E(X^2)-2(EX)(EX)+(EX)^2\\<br>=E(X^2)-(EX)^2<br>\end{array}<br>$$</p>
-<p>当$X$和$Y$为独立的随机变量时，</p>
-<p>$$<br>\begin{array}{l}<br>V(X+Y)\\<br>=E((X+Y)^2)-(EX+EY)^2\\<br>=E(X^2)+2(EX)(EY)+E(Y^2)-(EX)^2-2(EX)(EY)-(EY)^2\\<br>=E(X^2)-(EX)^2+E(Y^2)-(EY)^2\\<br>=VX+VY<br>\end{array}<br>$$</p>
-<h1 id="整数概率公式"><a href="#整数概率公式" class="headerlink" title="整数概率公式"></a>整数概率公式</h1><p>$$E(x)=\sum_{i=1}^{\infty}P(x\geq i)$$</p>
+<h2 id="中位数">中位数</h2>
+<p>满足</p>
+<p><span class="math display">\[Pr(X\leq x) \geq \frac{1}{2}且Pr(X\geq x) \geq \frac{1}{2}\]</span></p>
+<p>的所有<span class="math inline">\(x\in X(\Omega)\)</span>组成的集合</p>
+<h2 id="众数">众数</h2>
+<p>满足</p>
+<p><span class="math display">\[Pr(X = x) \geq Pr(X=x^{&#39;}), \forall x^{&#39;}\in X(\Omega)\]</span></p>
+<p>的所有<span class="math inline">\(x\in X(\Omega)\)</span>组成的集合</p>
+<h1 id="期望">期望</h1>
+<p><span class="math display">\[EX=\sum_{\omega \in \Omega}X(\omega)Pr(\omega)\]</span></p>
+<h2 id="性质-1">性质</h2>
+<p><span class="math display">\[E(X+Y)=\sum_{\omega \in \Omega}(X(\omega)+Y(\omega))Pr(\omega)=EX+EY\]</span></p>
+<p><span class="math display">\[E(\alpha X)=\alpha EX\]</span></p>
+<p><span class="math display">\[E(XY)=(EX)(EY),如果X和Y是独立的\]</span></p>
+<h1 id="方差">方差</h1>
+<p><span class="math display">\[VX=E((X-EX)^2)\]</span></p>
+<h2 id="标准差">标准差</h2>
+<p><span class="math display">\[\sigma=\sqrt{VX}\]</span></p>
+<h2 id="性质-2">性质</h2>
+<p>因为<span class="math inline">\((EX)\)</span>是常数，</p>
+<p><span class="math display">\[
+\begin{array}{l}
+VX\\\\
+=E((X-EX)^2)\\\\
+=E(X^2-2X(EX)+(EX)^2)\\\\
+=E(X^2)-2(EX)(EX)+(EX)^2\\\\
+=E(X^2)-(EX)^2
+\end{array}
+\]</span></p>
+<p>当<span class="math inline">\(X\)</span>和<span class="math inline">\(Y\)</span>为独立的随机变量时，</p>
+<p><span class="math display">\[
+\begin{array}{l}
+V(X+Y)\\\\
+=E((X+Y)^2)-(EX+EY)^2\\\\
+=E(X^2)+2(EX)(EY)+E(Y^2)-(EX)^2-2(EX)(EY)-(EY)^2\\\\
+=E(X^2)-(EX)^2+E(Y^2)-(EY)^2\\\\
+=VX+VY
+\end{array}
+\]</span></p>
+<h1 id="整数概率公式">整数概率公式</h1>
+<p><span class="math display">\[E(x)=\sum_{i=1}^{\infty}P(x\geq i)\]</span></p>
 <p>正整数随机变量的期望等于其分别大于等于所有数的概率之和</p>
-<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>$$E(x)=\sum_{i=1}^{\infty}iP(x=i)=\sum_{i=1}^{\infty}i[P(x\geq i)-P(x\geq i+1)]=\sum_{i=1}^{\infty}P(x\geq i)$$</p>
+<h2 id="证明">证明</h2>
+<p><span class="math display">\[E(x)=\sum_{i=1}^{\infty}iP(x=i)=\sum_{i=1}^{\infty}i[P(x\geq i)-P(x\geq i+1)]=\sum_{i=1}^{\infty}P(x\geq i)\]</span></p>
 
         
         </div>
@@ -318,7 +342,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/概率论/" data-id="cjq4wxiar000flr87rrsvyrnd" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/概率论/" data-id="cjq67bzs7000jo187np62sxmy" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
