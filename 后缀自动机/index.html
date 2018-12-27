@@ -5,18 +5,18 @@
     
     <title>后缀自动机 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069  我的模版：">
+    <meta name="description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
 <meta name="keywords" content="自动机,后缀自动机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="后缀自动机">
 <meta property="og:url" content="http://x.phoenixgs.cn/后缀自动机/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069  我的模版：">
+<meta property="og:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-27T07:44:13.201Z">
+<meta property="og:updated_time" content="2018-12-27T07:45:57.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后缀自动机">
-<meta name="twitter:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069  我的模版：">
+<meta name="twitter:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
     
 
     
@@ -264,6 +264,7 @@
 <li><p><a href="https://oi-wiki.org/string/sam/" class="uri" target="_blank" rel="noopener">https://oi-wiki.org/string/sam/</a></p></li>
 <li><p><a href="https://blog.csdn.net/qq_35649707/article/details/66473069" class="uri" target="_blank" rel="noopener">https://blog.csdn.net/qq_35649707/article/details/66473069</a></p></li>
 </ol>
+<a id="more"></a>
 <p>我的模版：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">extend</span><span class="params">(<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	knum++;</span><br><span class="line">	<span class="keyword">int</span> u = last;</span><br><span class="line">	<span class="keyword">int</span> v = knum;</span><br><span class="line">	last = knum;</span><br><span class="line">	len[v] = len[u] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (; u &amp;&amp; ! to[u][c]; u = pre[u])</span><br><span class="line">	&#123;</span><br><span class="line">		to[u][c] = v;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (! u)</span><br><span class="line">	&#123;</span><br><span class="line">		pre[v] = root;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> w = to[u][c];</span><br><span class="line">	<span class="keyword">if</span> (len[u] + <span class="number">1</span> == len[w])</span><br><span class="line">	&#123;</span><br><span class="line">		pre[v] = w;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	knum++;</span><br><span class="line">	<span class="keyword">int</span> neww = knum;</span><br><span class="line">	pre[neww] = pre[w];</span><br><span class="line">	len[neww] = len[u] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		to[neww][i] = to[w][i];</span><br><span class="line">	&#125;</span><br><span class="line">	pre[w] = pre[v] = neww;</span><br><span class="line">	<span class="keyword">for</span> (; u &amp;&amp; to[u][c] == w; u = pre[u])</span><br><span class="line">	&#123;</span><br><span class="line">		to[u][kkc] = neww;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//init</span></span><br><span class="line">	last = <span class="number">1</span>;</span><br><span class="line">	knum = <span class="number">1</span>;</span><br><span class="line">    root = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在这里我就写一下自己的理解和一些性质</p>
@@ -322,7 +323,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/后缀自动机/" data-id="cjq6ayfzp000e7987u0jygz7x" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/后缀自动机/" data-id="cjq6b1824000acz87bzky1if3" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
