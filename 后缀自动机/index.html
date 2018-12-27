@@ -3,19 +3,20 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>TodoList | PhoenixGS</title>
+    <title>后缀自动机 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Things:Done Things:Doing Things:Skip Content | State | Killed Date | :----: | :-----: | | 容斥及反演 | Doing | | 后缀自动机 | Doing | | 二进制分组 | | | 动态规划优化 | | | 最小表示 | | | 回文自动机 | | | FFT &amp;amp; NTT | | | Minmax">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TodoList">
-<meta property="og:url" content="http://x.phoenixgs.cn/todolist/index.html">
+    <meta name="description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069  我的模版：">
+<meta name="keywords" content="自动机,后缀自动机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="后缀自动机">
+<meta property="og:url" content="http://x.phoenixgs.cn/后缀自动机/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="Things:Done Things:Doing Things:Skip Content | State | Killed Date | :----: | :-----: | | 容斥及反演 | Doing | | 后缀自动机 | Doing | | 二进制分组 | | | 动态规划优化 | | | 最小表示 | | | 回文自动机 | | | FFT &amp;amp; NTT | | | Minmax">
+<meta property="og:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069  我的模版：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-26T08:23:38.320Z">
+<meta property="og:updated_time" content="2018-12-27T07:43:51.919Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TodoList">
-<meta name="twitter:description" content="Things:Done Things:Doing Things:Skip Content | State | Killed Date | :----: | :-----: | | 容斥及反演 | Doing | | 后缀自动机 | Doing | | 二进制分组 | | | 动态规划优化 | | | 最小表示 | | | 回文自动机 | | | FFT &amp;amp; NTT | | | Minmax">
+<meta name="twitter:title" content="后缀自动机">
+<meta name="twitter:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069  我的模版：">
     
 
     
@@ -218,7 +219,7 @@
 </aside>
 
             
-            <section id="main"><article id="todolist-" class="article article-type-todolist" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-后缀自动机" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -226,7 +227,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            TodoList
+            后缀自动机
         </h1>
     
 
@@ -235,14 +236,19 @@
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/todolist/index.html">
-            <time datetime="2018-12-26T08:23:38.320Z" itemprop="datePublished">2018-12-26</time>
+        <a href="/后缀自动机/">
+            <time datetime="2018-12-27T07:43:09.000Z" itemprop="datePublished">2018-12-27</time>
         </a>
     </div>
 
 
                         
                         
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/后缀自动机/">后缀自动机</a>, <a class="tag-link" href="/tags/自动机/">自动机</a>
+    </div>
+
                     </div>
                 
             </header>
@@ -251,23 +257,61 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><del>Things</del>:<code>Done</code></p>
-<p><strong>Things</strong>:<code>Doing</code></p>
-<p><em>Things</em>:<code>Skip</code></p>
-<div class="line-block">Content | State | Killed Date |<br>
-:----: | :-----: | |<br>
-<strong>容斥及反演</strong> | <code>Doing</code> | |<br>
-<strong>后缀自动机</strong> | <code>Doing</code> | |<br>
-二进制分组 | | |<br>
-动态规划优化 | | |<br>
-最小表示 | | |<br>
-回文自动机 | | |<br>
-FFT &amp; NTT | | |<br>
-Minmax 反演 | | |<br>
-弦图 | | |<br>
-DP | | |<br>
-斯特林数 | | |<br>
-<del>Min_25筛</del> | <code>Done</code> | 2018.11.30 |</div>
+            <h1 id="sam">SAM</h1>
+<p>关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。</p>
+<ol type="1">
+<li><p><a href="http://nirobc.com/20181224.pdf" class="uri" target="_blank" rel="noopener">http://nirobc.com/20181224.pdf</a></p></li>
+<li><p><a href="https://oi-wiki.org/string/sam/" class="uri" target="_blank" rel="noopener">https://oi-wiki.org/string/sam/</a></p></li>
+<li><p><a href="https://blog.csdn.net/qq_35649707/article/details/66473069" class="uri" target="_blank" rel="noopener">https://blog.csdn.net/qq_35649707/article/details/66473069</a></p></li>
+</ol>
+<p>我的模版：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">extend</span><span class="params">(<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	knum++;</span><br><span class="line">	<span class="keyword">int</span> u = last;</span><br><span class="line">	<span class="keyword">int</span> v = knum;</span><br><span class="line">	last = knum;</span><br><span class="line">	len[v] = len[u] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (; u &amp;&amp; ! to[u][c]; u = pre[u])</span><br><span class="line">	&#123;</span><br><span class="line">		to[u][c] = v;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (! u)</span><br><span class="line">	&#123;</span><br><span class="line">		pre[v] = root;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> w = to[u][c];</span><br><span class="line">	<span class="keyword">if</span> (len[u] + <span class="number">1</span> == len[w])</span><br><span class="line">	&#123;</span><br><span class="line">		pre[v] = w;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	knum++;</span><br><span class="line">	<span class="keyword">int</span> neww = knum;</span><br><span class="line">	pre[neww] = pre[w];</span><br><span class="line">	len[neww] = len[u] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		to[neww][i] = to[w][i];</span><br><span class="line">	&#125;</span><br><span class="line">	pre[w] = pre[v] = neww;</span><br><span class="line">	<span class="keyword">for</span> (; u &amp;&amp; to[u][c] == w; u = pre[u])</span><br><span class="line">	&#123;</span><br><span class="line">		to[u][kkc] = neww;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//init</span></span><br><span class="line">	last = <span class="number">1</span>;</span><br><span class="line">	knum = <span class="number">1</span>;</span><br><span class="line">    root = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这里我就写一下自己的理解和一些性质</p>
+<ul>
+<li><p>后缀自动机每个节点的状态为：后面还要输入哪些串就是一个后缀</p></li>
+<li><p>对于后缀自动机中每个节点所表示的字符串（起点到这个节点的所有字符串），是在原串中出现位置一模一样的所有字符串。按照长度排序后，是长度依次减一并且是前一个的后缀。比如：<span class="math inline">\(abcac, bcac, cac\)</span></p></li>
+<li><p>一个节点沿着<code>pre</code>一直走到起始节点的所有节点所表示的所有字符串，正好是最长的字符串的所有后缀</p></li>
+</ul>
+<h1 id="时间复杂度">时间复杂度</h1>
+<h2 id="状态数">状态数</h2>
+<p>状态数是<span class="math inline">\(O(n)\)</span>的，这十分显然。</p>
+<p>每个状态按照pre边连接可以变成一棵树。</p>
+<p>父子节点集合关系是包含的</p>
+<p>兄弟节点集合关系是无交的</p>
+<p>所以脑补一下，就可以发现状态个数最多就是二叉树的时候，也就只有<span class="math inline">\(2n-1\)</span>。。。</p>
+<h2 id="转移数">转移数</h2>
+<p>首先，一个十分显然的结论是，转移数最多为<span class="math inline">\(O(\Sigma * n)\)</span>，其中<span class="math inline">\(\Sigma\)</span>表示字符集大小</p>
+<p>有一个更加紧的上限：</p>
+<p><span class="math display">\[3n-4\; (对于n\geq 3)\]</span></p>
+<p>然后，考虑以下的事实：</p>
+<p>初始节点开始的最长的转移路径树</p>
+<p>节点数为<span class="math inline">\(2n-1\)</span>，那么边数即为<span class="math inline">\(2n-2\)</span></p>
+<p>考虑不在这棵树中的转移<span class="math inline">\(u\to v\)</span>，字符为<span class="math inline">\(y\)</span></p>
+<p>那么初始节点到<span class="math inline">\(u\)</span>的字典序最大字符串（最小应该也行，只要保证唯一）<span class="math inline">\(x\)</span>，以及<span class="math inline">\(v\)</span>到任意一个终止节点的最长字符串（同样也可以是最小）<span class="math inline">\(z\)</span>。</p>
+<p><span class="math inline">\(x+y+z\)</span>即为原串的一个后缀，后缀只有<span class="math inline">\(n-1\)</span>个，（原串这个后缀肯定在刚开始的树上）。</p>
+<p>因此转移数的上限即为<span class="math inline">\(3n-4\)</span></p>
+<p>能达到上限的字符串</p>
+<p><span class="math display">\[abb \dots bc\]</span></p>
+<h2 id="修改to的次数">修改<code>to</code>的次数</h2>
+<p>从上面的模版可以看出，现在除了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (; u &amp;&amp; to[u][c] == w; u = pre[u])</span><br><span class="line">&#123;</span><br><span class="line">    to[u][kkc] = neww;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这一段之外时间复杂度就是<span class="math inline">\(O(n)\)</span></p>
+<p>那么，这一段的总共的时间复杂度是多少呢？</p>
+<p>定义<span class="math inline">\(minlen(u)\)</span>表示为能走到<span class="math inline">\(u\)</span>的所有字符串的最小长度</p>
+<p>显然<span class="math inline">\(minlen\)</span>有一个性质：</p>
+<p><span class="math display">\[minlen(u)&gt;minlen(pre[u])&gt;minlen(pre[pre[u]])\cdots &gt; minlen(root) \quad (*)\]</span></p>
+<p>那么考虑<span class="math inline">\(minlen(pre[last])\)</span>这个东西</p>
+<p>如果执行到了这个<code>for</code>循环，那么<span class="math inline">\(pre[last]\)</span>就变成了<span class="math inline">\(neww\)</span></p>
+<p>可以发现这个<code>for</code>循环如果循环了<span class="math inline">\(k\)</span>次</p>
+<p>那么<span class="math inline">\(minlen(neww)\leq minlen(lastu)+1\)</span>，其中<span class="math inline">\(lastu\)</span>是<code>for</code>循环枚举的最后的<span class="math inline">\(u\)</span></p>
+<p>通过<span class="math inline">\((*)\)</span>可以知道<span class="math inline">\(minlen(lastu)\leq minlen(pre[last])-k\)</span></p>
+<p>那么<span class="math inline">\(minlen(pre[neww])\leq minlen(pre[last])-k+1\)</span></p>
+<p>其中<span class="math inline">\(+1\)</span>最多加<span class="math inline">\(n\)</span>次，<span class="math inline">\(minlen(pre[last])\)</span>的初值为<span class="math inline">\(0\)</span></p>
+<p>从而<code>for</code>循环执行的次数是<span class="math inline">\(O(n)\)</span>的</p>
+<h2 id="总结">总结</h2>
+<p>从上面三部分可知，构建后缀自动机的的时间复杂度为<span class="math inline">\(O(n)\)</span></p>
+<p>如果有不懂的欢迎打扰</p>
+<p>如果有哪位大佬能想出更好的证明方法的话，请告诉我QAQ</p>
 
         
         </div>
@@ -278,7 +322,7 @@ DP | | |<br>
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/todolist/index.html" data-id="cjq6ay2ur00015v87tb5qbnn4" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/后缀自动机/" data-id="cjq6ay2v2000b5v87zlr9jpud" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -351,6 +395,16 @@ DP | | |<br>
     </div>
     
         
+<nav id="article-nav">
+    
+    
+        <a href="/Min-25/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Min_25筛</div>
+        </a>
+    
+</nav>
+
 
     
 </article>
