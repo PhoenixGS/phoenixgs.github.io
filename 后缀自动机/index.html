@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="PhoenixGS">
 <meta property="og:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-27T07:45:57.633Z">
+<meta property="og:updated_time" content="2018-12-27T08:23:49.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后缀自动机">
 <meta name="twitter:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ  可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
@@ -270,8 +270,8 @@
 <p>在这里我就写一下自己的理解和一些性质</p>
 <ul>
 <li><p>后缀自动机每个节点的状态为：后面还要输入哪些串就是一个后缀</p></li>
-<li><p>对于后缀自动机中每个节点所表示的字符串（起点到这个节点的所有字符串），是在原串中出现位置一模一样的所有字符串。按照长度排序后，是长度依次减一并且是前一个的后缀。比如：<span class="math inline">\(abcac, bcac, cac\)</span></p></li>
-<li><p>一个节点沿着<code>pre</code>一直走到起始节点的所有节点所表示的所有字符串，正好是最长的字符串的所有后缀</p></li>
+<li><p>对于后缀自动机中每个节点所表示的字符串（起点到这个节点的所有字符串），是在原串中出现位置一模一样的所有字符串。按照长度排序后，是长度依次减一并且是前一个的后缀。比如：<span class="math inline">\(abcac, bcac, cac\)</span></p></li>
+<li><p>一个节点沿着<code>pre</code>一直走到起始节点的所有节点所表示的所有字符串，正好是最长的字符串的所有后缀</p></li>
 </ul>
 <h1 id="时间复杂度">时间复杂度</h1>
 <h2 id="状态数">状态数</h2>
@@ -284,12 +284,12 @@
 <p>首先，一个十分显然的结论是，转移数最多为<span class="math inline">\(O(\Sigma * n)\)</span>，其中<span class="math inline">\(\Sigma\)</span>表示字符集大小</p>
 <p>有一个更加紧的上限：</p>
 <p><span class="math display">\[3n-4\; (对于n\geq 3)\]</span></p>
-<p>然后，考虑以下的事实：</p>
+<p>然后，考虑以下的事实：</p>
 <p>初始节点开始的最长的转移路径树</p>
 <p>节点数为<span class="math inline">\(2n-1\)</span>，那么边数即为<span class="math inline">\(2n-2\)</span></p>
 <p>考虑不在这棵树中的转移<span class="math inline">\(u\to v\)</span>，字符为<span class="math inline">\(y\)</span></p>
-<p>那么初始节点到<span class="math inline">\(u\)</span>的字典序最大字符串（最小应该也行，只要保证唯一）<span class="math inline">\(x\)</span>，以及<span class="math inline">\(v\)</span>到任意一个终止节点的最长字符串（同样也可以是最小）<span class="math inline">\(z\)</span>。</p>
-<p><span class="math inline">\(x+y+z\)</span>即为原串的一个后缀，后缀只有<span class="math inline">\(n-1\)</span>个，（原串这个后缀肯定在刚开始的树上）。</p>
+<p>那么初始节点到<span class="math inline">\(u\)</span>的字典序最大字符串（最小应该也行，只要保证唯一）<span class="math inline">\(x\)</span>，以及<span class="math inline">\(v\)</span>到任意一个终止节点的最长字符串（同样也可以是最小）<span class="math inline">\(z\)</span>。</p>
+<p><span class="math inline">\(x+y+z\)</span>即为原串的一个后缀，后缀只有<span class="math inline">\(n-1\)</span>个，（原串这个后缀肯定在刚开始的树上）。</p>
 <p>因此转移数的上限即为<span class="math inline">\(3n-4\)</span></p>
 <p>能达到上限的字符串</p>
 <p><span class="math display">\[abb \dots bc\]</span></p>
@@ -312,7 +312,7 @@
 <h2 id="总结">总结</h2>
 <p>从上面三部分可知，构建后缀自动机的的时间复杂度为<span class="math inline">\(O(n)\)</span></p>
 <p>如果有不懂的欢迎打扰</p>
-<p>如果有哪位大佬能想出更好的证明方法的话，请务必告诉我QAQ</p>
+<p>如果有哪位大佬能想出更好的证明方法的话，请务必告诉我QAQ</p>
 
         
         </div>
@@ -323,7 +323,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/后缀自动机/" data-id="cjq6bzw0m000f7p87b729s8kd" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/后缀自动机/" data-id="cjq6cdkgk0009kk87lv1k7t40" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
