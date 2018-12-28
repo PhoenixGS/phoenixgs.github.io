@@ -5,18 +5,18 @@
     
     <title>后缀自动机 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ 可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
+    <meta name="description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ 可以去看看参考资料里的几篇文章，感觉学过OI的应该都能看懂。。 在这里我就写一下自己的理解和一些性质和应用">
 <meta name="keywords" content="算法,自动机,后缀自动机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="后缀自动机">
 <meta property="og:url" content="http://x.phoenixgs.cn/后缀自动机/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ 可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
+<meta property="og:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ 可以去看看参考资料里的几篇文章，感觉学过OI的应该都能看懂。。 在这里我就写一下自己的理解和一些性质和应用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-27T10:35:40.589Z">
+<meta property="og:updated_time" content="2018-12-28T07:16:26.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后缀自动机">
-<meta name="twitter:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ 可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。  http://nirobc.com/20181224.pdf https://oi-wiki.org/string/sam/ https://blog.csdn.net/qq_35649707/article/details/66473069">
+<meta name="twitter:description" content="SAM 关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ 可以去看看参考资料里的几篇文章，感觉学过OI的应该都能看懂。。 在这里我就写一下自己的理解和一些性质和应用">
     
 
     
@@ -259,21 +259,11 @@
             
             <h1 id="sam">SAM</h1>
 <p>关于后缀自动机整个算法，在这了就不多说了，感觉别人写的都很好QAQ</p>
-<p>可以去看看下面几篇文章，感觉学过OI的应该都能看懂。。</p>
-<ol type="1">
-<li><p><a href="http://nirobc.com/20181224.pdf" class="uri" target="_blank" rel="noopener">http://nirobc.com/20181224.pdf</a></p></li>
-<li><p><a href="https://oi-wiki.org/string/sam/" class="uri" target="_blank" rel="noopener">https://oi-wiki.org/string/sam/</a></p></li>
-<li><p><a href="https://blog.csdn.net/qq_35649707/article/details/66473069" class="uri" target="_blank" rel="noopener">https://blog.csdn.net/qq_35649707/article/details/66473069</a></p></li>
-</ol>
+<p>可以去看看参考资料里的几篇文章，感觉学过OI的应该都能看懂。。</p>
+<p>在这里我就写一下自己的理解和一些性质和应用</p>
 <a id="more"></a>
-<p>我的模版：</p>
+<h1 id="我的模版">我的模版</h1>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">extend</span><span class="params">(<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	knum++;</span><br><span class="line">	<span class="keyword">int</span> u = last;</span><br><span class="line">	<span class="keyword">int</span> v = knum;</span><br><span class="line">	last = knum;</span><br><span class="line">	len[v] = len[u] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (; u &amp;&amp; ! to[u][c]; u = pre[u])</span><br><span class="line">	&#123;</span><br><span class="line">		to[u][c] = v;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (! u)</span><br><span class="line">	&#123;</span><br><span class="line">		pre[v] = root;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> w = to[u][c];</span><br><span class="line">	<span class="keyword">if</span> (len[u] + <span class="number">1</span> == len[w])</span><br><span class="line">	&#123;</span><br><span class="line">		pre[v] = w;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	knum++;</span><br><span class="line">	<span class="keyword">int</span> neww = knum;</span><br><span class="line">	pre[neww] = pre[w];</span><br><span class="line">	len[neww] = len[u] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		to[neww][i] = to[w][i];</span><br><span class="line">	&#125;</span><br><span class="line">	pre[w] = pre[v] = neww;</span><br><span class="line">	<span class="keyword">for</span> (; u &amp;&amp; to[u][c] == w; u = pre[u])</span><br><span class="line">	&#123;</span><br><span class="line">		to[u][kkc] = neww;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//init</span></span><br><span class="line">	last = <span class="number">1</span>;</span><br><span class="line">	knum = <span class="number">1</span>;</span><br><span class="line">    root = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这里我就写一下自己的理解和一些性质</p>
-<ul>
-<li><p>后缀自动机每个节点的状态为：后面还要输入哪些串就是一个后缀</p></li>
-<li><p>对于后缀自动机中每个节点所表示的字符串（起点到这个节点的所有字符串），是在原串中出现位置一模一样的所有字符串。按照长度排序后，是长度依次减一并且是前一个的后缀。比如：<span class="math inline">\(abcac, bcac, cac\)</span></p></li>
-<li><p>一个节点沿着<code>pre</code>一直走到起始节点的所有节点所表示的所有字符串，正好是最长的字符串的所有后缀</p></li>
-</ul>
 <h1 id="时间复杂度">时间复杂度</h1>
 <h2 id="状态数">状态数</h2>
 <p>状态数是<span class="math inline">\(O(n)\)</span>的，这十分显然。</p>
@@ -314,6 +304,41 @@
 <p>从上面三部分可知，构建后缀自动机的的时间复杂度为<span class="math inline">\(O(n)\)</span></p>
 <p>如果有不懂的欢迎打扰</p>
 <p>如果有哪位大佬能想出更好的证明方法的话，请务必告诉我QAQ</p>
+<h1 id="一些性质及应用">一些性质及应用</h1>
+<ul>
+<li><p>后缀自动机每个节点的状态为：后面还要输入哪些串就是一个后缀</p></li>
+<li><p>对于后缀自动机中每个节点所表示的字符串（起点到这个节点的所有字符串），是在原串中出现位置一模一样的所有字符串。按照长度排序后，是长度依次减一并且是前一个的后缀。比如：<span class="math inline">\(abcac, bcac, cac\)</span></p></li>
+<li><p>一个节点沿着<code>pre</code>一直走到起始节点的所有节点所表示的所有字符串，正好是最长的字符串的所有后缀</p></li>
+</ul>
+<h2 id="本质不同的字串个数">本质不同的字串个数</h2>
+<p>答案显然是<span class="math inline">\(\sum_u len[u] - len[pre[u]]\)</span></p>
+<h2 id="字符串循环移位的最小表示">字符串循环移位的最小表示</h2>
+<p>求<span class="math inline">\(S\)</span>的循环移位的最小表示</p>
+<p>将<span class="math inline">\(S+S\)</span>建一个后缀自动机</p>
+<p>然后从起始节点开始贪心每次选最小的出边，选择<span class="math inline">\(|S|\)</span>次后得到的字符串就是最小表示</p>
+<h2 id="求right集合">求<span class="math inline">\(right\)</span>集合</h2>
+<p>可以在每次<code>extend</code>之后令<code>size[last] = 1</code>，然后按照<code>pre</code>边可以求出每个状态<span class="math inline">\(right\)</span>集合的大小</p>
+<p>如果只是想单纯地输出每个状态的集合的话，可以直接沿着<code>pre</code>边的反向边求出<span class="math inline">\(right\)</span>集合。因为前面也已经说过，走到的状态数最多只有<span class="math inline">\(2|right|-1\)</span>个</p>
+<p>当然也可以利用线段树合并搞出每个状态具体的<span class="math inline">\(right\)</span>集合，这样就会多一个<span class="math inline">\(log\)</span></p>
+<p>用拓扑排序的写法写起来比较简单，也可以用DFS</p>
+<h2 id="求两个串的最长公共子串">求两个串的最长公共子串</h2>
+<p>求<span class="math inline">\(S\)</span>和<span class="math inline">\(T\)</span>的最长公共子串</p>
+<p>可以先对<span class="math inline">\(S\)</span>建一个后缀自动机</p>
+<p>然后拿<span class="math inline">\(T\)</span>在自动机上跑，如果有转移则转，没有转移就沿着<code>pre</code>向上跳<del>（话说这不是自动机的基本操作吗。。。）</del></p>
+<p>每次转移后拿<code>len</code>更新答案</p>
+<h2 id="推广广义后缀自动机">推广：广义后缀自动机</h2>
+<p>说是广义，其实就是建多个串<span class="math inline">\(S_i\)</span>的后缀自动机。。。</p>
+<p>那么应该怎么建呢？</p>
+<p>一种十分简单粗暴的方法就是将<span class="math inline">\(S_1+&#39;\#&#39;+S_2+&#39;\#&#39;+\cdots +&#39;\#&#39;+S_k\)</span>建后缀自动机</p>
+<p>还有一种方法，就是将原来的模版改成这样：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">extend</span><span class="params">(<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> u = last;</span><br><span class="line">	<span class="keyword">if</span> (to[u][c])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> w = to[u][c];</span><br><span class="line">		<span class="keyword">if</span> (len[u] + <span class="number">1</span> == len[w])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> w;</span><br><span class="line">		&#125;</span><br><span class="line">		knum++;</span><br><span class="line">		<span class="keyword">int</span> neww = knum;</span><br><span class="line">		pre[neww] = pre[w];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			to[neww][i] = to[w][i];</span><br><span class="line">		&#125;</span><br><span class="line">		len[neww] = len[u] + <span class="number">1</span>;</span><br><span class="line">		pre[w] = neww;</span><br><span class="line">		<span class="keyword">for</span> (; u &amp;&amp; to[u][c] == w; u = pre[u])</span><br><span class="line">		&#123;</span><br><span class="line">			to[u][c] = neww;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> neww;</span><br><span class="line">	&#125;</span><br><span class="line">	knum++;</span><br><span class="line">	<span class="keyword">int</span> v = knum;</span><br><span class="line">	last = knum;</span><br><span class="line">	len[v] = len[u] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (; u &amp;&amp; ! to[u][c]; u = pre[u])</span><br><span class="line">	&#123;</span><br><span class="line">		to[u][c] = v;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (! u)</span><br><span class="line">	&#123;</span><br><span class="line">		pre[v] = root;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> w = to[u][c];</span><br><span class="line">	<span class="keyword">if</span> (len[u] + <span class="number">1</span> == len[w])</span><br><span class="line">	&#123;</span><br><span class="line">		pre[v] = w;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	knum++;</span><br><span class="line">	<span class="keyword">int</span> neww = knum;</span><br><span class="line">	pre[neww] = pre[w];</span><br><span class="line">	len[neww] = len[u] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		to[neww][i] = to[w][i];</span><br><span class="line">	&#125;</span><br><span class="line">	pre[w] = pre[v] = neww;</span><br><span class="line">	<span class="keyword">for</span> (; u &amp;&amp; to[u][c] == w; u = pre[u])</span><br><span class="line">	&#123;</span><br><span class="line">		to[u][kkc] = neww;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//init</span></span><br><span class="line">	last = <span class="number">1</span>;</span><br><span class="line">	knum = <span class="number">1</span>;</span><br><span class="line">    root = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i ; ;)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//add Si</span></span><br><span class="line">		last = root;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每次添加完一个字符串后将<code>last</code>赋为<code>root</code>就行了</p>
+<h1 id="参考资料">参考资料</h1>
+<ol type="1">
+<li><p><a href="http://nirobc.com/20181224.pdf" class="uri" target="_blank" rel="noopener">http://nirobc.com/20181224.pdf</a></p></li>
+<li><p><a href="https://oi-wiki.org/string/sam/" class="uri" target="_blank" rel="noopener">https://oi-wiki.org/string/sam/</a></p></li>
+<li><p><a href="https://blog.csdn.net/qq_35649707/article/details/66473069" class="uri" target="_blank" rel="noopener">https://blog.csdn.net/qq_35649707/article/details/66473069</a></p></li>
+</ol>
 
         
         </div>
@@ -324,7 +349,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/后缀自动机/" data-id="cjq6q86kq000giu87xrghxeq6" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/后缀自动机/" data-id="cjq7piz01000eni871o6fjee1" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
