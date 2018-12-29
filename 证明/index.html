@@ -117,6 +117,15 @@
             
             <div class="navbar-end">
                 
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="主站" href="http://phoenixgs.cn">
+                        
+                        <i class="fas fa-home"></i>
+                        
+                    </a>
+                    
+                
                 
                 <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
@@ -170,24 +179,17 @@
 <h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>证明$\sqrt{2}$是无理数</p>
 <h4 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h4><p>设$p$是命题“$\sqrt{2}$是无理数“。假定$\neg p$为真，即“$\sqrt{2}$为有理数，则存在整数$a$和$b$满足$\sqrt{2}=\frac{a}{b}$其中$b \neq 0$并且$a$和$b$没有公因子</p>
 <p>等式两端取平方，则</p>
-<p>$$2=\frac{a^2}{b^2}$$</p>
-<p>因此</p>
-<p>$$2b^2=a^2$$</p>
-<p>可得$a^2$是偶数，通过反证法可得出$a$也是偶数，那么$\exists c$有$a=2c$。那么</p>
-<p>$$2b^2=4c^2$$</p>
-<p>等式两端除以$2$得</p>
-<p>$$b^2=2c^2$$</p>
-<p>同理可得$b$是偶数。</p>
+<script type="math/tex; mode=display">2=\frac{a^2}{b^2}</script><p>因此</p>
+<script type="math/tex; mode=display">2b^2=a^2</script><p>可得$a^2$是偶数，通过反证法可得出$a$也是偶数，那么$\exists c$有$a=2c$。那么</p>
+<script type="math/tex; mode=display">2b^2=4c^2</script><p>等式两端除以$2$得</p>
+<script type="math/tex; mode=display">b^2=2c^2</script><p>同理可得$b$是偶数。</p>
 <p>我们证明了假设$\neg p$导致等式$\sqrt{2}=\frac{a}{b}$并且$a$和$b$没有公因子，又推出$a$和$b$有公因子$2$，推出了矛盾，因此证明了$p$为真</p>
 <h1 id="等价证明法"><a href="#等价证明法" class="headerlink" title="等价证明法"></a>等价证明法</h1><p>为了证明一个双条件命题的定理，即形如$p \leftrightarrow q$的语句，那么只需证明$p \to q$和$q \to p$都是真的。</p>
 <p>因为</p>
-<p>$$(p \leftrightarrow q) \leftrightarrow(p \to q) \land (q \to p)$$</p>
-<h1 id="反例证明法"><a href="#反例证明法" class="headerlink" title="反例证明法"></a>反例证明法</h1><p>如果要证明形如$\forall x P(x)$的语句为假，只要能找到一个反例$x$使$P(x)$为假</p>
+<script type="math/tex; mode=display">(p \leftrightarrow q) \leftrightarrow(p \to q) \land (q \to p)</script><h1 id="反例证明法"><a href="#反例证明法" class="headerlink" title="反例证明法"></a>反例证明法</h1><p>如果要证明形如$\forall x P(x)$的语句为假，只要能找到一个反例$x$使$P(x)$为假</p>
 <h1 id="穷举证明法和分情形证明法"><a href="#穷举证明法和分情形证明法" class="headerlink" title="穷举证明法和分情形证明法"></a>穷举证明法和分情形证明法</h1><p>为了证明如下的条件语句</p>
-<p>$$(p_1 \lor p_2 \lor \cdots \lor p_n) \to q$$</p>
-<p>可以用永真式</p>
-<p>$$[(p_1 \lor p_2 \lor \cdots \lor p_n) \to q] \leftrightarrow [(p_1 \to q) \land (p_2 \to q) \land \cdots \land (p_n \to q)]$$</p>
-<p>这种论证称为<strong>分情形证明法</strong></p>
+<script type="math/tex; mode=display">(p_1 \lor p_2 \lor \cdots \lor p_n) \to q</script><p>可以用永真式</p>
+<script type="math/tex; mode=display">[(p_1 \lor p_2 \lor \cdots \lor p_n) \to q] \leftrightarrow [(p_1 \to q) \land (p_2 \to q) \land \cdots \land (p_n \to q)]</script><p>这种论证称为<strong>分情形证明法</strong></p>
 <h2 id="穷举证明法"><a href="#穷举证明法" class="headerlink" title="穷举证明法"></a>穷举证明法</h2><p>如果一些证明只需通过检验相对少量的例子来证明，那么这样的证明叫做<strong>穷举证明法</strong>，一个穷举证明法是分情形证明的特例</p>
 <h2 id="分情形证明法"><a href="#分情形证明法" class="headerlink" title="分情形证明法"></a>分情形证明法</h2><p>分情形证明一定要覆盖定理中出现的所有可能情况</p>
 <h1 id="存在性证明"><a href="#存在性证明" class="headerlink" title="存在性证明"></a>存在性证明</h1><p>$\exists xP(x)$这类命题的证明称为<strong>存在性证明</strong>。</p>
@@ -216,25 +218,6 @@
 </div>
 
 
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="http://phoenixgs-1253902147.coscd.myqcloud.com/20181229141044.JPG" alt="微信"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
@@ -266,154 +249,221 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
-
 <div class="card widget">
     <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="PhoenixGS">
+                    
+                    <p class="is-size-4 is-block">
+                        PhoenixGS
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Genius
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Yuyao, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        16
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/PhoenixGS/">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/PhoenixGS/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Mail" href="mailto:thestarrydream@gmail.com">
+                
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com/FangKechen">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Telegram" href="https://t.me/PhoenixGS">
+                
+                <i class="fab fa-telegram"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Steam" href="https://steamcommunity.com/id/phoenixgs">
+                
+                <i class="fab fa-steam"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
         <div class="menu">
-        <h3 class="menu-label">
-            链接
-        </h3>
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="http://phoenixgs.cn" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">主站</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">phoenixgs.cn</span>
-                    </span>
-                </a>
-            </li>
-        
-        </ul>
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#证明的方法">
+        <span class="has-mr-6">1</span>
+        <span>证明的方法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#直接证明法">
+        <span class="has-mr-6">1.1</span>
+        <span>直接证明法</span>
+        </a></li><li>
+        <a class="is-flex" href="#反证法">
+        <span class="has-mr-6">1.2</span>
+        <span>反证法</span>
+        </a></li><li>
+        <a class="is-flex" href="#空证明和平凡证明">
+        <span class="has-mr-6">1.3</span>
+        <span>空证明和平凡证明</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#空证明">
+        <span class="has-mr-6">1.3.1</span>
+        <span>空证明</span>
+        </a></li><li>
+        <a class="is-flex" href="#平凡证明">
+        <span class="has-mr-6">1.3.2</span>
+        <span>平凡证明</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#归谬证明法">
+        <span class="has-mr-6">1.4</span>
+        <span>归谬证明法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#举例">
+        <span class="has-mr-6">1.4.1</span>
+        <span>举例</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#等价证明法">
+        <span class="has-mr-6">2</span>
+        <span>等价证明法</span>
+        </a></li><li>
+        <a class="is-flex" href="#反例证明法">
+        <span class="has-mr-6">3</span>
+        <span>反例证明法</span>
+        </a></li><li>
+        <a class="is-flex" href="#穷举证明法和分情形证明法">
+        <span class="has-mr-6">4</span>
+        <span>穷举证明法和分情形证明法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#穷举证明法">
+        <span class="has-mr-6">4.1</span>
+        <span>穷举证明法</span>
+        </a></li><li>
+        <a class="is-flex" href="#分情形证明法">
+        <span class="has-mr-6">4.2</span>
+        <span>分情形证明法</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#存在性证明">
+        <span class="has-mr-6">5</span>
+        <span>存在性证明</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#一个非构造性的存在性证明">
+        <span class="has-mr-6">5.1</span>
+        <span>一个非构造性的存在性证明</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#证明-1">
+        <span class="has-mr-6">5.1.1</span>
+        <span>证明</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#唯一性证明">
+        <span class="has-mr-6">6</span>
+        <span>唯一性证明</span>
+        </a></li></ul>
         </div>
     </div>
 </div>
 
-
     
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/更新主题/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="更新主题">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-29T05:18:49.000Z">2018-12-29</time></div>
-                    <a href="/更新主题/" class="has-link-black-ter is-size-6">更新主题</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/花里胡哨的二项式系数/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="花里胡哨的二项式系数">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-29T04:06:36.000Z">2018-12-29</time></div>
-                    <a href="/花里胡哨的二项式系数/" class="has-link-black-ter is-size-6">花里胡哨的二项式系数</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/一个关于整值函数的结论/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一个关于整值函数的结论">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-28T16:28:50.000Z">2018-12-29</time></div>
-                    <a href="/一个关于整值函数的结论/" class="has-link-black-ter is-size-6">一个关于整值函数的结论</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/多项式求逆/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="多项式求逆">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-27T13:07:54.000Z">2018-12-27</time></div>
-                    <a href="/多项式求逆/" class="has-link-black-ter is-size-6">多项式求逆</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/FFT与NTT/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="FFT与NTT">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-27T13:05:58.000Z">2018-12-27</time></div>
-                    <a href="/FFT与NTT/" class="has-link-black-ter is-size-6">FFT与NTT</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
     
+        <div class="column-right-shadow is-hidden-widescreen ">
         
+            
+
+
+        
+            
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 10px;">关于本站</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
+        <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 13.33px;">关于本站</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
     </div>
 </div>
 
-    
-        <div class="card widget">
+        
+            <div class="card widget">
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
@@ -427,7 +477,7 @@
                     <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -491,203 +541,6 @@
         </div>
     </div>
 </div>
-    
-    
-        <div class="column-right-shadow is-hidden-widescreen is-sticky">
-        
-            
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered">
-                <div>
-                    <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="PhoenixGS">
-                    
-                    <p class="is-size-4 is-block">
-                        PhoenixGS
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        Genius
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Yuyao, China</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        文章
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        15
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        分类
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        0
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        标签
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        11
-                    </p>
-                </div>
-            </div>
-        </nav>
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/PhoenixGS/">
-                关注我</a>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Github" href="https://github.com/PhoenixGS/">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Mail" href="mailto:thestarrydream@gmail.com">
-                
-                <i class="fas fa-envelope"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Twitter" href="https://twitter.com/FangKechen">
-                
-                <i class="fab fa-twitter"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Telegram" href="https://t.me/PhoenixGS">
-                
-                <i class="fab fa-telegram"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Steam" href="https://steamcommunity.com/id/phoenixgs">
-                
-                <i class="fab fa-steam"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="RSS" href="/atom.xml">
-                
-                <i class="fas fa-rss"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
-        
-            
-<div class="card widget" id="toc">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                目录
-            </h3>
-            <ul class="menu-list"><li>
-        <a class="is-flex" href="#证明的方法">
-        <span class="has-mr-6">1</span>
-        <span>证明的方法</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#直接证明法">
-        <span class="has-mr-6">1.1</span>
-        <span>直接证明法</span>
-        </a></li><li>
-        <a class="is-flex" href="#反证法">
-        <span class="has-mr-6">1.2</span>
-        <span>反证法</span>
-        </a></li><li>
-        <a class="is-flex" href="#空证明和平凡证明">
-        <span class="has-mr-6">1.3</span>
-        <span>空证明和平凡证明</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#空证明">
-        <span class="has-mr-6">1.3.1</span>
-        <span>空证明</span>
-        </a></li><li>
-        <a class="is-flex" href="#平凡证明">
-        <span class="has-mr-6">1.3.2</span>
-        <span>平凡证明</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#归谬证明法">
-        <span class="has-mr-6">1.4</span>
-        <span>归谬证明法</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#举例">
-        <span class="has-mr-6">1.4.1</span>
-        <span>举例</span>
-        </a></li></ul></li></ul></li><li>
-        <a class="is-flex" href="#等价证明法">
-        <span class="has-mr-6">2</span>
-        <span>等价证明法</span>
-        </a></li><li>
-        <a class="is-flex" href="#反例证明法">
-        <span class="has-mr-6">3</span>
-        <span>反例证明法</span>
-        </a></li><li>
-        <a class="is-flex" href="#穷举证明法和分情形证明法">
-        <span class="has-mr-6">4</span>
-        <span>穷举证明法和分情形证明法</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#穷举证明法">
-        <span class="has-mr-6">4.1</span>
-        <span>穷举证明法</span>
-        </a></li><li>
-        <a class="is-flex" href="#分情形证明法">
-        <span class="has-mr-6">4.2</span>
-        <span>分情形证明法</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#存在性证明">
-        <span class="has-mr-6">5</span>
-        <span>存在性证明</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#一个非构造性的存在性证明">
-        <span class="has-mr-6">5.1</span>
-        <span>一个非构造性的存在性证明</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#证明-1">
-        <span class="has-mr-6">5.1.1</span>
-        <span>证明</span>
-        </a></li></ul></li></ul></li><li>
-        <a class="is-flex" href="#唯一性证明">
-        <span class="has-mr-6">6</span>
-        <span>唯一性证明</span>
-        </a></li></ul>
-        </div>
-    </div>
-</div>
-
         
         </div>
     
@@ -698,201 +551,101 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+
+
     
         
 <div class="card widget">
     <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered">
-                <div>
-                    <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="PhoenixGS">
-                    
-                    <p class="is-size-4 is-block">
-                        PhoenixGS
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        Genius
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Yuyao, China</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        文章
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        15
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        分类
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        0
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        标签
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        11
-                    </p>
-                </div>
-            </div>
-        </nav>
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/PhoenixGS/">
-                关注我</a>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Github" href="https://github.com/PhoenixGS/">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Mail" href="mailto:thestarrydream@gmail.com">
-                
-                <i class="fas fa-envelope"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Twitter" href="https://twitter.com/FangKechen">
-                
-                <i class="fab fa-twitter"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Telegram" href="https://t.me/PhoenixGS">
-                
-                <i class="fab fa-telegram"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Steam" href="https://steamcommunity.com/id/phoenixgs">
-                
-                <i class="fab fa-steam"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="RSS" href="/atom.xml">
-                
-                <i class="fas fa-rss"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
-    
-        
-<div class="card widget" id="toc">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                目录
-            </h3>
-            <ul class="menu-list"><li>
-        <a class="is-flex" href="#证明的方法">
-        <span class="has-mr-6">1</span>
-        <span>证明的方法</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#直接证明法">
-        <span class="has-mr-6">1.1</span>
-        <span>直接证明法</span>
-        </a></li><li>
-        <a class="is-flex" href="#反证法">
-        <span class="has-mr-6">1.2</span>
-        <span>反证法</span>
-        </a></li><li>
-        <a class="is-flex" href="#空证明和平凡证明">
-        <span class="has-mr-6">1.3</span>
-        <span>空证明和平凡证明</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#空证明">
-        <span class="has-mr-6">1.3.1</span>
-        <span>空证明</span>
-        </a></li><li>
-        <a class="is-flex" href="#平凡证明">
-        <span class="has-mr-6">1.3.2</span>
-        <span>平凡证明</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#归谬证明法">
-        <span class="has-mr-6">1.4</span>
-        <span>归谬证明法</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#举例">
-        <span class="has-mr-6">1.4.1</span>
-        <span>举例</span>
-        </a></li></ul></li></ul></li><li>
-        <a class="is-flex" href="#等价证明法">
-        <span class="has-mr-6">2</span>
-        <span>等价证明法</span>
-        </a></li><li>
-        <a class="is-flex" href="#反例证明法">
-        <span class="has-mr-6">3</span>
-        <span>反例证明法</span>
-        </a></li><li>
-        <a class="is-flex" href="#穷举证明法和分情形证明法">
-        <span class="has-mr-6">4</span>
-        <span>穷举证明法和分情形证明法</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#穷举证明法">
-        <span class="has-mr-6">4.1</span>
-        <span>穷举证明法</span>
-        </a></li><li>
-        <a class="is-flex" href="#分情形证明法">
-        <span class="has-mr-6">4.2</span>
-        <span>分情形证明法</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#存在性证明">
-        <span class="has-mr-6">5</span>
-        <span>存在性证明</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#一个非构造性的存在性证明">
-        <span class="has-mr-6">5.1</span>
-        <span>一个非构造性的存在性证明</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#证明-1">
-        <span class="has-mr-6">5.1.1</span>
-        <span>证明</span>
-        </a></li></ul></li></ul></li><li>
-        <a class="is-flex" href="#唯一性证明">
-        <span class="has-mr-6">6</span>
-        <span>唯一性证明</span>
-        </a></li></ul>
-        </div>
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 13.33px;">关于本站</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
     </div>
 </div>
 
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
     
     
 </div>

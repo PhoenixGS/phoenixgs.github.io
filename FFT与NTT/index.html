@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="快速傅立叶变换 FFT对于两个多项式 $$A(x)=\sum_{i=0}^{N-1}a_ix^i$$ $$B(x)=\sum_{i=0}^{N-1}b_ix^i$$ FFT可以在$O(nlgn)$的时间内求出 $$C(x)=A(x)*B(x)=\sum_{i=0}^{2(N-1)}c_ix^i$$ 其中$c_i=\sum_{j=0}^ia_jb_{i-j}$">
+    <meta name="description" content="快速傅立叶变换 FFT对于两个多项式 A(x)=\sum_{i=0}^{N-1}a_ix^iB(x)=\sum_{i=0}^{N-1}b_ix^iFFT可以在$O(nlgn)$的时间内求出 C(x)=A(x)*B(x)=\sum_{i=0}^{2(N-1)}c_ix^i其中$ci=\sum{j=0}^iajb{i-j}$">
 <meta name="keywords" content="数学,FFT与NTT,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FFT与NTT">
 <meta property="og:url" content="http://x.phoenixgs.cn/FFT与NTT/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="快速傅立叶变换 FFT对于两个多项式 $$A(x)=\sum_{i=0}^{N-1}a_ix^i$$ $$B(x)=\sum_{i=0}^{N-1}b_ix^i$$ FFT可以在$O(nlgn)$的时间内求出 $$C(x)=A(x)*B(x)=\sum_{i=0}^{2(N-1)}c_ix^i$$ 其中$c_i=\sum_{j=0}^ia_jb_{i-j}$">
+<meta property="og:description" content="快速傅立叶变换 FFT对于两个多项式 A(x)=\sum_{i=0}^{N-1}a_ix^iB(x)=\sum_{i=0}^{N-1}b_ix^iFFT可以在$O(nlgn)$的时间内求出 C(x)=A(x)*B(x)=\sum_{i=0}^{2(N-1)}c_ix^i其中$ci=\sum{j=0}^iajb{i-j}$">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-12-29T05:58:27.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FFT与NTT">
-<meta name="twitter:description" content="快速傅立叶变换 FFT对于两个多项式 $$A(x)=\sum_{i=0}^{N-1}a_ix^i$$ $$B(x)=\sum_{i=0}^{N-1}b_ix^i$$ FFT可以在$O(nlgn)$的时间内求出 $$C(x)=A(x)*B(x)=\sum_{i=0}^{2(N-1)}c_ix^i$$ 其中$c_i=\sum_{j=0}^ia_jb_{i-j}$">
+<meta name="twitter:description" content="快速傅立叶变换 FFT对于两个多项式 A(x)=\sum_{i=0}^{N-1}a_ix^iB(x)=\sum_{i=0}^{N-1}b_ix^iFFT可以在$O(nlgn)$的时间内求出 C(x)=A(x)*B(x)=\sum_{i=0}^{2(N-1)}c_ix^i其中$ci=\sum{j=0}^iajb{i-j}$">
 
 
 
@@ -117,6 +117,15 @@
             
             <div class="navbar-end">
                 
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="主站" href="http://phoenixgs.cn">
+                        
+                        <i class="fas fa-home"></i>
+                        
+                    </a>
+                    
+                
                 
                 <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
@@ -160,36 +169,35 @@
         </h1>
         <div class="content">
             <h1 id="快速傅立叶变换-FFT"><a href="#快速傅立叶变换-FFT" class="headerlink" title="快速傅立叶变换 FFT"></a>快速傅立叶变换 FFT</h1><p>对于两个多项式</p>
-<p>$$A(x)=\sum_{i=0}^{N-1}a_ix^i$$</p>
-<p>$$B(x)=\sum_{i=0}^{N-1}b_ix^i$$</p>
-<p>FFT可以在$O(nlgn)$的时间内求出</p>
-<p>$$C(x)=A(x)*B(x)=\sum_{i=0}^{2(N-1)}c_ix^i$$</p>
-<p>其中$c_i=\sum_{j=0}^ia_jb_{i-j}$</p>
+<script type="math/tex; mode=display">A(x)=\sum_{i=0}^{N-1}a_ix^i</script><script type="math/tex; mode=display">B(x)=\sum_{i=0}^{N-1}b_ix^i</script><p>FFT可以在$O(nlgn)$的时间内求出</p>
+<script type="math/tex; mode=display">C(x)=A(x)*B(x)=\sum_{i=0}^{2(N-1)}c_ix^i</script><p>其中$c<em>i=\sum</em>{j=0}^ia<em>jb</em>{i-j}$</p>
 <a id="more"></a>
 <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p>在复数域下，方程$x^n=1$有$n$个解$\omega_N^i,(i=1\dots N)$</p>
 <p>其中</p>
-<p>$$\omega_N^i=(\cos\frac{2\pi i}{N}, \sin\frac{2\pi i}{N})$$</p>
-<p>可以看作是平面直角坐标系中单位圆上间距相等的$N$个点</p>
+<script type="math/tex; mode=display">\omega_N^i=(\cos\frac{2\pi i}{N}, \sin\frac{2\pi i}{N})</script><p>可以看作是平面直角坐标系中单位圆上间距相等的$N$个点</p>
 <p>然后可以自己去<a href="https://zh.wikipedia.org/wiki/%E5%A4%8D%E6%95%B0_(%E6%95%B0%E5%AD%A6" target="_blank" rel="noopener">学习一下复数</a>)一下qwq</p>
 <p>假如把复数用极坐标表示</p>
 <p>$z=r(\cos \varphi+i\sin \varphi)$</p>
 <p>那么复数的乘法就是模长($r$)相乘，幅角($\varphi$)相加</p>
 <p>单位根有如下性质：</p>
-<p>$$\omega_N^i\omega_N^j=\omega_N^{i+j}$$</p>
-<p>$$\omega_N^i=\omega_N^{N+i}$$</p>
-<p>$$\omega_N^{\frac{N}{2}}=-1$$</p>
-<p>$$\omega_N^i=\omega_{cN}^{ci}$$</p>
-<h2 id="DFT"><a href="#DFT" class="headerlink" title="DFT"></a>DFT</h2><p>我们尝试将$N$下的单位根代入多项式得到$N$个值</p>
+<script type="math/tex; mode=display">\omega_N^i\omega_N^j=\omega_N^{i+j}</script><script type="math/tex; mode=display">\omega_N^i=\omega_N^{N+i}</script><script type="math/tex; mode=display">\omega_N^{\frac{N}{2}}=-1</script><script type="math/tex; mode=display">\omega_N^i=\omega_{cN}^{ci}</script><h2 id="DFT"><a href="#DFT" class="headerlink" title="DFT"></a>DFT</h2><p>我们尝试将$N$下的单位根代入多项式得到$N$个值</p>
 <p>也就是</p>
-<p>$$F:{a_0,a_1,\dots a_{N-1}} \to {A(\omega_0),A(\omega_1),\dots A(\omega_{N-1})}$$</p>
-<p>显然，可以在$A,B$中补$0$使得$N=2^k(k\in \mathbb{N})$</p>
+<script type="math/tex; mode=display">F:\{a_0,a_1,\dots a_{N-1}\} \to \{A(\omega_0),A(\omega_1),\dots A(\omega_{N-1})\}</script><p>显然，可以在$A,B$中补$0$使得$N=2^k(k\in \mathbb{N})$</p>
 <p>考虑分治</p>
 <p>对于$0\leq i &lt; \frac{N}{2}$</p>
 <p>有</p>
-<p>$$<br>\begin{aligned}<br>A_i&amp;=\sum_{j=0}^{N-1}a_j\omega_N^{ij}<br>\<br>A_{i+\frac{N}{2}}&amp;=\sum_{j=0}^{N-1}a_j\omega_N^{(i+\frac{N}{2})j}=\sum_{j=0}^{N-1}(-1)^ja_j\omega_N^{ij}<br>\end{aligned}<br>$$</p>
-<p>将$\sum$中的奇偶项分开来</p>
-<p>$$<br>\begin{aligned}<br>A_i&amp;=\sum_{j=0}^{\frac{N}{2}-1}a_{2j}\omega_{\frac{N}{2}}^{ij}+\omega_N^i\sum_{j=0}^{\frac{N}{2}-1}a_{2j+1}\omega_{\frac{N}{2}}^{ij}<br>\<br>A_{i+\frac{N}{2}}&amp;=\sum_{j=0}^{\frac{N}{2}-1}a_{2j}\omega_{\frac{N}{2}}^{ij}-\omega_N^i\sum_{j=0}^{\frac{N}{2}-1}a_{2j+1}\omega_{\frac{N}{2}}^{ij}<br>\end{aligned}<br>$$</p>
-<p>非常奇妙是不是？这样就可以分治下去啦</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+A_i&=\sum_{j=0}^{N-1}a_j\omega_N^{ij}
+\\
+A_{i+\frac{N}{2}}&=\sum_{j=0}^{N-1}a_j\omega_N^{(i+\frac{N}{2})j}=\sum_{j=0}^{N-1}(-1)^ja_j\omega_N^{ij}
+\end{aligned}</script><p>将$\sum$中的奇偶项分开来</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+A_i&=\sum_{j=0}^{\frac{N}{2}-1}a_{2j}\omega_{\frac{N}{2}}^{ij}+\omega_N^i\sum_{j=0}^{\frac{N}{2}-1}a_{2j+1}\omega_{\frac{N}{2}}^{ij}
+\\
+A_{i+\frac{N}{2}}&=\sum_{j=0}^{\frac{N}{2}-1}a_{2j}\omega_{\frac{N}{2}}^{ij}-\omega_N^i\sum_{j=0}^{\frac{N}{2}-1}a_{2j+1}\omega_{\frac{N}{2}}^{ij}
+\end{aligned}</script><p>非常奇妙是不是？这样就可以分治下去啦</p>
 <h2 id="IDFT"><a href="#IDFT" class="headerlink" title="IDFT"></a>IDFT</h2><p>与DFT类似</p>
 <p>只不过将DFT中的每个$\omega$都变成$\omega^{-1}$，然后最后每个$A_i$都除以$N$</p>
 <p>代入进去显然可以发现是对的。</p>
@@ -202,20 +210,20 @@
 <p>考虑分治</p>
 <p>对于$N$位的$B$进制数，</p>
 <p>设$M=2^k\leq \frac{N}{2}$</p>
-<p>假如我们已经求出了$\sum_{i=0}^{M-1}A_iB^i$的十进制数以及$\sum_{i=0}^{N-M-1}A_{i+M}B^i$的十进制数</p>
-<p>那么就可以用FFT将$\sum_{i=0}^{N-M-1}A_{i+M}B^i$乘上$B^M$</p>
+<p>假如我们已经求出了$\sum<em>{i=0}^{M-1}A_iB^i$的十进制数以及$\sum</em>{i=0}^{N-M-1}A_{i+M}B^i$的十进制数</p>
+<p>那么就可以用FFT将$\sum<em>{i=0}^{N-M-1}A</em>{i+M}B^i$乘上$B^M$</p>
 <p>其中$B^M$的十进制数也可以用FFT预处理</p>
 <p>时间复杂度为$O(nlg^2n)$</p>
 <h1 id="快速数论变换-NTT"><a href="#快速数论变换-NTT" class="headerlink" title="快速数论变换 NTT"></a>快速数论变换 NTT</h1><p>NTT与FFT大体上十分相似</p>
 <p>主要是因为FFT涉及许多实数运算，因此很容易丢精</p>
 <p>当需要对所求的多项式对$M$取模时，NTT就是一个非常好的选择</p>
 <blockquote>
-<p><a href="https://zh.wikipedia.org/zh-hk/%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86_(%E6%95%B0%E8%AE%BA" target="_blank" rel="noopener">欧拉定理</a>)：<br>若$n,a$为正整数，且$n,a$互素（即$\gcd(a,n)=1$），则<br>$$a^{\varphi(n)}\equiv 1 \quad (mod\; n)$$</p>
-</blockquote>
+<p><a href="https://zh.wikipedia.org/zh-hk/%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86_(%E6%95%B0%E8%AE%BA" target="_blank" rel="noopener">欧拉定理</a>)：<br>若$n,a$为正整数，且$n,a$互素（即$\gcd(a,n)=1$），则</p>
+<script type="math/tex; mode=display">a^{\varphi(n)}\equiv 1 \quad (mod\; n)</script></blockquote>
 <p>NTT一般用于$M$是质数的情况，因此在这里费马小定理：</p>
 <blockquote>
-<p><a href="https://zh.wikipedia.org/zh-hk/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">费马小定理</a>：<br>假如$a$是一个整数，$p$是一个质数<br>$$a^{p-1}\equiv 1 \quad (mod\; p)$$</p>
-</blockquote>
+<p><a href="https://zh.wikipedia.org/zh-hk/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">费马小定理</a>：<br>假如$a$是一个整数，$p$是一个质数</p>
+<script type="math/tex; mode=display">a^{p-1}\equiv 1 \quad (mod\; p)</script></blockquote>
 <p><a href="https://zh.wikipedia.org/wiki/原根" target="_blank" rel="noopener">原根</a>$G$，满足集合${G^0, G^1, G^2, \cdots, G^{\varphi(M) - 1}}$中含有了所有与$M$互质的数。</p>
 <p>若$M$可以表示成$2^k*t+1$， 其中$t$是奇数</p>
 <p>那么对于小于$2^k$的$N$，$G^{\frac{M-1}{N}}$都可以作为单位元$w$，其他就和FFT没什么区别了</p>
@@ -245,25 +253,6 @@
 </div>
 
 
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="http://phoenixgs-1253902147.coscd.myqcloud.com/20181229141044.JPG" alt="微信"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
@@ -295,154 +284,181 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
-
 <div class="card widget">
     <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="PhoenixGS">
+                    
+                    <p class="is-size-4 is-block">
+                        PhoenixGS
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Genius
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Yuyao, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        16
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/PhoenixGS/">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/PhoenixGS/">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Mail" href="mailto:thestarrydream@gmail.com">
+                
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com/FangKechen">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Telegram" href="https://t.me/PhoenixGS">
+                
+                <i class="fab fa-telegram"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Steam" href="https://steamcommunity.com/id/phoenixgs">
+                
+                <i class="fab fa-steam"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
         <div class="menu">
-        <h3 class="menu-label">
-            链接
-        </h3>
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="http://phoenixgs.cn" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">主站</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">phoenixgs.cn</span>
-                    </span>
-                </a>
-            </li>
-        
-        </ul>
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#快速傅立叶变换-FFT">
+        <span class="has-mr-6">1</span>
+        <span>快速傅立叶变换 FFT</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#前置知识">
+        <span class="has-mr-6">1.1</span>
+        <span>前置知识</span>
+        </a></li><li>
+        <a class="is-flex" href="#DFT">
+        <span class="has-mr-6">1.2</span>
+        <span>DFT</span>
+        </a></li><li>
+        <a class="is-flex" href="#IDFT">
+        <span class="has-mr-6">1.3</span>
+        <span>IDFT</span>
+        </a></li><li>
+        <a class="is-flex" href="#例题">
+        <span class="has-mr-6">1.4</span>
+        <span>例题</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#快速数论变换-NTT">
+        <span class="has-mr-6">2</span>
+        <span>快速数论变换 NTT</span>
+        </a></li><li>
+        <a class="is-flex" href="#参考资料">
+        <span class="has-mr-6">3</span>
+        <span>参考资料</span>
+        </a></li></ul>
         </div>
     </div>
 </div>
 
-
     
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/更新主题/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="更新主题">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-29T05:18:49.000Z">2018-12-29</time></div>
-                    <a href="/更新主题/" class="has-link-black-ter is-size-6">更新主题</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/花里胡哨的二项式系数/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="花里胡哨的二项式系数">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-29T04:06:36.000Z">2018-12-29</time></div>
-                    <a href="/花里胡哨的二项式系数/" class="has-link-black-ter is-size-6">花里胡哨的二项式系数</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/一个关于整值函数的结论/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一个关于整值函数的结论">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-28T16:28:50.000Z">2018-12-29</time></div>
-                    <a href="/一个关于整值函数的结论/" class="has-link-black-ter is-size-6">一个关于整值函数的结论</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/多项式求逆/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="多项式求逆">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-27T13:07:54.000Z">2018-12-27</time></div>
-                    <a href="/多项式求逆/" class="has-link-black-ter is-size-6">多项式求逆</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/FFT与NTT/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="FFT与NTT">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-27T13:05:58.000Z">2018-12-27</time></div>
-                    <a href="/FFT与NTT/" class="has-link-black-ter is-size-6">FFT与NTT</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
     
+        <div class="column-right-shadow is-hidden-widescreen ">
         
+            
+
+
+        
+            
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 10px;">关于本站</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
+        <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 13.33px;">关于本站</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
     </div>
 </div>
 
-    
-        <div class="card widget">
+        
+            <div class="card widget">
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
@@ -456,7 +472,7 @@
                     <span class="level-item">十二月 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -520,163 +536,6 @@
         </div>
     </div>
 </div>
-    
-    
-        <div class="column-right-shadow is-hidden-widescreen is-sticky">
-        
-            
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered">
-                <div>
-                    <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="PhoenixGS">
-                    
-                    <p class="is-size-4 is-block">
-                        PhoenixGS
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        Genius
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Yuyao, China</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        文章
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        15
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        分类
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        0
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        标签
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        11
-                    </p>
-                </div>
-            </div>
-        </nav>
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/PhoenixGS/">
-                关注我</a>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Github" href="https://github.com/PhoenixGS/">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Mail" href="mailto:thestarrydream@gmail.com">
-                
-                <i class="fas fa-envelope"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Twitter" href="https://twitter.com/FangKechen">
-                
-                <i class="fab fa-twitter"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Telegram" href="https://t.me/PhoenixGS">
-                
-                <i class="fab fa-telegram"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Steam" href="https://steamcommunity.com/id/phoenixgs">
-                
-                <i class="fab fa-steam"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="RSS" href="/atom.xml">
-                
-                <i class="fas fa-rss"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
-        
-            
-<div class="card widget" id="toc">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                目录
-            </h3>
-            <ul class="menu-list"><li>
-        <a class="is-flex" href="#快速傅立叶变换-FFT">
-        <span class="has-mr-6">1</span>
-        <span>快速傅立叶变换 FFT</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#前置知识">
-        <span class="has-mr-6">1.1</span>
-        <span>前置知识</span>
-        </a></li><li>
-        <a class="is-flex" href="#DFT">
-        <span class="has-mr-6">1.2</span>
-        <span>DFT</span>
-        </a></li><li>
-        <a class="is-flex" href="#IDFT">
-        <span class="has-mr-6">1.3</span>
-        <span>IDFT</span>
-        </a></li><li>
-        <a class="is-flex" href="#例题">
-        <span class="has-mr-6">1.4</span>
-        <span>例题</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#快速数论变换-NTT">
-        <span class="has-mr-6">2</span>
-        <span>快速数论变换 NTT</span>
-        </a></li><li>
-        <a class="is-flex" href="#参考资料">
-        <span class="has-mr-6">3</span>
-        <span>参考资料</span>
-        </a></li></ul>
-        </div>
-    </div>
-</div>
-
         
         </div>
     
@@ -687,161 +546,101 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+
+
     
         
 <div class="card widget">
     <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered">
-                <div>
-                    <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="PhoenixGS">
-                    
-                    <p class="is-size-4 is-block">
-                        PhoenixGS
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        Genius
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Yuyao, China</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        文章
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        15
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        分类
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        0
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        标签
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        11
-                    </p>
-                </div>
-            </div>
-        </nav>
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/PhoenixGS/">
-                关注我</a>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Github" href="https://github.com/PhoenixGS/">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Mail" href="mailto:thestarrydream@gmail.com">
-                
-                <i class="fas fa-envelope"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Twitter" href="https://twitter.com/FangKechen">
-                
-                <i class="fab fa-twitter"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Telegram" href="https://t.me/PhoenixGS">
-                
-                <i class="fab fa-telegram"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Steam" href="https://steamcommunity.com/id/phoenixgs">
-                
-                <i class="fab fa-steam"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="RSS" href="/atom.xml">
-                
-                <i class="fas fa-rss"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
-    
-        
-<div class="card widget" id="toc">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                目录
-            </h3>
-            <ul class="menu-list"><li>
-        <a class="is-flex" href="#快速傅立叶变换-FFT">
-        <span class="has-mr-6">1</span>
-        <span>快速傅立叶变换 FFT</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#前置知识">
-        <span class="has-mr-6">1.1</span>
-        <span>前置知识</span>
-        </a></li><li>
-        <a class="is-flex" href="#DFT">
-        <span class="has-mr-6">1.2</span>
-        <span>DFT</span>
-        </a></li><li>
-        <a class="is-flex" href="#IDFT">
-        <span class="has-mr-6">1.3</span>
-        <span>IDFT</span>
-        </a></li><li>
-        <a class="is-flex" href="#例题">
-        <span class="has-mr-6">1.4</span>
-        <span>例题</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#快速数论变换-NTT">
-        <span class="has-mr-6">2</span>
-        <span>快速数论变换 NTT</span>
-        </a></li><li>
-        <a class="is-flex" href="#参考资料">
-        <span class="has-mr-6">3</span>
-        <span>参考资料</span>
-        </a></li></ul>
-        </div>
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 13.33px;">关于本站</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
     </div>
 </div>
 
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
     
     
 </div>
