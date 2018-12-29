@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://x.phoenixgs.cn/"/>
-  <updated>2018-12-29T00:32:19.842Z</updated>
+  <updated>2018-12-29T04:06:36.405Z</updated>
   <id>http://x.phoenixgs.cn/</id>
   
   <author>
@@ -17,55 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>花里胡哨的二项式系数</title>
+    <link href="http://x.phoenixgs.cn/%E8%8A%B1%E9%87%8C%E8%83%A1%E5%93%A8%E7%9A%84%E4%BA%8C%E9%A1%B9%E5%BC%8F%E7%B3%BB%E6%95%B0/"/>
+    <id>http://x.phoenixgs.cn/花里胡哨的二项式系数/</id>
+    <published>2018-12-29T04:06:36.000Z</published>
+    <updated>2018-12-29T04:06:36.405Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>跳进了这个坑。。。于是就开始自闭了。</p><p>还有许许多多关于二项式系数的东西没有写，以后会补的(?)</p><h1 id="二项式系数"><a href="#二项式系数" class="headerlink" title="二项式系数"></a>二项式系数</h1><script type="math/tex; mode=display">\binom{n}{m}=\frac{n!}{m!(n-m)!}</script><p>严格一点的定义：</p><script type="math/tex; mode=display">\binom{n}{m}=\begin{cases}\frac{n!}{m!(n-m)!} & 整数m\geq 0\\0 & 整数m<0\end{cases}</script><p>为什么要叫二项式系数呢？</p><p><del>因为有一个二项式定理。。</del></p><blockquote><p>二项式定理：<br>设$n$是正整数。对所有的$x$和$y$，有</p><script type="math/tex; mode=display">(x+y)^n=\sum_{k=0}^{n}\binom{n}{k}x^ky^{n-k}</script></blockquote><h1 id="推广"><a href="#推广" class="headerlink" title="推广"></a>推广</h1><h2 id="多项式系数（应该是叫这个吧。。）"><a href="#多项式系数（应该是叫这个吧。。）" class="headerlink" title="多项式系数（应该是叫这个吧。。）"></a>多项式系数（应该是叫这个吧。。）</h2><script type="math/tex; mode=display">\binom{n}{n_1\;n_2\cdots n_t}=\frac{n!}{n_1!n_2!\cdots n_t!}</script><p>同样，有一个多项式定理：</p><blockquote><p>多项式定理：</p><script type="math/tex; mode=display">(x_1+x_2+\cdots+x_t)^n=\sum\binom{n}{n_1\;n_2\cdots n_t}x_1^{n_1}x_2^{n_2}\cdots x_t^{n_t}</script></blockquote><h2 id="对实数的推广"><a href="#对实数的推广" class="headerlink" title="对实数的推广"></a>对实数的推广</h2><script type="math/tex; mode=display">\binom{r}{k}=\begin{cases}\frac{r(r-1)\cdots(r-k+1)}{k(k-1)\cdots(1)} & 整数k\geq 0 \\0 & 整数k<0\end{cases}</script><p>因此有了牛顿二项式定理。。</p><blockquote><p>牛顿二项式定理：<br>设$\alpha$是实数。对于所有满足$0\leq |x| &lt; |y|$的$x$和$y$，有</p><script type="math/tex; mode=display">(x+y)^{\alpha}=\sum_{k=0}^{\infty}\binom{\alpha}{k}x^ky^{\alpha - k}</script></blockquote><p>证明去看微积分<del>因为我忘了</del></p><p>若设$z=x/y$，其中$|z|&lt;1$那么</p><script type="math/tex; mode=display">(1+z)^{\alpha}=\frac{(x+y)^{\alpha}}{y^{\alpha}}=\sum_{k=0}^{\infty}\binom{\alpha}{k}z^k</script><p>然后就又出现了一个罪恶的东西：生成函数。。。这里不再展开，以后会另写一篇的<del>（真的不会鸽了吗？）</del></p><h1 id="二项式系数的一些性质"><a href="#二项式系数的一些性质" class="headerlink" title="二项式系数的一些性质"></a>二项式系数的一些性质</h1><p><strong>在这里规定一下这一段中$r$是实数，$n,m,k$是整数</strong></p><p><strong>帕斯卡三角形</strong>：</p><div class="table-container"><table><thead><tr><th>n</th><th>$\binom{n}{0}$</th><th>$\binom{n}{1}$</th><th>$\binom{n}{2}$</th><th>$\binom{n}{3}$</th><th>$\binom{n}{4}$</th><th>$\binom{n}{5}$</th></tr></thead><tbody><tr><td>0</td><td>1</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>1</td><td>1</td><td>1</td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td>1</td><td>2</td><td>1</td><td></td><td></td><td></td></tr><tr><td>3</td><td>1</td><td>3</td><td>3</td><td>1</td><td></td><td></td></tr><tr><td>4</td><td>1</td><td>4</td><td>6</td><td>4</td><td>1</td><td></td></tr><tr><td>5</td><td>1</td><td>5</td><td>10</td><td>10</td><td>5</td><td>1</td></tr></tbody></table></div><p>通过帕斯卡三角形可以发现对称性。证明也十分显然，用定义即可：</p><script type="math/tex; mode=display">\binom{n}{k}=\binom{n}{n-k}, n\geq 0</script><p>下面还有一些重要的恒等式：</p><script type="math/tex; mode=display">\binom{r}{k}=\frac{r}{k}\binom{r - 1}{k - 1}，k\neq 0</script><script type="math/tex; mode=display">k\binom{r}{k}=r\binom{r - 1}{k - 1}</script><script type="math/tex; mode=display">(r-k)\binom{r}{k}=r\binom{r - 1}{k}</script><p><strong>加法公式</strong>:</p><script type="math/tex; mode=display">\binom{r}{k}=\binom{r - 1}{k}+\binom{r - 1}{k - 1}</script><p>现在是两个特殊的对二项式系数的求和公式</p><script type="math/tex; mode=display">\begin{aligned}\sum_{k\leq n}\binom{r+k}{k} & = \binom{r}{0}+\binom{r+1}{1}+\cdots+\binom{r+n}{n} \\&=\binom{r+n+1}{n}\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}\sum_{0\leq k\leq n}\binom{k}{m}&=\binom{0}{m}+\binom{1}{m}+\cdots+\binom{n}{m}\\&=\binom{n+1}{m+1},m,n\geq 0\end{aligned}</script><p>对于这两个公式的感性理解，假如其中的数字都是整数的话。</p><p>那么可以发现在帕斯卡三角形上都是一个特殊的排列位置。</p><p>只要加一个$0$，运用加法公式，那些位置就像多米诺骨牌那样，咕噜咕噜。。。很好理解对吧。。。</p><p>二项式定理告诉我们：</p><script type="math/tex; mode=display">(x+y)^n=\sum_{k=0}^{n}\binom{n}{k}x^ky^{n-k}</script><p>把$x=y=1$代入，就有：</p><script type="math/tex; mode=display">2^n=\sum_{k=0}^n\binom{n}{k}</script><p>把$x=1,y=-1$代入，就有：</p><script type="math/tex; mode=display">0=\sum_{k=0}^n(-1)^k\binom{n}{k}</script><p>现在对</p><script type="math/tex; mode=display">(1+x)^n=\sum_{k=0}^n\binom{n}{k}x^k</script><p>求导，就变成了：</p><script type="math/tex; mode=display">n(1+x)^{n-1}=\sum_{k=1}^nk\binom{n}{k}x^{k-1}</script><p>如果把$x=1$代入，就会发现：</p><script type="math/tex; mode=display">1\binom{n}{1}+2\binom{n}{2}+\cdots+n\binom{n}{n}=n2^{n-1}</script><p>上面这个式子其实也可以用$k\binom{n}{k}=n\binom{n-1}{k-1}$推导出来</p><script type="math/tex; mode=display">\binom{n_1+n_2}{m}=\sum_{k=0}^{m}\binom{n_1}{k}\binom{n_2}{m-k}</script><p>这个证明非常显然，就不写了</p><script type="math/tex; mode=display">\sum_{k=0}^n\binom{n}{k}^2=\binom{2n}{n}</script><p>这个恒等式的证明如下：</p><script type="math/tex; mode=display">\sum_{k=0}^n\binom{n}{k}^2=\sum_{k=0}^n\binom{n}{k}\binom{n}{n-k}=\binom{2n}{n}</script><p>最后一步利用了前面那个等式</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="数学" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="二项式系数" scheme="http://x.phoenixgs.cn/tags/%E4%BA%8C%E9%A1%B9%E5%BC%8F%E7%B3%BB%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>一个关于整值函数的结论</title>
     <link href="http://x.phoenixgs.cn/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0%E7%9A%84%E7%BB%93%E8%AE%BA/"/>
     <id>http://x.phoenixgs.cn/一个关于整值函数的结论/</id>
     <published>2018-12-28T16:28:50.000Z</published>
     <updated>2018-12-29T00:32:19.842Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="结论">结论</h1><p>设<span class="math inline">\(f(x)\)</span>是任意一个具有如下性质且在一个实数区间连续的单调递增函数且</p><p><span class="math display">\[f(x)=整数\to x=整数 \]</span></p><p>只要<span class="math inline">\(f(x),f(\lfloor x \rfloor), f(\lceil x \rceil)\)</span>有定义，那么就有</p><p><span class="math display">\[f(\lfloor x \rfloor)=\lfloor f(\lfloor x \rfloor) \rfloor 和 f(\lceil x \rceil)=\lceil f(\lceil x \rceil) \rceil\]</span></p><a id="more"></a><h1 id="证明">证明</h1><p>此处证明底函数的情况，顶函数类似</p><p>若<span class="math inline">\(x\)</span>为整数，那么结论显然成立</p><p>否则，<span class="math inline">\(x\)</span>不为整数，那么就有<span class="math inline">\(\lfloor x \rfloor&lt;x&lt;\lceil x\rceil\)</span>，那么<span class="math inline">\(f(\lfloor x\rfloor)&lt;f(x)\)</span></p><p>也就是说<span class="math inline">\(\lfloor f(\lfloor x \rfloor)\rfloor \leq \lfloor f(x)\rfloor\)</span></p><p>若<span class="math inline">\(\lfloor f(\lfloor x \rfloor)\rfloor &lt; \lfloor f(x)\rfloor\)</span>，那么<span class="math inline">\(f(\lfloor x\rfloor)&lt;\lfloor f(x)\rfloor\leq f(x)\)</span></p><p>那么就存在一个<span class="math inline">\(y\)</span>使得<span class="math inline">\(\lfloor x\rfloor&lt;y\leq x\)</span>且<span class="math inline">\(f(y)=\lfloor f(x)\rfloor\)</span></p><p>由函数的性质可知<span class="math inline">\(y\)</span>是一个整数。又因为<span class="math inline">\(x\)</span>不是整数，因此<span class="math inline">\(x&lt; \lceil x\rceil\)</span>，所以<span class="math inline">\(\lfloor x\rfloor &lt; y &lt; \lceil x\rceil\)</span>，但是不存在这样的整数。因此<span class="math inline">\(\lfloor f(x)\rfloor = \lfloor f(\lfloor x \rfloor)\rfloor\)</span></p><h1 id="推论alpha">推论<span class="math inline">\(\alpha\)</span></h1><p>如果<span class="math inline">\(m\)</span>是整数且<span class="math inline">\(n\)</span>是正整数，那么</p><p><span class="math display">\[\lfloor \frac{x+m}{n}\rfloor=\lfloor\frac{\lfloor x\rfloor+m}{n}\rfloor和\lceil \frac{x+m}{n}\rceil=\lceil\frac{\lceil x\rceil+m}{n}\rceil\]</span></p><p>利用上面的结论证明显然</p><h1 id="推论beta">推论<span class="math inline">\(\beta\)</span></h1><p>如果<span class="math inline">\(y,z\)</span>是正整数，那么</p><p><span class="math display">\[\lfloor\frac{\frac{x}{y}}{z}\rfloor=\lfloor\frac{\lfloor\frac{x}{y}\rfloor}{z}\rfloor和\lceil\frac{\frac{x}{y}}{z}\rceil=\lceil\frac{\lceil\frac{x}{y}\rceil}{z}\rceil\]</span></p><p>利用推论<span class="math inline">\(\alpha\)</span>证明显然</p><h1 id="参考资料">参考资料</h1><ol type="1"><li>《具体数学（中文第二版）》3.2节</li></ol>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>设$f(x)$是任意一个具有如下性质且在一个实数区间连续的单调递增函数且</p><script type="math/tex; mode=display">f(x)=整数\to x=整数</script><p>只要$f(x),f(\lfloor x \rfloor), f(\lceil x \rceil)$有定义，那么就有</p><script type="math/tex; mode=display">f(\lfloor x \rfloor)=\lfloor f(\lfloor x \rfloor) \rfloor 和 f(\lceil x \rceil)=\lceil f(\lceil x \rceil) \rceil</script><a id="more"></a><h1 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h1><p>此处证明底函数的情况，顶函数类似</p><p>若$x$为整数，那么结论显然成立</p><p>否则，$x$不为整数，那么就有$\lfloor x \rfloor&lt;x&lt;\lceil x\rceil$，那么$f(\lfloor x\rfloor)&lt;f(x)$</p><p>也就是说$\lfloor f(\lfloor x \rfloor)\rfloor \leq \lfloor f(x)\rfloor$</p><p>若$\lfloor f(\lfloor x \rfloor)\rfloor &lt; \lfloor f(x)\rfloor$，那么$f(\lfloor x\rfloor)&lt;\lfloor f(x)\rfloor\leq f(x)$</p><p>那么就存在一个$y$使得$\lfloor x\rfloor&lt;y\leq x$且$f(y)=\lfloor f(x)\rfloor$</p><p>由函数的性质可知$y$是一个整数。又因为$x$不是整数，因此$x&lt; \lceil x\rceil$，所以$\lfloor x\rfloor &lt; y &lt; \lceil x\rceil$，但是不存在这样的整数。因此$\lfloor f(x)\rfloor = \lfloor f(\lfloor x \rfloor)\rfloor$</p><h1 id="推论-alpha"><a href="#推论-alpha" class="headerlink" title="推论$\alpha$"></a>推论$\alpha$</h1><p>如果$m$是整数且$n$是正整数，那么</p><script type="math/tex; mode=display">\lfloor \frac{x+m}{n}\rfloor=\lfloor\frac{\lfloor x\rfloor+m}{n}\rfloor和\lceil \frac{x+m}{n}\rceil=\lceil\frac{\lceil x\rceil+m}{n}\rceil</script><p>利用上面的结论证明显然</p><h1 id="推论-beta"><a href="#推论-beta" class="headerlink" title="推论$\beta$"></a>推论$\beta$</h1><p>如果$y,z$是正整数，那么</p><script type="math/tex; mode=display">\lfloor\frac{\frac{x}{y}}{z}\rfloor=\lfloor\frac{\lfloor\frac{x}{y}\rfloor}{z}\rfloor和\lceil\frac{\frac{x}{y}}{z}\rceil=\lceil\frac{\lceil\frac{x}{y}\rceil}{z}\rceil</script><p>利用推论$\alpha$证明显然</p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol><li>《具体数学（中文第二版）》3.2节</li></ol>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;结论&quot;&gt;结论&lt;/h1&gt;
-&lt;p&gt;设&lt;span class=&quot;math inline&quot;&gt;\(f(x)\)&lt;/span&gt;是任意一个具有如下性质且在一个实数区间连续的单调递增函数且&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[f(x)=整数\to x=整数 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;只要&lt;span class=&quot;math inline&quot;&gt;\(f(x),f(\lfloor x \rfloor), f(\lceil x \rceil)\)&lt;/span&gt;有定义，那么就有&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[f(\lfloor x \rfloor)=\lfloor f(\lfloor x \rfloor) \rfloor 和 f(\lceil x \rceil)=\lceil f(\lceil x \rceil) \rceil\]&lt;/span&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;结论&quot;&gt;&lt;a href=&quot;#结论&quot; class=&quot;headerlink&quot; title=&quot;结论&quot;&gt;&lt;/a&gt;结论&lt;/h1&gt;&lt;p&gt;设$f(x)$是任意一个具有如下性质且在一个实数区间连续的单调递增函数且&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x)=整数\to x=整数&lt;/script&gt;&lt;p&gt;只要$f(x),f(\lfloor x \rfloor), f(\lceil x \rceil)$有定义，那么就有&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(\lfloor x \rfloor)=\lfloor f(\lfloor x \rfloor) \rfloor 和 f(\lceil x \rceil)=\lceil f(\lceil x \rceil) \rceil&lt;/script&gt;
     
     </summary>
     
     
       <category term="数学" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>多项式求逆</title>
-    <link href="http://x.phoenixgs.cn/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E9%80%86/"/>
-    <id>http://x.phoenixgs.cn/多项式求逆/</id>
-    <published>2018-12-27T13:07:54.000Z</published>
-    <updated>2018-12-27T13:09:47.743Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="定义">定义</h1><p>我们说<span class="math inline">\(B(x)\)</span>是<span class="math inline">\(A(x)\)</span>在模<span class="math inline">\(x^n\)</span>意义下的逆元则是满足</p><p><span class="math display">\[A(x)*B(x)\equiv1(mod \; x^n)\]</span></p><h1 id="分治">分治</h1><p>考虑分治</p><p>假如我们已经知道在模<span class="math inline">\(x^{\lceil \frac{n}{2} \rceil}\)</span>下<span class="math inline">\(A\)</span>的逆<span class="math inline">\(B&#39;\)</span></p><a id="more"></a><p>即</p><p><span class="math display">\[A(x)*B&#39;(x)\equiv 1(mod \; x^{\lceil \frac{n}{2} \rceil})\]</span></p><p><span class="math display">\[A(x)*B&#39;(x)-1\equiv 0(mod \; x^{\lceil \frac{n}{2} \rceil})\]</span></p><p>两边平方即可得</p><p><span class="math display">\[(A(x)*B&#39;(x)-1)^2\equiv 0(mod \; x^{2\lceil \frac{n}{2} \rceil})\]</span></p><p>显然<span class="math inline">\(2\lceil \frac{n}{2} \rceil \geq n\)</span></p><p>所以</p><p><span class="math display">\[(A(x)*B&#39;(x)-1)^2\equiv 0(mod \; x^n)\]</span></p><p><span class="math display">\[A^2(x)*B&#39;^2(x)-2A(x)*B&#39;(x)+1\equiv 0(mod \; x^n)\]</span></p><p><span class="math display">\[2A(x)*B&#39;(x)-A^2(x)*B&#39;^2(x)\equiv 1(mod \; x^n)\]</span></p><p><span class="math display">\[A(x)(2B&#39;(x)-A(x)*B&#39;^2(x))\equiv 1(mod \; x^n)\]</span></p><p>那么<span class="math inline">\(B(x)=2B&#39;(x)-A(x)*B&#39;^2(x)\)</span>即为满足<span class="math inline">\(A(x)*B(x)\equiv 1(mod \; x^n)\)</span>的<span class="math inline">\(B(x)\)</span></p><h1 id="参考资料">参考资料</h1><ol type="1"><li><p><a href="http://nirobc.com/20181212.pdf" class="uri" target="_blank" rel="noopener">http://nirobc.com/20181212.pdf</a></p></li><li><p><a href="https://www.cnblogs.com/yoyoball/p/8724115.html" class="uri" target="_blank" rel="noopener">https://www.cnblogs.com/yoyoball/p/8724115.html</a></p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;定义&quot;&gt;定义&lt;/h1&gt;
-&lt;p&gt;我们说&lt;span class=&quot;math inline&quot;&gt;\(B(x)\)&lt;/span&gt;是&lt;span class=&quot;math inline&quot;&gt;\(A(x)\)&lt;/span&gt;在模&lt;span class=&quot;math inline&quot;&gt;\(x^n\)&lt;/span&gt;意义下的逆元则是满足&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[A(x)*B(x)\equiv1(mod \; x^n)\]&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&quot;分治&quot;&gt;分治&lt;/h1&gt;
-&lt;p&gt;考虑分治&lt;/p&gt;
-&lt;p&gt;假如我们已经知道在模&lt;span class=&quot;math inline&quot;&gt;\(x^{\lceil \frac{n}{2} \rceil}\)&lt;/span&gt;下&lt;span class=&quot;math inline&quot;&gt;\(A\)&lt;/span&gt;的逆&lt;span class=&quot;math inline&quot;&gt;\(B&amp;#39;\)&lt;/span&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="http://x.phoenixgs.cn/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="数学" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-      <category term="FFT与NTT" scheme="http://x.phoenixgs.cn/tags/FFT%E4%B8%8ENTT/"/>
     
   </entry>
   

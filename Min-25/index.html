@@ -5,18 +5,18 @@
     
     <title>Min_25筛 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="简介 Min_25筛用来求一个函数的前缀和 如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的 算法过程就像是在模拟埃氏筛法 时间复杂度是\(O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})\)，然而我并不会证">
-<meta name="keywords" content="算法,数学,数论">
+    <meta name="description" content="简介Min_25筛用来求一个函数的前缀和 如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的 算法过程就像是在模拟埃氏筛法 时间复杂度是$O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})$，然而我并不会证">
+<meta name="keywords" content="数学,算法,数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Min_25筛">
 <meta property="og:url" content="http://x.phoenixgs.cn/Min-25/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="简介 Min_25筛用来求一个函数的前缀和 如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的 算法过程就像是在模拟埃氏筛法 时间复杂度是\(O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})\)，然而我并不会证">
+<meta property="og:description" content="简介Min_25筛用来求一个函数的前缀和 如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的 算法过程就像是在模拟埃氏筛法 时间复杂度是$O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})$，然而我并不会证">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-27T08:28:04.773Z">
+<meta property="og:updated_time" content="2018-12-29T01:38:18.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Min_25筛">
-<meta name="twitter:description" content="简介 Min_25筛用来求一个函数的前缀和 如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的 算法过程就像是在模拟埃氏筛法 时间复杂度是\(O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})\)，然而我并不会证">
+<meta name="twitter:description" content="简介Min_25筛用来求一个函数的前缀和 如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的 算法过程就像是在模拟埃氏筛法 时间复杂度是$O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})$，然而我并不会证">
     
 
     
@@ -167,11 +167,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                13
+                14
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                9
+                10
                 <span>标签</span>
             </div>
         </div>
@@ -257,82 +257,67 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="简介">简介</h1>
-<p>Min_25筛用来求一个函数的前缀和</p>
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Min_25筛用来求一个函数的前缀和</p>
 <p>如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的</p>
 <p>算法过程就像是在模拟埃氏筛法</p>
-<p>时间复杂度是<span class="math inline">\(O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})\)</span>，然而我并不会证</p>
+<p>时间复杂度是$O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})$，然而我并不会证</p>
 <a id="more"></a>
-<h1 id="算法">算法</h1>
-<h2 id="质数的函数值的前缀和">质数的函数值的前缀和</h2>
-<p>设<span class="math inline">\(m(x)\)</span>表示<span class="math inline">\(x\)</span>的最小质因子</p>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="质数的函数值的前缀和"><a href="#质数的函数值的前缀和" class="headerlink" title="质数的函数值的前缀和"></a>质数的函数值的前缀和</h2><p>设$m(x)$表示$x$的最小质因子</p>
 <p>假如要求</p>
-<p><span class="math display">\[\sum_{i = 1}^{n}f(i)[i是质数]\]</span></p>
-<p>首先将<span class="math inline">\(\sqrt{n}\)</span>之内的质数全部筛出来，放在<code>prime</code>数组里</p>
+<script type="math/tex; mode=display">\sum_{i = 1}^{n}f(i)[i是质数]</script><p>首先将$\sqrt{n}$之内的质数全部筛出来，放在<code>prime</code>数组里</p>
 <p>设</p>
-<p><span class="math display">\[g(n,j)=\sum_{i = 2}^{n}f(i)[m(i) &gt; prime_j 或 i 是质数]\]</span></p>
-<p>那么</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">g(n,j)=\sum_{i = 2}^{n}f(i)[m(i) > prime_j 或 i 是质数]</script><p>那么</p>
+<script type="math/tex; mode=display">
 g(n,j) = \begin{cases}
- g(n,j - 1) - f(j)[g(\lfloor \frac{n}{prime_j} \rfloor, j - 1) - g(prime_{j - 1}, j - 1)] &amp; prime_j^2 \leq n \\\\
- g(n,j - 1) &amp; prime_j^2 &gt; n
-\end{cases}
-\]</span></p>
-<p>显然，其中的<span class="math inline">\(g(prime_{j-1},j-1)=\sum_{i=1}^{j-1}f(prime_i)\)</span></p>
-<p>那么原式中第一维有用的值只有<span class="math inline">\(O(\sqrt{n})\)</span>种，预处理即可</p>
-<p>最终<span class="math inline">\(g(n,primenum)\)</span>就是我们要求的<span class="math inline">\(\sum_{i = 1}^{n}f(i)[i是质数]\)</span></p>
-<h3 id="关于fx">关于<span class="math inline">\(f(x)\)</span></h3>
-<p>如果只求质数的函数值的话，</p>
-<p><span class="math inline">\(f(x)\)</span>应该满足下面几个条件：</p>
-<ol type="1">
-<li><p>若<span class="math inline">\(x\)</span>是质数<span class="math inline">\(f(x)\)</span>应该要能在<span class="math inline">\(O(1)\)</span>内求出来</p></li>
-<li><p>要能够快速求出<span class="math inline">\(\sum_{i=2}^{n}f&#39;(i)\)</span>，其中<span class="math inline">\(f&#39;(i)=\Pi_{j,k}f(j)[k &gt; 0][j^k|n]\)</span></p></li>
+ g(n,j - 1) - f(j)[g(\lfloor \frac{n}{prime_j} \rfloor, j - 1) - g(prime_{j - 1}, j - 1)] & prime_j^2 \leq n \\
+ g(n,j - 1) & prime_j^2 > n
+\end{cases}</script><p>显然，其中的$g(prime<em>{j-1},j-1)=\sum</em>{i=1}^{j-1}f(prime_i)$</p>
+<p>那么原式中第一维有用的值只有$O(\sqrt{n})$种，预处理即可</p>
+<p>最终$g(n,primenum)$就是我们要求的$\sum_{i = 1}^{n}f(i)[i是质数]$</p>
+<h3 id="关于-f-x"><a href="#关于-f-x" class="headerlink" title="关于$f(x)$"></a>关于$f(x)$</h3><p>如果只求质数的函数值的话，</p>
+<p>$f(x)$应该满足下面几个条件：</p>
+<ol>
+<li><p>若$x$是质数$f(x)$应该要能在$O(1)$内求出来</p>
+</li>
+<li><p>要能够快速求出$\sum<em>{i=2}^{n}f’(i)$，其中$f’(i)=\Pi</em>{j,k}f(j)[k &gt; 0][j^k|n]$</p>
+</li>
 </ol>
-<h2 id="函数值的前缀和">函数值的前缀和</h2>
-<h3 id="递归版">递归版</h3>
-<p>假设我们要求的函数是<span class="math inline">\(f(x)\)</span>，那么问题就是求</p>
-<p><span class="math display">\[\sum_{i = 1}^{n}f(i)\]</span></p>
-<p>之前已经求出了</p>
-<p><span class="math display">\[\sum_{i = 1}^{n}f(i)[i是质数]\]</span></p>
-<p>的值</p>
+<h2 id="函数值的前缀和"><a href="#函数值的前缀和" class="headerlink" title="函数值的前缀和"></a>函数值的前缀和</h2><h3 id="递归版"><a href="#递归版" class="headerlink" title="递归版"></a>递归版</h3><p>假设我们要求的函数是$f(x)$，那么问题就是求</p>
+<script type="math/tex; mode=display">\sum_{i = 1}^{n}f(i)</script><p>之前已经求出了</p>
+<script type="math/tex; mode=display">\sum_{i = 1}^{n}f(i)[i是质数]</script><p>的值</p>
 <p>那么，现在设</p>
-<p><span class="math display">\[h(n,j) = \sum_{i=2}^nf(i)[m(i) \geq prime_j]\]</span></p>
-<p>那么</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">h(n,j) = \sum_{i=2}^nf(i)[m(i) \geq prime_j]</script><p>那么</p>
+<script type="math/tex; mode=display">
 h(n,j)=g(n,primenum) - g(prime_{i-1},i-1)+
-\\\\
-\sum_{i=j}^{primenum}\sum_{e\geq 1 且 prime_i^{e+1}\leq n}f(prime_i^e)h(\lfloor \frac{n}{prime_i^e} \rfloor,i+1)+f(prime_i^{e+1})
-\]</span></p>
-<p>和上面一样，第一维有用的取值只有<span class="math inline">\(O(\sqrt{n})\)</span>种</p>
-<p>写一个递归函数，最后的答案即为<span class="math inline">\(h(n,1)+f(1)\)</span></p>
-<p>假如就询问没几个<span class="math inline">\(n\)</span>的答案，就可以用这种方法</p>
-<h3 id="非递归版">非递归版</h3>
-<p>这次改变一下状态</p>
+\\
+\sum_{i=j}^{primenum}\sum_{e\geq 1 且 prime_i^{e+1}\leq n}f(prime_i^e)h(\lfloor \frac{n}{prime_i^e} \rfloor,i+1)+f(prime_i^{e+1})</script><p>和上面一样，第一维有用的取值只有$O(\sqrt{n})$种</p>
+<p>写一个递归函数，最后的答案即为$h(n,1)+f(1)$</p>
+<p>假如就询问没几个$n$的答案，就可以用这种方法</p>
+<h3 id="非递归版"><a href="#非递归版" class="headerlink" title="非递归版"></a>非递归版</h3><p>这次改变一下状态</p>
 <p>设</p>
-<p><span class="math display">\[h(n,j)=\sum_{i=2}^nf(i)[m(i)\geq prime_j 或 i是质数]\]</span></p>
-<p>那么</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">h(n,j)=\sum_{i=2}^nf(i)[m(i)\geq prime_j 或 i是质数]</script><p>那么</p>
+<script type="math/tex; mode=display">
 h(n,j)=\begin{cases}
- h(n,j+1)+\\\\ \sum_{e \geq 1 且prime_j^{e+1}\leq n}f(prime_j^e)[h(\lfloor \frac{n}{prime_j^e} \rfloor,j + 1) - g(prime_i,i)] &amp; prime_j^2 \leq n \\\\
- h(n,j+1) &amp; prime_j^2 &gt; n
-\end{cases}
-\]</span></p>
-<p>有没有发现这个式子与质数函数值的前缀和的式子特别像？只不过质数一个是从小枚举到大，一个是从大枚举到小</p>
-<p>答案为<span class="math inline">\(h(n,1)+f(1)\)</span></p>
-<p>假如要询问许多<span class="math inline">\(n&#39;= \lfloor \frac{n}{x} \rfloor\)</span>的答案，就可以用这种方法</p>
-<h3 id="关于fx-1">关于<span class="math inline">\(f(x)\)</span></h3>
-<p><span class="math inline">\(f(x)\)</span>函数如果是积性函数，那么应该都可以做</p>
+ h(n,j+1)+\\ \sum_{e \geq 1 且prime_j^{e+1}\leq n}f(prime_j^e)[h(\lfloor \frac{n}{prime_j^e} \rfloor,j + 1) - g(prime_i,i)] & prime_j^2 \leq n \\
+ h(n,j+1) & prime_j^2 > n
+\end{cases}</script><p>有没有发现这个式子与质数函数值的前缀和的式子特别像？只不过质数一个是从小枚举到大，一个是从大枚举到小</p>
+<p>答案为$h(n,1)+f(1)$</p>
+<p>假如要询问许多$n’= \lfloor \frac{n}{x} \rfloor$的答案，就可以用这种方法</p>
+<h3 id="关于-f-x-1"><a href="#关于-f-x-1" class="headerlink" title="关于$f(x)$"></a>关于$f(x)$</h3><p>$f(x)$函数如果是积性函数，那么应该都可以做</p>
 <p>假如不是的话，首先要满足求质数的函数值的前缀和的那些条件</p>
-<p>并且若<span class="math inline">\(x=ab,gcd(a,b)=1\)</span>，<span class="math inline">\(f(x)\)</span>能<span class="math inline">\(O(1)\)</span>从<span class="math inline">\(f(a)\)</span>和<span class="math inline">\(f(b)\)</span>合并，那么应该就能做了（其实我也不是很清楚qaq</p>
-<h2 id="关于时间复杂度">关于时间复杂度</h2>
-<p>暂时还不会。。。</p>
-<h1 id="参考资料">参考资料</h1>
-<ol type="1">
-<li><p><a href="http://www.cnblogs.com/zzqsblog/p/8302815.html" class="uri" target="_blank" rel="noopener">http://www.cnblogs.com/zzqsblog/p/8302815.html</a></p></li>
-<li><p><a href="http://www.hekai.site/wordpress/2018/09/04/min_25%E7%AD%9B/" target="_blank" rel="noopener">http://www.hekai.site/wordpress/2018/09/04/min_25%E7%AD%9B/</a></p></li>
-<li><p><a href="https://blog.csdn.net/XianHaoMing/article/details/80397777" class="uri" target="_blank" rel="noopener">https://blog.csdn.net/XianHaoMing/article/details/80397777</a></p></li>
-<li><p><a href="https://www.cnblogs.com/Menhera/p/9226649.html" class="uri" target="_blank" rel="noopener">https://www.cnblogs.com/Menhera/p/9226649.html</a></p></li>
-<li><p><a href="https://blog.csdn.net/ZLTJohn/article/details/79703503" class="uri" target="_blank" rel="noopener">https://blog.csdn.net/ZLTJohn/article/details/79703503</a></p></li>
+<p>并且若$x=ab,gcd(a,b)=1$，$f(x)$能$O(1)$从$f(a)$和$f(b)$合并，那么应该就能做了（其实我也不是很清楚qaq</p>
+<h2 id="关于时间复杂度"><a href="#关于时间复杂度" class="headerlink" title="关于时间复杂度"></a>关于时间复杂度</h2><p>暂时还不会。。。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li><p><a href="http://www.cnblogs.com/zzqsblog/p/8302815.html" target="_blank" rel="noopener">http://www.cnblogs.com/zzqsblog/p/8302815.html</a></p>
+</li>
+<li><p><a href="http://www.hekai.site/wordpress/2018/09/04/min_25%E7%AD%9B/" target="_blank" rel="noopener">http://www.hekai.site/wordpress/2018/09/04/min_25%E7%AD%9B/</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/XianHaoMing/article/details/80397777" target="_blank" rel="noopener">https://blog.csdn.net/XianHaoMing/article/details/80397777</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/Menhera/p/9226649.html" target="_blank" rel="noopener">https://www.cnblogs.com/Menhera/p/9226649.html</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/ZLTJohn/article/details/79703503" target="_blank" rel="noopener">https://blog.csdn.net/ZLTJohn/article/details/79703503</a></p>
+</li>
 </ol>
 
         
@@ -344,7 +329,7 @@ h(n,j)=\begin{cases}
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/Min-25/" data-id="cjq8qetn600021o87jr77my3x" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/Min-25/" data-id="cjq8y2bu60007t787rdfj6zik" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -458,6 +443,25 @@ h(n,j)=\begin{cases}
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/花里胡哨的二项式系数/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/花里胡哨的二项式系数/" class="title">花里胡哨的二项式系数</a></p>
+                            <p class="item-date"><time datetime="2018-12-29T04:06:36.000Z" itemprop="datePublished">2018-12-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/一个关于整值函数的结论/" class="thumbnail">
     
     
@@ -531,25 +535,6 @@ h(n,j)=\begin{cases}
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/Min-25/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/Min-25/" class="title">Min_25筛</a></p>
-                            <p class="item-date"><time datetime="2018-11-30T06:47:35.000Z" itemprop="datePublished">2018-11-30</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -561,7 +546,7 @@ h(n,j)=\begin{cases}
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -570,7 +555,7 @@ h(n,j)=\begin{cases}
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FFT与NTT/">FFT与NTT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后缀自动机/">后缀自动机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率/">概率</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性基/">线性基</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动机/">自动机</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FFT与NTT/">FFT与NTT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二项式系数/">二项式系数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后缀自动机/">后缀自动机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率/">概率</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性基/">线性基</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动机/">自动机</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -579,7 +564,7 @@ h(n,j)=\begin{cases}
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
+            <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
         </div>
     </div>
 

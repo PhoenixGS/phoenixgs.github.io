@@ -5,18 +5,18 @@
     
     <title>概率论 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="概念  样本空间：一个随机试验的所有可能结果组成的集合，标记为\(S\) 事件：\(S\)的一个子集\(A\)，\(A\subseteq \Omega\)，称为事件">
+    <meta name="description" content="概念 样本空间：一个随机试验的所有可能结果组成的集合，标记为$S$  事件：$S$的一个子集$A$，$A\subseteq \Omega$，称为事件">
 <meta name="keywords" content="数学,概率">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率论">
 <meta property="og:url" content="http://x.phoenixgs.cn/概率论/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="概念  样本空间：一个随机试验的所有可能结果组成的集合，标记为\(S\) 事件：\(S\)的一个子集\(A\)，\(A\subseteq \Omega\)，称为事件">
+<meta property="og:description" content="概念 样本空间：一个随机试验的所有可能结果组成的集合，标记为$S$  事件：$S$的一个子集$A$，$A\subseteq \Omega$，称为事件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-30T07:59:24.822Z">
+<meta property="og:updated_time" content="2018-12-29T01:37:37.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率论">
-<meta name="twitter:description" content="概念  样本空间：一个随机试验的所有可能结果组成的集合，标记为\(S\) 事件：\(S\)的一个子集\(A\)，\(A\subseteq \Omega\)，称为事件">
+<meta name="twitter:description" content="概念 样本空间：一个随机试验的所有可能结果组成的集合，标记为$S$  事件：$S$的一个子集$A$，$A\subseteq \Omega$，称为事件">
     
 
     
@@ -167,11 +167,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                13
+                14
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                9
+                10
                 <span>标签</span>
             </div>
         </div>
@@ -257,82 +257,55 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="概念">概念</h1>
-<ol type="1">
-<li><p>样本空间：一个随机试验的所有可能结果组成的集合，标记为<span class="math inline">\(S\)</span></p></li>
-<li><p>事件：<span class="math inline">\(S\)</span>的一个子集<span class="math inline">\(A\)</span>，<span class="math inline">\(A\subseteq \Omega\)</span>，称为事件</p></li>
+            <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ol>
+<li><p>样本空间：一个随机试验的所有可能结果组成的集合，标记为$S$</p>
+</li>
+<li><p>事件：$S$的一个子集$A$，$A\subseteq \Omega$，称为事件</p>
+</li>
 </ol>
 <a id="more"></a>
-<h2 id="概率公理">概率公理</h2>
-<ol type="1">
-<li><p><span class="math inline">\(0\leq P(A)\leq 1\)</span></p></li>
-<li><p><span class="math inline">\(P(\Omega)=1\)</span></p></li>
-<li><p>如果<span class="math inline">\(A_1A_2A_3\cdots\)</span>是一系列两两无关的事件，即对于任何<span class="math inline">\(i,j,i\neq j,A_i\cap A_j=\phi\)</span>，则</p>
-<p><span class="math display">\[P\lgroup \bigcup_{k=1}^{\infty} A_k \rgroup=\sum_{k=1}^{\infty}P(A_k)\]</span></p></li>
+<h2 id="概率公理"><a href="#概率公理" class="headerlink" title="概率公理"></a>概率公理</h2><ol>
+<li><p>$0\leq P(A)\leq 1$</p>
+</li>
+<li><p>$P(\Omega)=1$</p>
+</li>
+<li><p>如果$A_1A_2A_3\cdots$是一系列两两无关的事件，即对于任何$i,j,i\neq j,A_i\cap A_j=\phi$，则</p>
+<script type="math/tex; mode=display">P\lgroup \bigcup_{k=1}^{\infty} A_k \rgroup=\sum_{k=1}^{\infty}P(A_k)</script></li>
 </ol>
-<h2 id="条件概率">条件概率</h2>
-<p>令<span class="math inline">\(B\)</span>为一个事件满足<span class="math inline">\(P(B)&gt;0\)</span>，对于任意事件<span class="math inline">\(A\)</span>，定义<span class="math inline">\(A\)</span>的关于<span class="math inline">\(B\)</span>的条件概率。 <span class="math display">\[P(A|B)=\frac{P(A\cap B)}{P(B)}\]</span></p>
-<h2 id="独立">独立</h2>
-<p>如果<span class="math inline">\(A,B\)</span>满足<span class="math inline">\(P(A\cap B)=P(A)P(B)\)</span>，称<span class="math inline">\(A,B\)</span>独立。 并且可以推出<span class="math inline">\(P(A)=P(A|B)\)</span></p>
-<h1 id="性质">性质</h1>
-<ol type="1">
+<h2 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h2><p>令$B$为一个事件满足$P(B)&gt;0$，对于任意事件$A$，定义$A$的关于$B$的条件概率。</p>
+<script type="math/tex; mode=display">P(A|B)=\frac{P(A\cap B)}{P(B)}</script><h2 id="独立"><a href="#独立" class="headerlink" title="独立"></a>独立</h2><p>如果$A,B$满足$P(A\cap B)=P(A)P(B)$，称$A,B$独立。<br>并且可以推出$P(A)=P(A|B)$</p>
+<h1 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h1><ol>
 <li><p>概率的加法公式</p>
-<p><span class="math display">\[P(A\cup B)=P(A)+P(B)-P(A\cap B)\]</span></p></li>
+<script type="math/tex; mode=display">P(A\cup B)=P(A)+P(B)-P(A\cap B)</script></li>
 <li><p>并的界</p>
-<p><span class="math display">\[P(A\cup B)\leq P(A)+P(B)\]</span></p></li>
+<script type="math/tex; mode=display">P(A\cup B)\leq P(A)+P(B)</script></li>
 <li><p>全概率公式</p>
-<p>设<span class="math inline">\(B_1B_2B_3\cdots B_n\)</span>是样本空间<span class="math inline">\(S\)</span>中互不相交的一系列事件，并且满足<span class="math inline">\(S=\bigcup_{k=1}^n B_k\)</span>，那么对于任意事件<span class="math inline">\(A\)</span></p>
-<p><span class="math display">\[P(A)=\sum_{k=1}^nP(A|B_k)P(B_k)\]</span></p></li>
+<p>设$B<em>1B_2B_3\cdots B_n$是样本空间$S$中互不相交的一系列事件，并且满足$S=\bigcup</em>{k=1}^n B_k$，那么对于任意事件$A$</p>
+<script type="math/tex; mode=display">P(A)=\sum_{k=1}^nP(A|B_k)P(B_k)</script></li>
 </ol>
-<h1 id="平均值">平均值</h1>
-<h2 id="均值">均值</h2>
-<p><span class="math display">\[\sum_{x\in X(\Omega)}x\cdot Pr(X=x)\]</span></p>
-<p>也就是期望值</p>
-<h2 id="中位数">中位数</h2>
-<p>满足</p>
-<p><span class="math display">\[Pr(X\leq x) \geq \frac{1}{2}且Pr(X\geq x) \geq \frac{1}{2}\]</span></p>
-<p>的所有<span class="math inline">\(x\in X(\Omega)\)</span>组成的集合</p>
-<h2 id="众数">众数</h2>
-<p>满足</p>
-<p><span class="math display">\[Pr(X = x) \geq Pr(X=x^{&#39;}), \forall x^{&#39;}\in X(\Omega)\]</span></p>
-<p>的所有<span class="math inline">\(x\in X(\Omega)\)</span>组成的集合</p>
-<h1 id="期望">期望</h1>
-<p><span class="math display">\[EX=\sum_{\omega \in \Omega}X(\omega)Pr(\omega)\]</span></p>
-<h2 id="性质-1">性质</h2>
-<p><span class="math display">\[E(X+Y)=\sum_{\omega \in \Omega}(X(\omega)+Y(\omega))Pr(\omega)=EX+EY\]</span></p>
-<p><span class="math display">\[E(\alpha X)=\alpha EX\]</span></p>
-<p><span class="math display">\[E(XY)=(EX)(EY),如果X和Y是独立的\]</span></p>
-<h1 id="方差">方差</h1>
-<p><span class="math display">\[VX=E((X-EX)^2)\]</span></p>
-<h2 id="标准差">标准差</h2>
-<p><span class="math display">\[\sigma=\sqrt{VX}\]</span></p>
-<h2 id="性质-2">性质</h2>
-<p>因为<span class="math inline">\((EX)\)</span>是常数，</p>
-<p><span class="math display">\[
+<h1 id="平均值"><a href="#平均值" class="headerlink" title="平均值"></a>平均值</h1><h2 id="均值"><a href="#均值" class="headerlink" title="均值"></a>均值</h2><script type="math/tex; mode=display">\sum_{x\in X(\Omega)}x\cdot Pr(X=x)</script><p>也就是期望值</p>
+<h2 id="中位数"><a href="#中位数" class="headerlink" title="中位数"></a>中位数</h2><p>满足</p>
+<script type="math/tex; mode=display">Pr(X\leq x) \geq \frac{1}{2}且Pr(X\geq x) \geq \frac{1}{2}</script><p>的所有$x\in X(\Omega)$组成的集合</p>
+<h2 id="众数"><a href="#众数" class="headerlink" title="众数"></a>众数</h2><p>满足</p>
+<script type="math/tex; mode=display">Pr(X = x) \geq Pr(X=x^{'}), \forall x^{'}\in X(\Omega)</script><p>的所有$x\in X(\Omega)$组成的集合</p>
+<h1 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h1><script type="math/tex; mode=display">EX=\sum_{\omega \in \Omega}X(\omega)Pr(\omega)</script><h2 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h2><script type="math/tex; mode=display">E(X+Y)=\sum_{\omega \in \Omega}(X(\omega)+Y(\omega))Pr(\omega)=EX+EY</script><script type="math/tex; mode=display">E(\alpha X)=\alpha EX</script><script type="math/tex; mode=display">E(XY)=(EX)(EY),如果X和Y是独立的</script><h1 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h1><script type="math/tex; mode=display">VX=E((X-EX)^2)</script><h2 id="标准差"><a href="#标准差" class="headerlink" title="标准差"></a>标准差</h2><script type="math/tex; mode=display">\sigma=\sqrt{VX}</script><h2 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h2><p>因为$(EX)$是常数，</p>
+<script type="math/tex; mode=display">
 \begin{array}{l}
-VX\\\\
-=E((X-EX)^2)\\\\
-=E(X^2-2X(EX)+(EX)^2)\\\\
-=E(X^2)-2(EX)(EX)+(EX)^2\\\\
+VX\\
+=E((X-EX)^2)\\
+=E(X^2-2X(EX)+(EX)^2)\\
+=E(X^2)-2(EX)(EX)+(EX)^2\\
 =E(X^2)-(EX)^2
-\end{array}
-\]</span></p>
-<p>当<span class="math inline">\(X\)</span>和<span class="math inline">\(Y\)</span>为独立的随机变量时，</p>
-<p><span class="math display">\[
+\end{array}</script><p>当$X$和$Y$为独立的随机变量时，</p>
+<script type="math/tex; mode=display">
 \begin{array}{l}
-V(X+Y)\\\\
-=E((X+Y)^2)-(EX+EY)^2\\\\
-=E(X^2)+2(EX)(EY)+E(Y^2)-(EX)^2-2(EX)(EY)-(EY)^2\\\\
-=E(X^2)-(EX)^2+E(Y^2)-(EY)^2\\\\
+V(X+Y)\\
+=E((X+Y)^2)-(EX+EY)^2\\
+=E(X^2)+2(EX)(EY)+E(Y^2)-(EX)^2-2(EX)(EY)-(EY)^2\\
+=E(X^2)-(EX)^2+E(Y^2)-(EY)^2\\
 =VX+VY
-\end{array}
-\]</span></p>
-<h1 id="整数概率公式">整数概率公式</h1>
-<p><span class="math display">\[E(x)=\sum_{i=1}^{\infty}P(x\geq i)\]</span></p>
-<p>正整数随机变量的期望等于其分别大于等于所有数的概率之和</p>
-<h2 id="证明">证明</h2>
-<p><span class="math display">\[E(x)=\sum_{i=1}^{\infty}iP(x=i)=\sum_{i=1}^{\infty}i[P(x\geq i)-P(x\geq i+1)]=\sum_{i=1}^{\infty}P(x\geq i)\]</span></p>
-
+\end{array}</script><h1 id="整数概率公式"><a href="#整数概率公式" class="headerlink" title="整数概率公式"></a>整数概率公式</h1><script type="math/tex; mode=display">E(x)=\sum_{i=1}^{\infty}P(x\geq i)</script><p>正整数随机变量的期望等于其分别大于等于所有数的概率之和</p>
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><script type="math/tex; mode=display">E(x)=\sum_{i=1}^{\infty}iP(x=i)=\sum_{i=1}^{\infty}i[P(x\geq i)-P(x\geq i+1)]=\sum_{i=1}^{\infty}P(x\geq i)</script>
         
         </div>
         <footer class="article-footer">
@@ -342,7 +315,7 @@ V(X+Y)\\\\
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/概率论/" data-id="cjq8qetnq000n1o87dl5n0dwb" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/概率论/" data-id="cjq8y2bud000ft7876fzp2qwd" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -456,6 +429,25 @@ V(X+Y)\\\\
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/花里胡哨的二项式系数/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/花里胡哨的二项式系数/" class="title">花里胡哨的二项式系数</a></p>
+                            <p class="item-date"><time datetime="2018-12-29T04:06:36.000Z" itemprop="datePublished">2018-12-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/一个关于整值函数的结论/" class="thumbnail">
     
     
@@ -529,25 +521,6 @@ V(X+Y)\\\\
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/Min-25/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/Min-25/" class="title">Min_25筛</a></p>
-                            <p class="item-date"><time datetime="2018-11-30T06:47:35.000Z" itemprop="datePublished">2018-11-30</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -559,7 +532,7 @@ V(X+Y)\\\\
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -568,7 +541,7 @@ V(X+Y)\\\\
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FFT与NTT/">FFT与NTT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后缀自动机/">后缀自动机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率/">概率</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性基/">线性基</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动机/">自动机</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FFT与NTT/">FFT与NTT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二项式系数/">二项式系数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后缀自动机/">后缀自动机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率/">概率</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性基/">线性基</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动机/">自动机</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -577,7 +550,7 @@ V(X+Y)\\\\
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
+            <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
         </div>
     </div>
 

@@ -5,18 +5,18 @@
     
     <title>多项式求逆 | PhoenixGS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="定义 我们说\(B(x)\)是\(A(x)\)在模\(x^n\)意义下的逆元则是满足 \[A(x)*B(x)\equiv1(mod \; x^n)\] 分治 考虑分治 假如我们已经知道在模\(x^{\lceil \frac{n}{2} \rceil}\)下\(A\)的逆\(B&amp;#39;\)">
-<meta name="keywords" content="算法,数学,FFT与NTT">
+    <meta name="description" content="定义我们说$B(x)$是$A(x)$在模$x^n$意义下的逆元则是满足 A(x)*B(x)\equiv1(mod \; x^n)分治考虑分治 假如我们已经知道在模$x^{\lceil \frac{n}{2} \rceil}$下$A$的逆$B’$">
+<meta name="keywords" content="数学,FFT与NTT,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多项式求逆">
 <meta property="og:url" content="http://x.phoenixgs.cn/多项式求逆/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="定义 我们说\(B(x)\)是\(A(x)\)在模\(x^n\)意义下的逆元则是满足 \[A(x)*B(x)\equiv1(mod \; x^n)\] 分治 考虑分治 假如我们已经知道在模\(x^{\lceil \frac{n}{2} \rceil}\)下\(A\)的逆\(B&amp;#39;\)">
+<meta property="og:description" content="定义我们说$B(x)$是$A(x)$在模$x^n$意义下的逆元则是满足 A(x)*B(x)\equiv1(mod \; x^n)分治考虑分治 假如我们已经知道在模$x^{\lceil \frac{n}{2} \rceil}$下$A$的逆$B’$">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-12-27T13:09:47.743Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多项式求逆">
-<meta name="twitter:description" content="定义 我们说\(B(x)\)是\(A(x)\)在模\(x^n\)意义下的逆元则是满足 \[A(x)*B(x)\equiv1(mod \; x^n)\] 分治 考虑分治 假如我们已经知道在模\(x^{\lceil \frac{n}{2} \rceil}\)下\(A\)的逆\(B&amp;#39;\)">
+<meta name="twitter:description" content="定义我们说$B(x)$是$A(x)$在模$x^n$意义下的逆元则是满足 A(x)*B(x)\equiv1(mod \; x^n)分治考虑分治 假如我们已经知道在模$x^{\lceil \frac{n}{2} \rceil}$下$A$的逆$B’$">
     
 
     
@@ -167,11 +167,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                13
+                14
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                9
+                10
                 <span>标签</span>
             </div>
         </div>
@@ -257,29 +257,20 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="定义">定义</h1>
-<p>我们说<span class="math inline">\(B(x)\)</span>是<span class="math inline">\(A(x)\)</span>在模<span class="math inline">\(x^n\)</span>意义下的逆元则是满足</p>
-<p><span class="math display">\[A(x)*B(x)\equiv1(mod \; x^n)\]</span></p>
-<h1 id="分治">分治</h1>
-<p>考虑分治</p>
-<p>假如我们已经知道在模<span class="math inline">\(x^{\lceil \frac{n}{2} \rceil}\)</span>下<span class="math inline">\(A\)</span>的逆<span class="math inline">\(B&#39;\)</span></p>
+            <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>我们说$B(x)$是$A(x)$在模$x^n$意义下的逆元则是满足</p>
+<script type="math/tex; mode=display">A(x)*B(x)\equiv1(mod \; x^n)</script><h1 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h1><p>考虑分治</p>
+<p>假如我们已经知道在模$x^{\lceil \frac{n}{2} \rceil}$下$A$的逆$B’$</p>
 <a id="more"></a>
 <p>即</p>
-<p><span class="math display">\[A(x)*B&#39;(x)\equiv 1(mod \; x^{\lceil \frac{n}{2} \rceil})\]</span></p>
-<p><span class="math display">\[A(x)*B&#39;(x)-1\equiv 0(mod \; x^{\lceil \frac{n}{2} \rceil})\]</span></p>
-<p>两边平方即可得</p>
-<p><span class="math display">\[(A(x)*B&#39;(x)-1)^2\equiv 0(mod \; x^{2\lceil \frac{n}{2} \rceil})\]</span></p>
-<p>显然<span class="math inline">\(2\lceil \frac{n}{2} \rceil \geq n\)</span></p>
+<script type="math/tex; mode=display">A(x)*B'(x)\equiv 1(mod \; x^{\lceil \frac{n}{2} \rceil})</script><script type="math/tex; mode=display">A(x)*B'(x)-1\equiv 0(mod \; x^{\lceil \frac{n}{2} \rceil})</script><p>两边平方即可得</p>
+<script type="math/tex; mode=display">(A(x)*B'(x)-1)^2\equiv 0(mod \; x^{2\lceil \frac{n}{2} \rceil})</script><p>显然$2\lceil \frac{n}{2} \rceil \geq n$</p>
 <p>所以</p>
-<p><span class="math display">\[(A(x)*B&#39;(x)-1)^2\equiv 0(mod \; x^n)\]</span></p>
-<p><span class="math display">\[A^2(x)*B&#39;^2(x)-2A(x)*B&#39;(x)+1\equiv 0(mod \; x^n)\]</span></p>
-<p><span class="math display">\[2A(x)*B&#39;(x)-A^2(x)*B&#39;^2(x)\equiv 1(mod \; x^n)\]</span></p>
-<p><span class="math display">\[A(x)(2B&#39;(x)-A(x)*B&#39;^2(x))\equiv 1(mod \; x^n)\]</span></p>
-<p>那么<span class="math inline">\(B(x)=2B&#39;(x)-A(x)*B&#39;^2(x)\)</span>即为满足<span class="math inline">\(A(x)*B(x)\equiv 1(mod \; x^n)\)</span>的<span class="math inline">\(B(x)\)</span></p>
-<h1 id="参考资料">参考资料</h1>
-<ol type="1">
-<li><p><a href="http://nirobc.com/20181212.pdf" class="uri" target="_blank" rel="noopener">http://nirobc.com/20181212.pdf</a></p></li>
-<li><p><a href="https://www.cnblogs.com/yoyoball/p/8724115.html" class="uri" target="_blank" rel="noopener">https://www.cnblogs.com/yoyoball/p/8724115.html</a></p></li>
+<script type="math/tex; mode=display">(A(x)*B'(x)-1)^2\equiv 0(mod \; x^n)</script><script type="math/tex; mode=display">A^2(x)*B'^2(x)-2A(x)*B'(x)+1\equiv 0(mod \; x^n)</script><script type="math/tex; mode=display">2A(x)*B'(x)-A^2(x)*B'^2(x)\equiv 1(mod \; x^n)</script><script type="math/tex; mode=display">A(x)(2B'(x)-A(x)*B'^2(x))\equiv 1(mod \; x^n)</script><p>那么$B(x)=2B’(x)-A(x)<em>B’^2(x)$即为满足$A(x)</em>B(x)\equiv 1(mod \; x^n)$的$B(x)$</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li><p><a href="http://nirobc.com/20181212.pdf" target="_blank" rel="noopener">http://nirobc.com/20181212.pdf</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/yoyoball/p/8724115.html" target="_blank" rel="noopener">https://www.cnblogs.com/yoyoball/p/8724115.html</a></p>
+</li>
 </ol>
 
         
@@ -291,7 +282,7 @@
 
 </div>
 
-    <a data-url="http://x.phoenixgs.cn/多项式求逆/" data-id="cjq8qetni000c1o874u3af1eo" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+    <a data-url="http://x.phoenixgs.cn/多项式求逆/" data-id="cjq8y2bue000ht787racnhvnx" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -405,6 +396,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/花里胡哨的二项式系数/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/花里胡哨的二项式系数/" class="title">花里胡哨的二项式系数</a></p>
+                            <p class="item-date"><time datetime="2018-12-29T04:06:36.000Z" itemprop="datePublished">2018-12-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/一个关于整值函数的结论/" class="thumbnail">
     
     
@@ -478,25 +488,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/Min-25/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/Min-25/" class="title">Min_25筛</a></p>
-                            <p class="item-date"><time datetime="2018-11-30T06:47:35.000Z" itemprop="datePublished">2018-11-30</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -508,7 +499,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -517,7 +508,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FFT与NTT/">FFT与NTT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后缀自动机/">后缀自动机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率/">概率</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性基/">线性基</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动机/">自动机</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FFT与NTT/">FFT与NTT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二项式系数/">二项式系数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后缀自动机/">后缀自动机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学/">数学</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概率/">概率</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性基/">线性基</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动机/">自动机</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -526,7 +517,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
+            <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
         </div>
     </div>
 
