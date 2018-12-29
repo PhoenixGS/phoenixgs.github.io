@@ -2,23 +2,18 @@
 <html  lang="zh">
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-<title>Min_25筛 - PhoenixGS</title>
+<title>标签: 关于本站 - PhoenixGS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
 
-    <meta name="description" content="简介Min_25筛用来求一个函数的前缀和 如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的 算法过程就像是在模拟埃氏筛法 时间复杂度是$O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})$，然而我并不会证">
-<meta name="keywords" content="数学,算法,数论">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Min_25筛">
-<meta property="og:url" content="http://x.phoenixgs.cn/Min-25/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="PhoenixGS">
+<meta property="og:url" content="http://x.phoenixgs.cn/tags/关于本站/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="简介Min_25筛用来求一个函数的前缀和 如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的 算法过程就像是在模拟埃氏筛法 时间复杂度是$O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})$，然而我并不会证">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-29T01:38:18.907Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Min_25筛">
-<meta name="twitter:description" content="简介Min_25筛用来求一个函数的前缀和 如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的 算法过程就像是在模拟埃氏筛法 时间复杂度是$O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})$，然而我并不会证">
+<meta name="twitter:title" content="PhoenixGS">
 
 
 
@@ -88,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="Min_25筛" height="28">
+                <img src="/images/logo.png" alt="PhoenixGS" height="28">
             
             </a>
         </div>
@@ -130,18 +125,29 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">关于本站</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-11-30T06:47:35.000Z">2018-11-30</time>
+                <time class="level-item has-text-grey" datetime="2018-12-29T05:18:49.000Z">2018-12-29</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 849 个字)
+                    几秒 读完 (大约 52 个字)
                 </span>
                 
             </div>
@@ -149,80 +155,16 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Min_25筛
+                <a class="has-link-black-ter" href="/更新主题/">更新主题</a>
             
         </h1>
         <div class="content">
-            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Min_25筛用来求一个函数的前缀和</p>
-<p>如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的</p>
-<p>算法过程就像是在模拟埃氏筛法</p>
-<p>时间复杂度是$O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})$，然而我并不会证</p>
-<a id="more"></a>
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="质数的函数值的前缀和"><a href="#质数的函数值的前缀和" class="headerlink" title="质数的函数值的前缀和"></a>质数的函数值的前缀和</h2><p>设$m(x)$表示$x$的最小质因子</p>
-<p>假如要求</p>
-<p>$$\sum_{i = 1}^{n}f(i)[i是质数]$$</p>
-<p>首先将$\sqrt{n}$之内的质数全部筛出来，放在<code>prime</code>数组里</p>
-<p>设</p>
-<p>$$g(n,j)=\sum_{i = 2}^{n}f(i)[m(i) &gt; prime_j 或 i 是质数]$$</p>
-<p>那么</p>
-<p>$$<br>g(n,j) = \begin{cases}<br> g(n,j - 1) - f(j)[g(\lfloor \frac{n}{prime_j} \rfloor, j - 1) - g(prime_{j - 1}, j - 1)] &amp; prime_j^2 \leq n \<br> g(n,j - 1) &amp; prime_j^2 &gt; n<br>\end{cases}<br>$$</p>
-<p>显然，其中的$g(prime_{j-1},j-1)=\sum_{i=1}^{j-1}f(prime_i)$</p>
-<p>那么原式中第一维有用的值只有$O(\sqrt{n})$种，预处理即可</p>
-<p>最终$g(n,primenum)$就是我们要求的$\sum_{i = 1}^{n}f(i)[i是质数]$</p>
-<h3 id="关于-f-x"><a href="#关于-f-x" class="headerlink" title="关于$f(x)$"></a>关于$f(x)$</h3><p>如果只求质数的函数值的话，</p>
-<p>$f(x)$应该满足下面几个条件：</p>
-<ol>
-<li><p>若$x$是质数$f(x)$应该要能在$O(1)$内求出来</p>
-</li>
-<li><p>要能够快速求出$\sum_{i=2}^{n}f’(i)$，其中$f’(i)=\Pi_{j,k}f(j)[k &gt; 0][j^k|n]$</p>
-</li>
-</ol>
-<h2 id="函数值的前缀和"><a href="#函数值的前缀和" class="headerlink" title="函数值的前缀和"></a>函数值的前缀和</h2><h3 id="递归版"><a href="#递归版" class="headerlink" title="递归版"></a>递归版</h3><p>假设我们要求的函数是$f(x)$，那么问题就是求</p>
-<p>$$\sum_{i = 1}^{n}f(i)$$</p>
-<p>之前已经求出了</p>
-<p>$$\sum_{i = 1}^{n}f(i)[i是质数]$$</p>
-<p>的值</p>
-<p>那么，现在设</p>
-<p>$$h(n,j) = \sum_{i=2}^nf(i)[m(i) \geq prime_j]$$</p>
-<p>那么</p>
-<p>$$<br>h(n,j)=g(n,primenum) - g(prime_{i-1},i-1)+<br>\<br>\sum_{i=j}^{primenum}\sum_{e\geq 1 且 prime_i^{e+1}\leq n}f(prime_i^e)h(\lfloor \frac{n}{prime_i^e} \rfloor,i+1)+f(prime_i^{e+1})<br>$$</p>
-<p>和上面一样，第一维有用的取值只有$O(\sqrt{n})$种</p>
-<p>写一个递归函数，最后的答案即为$h(n,1)+f(1)$</p>
-<p>假如就询问没几个$n$的答案，就可以用这种方法</p>
-<h3 id="非递归版"><a href="#非递归版" class="headerlink" title="非递归版"></a>非递归版</h3><p>这次改变一下状态</p>
-<p>设</p>
-<p>$$h(n,j)=\sum_{i=2}^nf(i)[m(i)\geq prime_j 或 i是质数]$$</p>
-<p>那么</p>
-<p>$$<br>h(n,j)=\begin{cases}<br> h(n,j+1)+\ \sum_{e \geq 1 且prime_j^{e+1}\leq n}f(prime_j^e)[h(\lfloor \frac{n}{prime_j^e} \rfloor,j + 1) - g(prime_i,i)] &amp; prime_j^2 \leq n \<br> h(n,j+1) &amp; prime_j^2 &gt; n<br>\end{cases}<br>$$</p>
-<p>有没有发现这个式子与质数函数值的前缀和的式子特别像？只不过质数一个是从小枚举到大，一个是从大枚举到小</p>
-<p>答案为$h(n,1)+f(1)$</p>
-<p>假如要询问许多$n’= \lfloor \frac{n}{x} \rfloor$的答案，就可以用这种方法</p>
-<h3 id="关于-f-x-1"><a href="#关于-f-x-1" class="headerlink" title="关于$f(x)$"></a>关于$f(x)$</h3><p>$f(x)$函数如果是积性函数，那么应该都可以做</p>
-<p>假如不是的话，首先要满足求质数的函数值的前缀和的那些条件</p>
-<p>并且若$x=ab,gcd(a,b)=1$，$f(x)$能$O(1)$从$f(a)$和$f(b)$合并，那么应该就能做了（其实我也不是很清楚qaq</p>
-<h2 id="关于时间复杂度"><a href="#关于时间复杂度" class="headerlink" title="关于时间复杂度"></a>关于时间复杂度</h2><p>暂时还不会。。。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
-<li><p><a href="http://www.cnblogs.com/zzqsblog/p/8302815.html" target="_blank" rel="noopener">http://www.cnblogs.com/zzqsblog/p/8302815.html</a></p>
-</li>
-<li><p><a href="http://www.hekai.site/wordpress/2018/09/04/min_25%E7%AD%9B/" target="_blank" rel="noopener">http://www.hekai.site/wordpress/2018/09/04/min_25%E7%AD%9B/</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/XianHaoMing/article/details/80397777" target="_blank" rel="noopener">https://blog.csdn.net/XianHaoMing/article/details/80397777</a></p>
-</li>
-<li><p><a href="https://www.cnblogs.com/Menhera/p/9226649.html" target="_blank" rel="noopener">https://www.cnblogs.com/Menhera/p/9226649.html</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/ZLTJohn/article/details/79703503" target="_blank" rel="noopener">https://blog.csdn.net/ZLTJohn/article/details/79703503</a></p>
-</li>
-</ol>
+            <p>今天突然发现icarus主题不知道什么时候更新了</p>
+<p>搞了一会儿更新好了，感觉好看了不少</p>
+<p>前后对比图：</p>
+<p><img src="https://z.phoenixgs.cn/20181229132621.png" alt=""></p>
+<p><img src="https://z.phoenixgs.cn/20181229132629.png" alt=""></p>
 
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/数学/">数学</a>, <a class="has-link-grey -link" href="/tags/数论/">数论</a>, <a class="has-link-grey -link" href="/tags/算法/">算法</a>
-                </div>
-            </div>
         </div>
         
         
@@ -234,26 +176,7 @@
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/后缀自动机/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">后缀自动机</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/概率论/">
-                <span class="level-item">概率论</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
+
 
 
 </div>
@@ -1065,7 +988,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="Min_25筛" height="28">
+                    <img src="/images/logo.png" alt="PhoenixGS" height="28">
                 
                 </a>
                 <p class="is-size-7">
