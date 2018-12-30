@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://x.phoenixgs.cn/"/>
-  <updated>2018-12-29T08:16:35.898Z</updated>
+  <updated>2018-12-30T16:10:23.299Z</updated>
   <id>http://x.phoenixgs.cn/</id>
   
   <author>
@@ -17,39 +17,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CDQ分治与点分治的碰撞</title>
+    <link href="http://x.phoenixgs.cn/CDQ%E5%88%86%E6%B2%BB%E4%B8%8E%E7%82%B9%E5%88%86%E6%B2%BB%E7%9A%84%E7%A2%B0%E6%92%9E/"/>
+    <id>http://x.phoenixgs.cn/CDQ分治与点分治的碰撞/</id>
+    <published>2018-12-30T16:10:23.000Z</published>
+    <updated>2018-12-30T16:10:23.299Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>看到了<a href="https://lydsy.com/JudgeOnline/problem.php?id=3672" target="_blank" rel="noopener">[Noi2014]购票</a>这道题目，发现了这种操作（为什么之前没想到呢。。。）</p><p>代码还没写过，先口胡一下</p><blockquote><p>有根树上的DP，每个点只能从祖先转移。</p></blockquote><p>那么考虑点分治</p><p>选出一个联通块的重心<code>root</code>之后，以<code>root</code>为根，有若干棵子树。找到<code>root</code>的父亲所在的子树，先递归更新这棵子树。然后再用这棵子树中<code>root</code>的所有祖先来更新<code>root</code>以及其他子树</p><p>大概就是这个意思</p><p>不过应该也不只局限于DP，但是这些问题有一些限制：</p><p>贡献的计算必须是与祖先有关的。如果贡献里有两个点产生贡献但是没有一个点是另外一个点的祖先，那么应该就不能做了吧。（因为这样的话就还要计算不含<code>root</code>的父亲的子树之间产生的贡献了）</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="树" scheme="http://x.phoenixgs.cn/tags/%E6%A0%91/"/>
+    
+      <category term="分治" scheme="http://x.phoenixgs.cn/tags/%E5%88%86%E6%B2%BB/"/>
+    
+      <category term="CDQ分治" scheme="http://x.phoenixgs.cn/tags/CDQ%E5%88%86%E6%B2%BB/"/>
+    
+      <category term="点分治" scheme="http://x.phoenixgs.cn/tags/%E7%82%B9%E5%88%86%E6%B2%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>密码Hello</title>
     <link href="http://x.phoenixgs.cn/%E5%AF%86%E7%A0%81Hello/"/>
     <id>http://x.phoenixgs.cn/密码Hello/</id>
     <published>2018-12-29T07:58:19.000Z</published>
     <updated>2018-12-29T08:16:35.898Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script><div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="Hello">    <label for="pass">Hello</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX1+bJngBSWXD6153fhfREZ1DtVX2NjMTTsWdDAnPysRwjKQeAfTctjV9dseGwBVu7LVkk7xQuKEBXzR4tPNy1a7IBDq5vlL8FNMaoMamMkcXLp5TghjBVt/KFOluRuDLuaq8STCrk+zou1E9hDwXRoWTiXVU0CX1TYaJhM/q78zO+mUqPhq/1u4PjN9REhDjqAB/68Qav2Z8KOPft1xK6clKV932mecFO7Xw/ZXkWWnaA1jgBI5nf5DFqTsVmIzw8qwGVTLMJRc17cvHK3lamQvTOkBfM+wXcBTMkc7IlPsQUihJi0qTtooGKwGXcTVfFvc6vSLUeDiaHZ6/j5MkfuBFF8ikqJirw9dcXd2iteMyE2HvpHmjoLz+0ncTlqvAJo6kih+DWyrZkl3VZoLM4VstsMIYb7hYxWzcngFW20D8VQyBsZU/7WCNWKIUNN79SknbSMqdeIenxRZj9KHi/6H3iT6HhgKmJKvm8OgCp8s07bsRVjf9VWdNSEh1C3+JNxBy2G32tFVr6V3xuxYhYDwkFUeCoaDq2h2od1B8zTqooeUeN1tVIuBwvHATTJtDFuAcD9RBm5LqoGQxG3bod6gZnwKWpFdKW5OM3P/Xk3lN5KYCYccFhrZi31b76HIMZYrXxlLHB4sIXj6KgH4gUCC8iCTaKXFU4Z7CwAreXVpkL90+WJwWJ+tRRbOq1Cm98sj+UAuMTBrPp89iXkJ2Xq/1+CDfz1YiPl8reqqpyNuMv/CTIMSQTwiGgEMVI4INmArk/bfUQjq6UW73zBXgAFuvM5d7QXaNzFm016W/lenUqeYiO8sdPrkQDlcyZFXcUwN4poOt38ylTUiO9uVSwNFoiTL/EERETTfvAqvnU/17CPE2g/qEYDz9dO1pP6GV6TOV6+d2ZazcdCvWYbKEAOIak+1wBvnJ+AJ5oRcWna1KY800CI5A0uAB9rX8wDtOyhITENXKCKGtIM+z67LgcURjzNXlfKjf+6zriD8MCCGra6bn5vWnqpn0SnKXnzzcL/QQmft2c8tjDCxq73L5WmM7nTGGSuAtAD0=</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script><div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="Hello">    <label for="pass">Hello</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX1+qRZBYU46Bzu30QN7uFNQf7ibKpOBubkAsOAxVfDX4EC7ySLZUHOwsritPVxA8XfO9pRnqND3V1JJrXg2YYvWzQehn7pnR45B6rYrbTHl26bo7MvkAUBhN2E1JSCLNKYaPMqnsBqr4+Nul0wlg2bNI6+CVBPIVgGQ6VyfkCiOo7B6iiAEYgL1HEVUJenM5Go6Ggv0GbIDcyRaDQRC1nNo+2u8r1QfQB3VowyR34K6OYd1QaJ9F9IhJ+mhA0Q+oG1+c4jKIv/C4zmzpi9Z1z8WhtaIr00icyWTSafqhkwD7aqKBDuM888+65Ef/DSvblBOD6/PEYiRaB5n28kkgJq5D62kutZ7QZXhKwAHckcpA2qY7spFx3F2+5wBAjIQ4C1SqdHawoHrgwoU4eI22y4dlRhnntRahan+XVvrZgSoS7jcDgvb80OFLm5jjravjQzRhDz3hSsXDWgk/D7Jn7FMNsK+NYhQ2IcWWyOVKaWvkNGRyJ3gOmZbnF4gi42JFUqA9IeUKevz5YvdK6OLwbfmOLAucf8VFYSVuLdcPaf7tLSKFsTW9Z8OkAvEO1tMHZNFAJ0DH4Ph1zTuHYYtiQpHzxh76N3vUITA1b7Zlx1598uUs6rv6gTu5Cp2MlU2l8rhhACgphnTpjpBK+PHzo9LP8OkE64dKvlC8TJ4AS+/MrrXnVPhDwxHPxjtp+bZch8xuaJH7xQjeViopjN+mBw2U0yWGIRum9kGIbZghUIAjCThBZu2Qr5Bv3jt6AMiEg3JCzRMoeO+Do063FI+FcCpiYo21a8oSyv9x5ZVk+j+iXvmHelrfKcHFsy7pfUNDwt3+Zoj/NHA7wZZDu6dvF5V2hLHLJDXVyKjEP8xplL2ibMyBPy3UEOW2uQn7TVL9BeREQZIzKawSYOvnG0iQUI0+upVONNPLU0i9On15y5fOt4t4N0akw1K+Xul27wmKMaQ7evq1mgqnIyKLBnBizqeTKi4TCok5ioLYjn8GY6WSv/HLZ3bCnK5f6je3qde+ZOHVaYEa5dNtLEK9XQa/M/0cXhc6bknH7LE=</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
     
     <summary type="html">
     
       Hello
-    
-    </summary>
-    
-    
-      <category term="关于本站" scheme="http://x.phoenixgs.cn/tags/%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>更新主题</title>
-    <link href="http://x.phoenixgs.cn/%E6%9B%B4%E6%96%B0%E4%B8%BB%E9%A2%98/"/>
-    <id>http://x.phoenixgs.cn/更新主题/</id>
-    <published>2018-12-29T05:18:49.000Z</published>
-    <updated>2018-12-29T07:02:02.510Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>今天突然发现icarus主题不知道什么时候更新了</p><p>搞了一会儿更新好了，感觉好看了不少</p><p>前后对比图：</p><a id="more"></a><p><img src="http://phoenixgs-1253902147.coscd.myqcloud.com/20181229135652.png" alt=""></p><p><img src="http://phoenixgs-1253902147.coscd.myqcloud.com/20181229135710.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天突然发现icarus主题不知道什么时候更新了&lt;/p&gt;
-&lt;p&gt;搞了一会儿更新好了，感觉好看了不少&lt;/p&gt;
-&lt;p&gt;前后对比图：&lt;/p&gt;
     
     </summary>
     

@@ -2,23 +2,27 @@
 <html  lang="zh">
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-<title>标签 - PhoenixGS</title>
+<title>CDQ分治与点分治的碰撞 - PhoenixGS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
 
-    <meta name="keywords" content="树,分治,CDQ分治,点分治,数学,FFT与NTT,算法,数论,关于本站,概率,线性基,二项式系数,自动机,后缀自动机">
-<meta property="og:type" content="website">
-<meta property="og:title" content="PhoenixGS">
-<meta property="og:url" content="http://x.phoenixgs.cn/tags/index.html">
+    <meta name="description" content="看到了[Noi2014]购票这道题目，发现了这种操作（为什么之前没想到呢。。。） 代码还没写过，先口胡一下  有根树上的DP，每个点只能从祖先转移。  那么考虑点分治 选出一个联通块的重心root之后，以root为根，有若干棵子树。找到root的父亲所在的子树，先递归更新这棵子树。然后再用这棵子树中root的所有祖先来更新root以及其他子树 大概就是这个意思 不过应该也不只局限于DP，但是这些问">
+<meta name="keywords" content="树,分治,CDQ分治,点分治">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CDQ分治与点分治的碰撞">
+<meta property="og:url" content="http://x.phoenixgs.cn/CDQ分治与点分治的碰撞/index.html">
 <meta property="og:site_name" content="PhoenixGS">
+<meta property="og:description" content="看到了[Noi2014]购票这道题目，发现了这种操作（为什么之前没想到呢。。。） 代码还没写过，先口胡一下  有根树上的DP，每个点只能从祖先转移。  那么考虑点分治 选出一个联通块的重心root之后，以root为根，有若干棵子树。找到root的父亲所在的子树，先递归更新这棵子树。然后再用这棵子树中root的所有祖先来更新root以及其他子树 大概就是这个意思 不过应该也不只局限于DP，但是这些问">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-30T16:10:23.299Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PhoenixGS">
+<meta name="twitter:title" content="CDQ分治与点分治的碰撞">
+<meta name="twitter:description" content="看到了[Noi2014]购票这道题目，发现了这种操作（为什么之前没想到呢。。。） 代码还没写过，先口胡一下  有根树上的DP，每个点只能从祖先转移。  那么考虑点分治 选出一个联通块的重心root之后，以root为根，有若干棵子树。找到root的父亲所在的子树，先递归更新这棵子树。然后再用这棵子树中root的所有祖先来更新root以及其他子树 大概就是这个意思 不过应该也不只局限于DP，但是这些问">
 
 
 
-<link rel="alternative" href="/atom.xml" title="PhoenixGS" type="application/atom+xml">
+<link rel="alternative" href="/atom.xml" title="CDQ分治与点分治的碰撞" type="application/atom+xml">
 
 
 
@@ -80,13 +84,13 @@
 
 <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
-<body class="is-3-column">
+<body class="is-2-column">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="PhoenixGS" height="28">
+                <img src="/images/logo.png" alt="CDQ分治与点分治的碰撞" height="28">
             
             </a>
         </div>
@@ -103,7 +107,7 @@
                 <a class="navbar-item"
                 href="/categories">Categories</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/tags">Tags</a>
                 
                 <a class="navbar-item"
@@ -123,6 +127,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -136,178 +144,83 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <ul class="menu-list">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-12-30T16:10:23.000Z">2018-12-31</time>
                 
-                <li>
-                    <a class="level is-marginless" href="/tags/CDQ分治/">
-                        <span class="level-start">
-                            <span class="level-item">CDQ分治</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
                 
-                <li>
-                    <a class="level is-marginless" href="/tags/FFT与NTT/">
-                        <span class="level-start">
-                            <span class="level-item">FFT与NTT</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
-                    </a>
-                </li>
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 267 个字)
+                </span>
                 
-                <li>
-                    <a class="level is-marginless" href="/tags/二项式系数/">
-                        <span class="level-start">
-                            <span class="level-item">二项式系数</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/关于本站/">
-                        <span class="level-start">
-                            <span class="level-item">关于本站</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/分治/">
-                        <span class="level-start">
-                            <span class="level-item">分治</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/后缀自动机/">
-                        <span class="level-start">
-                            <span class="level-item">后缀自动机</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/数学/">
-                        <span class="level-start">
-                            <span class="level-item">数学</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">10</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/数论/">
-                        <span class="level-start">
-                            <span class="level-item">数论</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/树/">
-                        <span class="level-start">
-                            <span class="level-item">树</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">2</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/概率/">
-                        <span class="level-start">
-                            <span class="level-item">概率</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/点分治/">
-                        <span class="level-start">
-                            <span class="level-item">点分治</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/算法/">
-                        <span class="level-start">
-                            <span class="level-item">算法</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">5</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/线性基/">
-                        <span class="level-start">
-                            <span class="level-item">线性基</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a class="level is-marginless" href="/tags/自动机/">
-                        <span class="level-start">
-                            <span class="level-item">自动机</span>
-                        </span>
-                        <span class="level-end">
-                            <span class="level-item tag">1</span>
-                        </span>
-                    </a>
-                </li>
-                
-            </ul>
+            </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                CDQ分治与点分治的碰撞
+            
+        </h1>
+        <div class="content">
+            <p>看到了<a href="https://lydsy.com/JudgeOnline/problem.php?id=3672" target="_blank" rel="noopener">[Noi2014]购票</a>这道题目，发现了这种操作（为什么之前没想到呢。。。）</p>
+<p>代码还没写过，先口胡一下</p>
+<blockquote>
+<p>有根树上的DP，每个点只能从祖先转移。</p>
+</blockquote>
+<p>那么考虑点分治</p>
+<p>选出一个联通块的重心<code>root</code>之后，以<code>root</code>为根，有若干棵子树。找到<code>root</code>的父亲所在的子树，先递归更新这棵子树。然后再用这棵子树中<code>root</code>的所有祖先来更新<code>root</code>以及其他子树</p>
+<p>大概就是这个意思</p>
+<p>不过应该也不只局限于DP，但是这些问题有一些限制：</p>
+<p>贡献的计算必须是与祖先有关的。如果贡献里有两个点产生贡献但是没有一个点是另外一个点的祖先，那么应该就不能做了吧。（因为这样的话就还要计算不含<code>root</code>的父亲的子树之间产生的贡献了）</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/CDQ分治/">CDQ分治</a>, <a class="has-link-grey -link" href="/tags/分治/">分治</a>, <a class="has-link-grey -link" href="/tags/树/">树</a>, <a class="has-link-grey -link" href="/tags/点分治/">点分治</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
     </div>
-</div></div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/密码Hello/">
+                <span class="level-item">密码Hello</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
                 
 
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -423,9 +336,20 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            
+        </div>
+    </div>
+</div>
+
     
     
-        <div class="column-right-shadow is-hidden-widescreen ">
+        <div class="column-right-shadow  ">
         
             
 
@@ -526,111 +450,6 @@
 </div>
 
                 
-                
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        
-
-
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            标签云
-        </h3>
-        <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/FFT与NTT/" style="font-size: 13.33px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 13.33px;">关于本站</a> <a href="/tags/分治/" style="font-size: 10px;">分治</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 13.33px;">树</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/点分治/" style="font-size: 10px;">点分治</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a>
-    </div>
-</div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">8</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2016/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2016</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
-                
             </div>
         </div>
     </section>
@@ -640,7 +459,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="PhoenixGS" height="28">
+                    <img src="/images/logo.png" alt="CDQ分治与点分治的碰撞" height="28">
                 
                 </a>
                 <p class="is-size-7">
