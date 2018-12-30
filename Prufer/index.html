@@ -180,7 +180,7 @@
 <h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><ol>
 <li>一棵n个节点的无根树唯一地对应了一个长度为n-2的数列，数列中的每个数都在1到n的范围内。</li>
 <li>Prufer序列中某个编号出现的次数就等于这个编号的节点在无根树中的度数-1。</li>
-<li>设无根树每个点的度数为$D<em>i$，则$\sum</em>{i=1}^n(D<em>i-1)=n-2$（这好像是废话，，，因为$\sum</em>{i=1}^nD_i=2(n-1)$。。。</li>
+<li>设无根树每个点的度数为$D_i$，则$\sum_{i=1}^n(D_i-1)=n-2$（这好像是废话，，，因为$\sum_{i=1}^nD_i=2(n-1)$。。。</li>
 </ol>
 <h1 id="Cayley公式"><a href="#Cayley公式" class="headerlink" title="Cayley公式"></a>Cayley公式</h1><h2 id="Cayley公式-1"><a href="#Cayley公式-1" class="headerlink" title="Cayley公式"></a>Cayley公式</h2><p>一个完全图$K_n$有$n^{n-2}$棵生成树</p>
 <h2 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h2><p>由Prufer可知，一个Prufer数列和一个带编号的无根树是一一对应的，那么这个公式也很显然了。因为$n$个节点的无根树的Prufer序长度为$n-2$，序列中每个值取值为${1,2,3,…,n}$，因此不同的Prufer序有$n^{n-2}$个，因此生成树也有这么多个。</p>

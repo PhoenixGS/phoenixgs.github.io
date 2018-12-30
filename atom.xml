@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://x.phoenixgs.cn/"/>
-  <updated>2018-12-30T16:10:23.299Z</updated>
+  <updated>2018-12-30T16:12:22.955Z</updated>
   <id>http://x.phoenixgs.cn/</id>
   
   <author>
@@ -21,16 +21,17 @@
     <link href="http://x.phoenixgs.cn/CDQ%E5%88%86%E6%B2%BB%E4%B8%8E%E7%82%B9%E5%88%86%E6%B2%BB%E7%9A%84%E7%A2%B0%E6%92%9E/"/>
     <id>http://x.phoenixgs.cn/CDQ分治与点分治的碰撞/</id>
     <published>2018-12-30T16:10:23.000Z</published>
-    <updated>2018-12-30T16:10:23.299Z</updated>
+    <updated>2018-12-30T16:12:22.955Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>看到了<a href="https://lydsy.com/JudgeOnline/problem.php?id=3672" target="_blank" rel="noopener">[Noi2014]购票</a>这道题目，发现了这种操作（为什么之前没想到呢。。。）</p><p>代码还没写过，先口胡一下</p><blockquote><p>有根树上的DP，每个点只能从祖先转移。</p></blockquote><p>那么考虑点分治</p><p>选出一个联通块的重心<code>root</code>之后，以<code>root</code>为根，有若干棵子树。找到<code>root</code>的父亲所在的子树，先递归更新这棵子树。然后再用这棵子树中<code>root</code>的所有祖先来更新<code>root</code>以及其他子树</p><p>大概就是这个意思</p><p>不过应该也不只局限于DP，但是这些问题有一些限制：</p><p>贡献的计算必须是与祖先有关的。如果贡献里有两个点产生贡献但是没有一个点是另外一个点的祖先，那么应该就不能做了吧。（因为这样的话就还要计算不含<code>root</code>的父亲的子树之间产生的贡献了）</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>看到了<a href="https://lydsy.com/JudgeOnline/problem.php?id=3672" target="_blank" rel="noopener">[Noi2014]购票</a>这道题目，发现了这种操作（为什么之前没想到呢。。。）</p><p>代码还没写过，先口胡一下</p><blockquote><p>有根树上的DP，每个点只能从祖先转移。</p></blockquote><a id="more"></a><p>那么考虑点分治</p><p>选出一个联通块的重心<code>root</code>之后，以<code>root</code>为根，有若干棵子树。找到<code>root</code>的父亲所在的子树，先递归更新这棵子树。然后再用这棵子树中<code>root</code>的所有祖先来更新<code>root</code>以及其他子树</p><p>大概就是这个意思</p><p>不过应该也不只局限于DP，但是这些问题有一些限制：</p><p>贡献的计算必须是与祖先有关的。如果贡献里有两个点产生贡献但是没有一个点是另外一个点的祖先，那么应该就不能做了吧。（因为这样的话就还要计算不含<code>root</code>的父亲的子树之间产生的贡献了）</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
+      &lt;p&gt;看到了&lt;a href=&quot;https://lydsy.com/JudgeOnline/problem.php?id=3672&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;[Noi2014]购票&lt;/a&gt;这道题目，发现了这种操作（为什么之前没想到呢。。。）&lt;/p&gt;
+&lt;p&gt;代码还没写过，先口胡一下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有根树上的DP，每个点只能从祖先转移。&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -43,6 +44,8 @@
     
       <category term="点分治" scheme="http://x.phoenixgs.cn/tags/%E7%82%B9%E5%88%86%E6%B2%BB/"/>
     
+      <category term="算法" scheme="http://x.phoenixgs.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    
   </entry>
   
   <entry>
@@ -52,7 +55,7 @@
     <published>2018-12-29T07:58:19.000Z</published>
     <updated>2018-12-29T08:16:35.898Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script><div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="Hello">    <label for="pass">Hello</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX1+qRZBYU46Bzu30QN7uFNQf7ibKpOBubkAsOAxVfDX4EC7ySLZUHOwsritPVxA8XfO9pRnqND3V1JJrXg2YYvWzQehn7pnR45B6rYrbTHl26bo7MvkAUBhN2E1JSCLNKYaPMqnsBqr4+Nul0wlg2bNI6+CVBPIVgGQ6VyfkCiOo7B6iiAEYgL1HEVUJenM5Go6Ggv0GbIDcyRaDQRC1nNo+2u8r1QfQB3VowyR34K6OYd1QaJ9F9IhJ+mhA0Q+oG1+c4jKIv/C4zmzpi9Z1z8WhtaIr00icyWTSafqhkwD7aqKBDuM888+65Ef/DSvblBOD6/PEYiRaB5n28kkgJq5D62kutZ7QZXhKwAHckcpA2qY7spFx3F2+5wBAjIQ4C1SqdHawoHrgwoU4eI22y4dlRhnntRahan+XVvrZgSoS7jcDgvb80OFLm5jjravjQzRhDz3hSsXDWgk/D7Jn7FMNsK+NYhQ2IcWWyOVKaWvkNGRyJ3gOmZbnF4gi42JFUqA9IeUKevz5YvdK6OLwbfmOLAucf8VFYSVuLdcPaf7tLSKFsTW9Z8OkAvEO1tMHZNFAJ0DH4Ph1zTuHYYtiQpHzxh76N3vUITA1b7Zlx1598uUs6rv6gTu5Cp2MlU2l8rhhACgphnTpjpBK+PHzo9LP8OkE64dKvlC8TJ4AS+/MrrXnVPhDwxHPxjtp+bZch8xuaJH7xQjeViopjN+mBw2U0yWGIRum9kGIbZghUIAjCThBZu2Qr5Bv3jt6AMiEg3JCzRMoeO+Do063FI+FcCpiYo21a8oSyv9x5ZVk+j+iXvmHelrfKcHFsy7pfUNDwt3+Zoj/NHA7wZZDu6dvF5V2hLHLJDXVyKjEP8xplL2ibMyBPy3UEOW2uQn7TVL9BeREQZIzKawSYOvnG0iQUI0+upVONNPLU0i9On15y5fOt4t4N0akw1K+Xul27wmKMaQ7evq1mgqnIyKLBnBizqeTKi4TCok5ioLYjn8GY6WSv/HLZ3bCnK5f6je3qde+ZOHVaYEa5dNtLEK9XQa/M/0cXhc6bknH7LE=</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script><div id="hbe-security">  <div class="hbe-input-container">  <input type="password" class="hbe-form-control" id="pass" placeholder="Hello">    <label for="pass">Hello</label>    <div class="bottom-line"></div>  </div></div><div id="decryptionError" style="display: none;">Incorrect Password!</div><div id="noContentError" style="display: none;">No content to display!</div><div id="encrypt-blog" style="display:none">U2FsdGVkX188YvRplenM7nAImPnvJ8mgIGobRei68yFL1I+qgIFBgd9qYnZagKPA1v/w6gdPi5s5CfNCdhPMZrL2yusaz/WbpLFdIo21rP6/4VlfoUJrOrpuNOMq0CIekKwL3eLpX9pVFqKmOKez4q5gkymH0eT77V0PSITHzs/56Fr2eh61G0tSvigp1K44tL2EWMAkg5q0MYbxtUiByvQ+eXNab/JMylc0Z85bsPmTiHBtAhbeW9LNHQ73CC7rbwtaDzsesn+rKzDqHh4UISSddKa2O34UouvBPEibwzVcpD3LnNd3lVLurKiff6QK97FtzbB6eWNGS22G8AA4XY52tDvxGTlegCDt1rB8kOF4xxw3VPGIdD1wcA1vpl5WL47ApfMyOx30UtAW3lcGhHsvxM4AJmRJHE6pkpbSdiOB/Z4gTby3mvKdP2zMpKj+LMWWSvIfHFaLBjnTZzqd0OZObxjIZPu+lQluQJRNMNcQpSsVkPFEsDyMqHPMYQqdKZrnwRi80YbCIBhTvpF4o3/1dYNpOuoJn8+xr39x5SWWRS+ycJYYwhKCZ4ZcJvm4R6/VQ6N+k6OZlxMmzJho2BfHkAooAk3pJwrtfu2bJ3oZncPXlvrZqSOPGWrlZFcbv5hScAkNCIMccmj0ZkeRH9r3V6WWQ4DxhOUCaKZVN2Hhy0NETEoPMij1zh+uVGPzZu+yipcoMCl6aQpNIqXlsBEQcVdYHUBZaEvZiNgqqTjpnIrVl3KJSiut/UlSuwQFqZMIXbs/WnztT4gERptryzn/MnceuYZhOMbC2WHEKE9oznypdCJw2lFQccYW+nBbu9R257ZPx1PjruwT774YXeFjf8oe4bav5tbmyjW5ggWZPdEY4KKMs+NGIdzEq0V7iQrN7Y+DdNABghKzx8D65EaNAwR133DVLJjGQdJqTF3KCGOKrD8UXy7c2g6Aj7eDr6rCiegjDcaBT0Qkoy0WKM/eRgkfYAMkbdzLkF3+LrPSQAdcCu6XgQd23ann/PXrHO3ytyCocVBPMEiQln4CDw8ckgrzCoV93SZY8Z9w4u4=</div><script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
     
     <summary type="html">
     

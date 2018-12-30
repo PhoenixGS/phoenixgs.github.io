@@ -158,7 +158,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 267 个字)
+                    2 分钟 读完 (大约 268 个字)
                 </span>
                 
             </div>
@@ -175,14 +175,16 @@
 <blockquote>
 <p>有根树上的DP，每个点只能从祖先转移。</p>
 </blockquote>
-<p>那么考虑点分治</p>
-<p>选出一个联通块的重心<code>root</code>之后，以<code>root</code>为根，有若干棵子树。找到<code>root</code>的父亲所在的子树，先递归更新这棵子树。然后再用这棵子树中<code>root</code>的所有祖先来更新<code>root</code>以及其他子树</p>
-<p>大概就是这个意思</p>
-<p>不过应该也不只局限于DP，但是这些问题有一些限制：</p>
-<p>贡献的计算必须是与祖先有关的。如果贡献里有两个点产生贡献但是没有一个点是另外一个点的祖先，那么应该就不能做了吧。（因为这样的话就还要计算不含<code>root</code>的父亲的子树之间产生的贡献了）</p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/CDQ分治与点分治的碰撞/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
