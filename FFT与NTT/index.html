@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="快速傅立叶变换 FFT对于两个多项式 $$A(x)=\sum_{i=0}^{N-1}a_ix^i$$ $$B(x)=\sum_{i=0}^{N-1}b_ix^i$$ FFT可以在$O(nlgn)$的时间内求出 $$C(x)=A(x)*B(x)=\sum_{i=0}^{2(N-1)}c_ix^i$$ 其中$c_i=\sum_{j=0}^ia_jb_{i-j}$">
-<meta name="keywords" content="算法,数学,FFT与NTT">
+<meta name="keywords" content="数学,FFT与NTT,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FFT与NTT">
 <meta property="og:url" content="http://x.phoenixgs.cn/FFT与NTT/index.html">
@@ -195,9 +195,9 @@
 <p>考虑分治</p>
 <p>对于$0\leq i &lt; \frac{N}{2}$</p>
 <p>有</p>
-<p>$$<br>\begin{aligned}<br>A_i&amp;=\sum_{j=0}^{N-1}a_j\omega_N^{ij}<br>\<br>A_{i+\frac{N}{2}}&amp;=\sum_{j=0}^{N-1}a_j\omega_N^{(i+\frac{N}{2})j}=\sum_{j=0}^{N-1}(-1)^ja_j\omega_N^{ij}<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>A_i&amp;=\sum_{j=0}^{N-1}a_j\omega_N^{ij}<br>\\<br>A_{i+\frac{N}{2}}&amp;=\sum_{j=0}^{N-1}a_j\omega_N^{(i+\frac{N}{2})j}=\sum_{j=0}^{N-1}(-1)^ja_j\omega_N^{ij}<br>\end{aligned}<br>$$</p>
 <p>将$\sum$中的奇偶项分开来</p>
-<p>$$<br>\begin{aligned}<br>A_i&amp;=\sum_{j=0}^{\frac{N}{2}-1}a_{2j}\omega_{\frac{N}{2}}^{ij}+\omega_N^i\sum_{j=0}^{\frac{N}{2}-1}a_{2j+1}\omega_{\frac{N}{2}}^{ij}<br>\<br>A_{i+\frac{N}{2}}&amp;=\sum_{j=0}^{\frac{N}{2}-1}a_{2j}\omega_{\frac{N}{2}}^{ij}-\omega_N^i\sum_{j=0}^{\frac{N}{2}-1}a_{2j+1}\omega_{\frac{N}{2}}^{ij}<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>A_i&amp;=\sum_{j=0}^{\frac{N}{2}-1}a_{2j}\omega_{\frac{N}{2}}^{ij}+\omega_N^i\sum_{j=0}^{\frac{N}{2}-1}a_{2j+1}\omega_{\frac{N}{2}}^{ij}<br>\\<br>A_{i+\frac{N}{2}}&amp;=\sum_{j=0}^{\frac{N}{2}-1}a_{2j}\omega_{\frac{N}{2}}^{ij}-\omega_N^i\sum_{j=0}^{\frac{N}{2}-1}a_{2j+1}\omega_{\frac{N}{2}}^{ij}<br>\end{aligned}<br>$$</p>
 <p>非常奇妙是不是？这样就可以分治下去啦</p>
 <h2 id="IDFT"><a href="#IDFT" class="headerlink" title="IDFT"></a>IDFT</h2><p>与DFT类似</p>
 <p>只不过将DFT中的每个$\omega$都变成$\omega^{-1}$，然后最后每个$A_i$都除以$N$</p>

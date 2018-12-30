@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="简介Min_25筛用来求一个函数的前缀和 如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的 算法过程就像是在模拟埃氏筛法 时间复杂度是$O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})$，然而我并不会证">
-<meta name="keywords" content="算法,数学,数论">
+<meta name="keywords" content="数学,算法,数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Min_25筛">
 <meta property="og:url" content="http://x.phoenixgs.cn/Min-25/index.html">
@@ -180,7 +180,7 @@
 <p>设</p>
 <p>$$g(n,j)=\sum_{i = 2}^{n}f(i)[m(i) &gt; prime_j 或 i 是质数]$$</p>
 <p>那么</p>
-<p>$$<br>g(n,j) = \begin{cases}<br> g(n,j - 1) - f(j)[g(\lfloor \frac{n}{prime_j} \rfloor, j - 1) - g(prime_{j - 1}, j - 1)] &amp; prime_j^2 \leq n \<br> g(n,j - 1) &amp; prime_j^2 &gt; n<br>\end{cases}<br>$$</p>
+<p>$$<br>g(n,j) = \begin{cases}<br> g(n,j - 1) - f(j)[g(\lfloor \frac{n}{prime_j} \rfloor, j - 1) - g(prime_{j - 1}, j - 1)] &amp; prime_j^2 \leq n \\<br> g(n,j - 1) &amp; prime_j^2 &gt; n<br>\end{cases}<br>$$</p>
 <p>显然，其中的$g(prime_{j-1},j-1)=\sum_{i=1}^{j-1}f(prime_i)$</p>
 <p>那么原式中第一维有用的值只有$O(\sqrt{n})$种，预处理即可</p>
 <p>最终$g(n,primenum)$就是我们要求的$\sum_{i = 1}^{n}f(i)[i是质数]$</p>
@@ -200,7 +200,7 @@
 <p>那么，现在设</p>
 <p>$$h(n,j) = \sum_{i=2}^nf(i)[m(i) \geq prime_j]$$</p>
 <p>那么</p>
-<p>$$<br>h(n,j)=g(n,primenum) - g(prime_{i-1},i-1)+<br>\<br>\sum_{i=j}^{primenum}\sum_{e\geq 1 且 prime_i^{e+1}\leq n}f(prime_i^e)h(\lfloor \frac{n}{prime_i^e} \rfloor,i+1)+f(prime_i^{e+1})<br>$$</p>
+<p>$$<br>h(n,j)=g(n,primenum) - g(prime_{i-1},i-1)+<br>\\<br>\sum_{i=j}^{primenum}\sum_{e\geq 1 且 prime_i^{e+1}\leq n}f(prime_i^e)h(\lfloor \frac{n}{prime_i^e} \rfloor,i+1)+f(prime_i^{e+1})<br>$$</p>
 <p>和上面一样，第一维有用的取值只有$O(\sqrt{n})$种</p>
 <p>写一个递归函数，最后的答案即为$h(n,1)+f(1)$</p>
 <p>假如就询问没几个$n$的答案，就可以用这种方法</p>
@@ -208,7 +208,7 @@
 <p>设</p>
 <p>$$h(n,j)=\sum_{i=2}^nf(i)[m(i)\geq prime_j 或 i是质数]$$</p>
 <p>那么</p>
-<p>$$<br>h(n,j)=\begin{cases}<br> h(n,j+1)+\ \sum_{e \geq 1 且prime_j^{e+1}\leq n}f(prime_j^e)[h(\lfloor \frac{n}{prime_j^e} \rfloor,j + 1) - g(prime_i,i)] &amp; prime_j^2 \leq n \<br> h(n,j+1) &amp; prime_j^2 &gt; n<br>\end{cases}<br>$$</p>
+<p>$$<br>h(n,j)=\begin{cases}<br> h(n,j+1)+\ \sum_{e \geq 1 且prime_j^{e+1}\leq n}f(prime_j^e)[h(\lfloor \frac{n}{prime_j^e} \rfloor,j + 1) - g(prime_i,i)] &amp; prime_j^2 \leq n \\<br> h(n,j+1) &amp; prime_j^2 &gt; n<br>\end{cases}<br>$$</p>
 <p>有没有发现这个式子与质数函数值的前缀和的式子特别像？只不过质数一个是从小枚举到大，一个是从大枚举到小</p>
 <p>答案为$h(n,1)+f(1)$</p>
 <p>假如要询问许多$n’= \lfloor \frac{n}{x} \rfloor$的答案，就可以用这种方法</p>
