@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://x.phoenixgs.cn/"/>
-  <updated>2019-01-10T15:10:38.293Z</updated>
+  <updated>2019-01-11T07:00:46.647Z</updated>
   <id>http://x.phoenixgs.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>64位模数乘法</title>
+    <link href="http://x.phoenixgs.cn/64%E4%BD%8D%E6%A8%A1%E6%95%B0%E4%B9%98%E6%B3%95/"/>
+    <id>http://x.phoenixgs.cn/64位模数乘法/</id>
+    <published>2019-01-11T07:00:46.000Z</published>
+    <updated>2019-01-11T07:00:46.647Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>当模数是一个64位的整数时，乘法取模过程中就会溢出。</p><p>此时有两种解决方法</p><p>一种是采取与快速幂类似的思想，时间复杂度位$O(lg)$</p><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">mul</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> x, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> y, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> M)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">y = (y % M + M) % M;</span><br><span class="line"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ans = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> tmp = x;</span><br><span class="line"><span class="hljs-keyword">while</span> (y)</span><br><span class="line">&#123;</span><br><span class="line"><span class="hljs-keyword">if</span> (y &amp; <span class="hljs-number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">ans = (ans + tmp) % M;</span><br><span class="line">&#125;</span><br><span class="line">tmp = (tmp + tmp) % M;</span><br><span class="line">y &gt;&gt;= <span class="hljs-number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>还有一种是利用<code>long double</code>来进行运算，有可能会计算错误，但时间复杂度是$O(1)$的</p><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">mul</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> x, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> y, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> M)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line"><span class="hljs-keyword">return</span> (x * y - (<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>)((<span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span>)x / M * y) * M + M) % M;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>看起来很奇妙是不是？。。。玄学的一匹</p><p><img src="http://phoenixgs-1253902147.coscd.myqcloud.com/20190111145913.png" alt=""></p><p>摘自2009年国家集训队论文，骆可强：《论程序底层优化的一些方法与技巧》</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="黑科技" scheme="http://x.phoenixgs.cn/tags/%E9%BB%91%E7%A7%91%E6%8A%80/"/>
+    
+  </entry>
   
   <entry>
     <title>边分治</title>
@@ -43,40 +66,6 @@
       <category term="算法" scheme="http://x.phoenixgs.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="边分治" scheme="http://x.phoenixgs.cn/tags/%E8%BE%B9%E5%88%86%E6%B2%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CDQ分治与点分治的碰撞</title>
-    <link href="http://x.phoenixgs.cn/CDQ%E5%88%86%E6%B2%BB%E4%B8%8E%E7%82%B9%E5%88%86%E6%B2%BB%E7%9A%84%E7%A2%B0%E6%92%9E/"/>
-    <id>http://x.phoenixgs.cn/CDQ分治与点分治的碰撞/</id>
-    <published>2018-12-30T16:10:23.000Z</published>
-    <updated>2019-01-10T11:12:01.121Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>看到了<a href="https://lydsy.com/JudgeOnline/problem.php?id=3672" target="_blank" rel="noopener">[Noi2014]购票</a>这道题目，发现了这种操作（为什么之前没想到呢。。。）</p><p>代码还没写过，先口胡一下</p><blockquote><p>有根树上的DP，每个点只能从祖先转移。</p></blockquote><a id="more"></a><p>那么考虑点分治</p><p>选出一个联通块的重心<code>root</code>之后，以<code>root</code>为根，有若干棵子树。找到<code>root</code>的父亲所在的子树，先递归更新这棵子树。然后再用这棵子树中<code>root</code>的所有祖先来更新<code>root</code>以及其他子树</p><p>大概就是这个意思</p><p>不过应该也不只局限于DP，但是这些问题有一些限制：</p><p>贡献的计算必须是与祖先有关的。如果贡献里有两个点产生贡献但是没有一个点是另外一个点的祖先，那么应该就不能做了吧。（因为这样的话就还要计算不含<code>root</code>的父亲的子树之间产生的贡献了）</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;看到了&lt;a href=&quot;https://lydsy.com/JudgeOnline/problem.php?id=3672&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;[Noi2014]购票&lt;/a&gt;这道题目，发现了这种操作（为什么之前没想到呢。。。）&lt;/p&gt;
-&lt;p&gt;代码还没写过，先口胡一下&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;有根树上的DP，每个点只能从祖先转移。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="树" scheme="http://x.phoenixgs.cn/tags/%E6%A0%91/"/>
-    
-      <category term="分治" scheme="http://x.phoenixgs.cn/tags/%E5%88%86%E6%B2%BB/"/>
-    
-      <category term="CDQ分治" scheme="http://x.phoenixgs.cn/tags/CDQ%E5%88%86%E6%B2%BB/"/>
-    
-      <category term="树分治" scheme="http://x.phoenixgs.cn/tags/%E6%A0%91%E5%88%86%E6%B2%BB/"/>
-    
-      <category term="点分治" scheme="http://x.phoenixgs.cn/tags/%E7%82%B9%E5%88%86%E6%B2%BB/"/>
-    
-      <category term="算法" scheme="http://x.phoenixgs.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

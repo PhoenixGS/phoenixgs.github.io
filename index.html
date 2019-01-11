@@ -142,6 +142,54 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-11T07:00:46.000Z">2019-01-11</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 分钟 读完 (大约 211 个字)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/64位模数乘法/">64位模数乘法</a>
+            
+        </h1>
+        <div class="content">
+            <p>当模数是一个64位的整数时，乘法取模过程中就会溢出。</p>
+<p>此时有两种解决方法</p>
+<p>一种是采取与快速幂类似的思想，时间复杂度位$O(lg)$</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">mul</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> x, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> y, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> M)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	y = (y % M + M) % M;</span><br><span class="line">	<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ans = <span class="hljs-number">0</span>;</span><br><span class="line">	<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> tmp = x;</span><br><span class="line">	<span class="hljs-keyword">while</span> (y)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="hljs-keyword">if</span> (y &amp; <span class="hljs-number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ans = (ans + tmp) % M;</span><br><span class="line">		&#125;</span><br><span class="line">		tmp = (tmp + tmp) % M;</span><br><span class="line">		y &gt;&gt;= <span class="hljs-number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="hljs-keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有一种是利用<code>long double</code>来进行运算，有可能会计算错误，但时间复杂度是$O(1)$的</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">mul</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> x, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> y, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> M)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	<span class="hljs-keyword">return</span> (x * y - (<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>)((<span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span>)x / M * y) * M + M) % M;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看起来很奇妙是不是？。。。玄学的一匹</p>
+<p><img src="http://phoenixgs-1253902147.coscd.myqcloud.com/20190111145913.png" alt=""></p>
+<p>摘自2009年国家集训队论文，骆可强：《论程序底层优化的一些方法与技巧》</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-01-10T15:08:08.000Z">2019-01-10</time>
                 
                 
@@ -584,56 +632,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-11-30T06:47:35.000Z">2018-11-30</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    6 分钟 读完 (大约 849 个字)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/Min-25/">Min_25筛</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Min_25筛用来求一个函数的前缀和</p>
-<p>如果函数是积性函数就可以做，如果不是积性函数的话有一部分也是可以做的</p>
-<p>算法过程就像是在模拟埃氏筛法</p>
-<p>时间复杂度是$O(\frac{n^{\frac{3}{4}}}{log(\sqrt{n})})$，然而我并不会证</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/Min-25/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -694,7 +692,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        19
                     </p>
                 </div>
             </div>
@@ -714,7 +712,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        16
+                        17
                     </p>
                 </div>
             </div>
@@ -789,7 +787,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/FFT与NTT/" style="font-size: 12.5px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 15px;">关于本站</a> <a href="/tags/分治/" style="font-size: 12.5px;">分治</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 15px;">树</a> <a href="/tags/树分治/" style="font-size: 12.5px;">树分治</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/点分治/" style="font-size: 10px;">点分治</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a> <a href="/tags/边分治/" style="font-size: 10px;">边分治</a>
+        <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/FFT与NTT/" style="font-size: 12.5px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 15px;">关于本站</a> <a href="/tags/分治/" style="font-size: 12.5px;">分治</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 15px;">树</a> <a href="/tags/树分治/" style="font-size: 12.5px;">树分治</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/点分治/" style="font-size: 10px;">点分治</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a> <a href="/tags/边分治/" style="font-size: 10px;">边分治</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
     </div>
 </div>
 
@@ -808,7 +806,7 @@
                     <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -906,7 +904,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/FFT与NTT/" style="font-size: 12.5px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 15px;">关于本站</a> <a href="/tags/分治/" style="font-size: 12.5px;">分治</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 15px;">树</a> <a href="/tags/树分治/" style="font-size: 12.5px;">树分治</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/点分治/" style="font-size: 10px;">点分治</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a> <a href="/tags/边分治/" style="font-size: 10px;">边分治</a>
+        <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/FFT与NTT/" style="font-size: 12.5px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 15px;">关于本站</a> <a href="/tags/分治/" style="font-size: 12.5px;">分治</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 15px;">树</a> <a href="/tags/树分治/" style="font-size: 12.5px;">树分治</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/点分治/" style="font-size: 10px;">点分治</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a> <a href="/tags/边分治/" style="font-size: 10px;">边分治</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
     </div>
 </div>
 
@@ -925,7 +923,7 @@
                     <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>

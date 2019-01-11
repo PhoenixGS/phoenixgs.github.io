@@ -2,27 +2,29 @@
 <html  lang="zh">
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-<title>边分治 - PhoenixGS</title>
+<title>64位模数乘法 - PhoenixGS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
 
-    <meta name="description" content="边分治用来解决一些点分治中一些解决不了的问题。 比如说点分治时有很多棵子树，合并这些信息时不能保证时间复杂度。 而边分治时最多只会有两棵子树，就可以很好地解决问题。">
-<meta name="keywords" content="树,分治,树分治,算法,边分治">
+    <meta name="description" content="当模数是一个64位的整数时，乘法取模过程中就会溢出。 此时有两种解决方法 一种是采取与快速幂类似的思想，时间复杂度位$O(lg)$ 12345678910111213141516long long mul(long long x, long long y, long long M)&amp;#123;	y = (y % M + M) % M;	long long ans = 0;	long long tm">
+<meta name="keywords" content="黑科技">
 <meta property="og:type" content="article">
-<meta property="og:title" content="边分治">
-<meta property="og:url" content="http://x.phoenixgs.cn/边分治/index.html">
+<meta property="og:title" content="64位模数乘法">
+<meta property="og:url" content="http://x.phoenixgs.cn/64位模数乘法/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="边分治用来解决一些点分治中一些解决不了的问题。 比如说点分治时有很多棵子树，合并这些信息时不能保证时间复杂度。 而边分治时最多只会有两棵子树，就可以很好地解决问题。">
+<meta property="og:description" content="当模数是一个64位的整数时，乘法取模过程中就会溢出。 此时有两种解决方法 一种是采取与快速幂类似的思想，时间复杂度位$O(lg)$ 12345678910111213141516long long mul(long long x, long long y, long long M)&amp;#123;	y = (y % M + M) % M;	long long ans = 0;	long long tm">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-10T15:10:38.293Z">
+<meta property="og:image" content="http://phoenixgs-1253902147.coscd.myqcloud.com/20190111145913.png">
+<meta property="og:updated_time" content="2019-01-11T07:00:46.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="边分治">
-<meta name="twitter:description" content="边分治用来解决一些点分治中一些解决不了的问题。 比如说点分治时有很多棵子树，合并这些信息时不能保证时间复杂度。 而边分治时最多只会有两棵子树，就可以很好地解决问题。">
+<meta name="twitter:title" content="64位模数乘法">
+<meta name="twitter:description" content="当模数是一个64位的整数时，乘法取模过程中就会溢出。 此时有两种解决方法 一种是采取与快速幂类似的思想，时间复杂度位$O(lg)$ 12345678910111213141516long long mul(long long x, long long y, long long M)&amp;#123;	y = (y % M + M) % M;	long long ans = 0;	long long tm">
+<meta name="twitter:image" content="http://phoenixgs-1253902147.coscd.myqcloud.com/20190111145913.png">
 
 
 
-<link rel="alternative" href="/atom.xml" title="边分治" type="application/atom+xml">
+<link rel="alternative" href="/atom.xml" title="64位模数乘法" type="application/atom+xml">
 
 
 
@@ -90,7 +92,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="边分治" height="28">
+                <img src="/images/logo.png" alt="64位模数乘法" height="28">
             
             </a>
         </div>
@@ -150,13 +152,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-10T15:08:08.000Z">2019-01-10</time>
+                <time class="level-item has-text-grey" datetime="2019-01-11T07:00:46.000Z">2019-01-11</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 641 个字)
+                    1 分钟 读完 (大约 211 个字)
                 </span>
                 
             </div>
@@ -164,26 +166,19 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                边分治
+                64位模数乘法
             
         </h1>
         <div class="content">
-            <p>边分治用来解决一些点分治中一些解决不了的问题。</p>
-<p>比如说点分治时有很多棵子树，合并这些信息时不能保证时间复杂度。</p>
-<p>而边分治时最多只会有两棵子树，就可以很好地解决问题。</p>
-<a id="more"></a>
-<p>算法与点分治大致相同，就是找到一条边使得删去这条边后最大的那棵子树的大小最小。</p>
-<p>但这个算法在菊花图时时间复杂度会退化成$O(n^2)$，因此需要将原树转换为一棵二叉树，这样每个点度数最多为$3$，分治后子树大小最多为原树的$\frac{2}{3}$，就不会出现刚刚那样的问题了。</p>
-<p>但边分治还有一个限制条件，那就是后来加进去的边对答案不会产生影响</p>
-<p>我的多叉树转二叉树的代码，（显然最后的点数<code>nn</code>最多只有$2n$）:</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> father)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = head[u]; i; i = nextx[i])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="hljs-keyword">int</span> v = vet[i];</span><br><span class="line">		<span class="hljs-keyword">if</span> (v != father)</span><br><span class="line">		&#123;</span><br><span class="line">			dfs1(v, u);</span><br><span class="line">			vec[u].push_back(v);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	dfs1(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="hljs-keyword">int</span> nn = n;</span><br><span class="line">	edgenum = <span class="hljs-number">1</span>;</span><br><span class="line">	<span class="hljs-built_in">memset</span>(head, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(head));</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="hljs-keyword">if</span> ((<span class="hljs-keyword">int</span>)vec[i].size() &lt; <span class="hljs-number">2</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; (<span class="hljs-keyword">int</span>)vec[i].size(); j++)</span><br><span class="line">			&#123;</span><br><span class="line">				add(i, vec[i][j], );</span><br><span class="line">				add(vec[i][j], i, );</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="hljs-keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="hljs-keyword">int</span> pre = i;</span><br><span class="line">			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; (<span class="hljs-keyword">int</span>)vec[i].size() - <span class="hljs-number">2</span>; j++)</span><br><span class="line">			&#123;</span><br><span class="line">				add(pre, vec[i][j], );</span><br><span class="line">				add(vec[i][j], pre, );</span><br><span class="line">				nn++;</span><br><span class="line">				x[nn] = x[i];</span><br><span class="line">				add(pre, nn, );</span><br><span class="line">				add(nn, pre, );</span><br><span class="line">				pre = nn;</span><br><span class="line">			&#125;</span><br><span class="line">			add(pre, vec[i][vec[i].size() - <span class="hljs-number">2</span>], );</span><br><span class="line">			add(vec[i][vec[i].size() - <span class="hljs-number">2</span>], pre, );</span><br><span class="line">			add(pre, vec[i][vec[i].size() - <span class="hljs-number">1</span>], );</span><br><span class="line">			add(vec[i][vec[i].size() - <span class="hljs-number">1</span>], pre, );</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当然可以更简单粗暴一些，代价就是点数会稍微多一点点，但还是不会超过$2n$:</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	dfs1(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="hljs-keyword">int</span> nn = n;</span><br><span class="line">	edgenum = <span class="hljs-number">1</span>;</span><br><span class="line">	<span class="hljs-built_in">memset</span>(head, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(head));</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> u = <span class="hljs-number">1</span>; u &lt;= n; u++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="hljs-keyword">int</span> pre = u;</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; (<span class="hljs-keyword">int</span>)vec[u].size(); i++)</span><br><span class="line">		&#123;</span><br><span class="line">			add(pre, vec[u][i], );</span><br><span class="line">			add(vec[u][i], pre, );</span><br><span class="line">			nn++;</span><br><span class="line">			add(pre, nn, );</span><br><span class="line">			add(nn, pre, );</span><br><span class="line">			pre = nn;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其他的部分和点分治差不多。</p>
-<p>这里是找根的代码:</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getroot</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> father, <span class="hljs-keyword">int</span> S)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	size[u] = <span class="hljs-number">1</span>;</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = head[u]; i; i = nextx[i])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="hljs-keyword">int</span> v = vet[i];</span><br><span class="line">		<span class="hljs-keyword">if</span> (v != father &amp;&amp; ! vis[i])</span><br><span class="line">		&#123;</span><br><span class="line">			getroot(v, u, S);</span><br><span class="line">			f[i &gt;&gt; <span class="hljs-number">1</span>] = <span class="hljs-built_in">std</span>::max(size[v], S - size[v]);</span><br><span class="line">			<span class="hljs-keyword">if</span> (f[i &gt;&gt; <span class="hljs-number">1</span>] &lt; f[root &gt;&gt; <span class="hljs-number">1</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				root = i;</span><br><span class="line">			&#125;</span><br><span class="line">			size[u] += size[v];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>分治的大致框架:</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> father, <span class="hljs-keyword">int</span> cas, )</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	size[u] = <span class="hljs-number">1</span>;</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = head[u]; i; i = nextx[i])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="hljs-keyword">int</span> v = vet[i];</span><br><span class="line">		<span class="hljs-keyword">if</span> (v != father &amp;&amp; ! vis[i])</span><br><span class="line">		&#123;</span><br><span class="line">			dfs(v, u, cas, );</span><br><span class="line">			size[u] += size[v];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="hljs-comment">//</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">solve</span><span class="hljs-params">(<span class="hljs-keyword">int</span> rt, <span class="hljs-keyword">int</span> father, <span class="hljs-keyword">int</span> S)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	<span class="hljs-keyword">if</span> (! rt)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="hljs-keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	vis[rt] = vis[rt ^ <span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">2</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		dfs(vet[rt ^ i], <span class="hljs-number">0</span>, i, );</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="hljs-comment">//solve</span></span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">2</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		root = <span class="hljs-number">0</span>;</span><br><span class="line">		<span class="hljs-keyword">int</span> ss = size[vet[rt ^ i]];</span><br><span class="line">		getroot(vet[rt ^ i], <span class="hljs-number">0</span>, ss);</span><br><span class="line">		solve(root, <span class="hljs-number">0</span>, ss);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p>当模数是一个64位的整数时，乘法取模过程中就会溢出。</p>
+<p>此时有两种解决方法</p>
+<p>一种是采取与快速幂类似的思想，时间复杂度位$O(lg)$</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">mul</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> x, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> y, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> M)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	y = (y % M + M) % M;</span><br><span class="line">	<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ans = <span class="hljs-number">0</span>;</span><br><span class="line">	<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> tmp = x;</span><br><span class="line">	<span class="hljs-keyword">while</span> (y)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="hljs-keyword">if</span> (y &amp; <span class="hljs-number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ans = (ans + tmp) % M;</span><br><span class="line">		&#125;</span><br><span class="line">		tmp = (tmp + tmp) % M;</span><br><span class="line">		y &gt;&gt;= <span class="hljs-number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="hljs-keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有一种是利用<code>long double</code>来进行运算，有可能会计算错误，但时间复杂度是$O(1)$的</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">mul</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> x, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> y, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> M)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	<span class="hljs-keyword">return</span> (x * y - (<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>)((<span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span>)x / M * y) * M + M) % M;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看起来很奇妙是不是？。。。玄学的一匹</p>
+<p><img src="http://phoenixgs-1253902147.coscd.myqcloud.com/20190111145913.png" alt=""></p>
+<p>摘自2009年国家集训队论文，骆可强：《论程序底层优化的一些方法与技巧》</p>
 
         </div>
         
@@ -191,7 +186,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/分治/">分治</a>, <a class="has-link-grey -link" href="/tags/树/">树</a>, <a class="has-link-grey -link" href="/tags/树分治/">树分治</a>, <a class="has-link-grey -link" href="/tags/算法/">算法</a>, <a class="has-link-grey -link" href="/tags/边分治/">边分治</a>
+                    <a class="has-link-grey -link" href="/tags/黑科技/">黑科技</a>
                 </div>
             </div>
         </div>
@@ -208,17 +203,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/64位模数乘法/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">64位模数乘法</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/CDQ分治与点分治的碰撞/">
-                <span class="level-item">CDQ分治与点分治的碰撞</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/边分治/">
+                <span class="level-item">边分治</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -483,7 +471,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="边分治" height="28">
+                    <img src="/images/logo.png" alt="64位模数乘法" height="28">
                 
                 </a>
                 <p class="is-size-7">
