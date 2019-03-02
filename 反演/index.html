@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="反演原理设 $$ g_n = \sum_{i = 0} ^ n a_{ni}f_i $$ $$ \sum_{i = 0}^n b_{ni}g_i = f_n $$ 因此，反演公式要成立，即 $$ \sum_{k = j}^ib_{ik}a_{kj} = [i = j] = \delta_{ij} $$ $$ \sum_{k = j}^ia_{ik}b_{kj} = [i = j] = \delta">
-<meta name="keywords" content="数学">
+    <meta name="description" content="反演的本质对于可逆下三角矩阵$A$（可以归纳证明$A^{-1}$也是下三角矩阵）,有$f=Ag$,那么$g=A^{-1}f$ 即: $$f_i=\sum_{j=0}^ia_{ij}g_j\Rightarrow g_i=\sum_{j=0}^ib_{ij}f_j$$ 其中:$$\sum_{k=0}^na_{ik}b_{kj}=[i==j]$$">
+<meta name="keywords" content="数学,反演,组合数学,数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="反演">
 <meta property="og:url" content="http://x.phoenixgs.cn/反演/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="反演原理设 $$ g_n = \sum_{i = 0} ^ n a_{ni}f_i $$ $$ \sum_{i = 0}^n b_{ni}g_i = f_n $$ 因此，反演公式要成立，即 $$ \sum_{k = j}^ib_{ik}a_{kj} = [i = j] = \delta_{ij} $$ $$ \sum_{k = j}^ia_{ik}b_{kj} = [i = j] = \delta">
+<meta property="og:description" content="反演的本质对于可逆下三角矩阵$A$（可以归纳证明$A^{-1}$也是下三角矩阵）,有$f=Ag$,那么$g=A^{-1}f$ 即: $$f_i=\sum_{j=0}^ia_{ij}g_j\Rightarrow g_i=\sum_{j=0}^ib_{ij}f_j$$ 其中:$$\sum_{k=0}^na_{ik}b_{kj}=[i==j]$$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-29T05:58:47.400Z">
+<meta property="og:updated_time" content="2019-03-02T14:32:55.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="反演">
-<meta name="twitter:description" content="反演原理设 $$ g_n = \sum_{i = 0} ^ n a_{ni}f_i $$ $$ \sum_{i = 0}^n b_{ni}g_i = f_n $$ 因此，反演公式要成立，即 $$ \sum_{k = j}^ib_{ik}a_{kj} = [i = j] = \delta_{ij} $$ $$ \sum_{k = j}^ia_{ik}b_{kj} = [i = j] = \delta">
+<meta name="twitter:description" content="反演的本质对于可逆下三角矩阵$A$（可以归纳证明$A^{-1}$也是下三角矩阵）,有$f=Ag$,那么$g=A^{-1}f$ 即: $$f_i=\sum_{j=0}^ia_{ij}g_j\Rightarrow g_i=\sum_{j=0}^ib_{ij}f_j$$ 其中:$$\sum_{k=0}^na_{ik}b_{kj}=[i==j]$$">
 
 
 
@@ -150,13 +150,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-10-16T15:08:32.000Z">2018-10-16</time>
+                <time class="level-item has-text-grey" datetime="2019-03-02T14:31:42.000Z">2019-03-02</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 62 个字)
+                    2 分钟 读完 (大约 321 个字)
                 </span>
                 
             </div>
@@ -168,20 +168,40 @@
             
         </h1>
         <div class="content">
-            <h1 id="反演原理"><a href="#反演原理" class="headerlink" title="反演原理"></a>反演原理</h1><p>设</p>
-<p>$$ g_n = \sum_{i = 0} ^ n a_{ni}f_i $$</p>
-<p>$$ \sum_{i = 0}^n b_{ni}g_i = f_n $$</p>
-<p>因此，反演公式要成立，即</p>
-<p>$$ \sum_{k = j}^ib_{ik}a_{kj} = [i = j] = \delta_{ij} $$</p>
-<p>$$ \sum_{k = j}^ia_{ik}b_{kj} = [i = j] = \delta_{ij} $$</p>
-<h1 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h1>
+            <h1 id="反演的本质"><a href="#反演的本质" class="headerlink" title="反演的本质"></a>反演的本质</h1><p>对于可逆下三角矩阵$A$（可以归纳证明$A^{-1}$也是下三角矩阵）,有$f=Ag$,那么$g=A^{-1}f$</p>
+<p>即:</p>
+<p>$$f_i=\sum_{j=0}^ia_{ij}g_j\Rightarrow g_i=\sum_{j=0}^ib_{ij}f_j$$</p>
+<p>其中:<br>$$\sum_{k=0}^na_{ik}b_{kj}=[i==j]$$</p>
+<a id="more"></a>
+<h1 id="几类特殊的反演"><a href="#几类特殊的反演" class="headerlink" title="几类特殊的反演"></a>几类特殊的反演</h1><h2 id="前缀和及差分"><a href="#前缀和及差分" class="headerlink" title="前缀和及差分"></a>前缀和及差分</h2><p>如果$f$是$g$的前缀和,那么:</p>
+<p>$$f_i=\sum_{j=0}^ig_j$$</p>
+<p>$g$即为$f$的差分:</p>
+<p>$$g_i=f_i-f_{i-1}[i &gt;<d-r> 0]$$</d-r></p>
+<p>那么$A$即为:</p>
+<p>$$<br> A = \begin{bmatrix}<br>   1 \\<br>   1 &amp; 1 \\<br>   \vdots &amp; \vdots &amp; \ddots \\<br>   1 &amp; 1 &amp; \cdots &amp; 1<br>  \end{bmatrix}<br>$$</p>
+<p>$A$的逆矩阵:</p>
+<p>$$<br>  A^{-1}=\begin{bmatrix}<br>  1 \\<br>  -1 &amp; 1 \\<br>  &amp; -1 &amp; \ddots \\<br>  &amp; &amp; \ddots &amp; 1 \\<br>  &amp; &amp; &amp; -1 &amp; 1<br>  \end{bmatrix}<br>$$</p>
+<h2 id="高阶前缀和及差分"><a href="#高阶前缀和及差分" class="headerlink" title="高阶前缀和及差分"></a>高阶前缀和及差分</h2><p>很容易想到,$k$阶前缀和及差分的矩阵即为$1$阶的矩阵的$k$次:</p>
+<p>$$<br>  A=\begin{bmatrix}<br>   1 \\<br>   1 &amp; 1 \\<br>   \vdots &amp; \vdots &amp; \ddots \\<br>   1 &amp; 1 &amp; \cdots &amp; 1<br>  \end{bmatrix}^k<br>$$</p>
+<p>其中:</p>
+<p>$$<br>a_{ij}=\binom{k-1+i-j}{i-j}<br>$$</p>
+<p>这个其实非常容易感性理解吧。。画个图，然后类似于算路径数</p>
+<p>那么$A^{-1}$呢</p>
+<p>$$<br>  A^{-1}=\begin{bmatrix}<br>  1 \\<br>  -1 &amp; 1 \\<br>  &amp; -1 &amp; \ddots \\<br>  &amp; &amp; \ddots &amp; 1 \\<br>  &amp; &amp; &amp; -1 &amp; 1<br>  \end{bmatrix}^k<br>$$</p>
+<p>其中:</p>
+<p>$$<br>(a^{-1})_{ij}=(-1)^{i-j}\binom{k}{i-j}=\binom{-k-1+i-j}{i-j}<br>$$</p>
+<p>和上面那个十分得神似。</p>
+<h2 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h2><p>二项式反演有两种形式</p>
+<p>$$<br>f_i=\sum_{j=0}^i\binom{i}{j}g_j\Rightarrow g_i=\sum_{j=0}^i(-1)^{j-i}\binom{i}{j}f_j<br>\tag{1}<br>$$</p>
+<p>$$<br>f_i=\sum_{j=0}^{i}(-1)^j\binom{i}{j}g_j\Rightarrow g_i=\sum_{j=0}^i(-1)^j\binom{i}{j}f_j<br>\tag{2}<br>$$</p>
+
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/数学/">数学</a>
+                    <a class="has-link-grey -link" href="/tags/反演/">反演</a>, <a class="has-link-grey -link" href="/tags/数学/">数学</a>, <a class="has-link-grey -link" href="/tags/数论/">数论</a>, <a class="has-link-grey -link" href="/tags/组合数学/">组合数学</a>
                 </div>
             </div>
         </div>
@@ -199,16 +219,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/证明/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/Calculus/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">关于证明</span>
+                <span class="level-item">微积分</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/Prufer/">
-                <span class="level-item">Prufer序</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/64位模数乘法/">
+                <span class="level-item">64位模数乘法</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -258,7 +278,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        21
                     </p>
                 </div>
             </div>
@@ -278,7 +298,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        17
+                        20
                     </p>
                 </div>
             </div>
@@ -346,14 +366,26 @@
                 目录
             </h3>
             <ul class="menu-list"><li>
-        <a class="is-flex" href="#反演原理">
+        <a class="is-flex" href="#反演的本质">
         <span class="has-mr-6">1</span>
-        <span>反演原理</span>
+        <span>反演的本质</span>
+        </a></li><li>
+        <a class="is-flex" href="#几类特殊的反演">
+        <span class="has-mr-6">2</span>
+        <span>几类特殊的反演</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#前缀和及差分">
+        <span class="has-mr-6">2.1</span>
+        <span>前缀和及差分</span>
+        </a></li><li>
+        <a class="is-flex" href="#高阶前缀和及差分">
+        <span class="has-mr-6">2.2</span>
+        <span>高阶前缀和及差分</span>
         </a></li><li>
         <a class="is-flex" href="#二项式反演">
-        <span class="has-mr-6">2</span>
+        <span class="has-mr-6">2.3</span>
         <span>二项式反演</span>
-        </a></li></ul>
+        </a></li></ul></li></ul>
         </div>
     </div>
 </div>
@@ -372,7 +404,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/FFT与NTT/" style="font-size: 12.5px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 10px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 15px;">关于本站</a> <a href="/tags/分治/" style="font-size: 12.5px;">分治</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 15px;">树</a> <a href="/tags/树分治/" style="font-size: 12.5px;">树分治</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/点分治/" style="font-size: 10px;">点分治</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a> <a href="/tags/边分治/" style="font-size: 10px;">边分治</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
+        <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/FFT与NTT/" style="font-size: 12.5px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 12.5px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 15px;">关于本站</a> <a href="/tags/分治/" style="font-size: 12.5px;">分治</a> <a href="/tags/反演/" style="font-size: 10px;">反演</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/微积分/" style="font-size: 10px;">微积分</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 12.5px;">数论</a> <a href="/tags/树/" style="font-size: 15px;">树</a> <a href="/tags/树分治/" style="font-size: 12.5px;">树分治</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/点分治/" style="font-size: 10px;">点分治</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/组合数学/" style="font-size: 15px;">组合数学</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a> <a href="/tags/边分治/" style="font-size: 10px;">边分治</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
     </div>
 </div>
 
@@ -384,6 +416,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/01/">
@@ -424,7 +467,7 @@
                     <span class="level-item">十月 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
