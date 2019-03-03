@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://x.phoenixgs.cn/"/>
-  <updated>2019-03-02T15:13:43.563Z</updated>
+  <updated>2019-03-03T03:56:54.871Z</updated>
   <id>http://x.phoenixgs.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数论中的一些常用结论</title>
+    <link href="http://x.phoenixgs.cn/%E6%95%B0%E8%AE%BA%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%BB%93%E8%AE%BA/"/>
+    <id>http://x.phoenixgs.cn/数论中的一些常用结论/</id>
+    <published>2019-03-03T03:56:54.000Z</published>
+    <updated>2019-03-03T03:56:54.871Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>最重要的十个二项式系数恒等式</title>
@@ -86,36 +107,6 @@
       <category term="组合数学" scheme="http://x.phoenixgs.cn/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"/>
     
       <category term="二项式系数" scheme="http://x.phoenixgs.cn/tags/%E4%BA%8C%E9%A1%B9%E5%BC%8F%E7%B3%BB%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微积分</title>
-    <link href="http://x.phoenixgs.cn/Calculus/"/>
-    <id>http://x.phoenixgs.cn/Calculus/</id>
-    <published>2019-03-02T14:34:40.000Z</published>
-    <updated>2019-03-02T14:36:08.714Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="常用的导数"><a href="#常用的导数" class="headerlink" title="常用的导数"></a>常用的导数</h1><p>$$(C)’=0$$</p><p>$$(x^{\mu})’=\mu x^{\mu - 1}$$</p><p>$$(\sin x)’=\cos x$$</p><p>$$(\cos x)’=-\sin x$$</p><p>$$(\tan x)’=\sec ^2 x$$</p><p>$$(a^x)’=a^x \ln a$$</p><p>$$(e^x)’=e^x$$</p><p>$$(\log_a x)’=\frac{1}{x ln a}$$</p><p>$$(\ln x)’=\frac{1}{x}$$</p><a id="more"></a><h1 id="链式法则"><a href="#链式法则" class="headerlink" title="链式法则"></a>链式法则</h1><p>若$h(a)=f[g(x)]$</p><p>则$h’(a)=f’[g(x)]g’(x)$</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;常用的导数&quot;&gt;&lt;a href=&quot;#常用的导数&quot; class=&quot;headerlink&quot; title=&quot;常用的导数&quot;&gt;&lt;/a&gt;常用的导数&lt;/h1&gt;&lt;p&gt;$$(C)’=0$$&lt;/p&gt;
-&lt;p&gt;$$(x^{\mu})’=\mu x^{\mu - 1}$$&lt;/p&gt;
-&lt;p&gt;$$(\sin x)’=\cos x$$&lt;/p&gt;
-&lt;p&gt;$$(\cos x)’=-\sin x$$&lt;/p&gt;
-&lt;p&gt;$$(\tan x)’=\sec ^2 x$$&lt;/p&gt;
-&lt;p&gt;$$(a^x)’=a^x \ln a$$&lt;/p&gt;
-&lt;p&gt;$$(e^x)’=e^x$$&lt;/p&gt;
-&lt;p&gt;$$(\log_a x)’=\frac{1}{x ln a}$$&lt;/p&gt;
-&lt;p&gt;$$(\ln x)’=\frac{1}{x}$$&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="数学" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-      <category term="微积分" scheme="http://x.phoenixgs.cn/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
     
   </entry>
   
