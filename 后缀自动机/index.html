@@ -180,8 +180,7 @@
 <p>所以脑补一下，就可以发现状态个数最多就是二叉树的时候，也就只有$2n-1$。。。</p>
 <h2 id="转移数"><a href="#转移数" class="headerlink" title="转移数"></a>转移数</h2><p>首先，一个十分显然的结论是，转移数最多为$O(\Sigma * n)$，其中$\Sigma$表示字符集大小</p>
 <p>有一个更加紧的上限：</p>
-<p>$$3n-4\; (对于n\geq 3)$$</p>
-<p>然后，考虑以下的事实：</p>
+<script type="math/tex; mode=display">3n-4\; (对于n\geq 3)</script><p>然后，考虑以下的事实：</p>
 <p>初始节点开始的最长的转移路径树</p>
 <p>节点数为$2n-1$，那么边数即为$2n-2$</p>
 <p>考虑不在这棵树中的转移$u\to v$，字符为$y$</p>
@@ -189,15 +188,13 @@
 <p>$x+y+z$即为原串的一个后缀，后缀只有$n-1$个，（原串这个后缀肯定在刚开始的树上）。</p>
 <p>因此转移数的上限即为$3n-4$</p>
 <p>能达到上限的字符串</p>
-<p>$$abb \dots bc$$</p>
-<h2 id="修改to的次数"><a href="#修改to的次数" class="headerlink" title="修改to的次数"></a>修改<code>to</code>的次数</h2><p>从上面的模版可以看出，现在除了</p>
+<script type="math/tex; mode=display">abb \dots bc</script><h2 id="修改to的次数"><a href="#修改to的次数" class="headerlink" title="修改to的次数"></a>修改<code>to</code>的次数</h2><p>从上面的模版可以看出，现在除了</p>
 <figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> (; u &amp;&amp; to[u][c] == w; u = pre[u])</span><br><span class="line">&#123;</span><br><span class="line">    to[u][kkc] = neww;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这一段之外时间复杂度就是$O(n)$</p>
 <p>那么，这一段的总共的时间复杂度是多少呢？</p>
 <p>定义$minlen(u)$表示为能走到$u$的所有字符串的最小长度</p>
 <p>显然$minlen$有一个性质：</p>
-<p>$$minlen(u)&gt;minlen(pre[u])&gt;minlen(pre[pre[u]])\cdots &gt; minlen(root) \quad (*)$$</p>
-<p>那么考虑$minlen(pre[last])$这个东西</p>
+<script type="math/tex; mode=display">minlen(u)>minlen(pre[u])>minlen(pre[pre[u]])\cdots > minlen(root) \quad (*)</script><p>那么考虑$minlen(pre[last])$这个东西</p>
 <p>如果执行到了这个<code>for</code>循环，那么$pre[last]$就变成了$neww$</p>
 <p>可以发现这个<code>for</code>循环如果循环了$k$次</p>
 <p>那么$minlen(neww)\leq minlen(lastu)+1$，其中$lastu$是<code>for</code>循环枚举的最后的$u$</p>
