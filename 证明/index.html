@@ -179,17 +179,24 @@
 <h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>证明$\sqrt{2}$是无理数</p>
 <h4 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h4><p>设$p$是命题“$\sqrt{2}$是无理数“。假定$\neg p$为真，即“$\sqrt{2}$为有理数，则存在整数$a$和$b$满足$\sqrt{2}=\frac{a}{b}$其中$b \neq 0$并且$a$和$b$没有公因子</p>
 <p>等式两端取平方，则</p>
-<script type="math/tex; mode=display">2=\frac{a^2}{b^2}</script><p>因此</p>
-<script type="math/tex; mode=display">2b^2=a^2</script><p>可得$a^2$是偶数，通过反证法可得出$a$也是偶数，那么$\exists c$有$a=2c$。那么</p>
-<script type="math/tex; mode=display">2b^2=4c^2</script><p>等式两端除以$2$得</p>
-<script type="math/tex; mode=display">b^2=2c^2</script><p>同理可得$b$是偶数。</p>
+<p>$$2=\frac{a^2}{b^2}$$</p>
+<p>因此</p>
+<p>$$2b^2=a^2$$</p>
+<p>可得$a^2$是偶数，通过反证法可得出$a$也是偶数，那么$\exists c$有$a=2c$。那么</p>
+<p>$$2b^2=4c^2$$</p>
+<p>等式两端除以$2$得</p>
+<p>$$b^2=2c^2$$</p>
+<p>同理可得$b$是偶数。</p>
 <p>我们证明了假设$\neg p$导致等式$\sqrt{2}=\frac{a}{b}$并且$a$和$b$没有公因子，又推出$a$和$b$有公因子$2$，推出了矛盾，因此证明了$p$为真</p>
 <h1 id="等价证明法"><a href="#等价证明法" class="headerlink" title="等价证明法"></a>等价证明法</h1><p>为了证明一个双条件命题的定理，即形如$p \leftrightarrow q$的语句，那么只需证明$p \to q$和$q \to p$都是真的。</p>
 <p>因为</p>
-<script type="math/tex; mode=display">(p \leftrightarrow q) \leftrightarrow(p \to q) \land (q \to p)</script><h1 id="反例证明法"><a href="#反例证明法" class="headerlink" title="反例证明法"></a>反例证明法</h1><p>如果要证明形如$\forall x P(x)$的语句为假，只要能找到一个反例$x$使$P(x)$为假</p>
+<p>$$(p \leftrightarrow q) \leftrightarrow(p \to q) \land (q \to p)$$</p>
+<h1 id="反例证明法"><a href="#反例证明法" class="headerlink" title="反例证明法"></a>反例证明法</h1><p>如果要证明形如$\forall x P(x)$的语句为假，只要能找到一个反例$x$使$P(x)$为假</p>
 <h1 id="穷举证明法和分情形证明法"><a href="#穷举证明法和分情形证明法" class="headerlink" title="穷举证明法和分情形证明法"></a>穷举证明法和分情形证明法</h1><p>为了证明如下的条件语句</p>
-<script type="math/tex; mode=display">(p_1 \lor p_2 \lor \cdots \lor p_n) \to q</script><p>可以用永真式</p>
-<script type="math/tex; mode=display">[(p_1 \lor p_2 \lor \cdots \lor p_n) \to q] \leftrightarrow [(p_1 \to q) \land (p_2 \to q) \land \cdots \land (p_n \to q)]</script><p>这种论证称为<strong>分情形证明法</strong></p>
+<p>$$(p_1 \lor p_2 \lor \cdots \lor p_n) \to q$$</p>
+<p>可以用永真式</p>
+<p>$$[(p_1 \lor p_2 \lor \cdots \lor p_n) \to q] \leftrightarrow [(p_1 \to q) \land (p_2 \to q) \land \cdots \land (p_n \to q)]$$</p>
+<p>这种论证称为<strong>分情形证明法</strong></p>
 <h2 id="穷举证明法"><a href="#穷举证明法" class="headerlink" title="穷举证明法"></a>穷举证明法</h2><p>如果一些证明只需通过检验相对少量的例子来证明，那么这样的证明叫做<strong>穷举证明法</strong>，一个穷举证明法是分情形证明的特例</p>
 <h2 id="分情形证明法"><a href="#分情形证明法" class="headerlink" title="分情形证明法"></a>分情形证明法</h2><p>分情形证明一定要覆盖定理中出现的所有可能情况</p>
 <h1 id="存在性证明"><a href="#存在性证明" class="headerlink" title="存在性证明"></a>存在性证明</h1><p>$\exists xP(x)$这类命题的证明称为<strong>存在性证明</strong>。</p>

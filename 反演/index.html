@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="反演的本质对于可逆下三角矩阵$A$（可以归纳证明$A^{-1}$也是下三角矩阵）,有$f=Ag$,那么$g=A^{-1}f$ 即: f_i=\sum_{j=0}^ia_{ij}g_j\Rightarrow g_i=\sum_{j=0}^ib_{ij}f_j其中: \sum_{k=0}^na_{ik}b_{kj}=[i==j]">
+    <meta name="description" content="反演的本质对于可逆下三角矩阵$A$（可以归纳证明$A^{-1}$也是下三角矩阵）,有$f=Ag$,那么$g=A^{-1}f$ 即: $$f_i=\sum_{j=0}^ia_{ij}g_j\Rightarrow g_i=\sum_{j=0}^ib_{ij}f_j$$ 其中:$$\sum_{k=0}^na_{ik}b_{kj}=[i==j]$$">
 <meta name="keywords" content="数学,数论,反演,组合数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="反演">
 <meta property="og:url" content="http://x.phoenixgs.cn/反演/index.html">
 <meta property="og:site_name" content="PhoenixGS">
-<meta property="og:description" content="反演的本质对于可逆下三角矩阵$A$（可以归纳证明$A^{-1}$也是下三角矩阵）,有$f=Ag$,那么$g=A^{-1}f$ 即: f_i=\sum_{j=0}^ia_{ij}g_j\Rightarrow g_i=\sum_{j=0}^ib_{ij}f_j其中: \sum_{k=0}^na_{ik}b_{kj}=[i==j]">
+<meta property="og:description" content="反演的本质对于可逆下三角矩阵$A$（可以归纳证明$A^{-1}$也是下三角矩阵）,有$f=Ag$,那么$g=A^{-1}f$ 即: $$f_i=\sum_{j=0}^ia_{ij}g_j\Rightarrow g_i=\sum_{j=0}^ib_{ij}f_j$$ 其中:$$\sum_{k=0}^na_{ik}b_{kj}=[i==j]$$">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-03-02T14:32:55.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="反演">
-<meta name="twitter:description" content="反演的本质对于可逆下三角矩阵$A$（可以归纳证明$A^{-1}$也是下三角矩阵）,有$f=Ag$,那么$g=A^{-1}f$ 即: f_i=\sum_{j=0}^ia_{ij}g_j\Rightarrow g_i=\sum_{j=0}^ib_{ij}f_j其中: \sum_{k=0}^na_{ik}b_{kj}=[i==j]">
+<meta name="twitter:description" content="反演的本质对于可逆下三角矩阵$A$（可以归纳证明$A^{-1}$也是下三角矩阵）,有$f=Ag$,那么$g=A^{-1}f$ 即: $$f_i=\sum_{j=0}^ia_{ij}g_j\Rightarrow g_i=\sum_{j=0}^ib_{ij}f_j$$ 其中:$$\sum_{k=0}^na_{ik}b_{kj}=[i==j]$$">
 
 
 
@@ -170,52 +170,31 @@
         <div class="content">
             <h1 id="反演的本质"><a href="#反演的本质" class="headerlink" title="反演的本质"></a>反演的本质</h1><p>对于可逆下三角矩阵$A$（可以归纳证明$A^{-1}$也是下三角矩阵）,有$f=Ag$,那么$g=A^{-1}f$</p>
 <p>即:</p>
-<script type="math/tex; mode=display">f_i=\sum_{j=0}^ia_{ij}g_j\Rightarrow g_i=\sum_{j=0}^ib_{ij}f_j</script><p>其中:</p>
-<script type="math/tex; mode=display">\sum_{k=0}^na_{ik}b_{kj}=[i==j]</script><a id="more"></a>
+<p>$$f_i=\sum_{j=0}^ia_{ij}g_j\Rightarrow g_i=\sum_{j=0}^ib_{ij}f_j$$</p>
+<p>其中:<br>$$\sum_{k=0}^na_{ik}b_{kj}=[i==j]$$</p>
+<a id="more"></a>
 <h1 id="几类特殊的反演"><a href="#几类特殊的反演" class="headerlink" title="几类特殊的反演"></a>几类特殊的反演</h1><h2 id="前缀和及差分"><a href="#前缀和及差分" class="headerlink" title="前缀和及差分"></a>前缀和及差分</h2><p>如果$f$是$g$的前缀和,那么:</p>
-<script type="math/tex; mode=display">f_i=\sum_{j=0}^ig_j</script><p>$g$即为$f$的差分:</p>
-<script type="math/tex; mode=display">g_i=f_i-f_{i-1}[i ><D-r> 0]</script><p>那么$A$即为:</p>
-<script type="math/tex; mode=display">
- A = \begin{bmatrix}
-   1 \\
-   1 & 1 \\
-   \vdots & \vdots & \ddots \\
-   1 & 1 & \cdots & 1
-  \end{bmatrix}</script><p>$A$的逆矩阵:</p>
-<script type="math/tex; mode=display">
-  A^{-1}=\begin{bmatrix}
-  1 \\
-  -1 & 1 \\
-  & -1 & \ddots \\
-  & & \ddots & 1 \\
-  & & & -1 & 1
-  \end{bmatrix}</script><h2 id="高阶前缀和及差分"><a href="#高阶前缀和及差分" class="headerlink" title="高阶前缀和及差分"></a>高阶前缀和及差分</h2><p>很容易想到,$k$阶前缀和及差分的矩阵即为$1$阶的矩阵的$k$次:</p>
-<script type="math/tex; mode=display">
-  A=\begin{bmatrix}
-   1 \\
-   1 & 1 \\
-   \vdots & \vdots & \ddots \\
-   1 & 1 & \cdots & 1
-  \end{bmatrix}^k</script><p>其中:</p>
-<script type="math/tex; mode=display">
-a_{ij}=\binom{k-1+i-j}{i-j}</script><p>这个其实非常容易感性理解吧。。画个图，然后类似于算路径数</p>
+<p>$$f_i=\sum_{j=0}^ig_j$$</p>
+<p>$g$即为$f$的差分:</p>
+<p>$$g_i=f_i-f_{i-1}[i &gt;<d-r> 0]$$</d-r></p>
+<p>那么$A$即为:</p>
+<p>$$<br> A = \begin{bmatrix}<br>   1 \<br>   1 &amp; 1 \<br>   \vdots &amp; \vdots &amp; \ddots \<br>   1 &amp; 1 &amp; \cdots &amp; 1<br>  \end{bmatrix}<br>$$</p>
+<p>$A$的逆矩阵:</p>
+<p>$$<br>  A^{-1}=\begin{bmatrix}<br>  1 \<br>  -1 &amp; 1 \<br>  &amp; -1 &amp; \ddots \<br>  &amp; &amp; \ddots &amp; 1 \<br>  &amp; &amp; &amp; -1 &amp; 1<br>  \end{bmatrix}<br>$$</p>
+<h2 id="高阶前缀和及差分"><a href="#高阶前缀和及差分" class="headerlink" title="高阶前缀和及差分"></a>高阶前缀和及差分</h2><p>很容易想到,$k$阶前缀和及差分的矩阵即为$1$阶的矩阵的$k$次:</p>
+<p>$$<br>  A=\begin{bmatrix}<br>   1 \<br>   1 &amp; 1 \<br>   \vdots &amp; \vdots &amp; \ddots \<br>   1 &amp; 1 &amp; \cdots &amp; 1<br>  \end{bmatrix}^k<br>$$</p>
+<p>其中:</p>
+<p>$$<br>a_{ij}=\binom{k-1+i-j}{i-j}<br>$$</p>
+<p>这个其实非常容易感性理解吧。。画个图，然后类似于算路径数</p>
 <p>那么$A^{-1}$呢</p>
-<script type="math/tex; mode=display">
-  A^{-1}=\begin{bmatrix}
-  1 \\
-  -1 & 1 \\
-  & -1 & \ddots \\
-  & & \ddots & 1 \\
-  & & & -1 & 1
-  \end{bmatrix}^k</script><p>其中:</p>
-<script type="math/tex; mode=display">
-(a^{-1})_{ij}=(-1)^{i-j}\binom{k}{i-j}=\binom{-k-1+i-j}{i-j}</script><p>和上面那个十分得神似。</p>
+<p>$$<br>  A^{-1}=\begin{bmatrix}<br>  1 \<br>  -1 &amp; 1 \<br>  &amp; -1 &amp; \ddots \<br>  &amp; &amp; \ddots &amp; 1 \<br>  &amp; &amp; &amp; -1 &amp; 1<br>  \end{bmatrix}^k<br>$$</p>
+<p>其中:</p>
+<p>$$<br>(a^{-1})_{ij}=(-1)^{i-j}\binom{k}{i-j}=\binom{-k-1+i-j}{i-j}<br>$$</p>
+<p>和上面那个十分得神似。</p>
 <h2 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h2><p>二项式反演有两种形式</p>
-<script type="math/tex; mode=display">
-f_i=\sum_{j=0}^i\binom{i}{j}g_j\Rightarrow g_i=\sum_{j=0}^i(-1)^{j-i}\binom{i}{j}f_j
-\tag{1}</script><script type="math/tex; mode=display">
-f_i=\sum_{j=0}^{i}(-1)^j\binom{i}{j}g_j\Rightarrow g_i=\sum_{j=0}^i(-1)^j\binom{i}{j}f_j
-\tag{2}</script>
+<p>$$<br>f_i=\sum_{j=0}^i\binom{i}{j}g_j\Rightarrow g_i=\sum_{j=0}^i(-1)^{j-i}\binom{i}{j}f_j<br>\tag{1}<br>$$</p>
+<p>$$<br>f_i=\sum_{j=0}^{i}(-1)^j\binom{i}{j}g_j\Rightarrow g_i=\sum_{j=0}^i(-1)^j\binom{i}{j}f_j<br>\tag{2}<br>$$</p>
+
         </div>
         
         <div class="level is-size-7 is-uppercase">
