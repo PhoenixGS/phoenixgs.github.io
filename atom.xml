@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://x.phoenixgs.cn/"/>
-  <updated>2019-03-19T11:01:36.964Z</updated>
+  <updated>2019-12-05T14:00:30.697Z</updated>
   <id>http://x.phoenixgs.cn/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>QTREE系列题</title>
+    <link href="http://x.phoenixgs.cn/QTREE/"/>
+    <id>http://x.phoenixgs.cn/QTREE/</id>
+    <published>2019-12-05T13:57:57.000Z</published>
+    <updated>2019-12-05T14:00:30.697Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="QTREE"><a href="#QTREE" class="headerlink" title="QTREE"></a>QTREE</h1><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><code>CHANGE i ti</code> : change the cost of the i-th edge to ti<br>or<br><code>QUERY a b</code> : ask for the maximum edge cost on the path from node a to node b</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>树链剖分$O(nlg^2 n)$</p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE.cpp" target="_blank" rel="noopener">QTREE.cpp</a></p><a id="more"></a><h1 id="QTREE2"><a href="#QTREE2" class="headerlink" title="QTREE2"></a>QTREE2</h1><p><code>DIST a b</code> : ask for the distance between node a and node b<br>or<br><code>KTH a b k</code> : ask for the k-th node on the path from node a to node b</p><h2 id="Solution-alpha"><a href="#Solution-alpha" class="headerlink" title="Solution $\alpha$"></a>Solution $\alpha$</h2><p>倍增</p><h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE2.cpp" target="_blank" rel="noopener">QTREE2.cpp</a></p><h2 id="Solution-beta"><a href="#Solution-beta" class="headerlink" title="Solution $\beta$"></a>Solution $\beta$</h2><p>LCT</p><h1 id="QTREE3"><a href="#QTREE3" class="headerlink" title="QTREE3"></a>QTREE3</h1><h2 id="Problem-1"><a href="#Problem-1" class="headerlink" title="Problem"></a>Problem</h2><p><code>0 i</code> : change the color of the i-th node (from white to black, or from black to white);<br>or<br><code>1 v</code> : ask for the id of the first black node on the path from node 1 to node v. if it doesn’t exist, you may return -1 as its result.</p><h2 id="Solution-alpha-1"><a href="#Solution-alpha-1" class="headerlink" title="Solution $\alpha$"></a>Solution $\alpha$</h2><p>考虑维护每个点到根节点链上的黑点个数，使用DFS序+树状数组</p><p>然后对于每个询问树上二分即可</p><p>时间复杂度$O(nlg^2 n)$</p><h3 id="Code-2"><a href="#Code-2" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE3.cpp" target="_blank" rel="noopener">QTREE3.cpp</a></p><h2 id="Solution-beta-1"><a href="#Solution-beta-1" class="headerlink" title="Solution $\beta$"></a>Solution $\beta$</h2><p>树链剖分，线段树上每个线段维护最左边的黑点</p><p>时间复杂度$O(nlg^2 n)$</p><h2 id="Solution-gamma"><a href="#Solution-gamma" class="headerlink" title="Solution $\gamma$"></a>Solution $\gamma$</h2><p>LCT，询问即在到根的链的Splay上查询第一个黑点</p><p>时间复杂度$O(nlgn)$</p><h3 id="Code-3"><a href="#Code-3" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE3-LCT.cpp" target="_blank" rel="noopener">QTREE3-LCT.cpp</a></p><h1 id="QTREE4"><a href="#QTREE4" class="headerlink" title="QTREE4"></a>QTREE4</h1><h2 id="Problem-2"><a href="#Problem-2" class="headerlink" title="Problem"></a>Problem</h2><p><code>C a</code> : change the color of node a.(from black to white or from white to black)<br><code>A</code> : ask for the maximum dist(a, b), both of node a and node b must be white(a can be equal to b). Obviously, as long as there is a white node, the result will alway be non negative.</p><h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h2><p>动态点分治</p><p>设分治到一个连通块时的根为<code>root</code></p><p>对它的每一棵子树用堆维护最大的白点到<code>root</code>的距离，用其中的最大值更新下面这个堆：</p><p>对每一个<code>root</code>用堆维护最大的白点到<code>root</code>的距离，并用堆中最大的两个值的和更新下面这个堆：</p><p>每个<code>root</code>的最优解用堆维护</p><p>以上所有堆都为可删堆</p><h3 id="Code-4"><a href="#Code-4" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE4.cpp" target="_blank" rel="noopener">QTREE4.cpp</a></p><h1 id="QTREE5"><a href="#QTREE5" class="headerlink" title="QTREE5"></a>QTREE5</h1><h2 id="Problem-3"><a href="#Problem-3" class="headerlink" title="Problem"></a>Problem</h2><p><code>0 i</code> : change the color of i-th node(from black to white, or from white to black).<br><code>1 v</code> : ask for the minimum dist(u, v), node u must be white(u can be equal to v). Obviously, as long as node v is white, the result will always be 0.</p><h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h2><p>类似于QTREE4的Solution，似乎是简化版</p><h3 id="Code-5"><a href="#Code-5" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE5.cpp" target="_blank" rel="noopener">QTREE5.cpp</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;QTREE&quot;&gt;&lt;a href=&quot;#QTREE&quot; class=&quot;headerlink&quot; title=&quot;QTREE&quot;&gt;&lt;/a&gt;QTREE&lt;/h1&gt;&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;&lt;code&gt;CHANGE i ti&lt;/code&gt; : change the cost of the i-th edge to ti&lt;br&gt;or&lt;br&gt;&lt;code&gt;QUERY a b&lt;/code&gt; : ask for the maximum edge cost on the path from node a to node b&lt;/p&gt;
+&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;树链剖分$O(nlg^2 n)$&lt;/p&gt;
+&lt;h3 id=&quot;Code&quot;&gt;&lt;a href=&quot;#Code&quot; class=&quot;headerlink&quot; title=&quot;Code&quot;&gt;&lt;/a&gt;Code&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE.cpp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;QTREE.cpp&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>数论中的一些常用结论</title>
@@ -34,79 +54,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>最重要的十个二项式系数恒等式</title>
-    <link href="http://x.phoenixgs.cn/%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E5%8D%81%E4%B8%AA%E4%BA%8C%E9%A1%B9%E5%BC%8F%E7%B3%BB%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F/"/>
-    <id>http://x.phoenixgs.cn/最重要的十个二项式系数恒等式/</id>
-    <published>2019-03-02T15:13:43.000Z</published>
-    <updated>2019-03-02T15:13:43.563Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><table><thead><tr><th style="text-align:center"></th><th style="text-align:center"></th></tr></thead><tbody><tr><td style="text-align:center">$$\binom{n}{k}=\frac{n!}{k!(n-k)!},整数n\geq k\geq 0$$</td><td style="text-align:center">阶乘展开式</td></tr><tr><td style="text-align:center">$$\binom{n}{k}=\binom{n}{n-k},整数n\geq 0,k是整数 $$</td><td style="text-align:center">对称恒等式</td></tr><tr><td style="text-align:center">$$\binom{r}{k}=\frac{r}{k}\binom{r-1}{k-1},整数k\neq 0$$</td><td style="text-align:center">吸收/提取恒等式</td></tr><tr><td style="text-align:center">$$\binom{r}{k}=\binom{r - 1}{k}+\binom{r - 1}{k - 1},k是整数 $$</td><td style="text-align:center">加法/归纳恒等式</td></tr><tr><td style="text-align:center">$$\binom{r}{k}=(-1)^k\binom{k-r-1}{k},k是整数 $$</td><td style="text-align:center">上指标反转</td></tr><tr><td style="text-align:center">$$\binom{r}{m}\binom{m}{k}=\binom{r}{k}\binom{r-k}{m-k} ,m,k是整数 $$</td><td style="text-align:center">三项式版恒等式</td></tr><tr><td style="text-align:center">$$\sum_k\binom{r}{k}x^ky^{r-k}=(x+y)^r,整数r\geq 0 或者 \vert x/y \vert &lt;1 $$</td><td style="text-align:center">二项式定理</td></tr><tr><td style="text-align:center">$$\sum_{k\leq n}\binom{r+k}{k}=\binom{r+n+1}{n},n是整数 $$</td><td style="text-align:center">平行求和法</td></tr><tr><td style="text-align:center">$$\sum_{0\leq k \leq n}\binom{k}{m}=\binom{n+1}{m+1},整数m,n\geq 0 $$</td><td style="text-align:center">上指标求和法</td></tr><tr><td style="text-align:center">$$\sum_{k}\binom{r}{k}\binom{s}{n-k}=\binom{r+s}{n},n是整数 $$</td><td style="text-align:center">范德蒙德卷积公式</td></tr></tbody></table><a id="more"></a><p>摘自《具体数学》</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;$$\binom{n}{k}=\frac{n!}{k!(n-k)!},整数n\geq k\geq 0$$&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;阶乘展开式&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;$$\binom{n}{k}=\binom{n}{n-k},整数n\geq 0,k是整数 $$&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;对称恒等式&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;$$\binom{r}{k}=\frac{r}{k}\binom{r-1}{k-1},整数k\neq 0$$&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;吸收/提取恒等式&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;$$\binom{r}{k}=\binom{r - 1}{k}+\binom{r - 1}{k - 1},k是整数 $$&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;加法/归纳恒等式&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;$$\binom{r}{k}=(-1)^k\binom{k-r-1}{k},k是整数 $$&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;上指标反转&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;$$\binom{r}{m}\binom{m}{k}=\binom{r}{k}\binom{r-k}{m-k} ,m,k是整数 $$&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;三项式版恒等式&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;$$\sum_k\binom{r}{k}x^ky^{r-k}=(x+y)^r,整数r\geq 0 或者 \vert x/y \vert &amp;lt;1 $$&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;二项式定理&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;$$\sum_{k\leq n}\binom{r+k}{k}=\binom{r+n+1}{n},n是整数 $$&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;平行求和法&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;$$\sum_{0\leq k \leq n}\binom{k}{m}=\binom{n+1}{m+1},整数m,n\geq 0 $$&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;上指标求和法&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;$$\sum_{k}\binom{r}{k}\binom{s}{n-k}=\binom{r+s}{n},n是整数 $$&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;范德蒙德卷积公式&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-    
-    </summary>
-    
-    
-      <category term="数学" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-      <category term="组合数学" scheme="http://x.phoenixgs.cn/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"/>
-    
-      <category term="二项式系数" scheme="http://x.phoenixgs.cn/tags/%E4%BA%8C%E9%A1%B9%E5%BC%8F%E7%B3%BB%E6%95%B0/"/>
     
   </entry>
   

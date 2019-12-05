@@ -2,22 +2,26 @@
 <html  lang="zh">
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-<title>归档: 2016/5 - PhoenixGS</title>
+<title>QTREE系列题 - PhoenixGS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="PhoenixGS">
-<meta property="og:url" content="http://x.phoenixgs.cn/archives/2016/05/index.html">
+    <meta name="description" content="QTREEProblemCHANGE i ti : change the cost of the i-th edge to tiorQUERY a b : ask for the maximum edge cost on the path from node a to node b Solution树链剖分$O(nlg^2 n)$ CodeQTREE.cpp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QTREE系列题">
+<meta property="og:url" content="http://x.phoenixgs.cn/QTREE/index.html">
 <meta property="og:site_name" content="PhoenixGS">
+<meta property="og:description" content="QTREEProblemCHANGE i ti : change the cost of the i-th edge to tiorQUERY a b : ask for the maximum edge cost on the path from node a to node b Solution树链剖分$O(nlg^2 n)$ CodeQTREE.cpp">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-05T14:00:30.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PhoenixGS">
+<meta name="twitter:title" content="QTREE系列题">
+<meta name="twitter:description" content="QTREEProblemCHANGE i ti : change the cost of the i-th edge to tiorQUERY a b : ask for the maximum edge cost on the path from node a to node b Solution树链剖分$O(nlg^2 n)$ CodeQTREE.cpp">
 
 
 
-<link rel="alternative" href="/atom.xml" title="PhoenixGS" type="application/atom+xml">
+<link rel="alternative" href="/atom.xml" title="QTREE系列题" type="application/atom+xml">
 
 
 
@@ -79,13 +83,13 @@
 
 <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
-<body class="is-3-column">
+<body class="is-2-column">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="PhoenixGS" height="28">
+                <img src="/images/logo.png" alt="QTREE系列题" height="28">
             
             </a>
         </div>
@@ -122,6 +126,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -135,37 +143,82 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="tag is-link">
-        五月 2016
-        </h3>
-        <div class="timeline">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
         
-            <article class="media">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-05T13:57:57.000Z">2019-12-05</time>
                 
-                <a href="/Hello-World/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="https://phoenixgs-1253902147.cos.ap-chengdu.myqcloud.com/X.JPG" alt="Hello World">
-                    </p>
-                </a>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2016-05-29T03:07:22.000Z">2016-05-29</time>
-                        <a href="/Hello-World/" class="has-link-black-ter is-size-6">Hello World</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 568 个字)
+                </span>
+                
+            </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                QTREE系列题
+            
+        </h1>
+        <div class="content">
+            <h1 id="QTREE"><a href="#QTREE" class="headerlink" title="QTREE"></a>QTREE</h1><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><code>CHANGE i ti</code> : change the cost of the i-th edge to ti<br>or<br><code>QUERY a b</code> : ask for the maximum edge cost on the path from node a to node b</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>树链剖分$O(nlg^2 n)$</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE.cpp" target="_blank" rel="noopener">QTREE.cpp</a></p>
+<a id="more"></a>
+<h1 id="QTREE2"><a href="#QTREE2" class="headerlink" title="QTREE2"></a>QTREE2</h1><p><code>DIST a b</code> : ask for the distance between node a and node b<br>or<br><code>KTH a b k</code> : ask for the k-th node on the path from node a to node b</p>
+<h2 id="Solution-alpha"><a href="#Solution-alpha" class="headerlink" title="Solution $\alpha$"></a>Solution $\alpha$</h2><p>倍增</p>
+<h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE2.cpp" target="_blank" rel="noopener">QTREE2.cpp</a></p>
+<h2 id="Solution-beta"><a href="#Solution-beta" class="headerlink" title="Solution $\beta$"></a>Solution $\beta$</h2><p>LCT</p>
+<h1 id="QTREE3"><a href="#QTREE3" class="headerlink" title="QTREE3"></a>QTREE3</h1><h2 id="Problem-1"><a href="#Problem-1" class="headerlink" title="Problem"></a>Problem</h2><p><code>0 i</code> : change the color of the i-th node (from white to black, or from black to white);<br>or<br><code>1 v</code> : ask for the id of the first black node on the path from node 1 to node v. if it doesn’t exist, you may return -1 as its result.</p>
+<h2 id="Solution-alpha-1"><a href="#Solution-alpha-1" class="headerlink" title="Solution $\alpha$"></a>Solution $\alpha$</h2><p>考虑维护每个点到根节点链上的黑点个数，使用DFS序+树状数组</p>
+<p>然后对于每个询问树上二分即可</p>
+<p>时间复杂度$O(nlg^2 n)$</p>
+<h3 id="Code-2"><a href="#Code-2" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE3.cpp" target="_blank" rel="noopener">QTREE3.cpp</a></p>
+<h2 id="Solution-beta-1"><a href="#Solution-beta-1" class="headerlink" title="Solution $\beta$"></a>Solution $\beta$</h2><p>树链剖分，线段树上每个线段维护最左边的黑点</p>
+<p>时间复杂度$O(nlg^2 n)$</p>
+<h2 id="Solution-gamma"><a href="#Solution-gamma" class="headerlink" title="Solution $\gamma$"></a>Solution $\gamma$</h2><p>LCT，询问即在到根的链的Splay上查询第一个黑点</p>
+<p>时间复杂度$O(nlgn)$</p>
+<h3 id="Code-3"><a href="#Code-3" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE3-LCT.cpp" target="_blank" rel="noopener">QTREE3-LCT.cpp</a></p>
+<h1 id="QTREE4"><a href="#QTREE4" class="headerlink" title="QTREE4"></a>QTREE4</h1><h2 id="Problem-2"><a href="#Problem-2" class="headerlink" title="Problem"></a>Problem</h2><p><code>C a</code> : change the color of node a.(from black to white or from white to black)<br><code>A</code> : ask for the maximum dist(a, b), both of node a and node b must be white(a can be equal to b). Obviously, as long as there is a white node, the result will alway be non negative.</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h2><p>动态点分治</p>
+<p>设分治到一个连通块时的根为<code>root</code></p>
+<p>对它的每一棵子树用堆维护最大的白点到<code>root</code>的距离，用其中的最大值更新下面这个堆：</p>
+<p>对每一个<code>root</code>用堆维护最大的白点到<code>root</code>的距离，并用堆中最大的两个值的和更新下面这个堆：</p>
+<p>每个<code>root</code>的最优解用堆维护</p>
+<p>以上所有堆都为可删堆</p>
+<h3 id="Code-4"><a href="#Code-4" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE4.cpp" target="_blank" rel="noopener">QTREE4.cpp</a></p>
+<h1 id="QTREE5"><a href="#QTREE5" class="headerlink" title="QTREE5"></a>QTREE5</h1><h2 id="Problem-3"><a href="#Problem-3" class="headerlink" title="Problem"></a>Problem</h2><p><code>0 i</code> : change the color of i-th node(from black to white, or from white to black).<br><code>1 v</code> : ask for the minimum dist(u, v), node u must be white(u can be equal to v). Obviously, as long as node v is white, the result will always be 0.</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h2><p>类似于QTREE4的Solution，似乎是简化版</p>
+<h3 id="Code-5"><a href="#Code-5" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE5.cpp" target="_blank" rel="noopener">QTREE5.cpp</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/数论中的一些常用结论/">
+                <span class="level-item">数论中的一些常用结论</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
     </div>
 </div>
 
@@ -176,7 +229,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -299,9 +352,112 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#QTREE">
+        <span class="has-mr-6">1</span>
+        <span>QTREE</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Problem">
+        <span class="has-mr-6">1.1</span>
+        <span>Problem</span>
+        </a></li><li>
+        <a class="is-flex" href="#Solution">
+        <span class="has-mr-6">1.2</span>
+        <span>Solution</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Code">
+        <span class="has-mr-6">1.2.1</span>
+        <span>Code</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#QTREE2">
+        <span class="has-mr-6">2</span>
+        <span>QTREE2</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Solution-alpha">
+        <span class="has-mr-6">2.1</span>
+        <span>Solution $\alpha$</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Code-1">
+        <span class="has-mr-6">2.1.1</span>
+        <span>Code</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Solution-beta">
+        <span class="has-mr-6">2.2</span>
+        <span>Solution $\beta$</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#QTREE3">
+        <span class="has-mr-6">3</span>
+        <span>QTREE3</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Problem-1">
+        <span class="has-mr-6">3.1</span>
+        <span>Problem</span>
+        </a></li><li>
+        <a class="is-flex" href="#Solution-alpha-1">
+        <span class="has-mr-6">3.2</span>
+        <span>Solution $\alpha$</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Code-2">
+        <span class="has-mr-6">3.2.1</span>
+        <span>Code</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Solution-beta-1">
+        <span class="has-mr-6">3.3</span>
+        <span>Solution $\beta$</span>
+        </a></li><li>
+        <a class="is-flex" href="#Solution-gamma">
+        <span class="has-mr-6">3.4</span>
+        <span>Solution $\gamma$</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Code-3">
+        <span class="has-mr-6">3.4.1</span>
+        <span>Code</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#QTREE4">
+        <span class="has-mr-6">4</span>
+        <span>QTREE4</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Problem-2">
+        <span class="has-mr-6">4.1</span>
+        <span>Problem</span>
+        </a></li><li>
+        <a class="is-flex" href="#Solution-1">
+        <span class="has-mr-6">4.2</span>
+        <span>Solution</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Code-4">
+        <span class="has-mr-6">4.2.1</span>
+        <span>Code</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#QTREE5">
+        <span class="has-mr-6">5</span>
+        <span>QTREE5</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Problem-3">
+        <span class="has-mr-6">5.1</span>
+        <span>Problem</span>
+        </a></li><li>
+        <a class="is-flex" href="#Solution-2">
+        <span class="has-mr-6">5.2</span>
+        <span>Solution</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Code-5">
+        <span class="has-mr-6">5.2.1</span>
+        <span>Code</span>
+        </a></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
     
     
-        <div class="column-right-shadow is-hidden-widescreen ">
+        <div class="column-right-shadow  ">
         
             
 
@@ -435,144 +591,6 @@
 </div>
 
                 
-                
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        
-
-
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            标签云
-        </h3>
-        <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/FFT与NTT/" style="font-size: 12.5px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 12.5px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 15px;">关于本站</a> <a href="/tags/分治/" style="font-size: 12.5px;">分治</a> <a href="/tags/反演/" style="font-size: 10px;">反演</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/微积分/" style="font-size: 10px;">微积分</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 12.5px;">数论</a> <a href="/tags/树/" style="font-size: 15px;">树</a> <a href="/tags/树分治/" style="font-size: 12.5px;">树分治</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/点分治/" style="font-size: 10px;">点分治</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/组合数学/" style="font-size: 15px;">组合数学</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a> <a href="/tags/边分治/" style="font-size: 10px;">边分治</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
-    </div>
-</div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">8</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2016/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2016</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
-                
             </div>
         </div>
     </section>
@@ -582,7 +600,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="PhoenixGS" height="28">
+                    <img src="/images/logo.png" alt="QTREE系列题" height="28">
                 
                 </a>
                 <p class="is-size-7">
