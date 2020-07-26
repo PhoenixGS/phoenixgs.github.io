@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://x.phoenixgs.cn/"/>
-  <updated>2020-07-25T13:06:25.208Z</updated>
+  <updated>2020-07-26T08:00:15.566Z</updated>
   <id>http://x.phoenixgs.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>虚树</title>
+    <link href="http://x.phoenixgs.cn/%E8%99%9A%E6%A0%91/"/>
+    <id>http://x.phoenixgs.cn/虚树/</id>
+    <published>2020-07-26T07:53:50.000Z</published>
+    <updated>2020-07-26T08:00:15.566Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="虚树"><a href="#虚树" class="headerlink" title="虚树"></a>虚树</h1><blockquote><p> 之前在主站写过一篇虚树的博客，但是主站因为忘记续费然后直接没了。。。</p></blockquote><p>有一个非常显然的结论，对于$dfs$序连续的三个点$x,y,z$，有$lca(x,z)\in {lca(x,y),lca(y,z)}$，这个用分类讨论什么的很容易证明</p><a id="more"></a><p>那么建虚树就只要将所有关键点按照$dfs$排序之后，将相邻的点的$lca$加入即可</p><h2 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">bool comp(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">return dfn[x] &lt; dfn[y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">scanf(&quot;%d&quot;, &amp;m);</span><br><span class="line">while (m--)</span><br><span class="line">&#123;</span><br><span class="line">int cnt = read();</span><br><span class="line">for (int i = 1; i &lt;= cnt; i++)</span><br><span class="line">&#123;</span><br><span class="line">x[i] = read();</span><br><span class="line">flag[x[i]] = 1;</span><br><span class="line">&#125;</span><br><span class="line">cnt++;</span><br><span class="line">x[cnt] = 1;</span><br><span class="line">std::sort(x + 1, x + cnt + 1, comp);</span><br><span class="line">cnt = std::unique(x + 1, x + cnt + 1) - x - 1;</span><br><span class="line">for (int i = 1, tmp = cnt; i &lt; tmp; i++)</span><br><span class="line">&#123;</span><br><span class="line">cnt++;</span><br><span class="line">x[cnt] = querylca(x[i], x[i + 1]);</span><br><span class="line">&#125;</span><br><span class="line">std::sort(x + 1, x + cnt + 1, comp);</span><br><span class="line">cnt = std::unique(x + 1, x + cnt + 1) - x - 1;</span><br><span class="line">top = 1;</span><br><span class="line">stack[top] = x[1];</span><br><span class="line">for (int i = 2; i &lt;= cnt; i++)</span><br><span class="line">&#123;</span><br><span class="line">while (top &gt; 0 &amp;&amp; deep[stack[top]] &gt; deep[querylca(stack[top], x[i])])</span><br><span class="line">&#123;</span><br><span class="line">top--;</span><br><span class="line">&#125;</span><br><span class="line">if (stack[top])</span><br><span class="line">&#123;</span><br><span class="line">add(stack[top], x[i], 0);</span><br><span class="line">&#125;</span><br><span class="line">top++;</span><br><span class="line">stack[top] = x[i];</span><br><span class="line">&#125;</span><br><span class="line">solve(1, 0);</span><br><span class="line">printf(&quot;%lld\n&quot;, f[1]);</span><br><span class="line"></span><br><span class="line">edgenum = 0;</span><br><span class="line">for (int i = 1; i &lt;= cnt; i++)</span><br><span class="line">&#123;</span><br><span class="line">flag[x[i]] = 0;</span><br><span class="line">head[x[i]] = 0;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;虚树&quot;&gt;&lt;a href=&quot;#虚树&quot; class=&quot;headerlink&quot; title=&quot;虚树&quot;&gt;&lt;/a&gt;虚树&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt; 之前在主站写过一篇虚树的博客，但是主站因为忘记续费然后直接没了。。。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;有一个非常显然的结论，对于$dfs$序连续的三个点$x,y,z$，有$lca(x,z)\in {lca(x,y),lca(y,z)}$，这个用分类讨论什么的很容易证明&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>杜教筛</title>
@@ -34,31 +55,11 @@
     </summary>
     
     
-      <category term="算法" scheme="http://x.phoenixgs.cn/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="数学" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E5%AD%A6/"/>
     
+      <category term="算法" scheme="http://x.phoenixgs.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    
       <category term="数论" scheme="http://x.phoenixgs.cn/tags/%E6%95%B0%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>QTREE系列题</title>
-    <link href="http://x.phoenixgs.cn/QTREE/"/>
-    <id>http://x.phoenixgs.cn/QTREE/</id>
-    <published>2019-12-05T13:57:57.000Z</published>
-    <updated>2019-12-05T14:00:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="QTREE"><a href="#QTREE" class="headerlink" title="QTREE"></a>QTREE</h1><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><code>CHANGE i ti</code> : change the cost of the i-th edge to ti<br>or<br><code>QUERY a b</code> : ask for the maximum edge cost on the path from node a to node b</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>树链剖分$O(nlg^2 n)$</p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE.cpp" target="_blank" rel="noopener">QTREE.cpp</a></p><a id="more"></a><h1 id="QTREE2"><a href="#QTREE2" class="headerlink" title="QTREE2"></a>QTREE2</h1><p><code>DIST a b</code> : ask for the distance between node a and node b<br>or<br><code>KTH a b k</code> : ask for the k-th node on the path from node a to node b</p><h2 id="Solution-alpha"><a href="#Solution-alpha" class="headerlink" title="Solution $\alpha$"></a>Solution $\alpha$</h2><p>倍增</p><h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE2.cpp" target="_blank" rel="noopener">QTREE2.cpp</a></p><h2 id="Solution-beta"><a href="#Solution-beta" class="headerlink" title="Solution $\beta$"></a>Solution $\beta$</h2><p>LCT</p><h1 id="QTREE3"><a href="#QTREE3" class="headerlink" title="QTREE3"></a>QTREE3</h1><h2 id="Problem-1"><a href="#Problem-1" class="headerlink" title="Problem"></a>Problem</h2><p><code>0 i</code> : change the color of the i-th node (from white to black, or from black to white);<br>or<br><code>1 v</code> : ask for the id of the first black node on the path from node 1 to node v. if it doesn’t exist, you may return -1 as its result.</p><h2 id="Solution-alpha-1"><a href="#Solution-alpha-1" class="headerlink" title="Solution $\alpha$"></a>Solution $\alpha$</h2><p>考虑维护每个点到根节点链上的黑点个数，使用DFS序+树状数组</p><p>然后对于每个询问树上二分即可</p><p>时间复杂度$O(nlg^2 n)$</p><h3 id="Code-2"><a href="#Code-2" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE3.cpp" target="_blank" rel="noopener">QTREE3.cpp</a></p><h2 id="Solution-beta-1"><a href="#Solution-beta-1" class="headerlink" title="Solution $\beta$"></a>Solution $\beta$</h2><p>树链剖分，线段树上每个线段维护最左边的黑点</p><p>时间复杂度$O(nlg^2 n)$</p><h2 id="Solution-gamma"><a href="#Solution-gamma" class="headerlink" title="Solution $\gamma$"></a>Solution $\gamma$</h2><p>LCT，询问即在到根的链的Splay上查询第一个黑点</p><p>时间复杂度$O(nlgn)$</p><h3 id="Code-3"><a href="#Code-3" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE3-LCT.cpp" target="_blank" rel="noopener">QTREE3-LCT.cpp</a></p><h1 id="QTREE4"><a href="#QTREE4" class="headerlink" title="QTREE4"></a>QTREE4</h1><h2 id="Problem-2"><a href="#Problem-2" class="headerlink" title="Problem"></a>Problem</h2><p><code>C a</code> : change the color of node a.(from black to white or from white to black)<br><code>A</code> : ask for the maximum dist(a, b), both of node a and node b must be white(a can be equal to b). Obviously, as long as there is a white node, the result will alway be non negative.</p><h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h2><p>动态点分治</p><p>设分治到一个连通块时的根为<code>root</code></p><p>对它的每一棵子树用堆维护最大的白点到<code>root</code>的距离，用其中的最大值更新下面这个堆：</p><p>对每一个<code>root</code>用堆维护最大的白点到<code>root</code>的距离，并用堆中最大的两个值的和更新下面这个堆：</p><p>每个<code>root</code>的最优解用堆维护</p><p>以上所有堆都为可删堆</p><h3 id="Code-4"><a href="#Code-4" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE4.cpp" target="_blank" rel="noopener">QTREE4.cpp</a></p><h1 id="QTREE5"><a href="#QTREE5" class="headerlink" title="QTREE5"></a>QTREE5</h1><h2 id="Problem-3"><a href="#Problem-3" class="headerlink" title="Problem"></a>Problem</h2><p><code>0 i</code> : change the color of i-th node(from black to white, or from white to black).<br><code>1 v</code> : ask for the minimum dist(u, v), node u must be white(u can be equal to v). Obviously, as long as node v is white, the result will always be 0.</p><h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h2><p>类似于QTREE4的Solution，似乎是简化版</p><h3 id="Code-5"><a href="#Code-5" class="headerlink" title="Code"></a>Code</h3><p><a href="https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE5.cpp" target="_blank" rel="noopener">QTREE5.cpp</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;QTREE&quot;&gt;&lt;a href=&quot;#QTREE&quot; class=&quot;headerlink&quot; title=&quot;QTREE&quot;&gt;&lt;/a&gt;QTREE&lt;/h1&gt;&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;&lt;code&gt;CHANGE i ti&lt;/code&gt; : change the cost of the i-th edge to ti&lt;br&gt;or&lt;br&gt;&lt;code&gt;QUERY a b&lt;/code&gt; : ask for the maximum edge cost on the path from node a to node b&lt;/p&gt;
-&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;树链剖分$O(nlg^2 n)$&lt;/p&gt;
-&lt;h3 id=&quot;Code&quot;&gt;&lt;a href=&quot;#Code&quot; class=&quot;headerlink&quot; title=&quot;Code&quot;&gt;&lt;/a&gt;Code&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/PhoenixGS/Solutions/blob/master/SPOJ/QTREE.cpp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;QTREE.cpp&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
     
   </entry>
   
