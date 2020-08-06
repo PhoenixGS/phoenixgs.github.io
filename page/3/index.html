@@ -344,7 +344,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 0 个字)
+                    2 分钟 读完 (大约 304 个字)
                 </span>
                 
             </div>
@@ -356,7 +356,26 @@
             
         </h1>
         <div class="content">
-            
+            <h1 id="dsu-on-tree"><a href="#dsu-on-tree" class="headerlink" title="dsu on tree"></a>dsu on tree</h1><p>可以用来解决一些有下列性质的问题：</p>
+<ol>
+<li>对子树询问</li>
+<li>没有修改</li>
+</ol>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>算法步骤如下：</p>
+<ul>
+<li>遍历的一个节点<ul>
+<li>递归所有的轻儿子</li>
+<li>递归重儿子</li>
+<li>统计轻儿子对答案的影响</li>
+<li>计算答案</li>
+<li>如果自己是轻儿子，消除影响</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> father, <span class="hljs-keyword">int</span> delta, <span class="hljs-keyword">int</span> exc)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">  <span class="hljs-comment">//modify</span></span><br><span class="line">  </span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = head[u]; i; i = nextx[i])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="hljs-keyword">int</span> v = vet[i];</span><br><span class="line">		<span class="hljs-keyword">if</span> (v != father &amp;&amp; v != exc)</span><br><span class="line">		&#123;</span><br><span class="line">			add(v, u, delta, exc);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">solve</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> father, <span class="hljs-keyword">int</span> cas)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = head[u]; i; i = nextx[i])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="hljs-keyword">int</span> v = vet[i];</span><br><span class="line">		<span class="hljs-keyword">if</span> (v != father &amp;&amp; v != son[u])</span><br><span class="line">		&#123;</span><br><span class="line">			solve(v, u, <span class="hljs-number">0</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="hljs-keyword">if</span> (son[u])</span><br><span class="line">	&#123;</span><br><span class="line">		solve(son[u], u, <span class="hljs-number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	add(u, father, <span class="hljs-number">1</span>, son[u]);</span><br><span class="line">  </span><br><span class="line">  <span class="hljs-comment">//calc ans</span></span><br><span class="line">  </span><br><span class="line">	<span class="hljs-keyword">if</span> (cas == <span class="hljs-number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		add(u, father, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">//clear</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>类似于树链剖分，可以证明对于一个点到根上的路径，轻边的边数是不会超过$logn$条的，因为经过一条轻边意味着子树大小至少乘$2$</p>
+<p>那么根据算法，可以发现每个点需要消除影响的次数为$O(logn)$次，不需要消除影响的次数为$O(1)$次，那么总的时间复杂度为$O(nlogn)$</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2>
         </div>
         
         
@@ -583,7 +602,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/FFT与NTT/" style="font-size: 12px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 12px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 14px;">关于本站</a> <a href="/tags/分治/" style="font-size: 12px;">分治</a> <a href="/tags/反演/" style="font-size: 10px;">反演</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/微积分/" style="font-size: 10px;">微积分</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 16px;">数论</a> <a href="/tags/树/" style="font-size: 14px;">树</a> <a href="/tags/树分治/" style="font-size: 12px;">树分治</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/点分治/" style="font-size: 10px;">点分治</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/组合数学/" style="font-size: 16px;">组合数学</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a> <a href="/tags/边分治/" style="font-size: 10px;">边分治</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
+        <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/FFT与NTT/" style="font-size: 12px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 12px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 14px;">关于本站</a> <a href="/tags/分治/" style="font-size: 12px;">分治</a> <a href="/tags/反演/" style="font-size: 10px;">反演</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/微积分/" style="font-size: 10px;">微积分</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 16px;">数论</a> <a href="/tags/树/" style="font-size: 16px;">树</a> <a href="/tags/树分治/" style="font-size: 12px;">树分治</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/点分治/" style="font-size: 10px;">点分治</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/组合数学/" style="font-size: 16px;">组合数学</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a> <a href="/tags/边分治/" style="font-size: 10px;">边分治</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
     </div>
 </div>
 
@@ -744,7 +763,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/FFT与NTT/" style="font-size: 12px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 12px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 14px;">关于本站</a> <a href="/tags/分治/" style="font-size: 12px;">分治</a> <a href="/tags/反演/" style="font-size: 10px;">反演</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/微积分/" style="font-size: 10px;">微积分</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 16px;">数论</a> <a href="/tags/树/" style="font-size: 14px;">树</a> <a href="/tags/树分治/" style="font-size: 12px;">树分治</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/点分治/" style="font-size: 10px;">点分治</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/组合数学/" style="font-size: 16px;">组合数学</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a> <a href="/tags/边分治/" style="font-size: 10px;">边分治</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
+        <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/FFT与NTT/" style="font-size: 12px;">FFT与NTT</a> <a href="/tags/二项式系数/" style="font-size: 12px;">二项式系数</a> <a href="/tags/关于本站/" style="font-size: 14px;">关于本站</a> <a href="/tags/分治/" style="font-size: 12px;">分治</a> <a href="/tags/反演/" style="font-size: 10px;">反演</a> <a href="/tags/后缀自动机/" style="font-size: 10px;">后缀自动机</a> <a href="/tags/微积分/" style="font-size: 10px;">微积分</a> <a href="/tags/数学/" style="font-size: 20px;">数学</a> <a href="/tags/数论/" style="font-size: 16px;">数论</a> <a href="/tags/树/" style="font-size: 16px;">树</a> <a href="/tags/树分治/" style="font-size: 12px;">树分治</a> <a href="/tags/概率/" style="font-size: 10px;">概率</a> <a href="/tags/点分治/" style="font-size: 10px;">点分治</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/线性基/" style="font-size: 10px;">线性基</a> <a href="/tags/组合数学/" style="font-size: 16px;">组合数学</a> <a href="/tags/自动机/" style="font-size: 10px;">自动机</a> <a href="/tags/边分治/" style="font-size: 10px;">边分治</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
     </div>
 </div>
 
